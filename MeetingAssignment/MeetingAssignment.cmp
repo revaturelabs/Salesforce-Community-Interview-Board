@@ -1,9 +1,9 @@
 <aura:component>
-    <ui:inputPhone aura:id="meetingName" label="Meeting Name" />
-    <ui:inputPhone aura:id="location" label="Location" />
-    <ui:inputPhone aura:id="notes" label="Notes" />
-    <ui:inputPhone aura:id="scheduled" label="Date Scheduled" />
-    <ui:inputPhone aura:id="completed" label="Date Completed" />
+    <ui:inputText aura:id="meetingName" label="Meeting Name" />
+    <ui:inputText aura:id="location" label="Location" />
+    <ui:inputText aura:id="notes" label="Notes" />
+    <ui:inputText aura:id="scheduled" label="Date Scheduled" />
+    <ui:inputText aura:id="completed" label="Date Completed" />
     <ui:inputSelect aura:id="recordType" label="Record Type">
             <ui:inputSelectOption text="Interview"/>
             <ui:inputSelectOption text="Intervention"/>
