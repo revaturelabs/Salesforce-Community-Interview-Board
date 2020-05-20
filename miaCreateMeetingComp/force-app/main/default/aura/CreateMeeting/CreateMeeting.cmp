@@ -1,0 +1,41 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="CreateMeetingApexCont">
+    <aura:attribute name="meeting" type="Meeting__c"/>
+    <aura:attribute name="allbatch" type="Boolean"/>
+    <aura:attribute name="associates" type="Contact[]" default="[]"/>
+    <aura:attribute name="batches" type="Account[]"/>
+    
+    <!-- CREATE MEETING FORM -->
+    <lightning:card title="Create Meeting">
+        <lightning:form>
+            <lightning:input label="Name" type="text" value="{!v.meeting.Name}"/>
+            <lightning:input label="When" type="datetime" value="{!v.meeting.Scheduled__c}"/>
+            <lightning:select label="Batch" onchange="{!c.updateAssociates}">
+                <aura:iteration items="batches" var="bat">
+                    <option text="{!bat.Name}" value="{!bat.Name}"/>
+                </aura:iteration>
+            </lightning:select>
+            <lightning:input label= "Meet with an entire batch" type="checkbox"
+                             checked ="{!v.allbatch}"/>
+                             
+    <!-- AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
+            <aura:if isTrue="{!!v.allbatch}">
+                <lightning:select>
+                    <aura:iteration value="associates" var="asc"></aura:iteration>
+                    <option text="{!asc.Name}"/>
+                </lightning:select>
+            </aura:if>
+    <!-- END AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
+    
+        <lightning:button label="Create Meeting"  class="slds-m-top--medium"
+        variant="brand" onclick="{!c.clickCreate}"/>
+        </lightning:form>
+    
+    <!-- END CREATE MEETING FORM -->
+
+    
+    <!-- also inside the form, we need a button that allows us to save the record, 
+    calls method in js controller -->
+      
+   </lightning:card>
+
+</aura:component>
