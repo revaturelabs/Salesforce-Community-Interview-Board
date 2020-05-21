@@ -1,0 +1,12 @@
+<aura:component controller = "UserInfoController" implements="forceCommunity:availableForAllPageTypes" access="global">
+     <aura:attribute name="user__name" type="String"/>
+     <aura:attribute name="userImg" type="String"/>
+	 <aura:attribute name="userImgBool" type="Boolean"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ui:outputURL value="/apex/CommunitiesLogin" label="{!v.user__name}" aura:id="output" disabled="false"/>
+            <aura:html class = "img" aura:id="imgDiv" tag="img"/>
+    
+   
+
+</aura:component>
