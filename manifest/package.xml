@@ -45,5 +45,15 @@
         <members>Meeting_Participant__c</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>Meeting_Participant__c.Client_Feedback_to_associate</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>unfiled$public/Meeting_Notification_24h</members>
+        <members>unfiled$public/Meeting_Notification_72h</members>
+        <members>unfiled$public/Client_Feedback</members>
+        <name>EmailTemplate</name>
+    </types>
     <version>48.0</version>
 </Package>
