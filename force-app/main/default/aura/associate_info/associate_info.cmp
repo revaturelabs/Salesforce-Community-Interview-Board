@@ -1,3 +1,25 @@
-<aura:component>
-
-</aura:component>	
+<aura:component implements="flexipage:availableForAllPageTypes">
+    
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card iconName="standard:contact" title="Associate Info">
+        <div class="slds-p-around_medium">
+            <lightning:recordEditForm objectApiName="Contact"
+                                      onsubmit="{!c.handleSubmit}">
+                <lightning:messages />
+                <h2>Profile</h2>
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="AssociateId__c"/>
+                <h2>Personal Info</h2>
+                <lightning:inputField fieldName="MobilePhone" />
+                <lightning:inputField fieldName="PersonalEmail__c" />
+                <lightning:inputField fieldName="WorkEmail__c" />
+                <h2>Work Info</h2>
+                <lightning:inputField fieldName="PositionID__c" />
+                <lightning:inputField fieldName="HireDate__c" />
+                <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+            </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+    
+</aura:component>
