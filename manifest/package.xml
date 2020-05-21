@@ -42,7 +42,7 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Meeting_Participant__c</members>
         <name>Workflow</name>
     </types>
     <version>48.0</version>
