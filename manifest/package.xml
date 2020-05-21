@@ -40,7 +40,7 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>InitialMeetingNotification</members>
+        <members>Initial_Meeting_Notification</members>
         <name>Workflow</name>
     </types>
     <version>48.0</version>
