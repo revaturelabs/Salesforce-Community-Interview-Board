@@ -1,8 +1,0 @@
-<aura:component  implements="forceCommunity:availableForAllPageTypes">
-   <nav class = "nav">
-	<img class = "logo" src="{!$Resource.bobafetthelmet}"/>
-       <h1 class = "title">Star Wars Bounty Board</h1>
-    <div class = "login__div">
-        <c:Login/></div>
-    </nav>
-</aura:component>
