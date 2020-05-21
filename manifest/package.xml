@@ -42,11 +42,11 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Meeting_Participant__c</members>
+        <members>*</members>
         <name>Workflow</name>
     </types>
     <types>
-        <members>Meeting_Participant__c.Client_Feedback_to_associate</members>
+        <members>*</members>
         <name>WorkflowAlert</name>
     </types>
     <types>
