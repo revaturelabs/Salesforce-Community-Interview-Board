@@ -37,10 +37,12 @@
         <members>Meeting_Participant__c</members> 
         <members>Batch_Client__c</members> 
         <members>Interview_Question__c</members>
+        <members>Account</members>
+        <members>Contact</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Initial_Meeting_Notification</members>
+        <members>*</members>
         <name>Workflow</name>
     </types>
     <version>48.0</version>
