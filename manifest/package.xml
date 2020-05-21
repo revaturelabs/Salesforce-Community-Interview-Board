@@ -33,15 +33,15 @@
         <name>StaticResource</name>
     </types>
     <types>
-        <members>Meeting__c, 
-                Meeting_Participant__c, 
-                Batch_Client__c, 
-                Interview_Question__c</members>
+        <members>Meeting__c</members>
+        <members>Meeting_Participant__c</members> 
+        <members>Batch_Client__c</members> 
+        <members>Interview_Question__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Initial_Meeting_Notification__c,
-                Upcoming_Meeting_Notification__c</members>
+        <members>Initial_Meeting_Notification__c</members>
+        <members>Upcoming_Meeting_Notification__c</members>
         <name>Workflow</name>
     </types>
     <version>48.0</version>
