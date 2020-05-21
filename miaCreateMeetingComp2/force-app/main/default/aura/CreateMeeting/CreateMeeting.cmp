@@ -1,0 +1,74 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="CreateMeetingApexCont">
+<!-- ATTRIBUTES -->
+    <aura:attribute name="meeting" type="Meeting__c"/>
+    <aura:attribute name="allbatch" type="Boolean"/>
+    <aura:attribute name="associates" type="Contact[]" default="[]"/>
+    <aura:attribute name="interviewers" type="Contact[]"/>
+    <aura:attribute name="ascbatchmap" type="Map"/>
+    <aura:attribute name="batches" type="Account[]"/> 
+    <aura:attribute name="selAssociate" type="Contact"/>
+    <aura:attribute name="selInteviewer" type="Contact"/>
+    <aura:attribute name="selBatch" type="Account"/>
+<!-- END ATTRIBUTES-->
+
+<!-- EVENT STUFF -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="throwmeeting" type="c:throwMeeting"/>
+<!-- END EVENT STUFF-->
+
+<!-- CREATE MEETING FORM -->
+    <div aria-labelledby="createMeetingForm">
+
+        <fieldset class="slds-box slds-theme--default slds-container--medium">
+            <legend id="createMeetingForm" class="slds-text-heading--small 
+				slds-p-vertical--medium">
+                Create Meeting
+            </legend>
+
+<!-- BEGIN INPUT AREA -->        
+            <form class="slds-form--stacked">
+    
+            <lightning:input label="Name" type="text" value="{!v.meeting.Name}"/>
+            <lightning:input label="When" type="datetime" value="{!v.meeting.Scheduled__c}"/>
+            <lightning:input label="Location" type="text" value="{!v.meeting.Location__c}"/>
+    
+<!-- SELECT INTERVIEWER -->
+            <lightning:select label="Interviewer" value="{!v.selInterviewer}">
+                <aura:iteration items="interviewers" var="int">
+                    <option text="{!int.Name}" value="{!int.Name}"/>
+                </aura:iteration>
+            </lightning:select>
+<!-- END SELECT INTERVIWER-->
+    
+<!-- SELECT BATCH PICKLIST -->        
+            <lightning:select label="Batch" onchange="{!c.updateAssociates}">
+                <aura:iteration items="batches" var="bat">
+                    <option text="{!bat.Name}" value="{!bat.Name}"/>
+                </aura:iteration>
+            </lightning:select>
+<!-- END SELECT BATCH PICKLIST -->       
+
+            <lightning:input label= "Meet with an entire batch" type="checkbox"
+                             checked ="{!v.allbatch}"/>
+                             
+<!-- AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
+            <aura:if isTrue="{!!v.allbatch}">
+                <lightning:select value="{!v.selAssociate}">
+                    <aura:iteration value="associates" var="asc"></aura:iteration>
+                    <option text="{!asc.Name}"/>
+                </lightning:select>
+            </aura:if>
+<!-- END AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
+    
+        <lightning:button label="Create Meeting"  class="slds-m-top--medium"
+        variant="brand" onclick="{!c.clickCreate}"/>
+       
+<!-- END INPUT AREA -->
+            </form>
+
+        </fieldset>
+
+    </div>
+<!-- END CREATE MEETING FORM -->
+
+</aura:component>
