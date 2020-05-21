@@ -33,10 +33,11 @@
         <name>StaticResource</name>
     </types>
     <types>
-        <members>Meeting__c</members>
+        <!--<members>Meeting__c</members>
         <members>Meeting_Participant__c</members> 
         <members>Batch_Client__c</members> 
-        <members>Interview_Question__c</members>
+        <members>Interview_Question__c</members>-->
+        <members>*</members>
         <members>Account</members>
         <members>Contact</members>
         <name>CustomObject</name>
