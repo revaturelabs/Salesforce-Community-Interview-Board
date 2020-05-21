@@ -37,13 +37,24 @@
         <members>Meeting_Participant__c</members> 
         <members>Batch_Client__c</members> 
         <members>Interview_Question__c</members>
-        <members>Account</members>
-        <members>Contact</members>
+        <!--<members>Account</members>
+        <members>Contact</members>-->
         <name>CustomObject</name>
     </types>
-    <types>
+    <!--<types>
         <members>*</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>unfiled$public/Meeting_Notification_24h</members>
+        <members>unfiled$public/Meeting_Notification_72h</members>
+        <members>unfiled$public/Client_Feedback</members>
+        <members>*</members>
+        <name>EmailTemplate</name>
+    </types>-->
     <version>48.0</version>
 </Package>
