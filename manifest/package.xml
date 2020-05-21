@@ -39,10 +39,9 @@
         <members>Interview_Question__c</members>
         <name>CustomObject</name>
     </types>
-    <!--<types>
-        <members>Initial_Meeting_Notification__c</members>
-        <members>Upcoming_Meeting_Notification__c</members>
+    <types>
+        <members>InitialMeetingNotification</members>
         <name>Workflow</name>
-    </types>-->
+    </types>
     <version>48.0</version>
 </Package>
