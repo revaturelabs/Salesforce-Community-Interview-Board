@@ -27,7 +27,7 @@ public with sharing class CreateMeetingApexCont {
     {
         //try to get  a list of associates, if nothing's there, return empty list
         try {
-            return [SELECT Id, Name, AccountId FROM Account WHERE RecordType.Name = 'Associate'];
+            return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Associate'];
         } catch(Exception e) {
             return new List<Contact>();
         }
@@ -38,7 +38,7 @@ public with sharing class CreateMeetingApexCont {
     {
         //try to get  a list of clients, if nothing's there, return empty list
         try {
-            return [SELECT Id, Name FROM Account WHERE RecordType.Name = 'Client'];
+            return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Client'];
         } catch(Exception e) {
             return new List<Contact>();
         }
@@ -50,26 +50,26 @@ public with sharing class CreateMeetingApexCont {
     {
         insert meeting;
         //Queries all individual associates in a batch
-        Contact[] fullBatch = [select id from Contact where Account_Name =: batch.Name];
+        Contact[] fullBatch = [SELECT Id FROM Contact WHERE AccountId =: batch.Id];
 
         List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
         //Adds the interviewer to the meeting
-        meetingParticipants.add(new Meeting_Participant__c(Participant=interviewer,Meeting=meeting));
+        meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.Id, Meeting__c = meeting.Id));
 
         //if an associate was selected, only that associate will be added to the meeting
         if(associate!=null)                  
-           meetingParticipants.add(new Meeting_Participant__c(Participant=associate,Meeting=meeting));
+           meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.Id, Meeting__c = meeting.Id));
 
         //if no associate was selected, the entire batch will be added to the meeting
         else {
 
             for(Contact c : fullBatch)
             {
-                meetingParticipants.add(new Meeting_Participant__c(Participant=c,Meeting=meeting));
+                meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
             }
         }
-        
+
         insert meetingParticipants;
         return meeting;
     }

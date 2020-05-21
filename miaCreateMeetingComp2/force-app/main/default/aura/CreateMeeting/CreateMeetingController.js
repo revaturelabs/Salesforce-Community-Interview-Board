@@ -30,7 +30,7 @@
         action.setParams({"meeting":meet,"batch":batch,"interviewer":interviewer,"associate":associate});
         
         action.setCallback(this,function(response){
-            //do something
+            //do something?
         });
 
         
@@ -39,10 +39,16 @@
 
     //Called when Batch picklist is changed
     updateAssociates : function(component, event, helper) {
-        
-        
-
+        //retrieve all associates, batchAssociate array (to be filled), and the selected Batch Name
+        //from the view to reduce the "Associates" picklist to only the names in the selected Batch
+        var accid = event.getSource().get("v.value");
+        component.set("v.batchAssociates", component.get("v.ascbatchmap")[accid]);
     },
 
-    //FIRE EVENT, THROWMEETING
+    //whatever component wants this event needs to handle it, probably the meeting tiles or meeting assignment
+    throwTheMeeting : function(component, event, helper) {
+            var throwMeeting = cmp.getEvent("throwMeeting");
+            //throwMeeting.setParams
+            //throwMeeting.fire();
+    }
 })
