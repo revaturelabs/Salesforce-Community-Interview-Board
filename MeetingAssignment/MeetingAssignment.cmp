@@ -1,9 +1,0 @@
-<aura:component>
-   <!--c:createMeeting/-->
-   <!--c:searchComponent/-->
-
-   <!--Handle Event-->
-<!--c:meetingTile/-->
-<!--/Handle Event-->
-   
-</aura:component>	
