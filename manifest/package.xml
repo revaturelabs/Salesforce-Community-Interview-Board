@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">	
+<types>
 		<members></members>
 		<name>ApexPage</name>
 	</types>
 	<types>
 		<members></members>
-		<name>ApexTestSuite</names>
+		<name>ApexTestSuite</name>
 	</types>
 	<types>
 		<members>Batch_Client__c</members>
@@ -55,4 +55,5 @@
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>
+
 </Package>

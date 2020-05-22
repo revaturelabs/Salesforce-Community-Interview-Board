@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Emails the associate 72 hours in advance of their meeting with the client.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Meeting Notification 72h</name>
+    <style>none</style>
+    <subject>You have a meeting in 72 hours</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
