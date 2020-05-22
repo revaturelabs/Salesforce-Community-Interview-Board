@@ -32,7 +32,7 @@
             <field>Participant__c</field>
             <type>contactLookup</type>
         </recipients>
-        <senderType>DefaultWorkflowUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Meeting_Notification_72h</template>
     </alerts>
     <rules>
