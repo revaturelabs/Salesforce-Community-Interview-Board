@@ -15,7 +15,7 @@
             <name>Finalize_Meeting_Completion</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(ISCHANGED(Meeting_Status__c),TEXT(PRIORVALUE( Meeting_Status__c )) = &apos;On Schedule&apos;,TEXT(Meeting_Status__c) = &apos;Completed&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

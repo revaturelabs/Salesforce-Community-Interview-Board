@@ -32,7 +32,7 @@
             <field>Participant__c</field>
             <type>contactLookup</type>
         </recipients>
-        <senderType>DefaultWorkflowUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Meeting_Notification_72h</template>
     </alerts>
     <rules>
@@ -68,7 +68,7 @@
     </rules>
     <rules>
         <fullName>Initial Meeting Notification</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Notifies associate 72 and 24 hours prior to a meeting</description>
         <formula>AND(DATEVALUE(Meeting__r.Scheduled__c) &gt;  TODAY(),Participant__r.RecordTypeId = &apos;0125w000000BAz1&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
