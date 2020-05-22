@@ -7,6 +7,9 @@
     <aura:attribute name="interviewers" type="Contact[]"/>
     <aura:attribute name="ascbatchmap" type="Map" default="{}"/>
     <aura:attribute name="batches" type="Account[]"/>
+    <aura:attribute name="selInterviewer" type="Id"/>
+    <aura:attribute name="selBatch" type="Id"/>
+    <aura:attribute name="selAssociate" type="Id"/>
 <!-- END ATTRIBUTES -->
 
 <!-- EVENT STUFF -->
@@ -34,16 +37,17 @@
                              value="{!v.meeting.Location__c}"/>
     
 <!-- SELECT INTERVIEWER -->
-            <lightning:select label="Interviewer">
+            <lightning:select label="Interviewer" value="{!v.selInterviewer}">
                 <option text="--NONE SELECTED--" value=""/>
                 <aura:iteration items="{!v.interviewers}" var="int">
-                    <option text="{!int.Name}" value="{!int.Name}"/>
+                    <option text="{!int.Name}" value="{!int.Id}"/>
                 </aura:iteration>
             </lightning:select>
 <!-- END SELECT INTERVIWER -->
     
 <!-- SELECT BATCH PICKLIST -->        
-            <lightning:select name="selbatch" label="Batch" onchange="{!c.updateAssociates}">
+            <lightning:select label="Batch" onchange="{!c.updateAssociates}"
+                              value="{!v.selBatch}">
                 <option text="--NONE SELECTED--" value=""/>
                 <aura:iteration items="{!v.batches}" var="bat">
                     <option text="{!bat.Name}" value="{!bat.Id}"/>
@@ -56,10 +60,10 @@
                              
 <!-- AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
             <aura:if isTrue="{!!v.allbatch}">
-                <lightning:select label="Associates">
+                <lightning:select label="Associates" value="{!v.selAssociate}">
                     <option text="--NONE SELECTED--" value=""/>
                     <aura:iteration items="{!v.batchAssociates}" var="asc">
-                        <option text="{!asc.Name}"/>
+                        <option text="{!asc.Name}" value="{!asc.Id}"/>
                     </aura:iteration>
                 </lightning:select>
             </aura:if>

@@ -4,6 +4,8 @@ public with sharing class CreateMeetingApexCont {
     public static List<List<sObject>> getAll()
     {
         //get clients, associates, and batches for the picklists
+        //put a list of each object into a list, return that
+        //to js
         List<List<sObject>> objs = new List<List<sObject>>();
         objs.add(getClients());
         objs.add(getAssociates());
@@ -46,31 +48,71 @@ public with sharing class CreateMeetingApexCont {
 
 
     @AuraEnabled
-    public static Meeting__c createMeeting(Meeting__c meeting, Account batch, Contact interviewer, Contact associate)
+    public static Meeting__c createMeeting(Meeting__c meeting, String strBatch, String strInterviewer, String strAssociate)
     {
-        insert meeting;
-        //Queries all individual associates in a batch
-        Contact[] fullBatch = [SELECT Id FROM Contact WHERE AccountId =: batch.Id];
+        System.debug(strAssociate);
+        Database.SaveResult msert = Database.insert(meeting);
+        Account batch = [SELECT Id FROM Account WHERE Id =: strBatch];
+        Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+        Contact associate = null;
+        if(strAssociate != null)
+            associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
 
-        List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
+        if(msert.isSuccess())
+        {
+            meeting = [SELECT Id FROM Meeting__c WHERE Id =: msert.getId()];
+            //Queries all individual associates in a batch
+            List<Contact> fullBatch = [SELECT Id FROM Contact WHERE AccountId =: batch.Id];
 
-        //Adds the interviewer to the meeting
-        meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.Id, Meeting__c = meeting.Id));
+            List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
-        //if an associate was selected, only that associate will be added to the meeting
-        if(associate!=null)                  
-           meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.Id, Meeting__c = meeting.Id));
+            //Adds the interviewer to the meeting
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.id));
 
-        //if no associate was selected, the entire batch will be added to the meeting
-        else {
+            //if an associate was selected, only that associate will be added to the meeting
+            if(associate!=null)                  
+                meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = meeting.id));
 
-            for(Contact c : fullBatch)
-            {
-                meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
+            //if no associate was selected, the entire batch will be added to the meeting
+            else {
+
+                for(Contact c : fullBatch)
+                {
+                    meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
+                }
             }
-        }
 
-        insert meetingParticipants;
-        return meeting;
+            insert meetingParticipants;
+            return meeting;
+        }
+        return null;
+    }
+
+    @AuraEnabled
+    public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strBatch, String strInterviewer, List<Contact> fullBatch)
+    {
+        Database.SaveResult msert = Database.insert(meeting);
+        Account batch = [SELECT Id FROM Account WHERE Id =: strBatch];
+        Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+
+        if(msert.isSuccess())
+        {
+            meeting = [SELECT Id FROM Meeting__c WHERE Id =: msert.getId()];
+            
+            List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
+
+            //Adds the interviewer to the meeting
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.id));
+
+            //if no associate was selected, the entire batch will be added to the meeting
+            for(Contact c : fullBatch)
+                {
+                    meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
+                }
+
+            insert meetingParticipants;
+            return meeting;
+        }
+        return null;
     }
 }
