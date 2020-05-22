@@ -6,10 +6,7 @@
     <aura:attribute name="batchAssociates" type="Contact[]" default="[]"/>
     <aura:attribute name="interviewers" type="Contact[]"/>
     <aura:attribute name="ascbatchmap" type="Map" default="{}"/>
-    <aura:attribute name="batches" type="Account[]"/> 
-    <aura:attribute name="selAssociate" type="Contact"/>
-    <aura:attribute name="selInteviewer" type="Contact"/>
-    <aura:attribute name="selBatch" type="Account"/>
+    <aura:attribute name="batches" type="Account[]"/>
 <!-- END ATTRIBUTES -->
 
 <!-- EVENT STUFF -->
@@ -37,17 +34,18 @@
                              value="{!v.meeting.Location__c}"/>
     
 <!-- SELECT INTERVIEWER -->
-            <lightning:select label="Interviewer" value="{!v.selInterviewer}">
-                <aura:iteration items="interviewers" var="int">
+            <lightning:select label="Interviewer">
+                <option text="--NONE SELECTED--" value=""/>
+                <aura:iteration items="{!v.interviewers}" var="int">
                     <option text="{!int.Name}" value="{!int.Name}"/>
                 </aura:iteration>
             </lightning:select>
 <!-- END SELECT INTERVIWER -->
     
 <!-- SELECT BATCH PICKLIST -->        
-            <lightning:select label="Batch" onchange="{!c.updateAssociates}"
-                              value="{!v.selBatch}">
-                <aura:iteration items="batches" var="bat">
+            <lightning:select name="selbatch" label="Batch" onchange="{!c.updateAssociates}">
+                <option text="--NONE SELECTED--" value=""/>
+                <aura:iteration items="{!v.batches}" var="bat">
                     <option text="{!bat.Name}" value="{!bat.Id}"/>
                 </aura:iteration>
             </lightning:select>
@@ -58,14 +56,15 @@
                              
 <!-- AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
             <aura:if isTrue="{!!v.allbatch}">
-                <lightning:select label="Associates" value="{!v.selAssociate}">
-                    <aura:iteration items="batchAssociates" var="asc">
+                <lightning:select label="Associates">
+                    <option text="--NONE SELECTED--" value=""/>
+                    <aura:iteration items="{!v.batchAssociates}" var="asc">
                         <option text="{!asc.Name}"/>
                     </aura:iteration>
                 </lightning:select>
             </aura:if>
 <!-- END AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
-    
+
         <lightning:button label="Create Meeting"  class="slds-m-top--medium"
                           variant="brand" onclick="{!c.clickCreate}"/>
        
