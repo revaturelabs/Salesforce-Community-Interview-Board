@@ -20,6 +20,9 @@
     },
 
     clickCreate : function(component, event, helper) {
+        //grey out Create button as soon as it's clicked
+        component.set("v.buttonStatus",true);
+
         //get all the things from the view
         var meet = component.get("v.meeting");
         var entireBatch = component.get("v.allbatch");
@@ -55,8 +58,6 @@
                 strAssociate : associate
             });
         }
-            
-        //pass these to the createMeeting method
         
         //set yer callback
         action.setCallback(this,function(response){
@@ -73,8 +74,7 @@
                 component.set("v.selInterviewer", "");
                 component.set("v.selBatch", "");
                 component.set("v.selAssociate", "");
-                //show success message if meeting is created
-                component.set("v.buttonStatus",true);
+                //show success message if meeting is created                
                 component.set("v.buttonLabel","Meeting Created!");
                 setTimeout(function(){
                     component.set("v.buttonLabel","Create Meeting");
