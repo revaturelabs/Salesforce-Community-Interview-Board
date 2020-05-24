@@ -51,7 +51,6 @@
             action = component.get("c.createMeeting");
             action.setParams({
                 meeting : meet,
-                strBatch : batch,
                 strInterviewer : interviewer,
                 strAssociate : associate
             });
@@ -69,25 +68,32 @@
             if(state === "SUCCESS")
             {
                 var meeting = response.getReturnValue();
+                //reset form
                 component.set("v.meeting", {"sObject":"Meeting__c"});
                 component.set("v.selInterviewer", "");
                 component.set("v.selBatch", "");
                 component.set("v.selAssociate", "");
+                //show success message if meeting is created
+                component.set("v.buttonStatus",true);
+                component.set("v.buttonLabel","Meeting Created!");
+                setTimeout(function(){
+                    component.set("v.buttonLabel","Create Meeting");
+                    component.set("v.buttonStatus",false);
+                },2000);
             }
             else if (state === "ERROR")
             {
                 response.get
             }
-            //reset form
-            //show success message if meeting is created
+            
+            
         });
         $A.enqueueAction(action);
     },
 
     //Called when Batch picklist is changed
     updateAssociates : function(component, event, helper) {
-        //retrieve all associates, batchAssociate array (to be filled), and the selected Batch Name
-        //from the view to reduce the "Associates" picklist to only the names in the selected Batch
+        
         var accid = event.getSource().get("v.value");
         component.set("v.batchAssociates", component.get("v.ascbatchmap")[accid]);
     },

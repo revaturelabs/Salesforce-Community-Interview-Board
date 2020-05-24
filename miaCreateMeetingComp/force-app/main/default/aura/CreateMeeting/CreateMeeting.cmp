@@ -10,6 +10,8 @@
     <aura:attribute name="selInterviewer" type="Id"/>
     <aura:attribute name="selBatch" type="Id"/>
     <aura:attribute name="selAssociate" type="Id"/>
+    <aura:attribute name="buttonLabel" type="String" default="Create Meeting"/>
+    <aura:attribute name="buttonStatus" type="Boolean" default="false"/>
 <!-- END ATTRIBUTES -->
 
 <!-- EVENT STUFF -->
@@ -69,8 +71,9 @@
             </aura:if>
 <!-- END AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
 
-        <lightning:button label="Create Meeting"  class="slds-m-top--medium"
-                          variant="brand" onclick="{!c.clickCreate}"/>
+        <lightning:button label="{!v.buttonLabel}"  class="slds-m-top--medium"
+                          variant="brand" onclick="{!c.clickCreate}"
+                          disabled="{!v.buttonStatus}"/>
        
 <!-- END INPUT AREA -->
             </form>
