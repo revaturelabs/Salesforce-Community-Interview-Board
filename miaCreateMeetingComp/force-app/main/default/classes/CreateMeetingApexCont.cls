@@ -57,15 +57,13 @@ public with sharing class CreateMeetingApexCont {
 
         if(msert.isSuccess())
         {
-            meeting = [SELECT Id FROM Meeting__c WHERE Id =: msert.getId()];
-
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = msert.getId()));
 
             //Adds the selected associate will be added to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = meeting.id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = msert.getId()));
 
            
 
@@ -76,26 +74,23 @@ public with sharing class CreateMeetingApexCont {
     }
 
     @AuraEnabled
-    public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strBatch, String strInterviewer, List<Contact> fullBatch)
+    public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strInterviewer, List<Contact> fullBatch)
     {
         Database.SaveResult msert = Database.insert(meeting);
-        Account batch = [SELECT Id FROM Account WHERE Id =: strBatch];
         Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
 
         if(msert.isSuccess())
         {
-            meeting = [SELECT Id FROM Meeting__c WHERE Id =: msert.getId()];
-            
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = msert.getId()));
 
             //if no associate was selected, the entire batch will be added to the meeting
             for(Contact c : fullBatch)
-                {
-                    meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
-                }
+            {
+                meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = msert.getId()));
+            }
 
             insert meetingParticipants;
             return meeting;
