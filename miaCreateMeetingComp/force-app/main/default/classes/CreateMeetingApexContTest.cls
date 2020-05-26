@@ -1,45 +1,37 @@
 @isTest
 public with sharing class CreateMeetingApexContTest {
 
-    @TestSetup
-    static void makeData(){
+    static void makeBatches(Integer cnt)
 
-        //Query record types (SeeAllData not necessary) to assign to test data
-        RecordType batch = [SELECT Id FROM RecordType WHERE Name='Batch'];
-        RecordType associate = [SELECT Id FROM RecordType WHERE Name='Associate'];
-        RecordType client = [SELECT Id FROM RecordType WHERE Name='Client' LIMIT 1];
+        List<Account> batches = new List<Account>();
+        RecordType batch = [SELECT Id FROM RecordType WHERE Name = 'Batch' LIMIT 1];
 
-        //Instantiate Lists for data to be queried
-        List<Account> testBatches = new List<Account>();
-        List<Contact> testAssociates = new List<Contact>();
-        List<Contact> testClients = new List<Contact>();
-        
-        //Create and insert Batches so we can create Associates to assign to them
-        for(Integer i=0; i<2; i++)
-            testBatches.add(new Account(Name='Batch '+i, RecordTypeId=batch.Id));
-                                
-        insert testBatches;
+        for(integer i = 0; i < cnt; i++)
+            batches.add(new Account(Name='Batch ' + i, RecordType = batch));
 
+        insert batches;
+    }
 
-        //Create 5 Associates for the first batch, 4 for the second batch
-        for(Integer i=0; i<5; i++)
-            testAssociates.add(new Contact(Firstname='AB1', LastName = String.valueOf(i), AccountId=testBatches[0].Id,
-            RecordTypeId=associate.Id));
-        for(Integer i=5; i<9; i++)
-            testAssociates.add(new Contact(Firstname='AB2', LastName = String.valueOf(i), AccountId=testBatches[1].Id,
-            RecordTypeId=associate.Id));
-        
-        //Create 2 Client Contacts with appropriate record type
-        Account interviewer = new Account(Name='Steampunk');
-        insert interviewer;
-        for(Integer i=0; i<2; i++)
-            testClients.add(new Contact(FirstName='Int', LastName = String.valueOf(i), AccountId=interviewer.Id, RecordTypeId=client.Id));
-        
+    static void makeAssociates(List<Integer> perBatch)
+    {
+        makeBatches(perBatch.size());
+        List<Account> batches = [SELECT Id FROM Account WHERE RecordType.Name = 'Batch'];
 
-        //Insert all data
-        insert testAssociates;
-        insert testClients;
-        
+        List<Contact> associates = new List<Contact>();
+        RecordType associate = [SELECT Id FROM RecordType WHERE Name = 'Associate' LIMIT 1];
+
+        for(integer i = 0; i < perBatch.size(); i++)
+        {
+            for(integer j = 0; j < perBatch.get(i); j++)
+            {
+                associates.add(new Contact(FirstName = 'Bat' + i,
+                                           LastName = 'Asc' + j,
+                                           RecordType = associate,
+                                           AccountId = batches.get(i)));
+            }
+        }
+
+        insert associates;
     }
 
     // This method would test all other "get" methods as it calls them within itself
@@ -92,3 +84,44 @@ public with sharing class CreateMeetingApexContTest {
         System.assertEquals(ascList.size()+1, partCount);
     }
 }
+
+/*@TestSetup
+    static void makeData(){
+
+        //Query record types (SeeAllData not necessary) to assign to test data
+        RecordType batch = [SELECT Id FROM RecordType WHERE Name='Batch'];
+        RecordType associate = [SELECT Id FROM RecordType WHERE Name='Associate'];
+        RecordType client = [SELECT Id FROM RecordType WHERE Name='Client' LIMIT 1];
+
+        //Instantiate Lists for data to be queried
+        List<Account> testBatches = new List<Account>();
+        List<Contact> testAssociates = new List<Contact>();
+        List<Contact> testClients = new List<Contact>();
+        
+        //Create and insert Batches so we can create Associates to assign to them
+        for(Integer i=0; i<2; i++)
+            testBatches.add(new Account(Name='Batch '+i, RecordTypeId=batch.Id));
+                                
+        insert testBatches;
+
+
+        //Create 5 Associates for the first batch, 4 for the second batch
+        for(Integer i=0; i<5; i++)
+            testAssociates.add(new Contact(Firstname='AB1', LastName = String.valueOf(i), AccountId=testBatches[0].Id,
+            RecordTypeId=associate.Id));
+        for(Integer i=5; i<9; i++)
+            testAssociates.add(new Contact(Firstname='AB2', LastName = String.valueOf(i), AccountId=testBatches[1].Id,
+            RecordTypeId=associate.Id));
+        
+        //Create 2 Client Contacts with appropriate record type
+        Account interviewer = new Account(Name='Steampunk');
+        insert interviewer;
+        for(Integer i=0; i<2; i++)
+            testClients.add(new Contact(FirstName='Int', LastName = String.valueOf(i), AccountId=interviewer.Id, RecordTypeId=client.Id));
+        
+
+        //Insert all data
+        insert testAssociates;
+        insert testClients;
+        
+    }*/
