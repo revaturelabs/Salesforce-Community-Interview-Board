@@ -1,17 +1,33 @@
 <aura:component controller="MeetingListController">
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:attribute name="Meetings" type="list" />
+   
 
-    <aura:iteration items="{!v.Meetings}" var="meeting">
+    <aura:attribute name="Meeting" type="Meeting__c" />
+    <!--
+    <aura:attribute name="name" type="String" />
+    <aura:attribute name="location" type="String" />
+    <aura:attribute name="notes" type="String" />
+    <aura:attribute name="feedback" type="String" />
+    <aura:attribute name="scheduled" type="DateTime" />
+    <aura:attribute name="completed" type="DateTime" />
+    -->
         
-   <lightning:card>
-       
-        <p class="slds-p-horizontal_small">
-            <!--meeting Data here-->
-            {!meeting.Completed_Date__c}
-        </p>
+    <lightning:card title="{!v.Meeting.name}">
+
+        <aura:set attribute="actions">
+            <lightning:button variant="brand" label="Update" title="Update" onclick="{! c.handleClick }" />
+        </aura:set>
+
+        <lightning:recordEditForm recordId="{!v.Meeting.recordId}">
+            <lightning:inputField fieldName="location"/>
+            <lightning:inputField fieldName="notes"/>
+            <lightning:inputField fieldName="feedback"/>
+            <lightning:inputField fieldName="scheduled"/>
+            <lightning:inputField fieldName="completed"/>
+        </lightning:recordEditForm>
+
+
     </lightning:card>
 
-    </aura:iteration>
+
 
 </aura:component>	

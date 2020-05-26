@@ -1,5 +1,5 @@
 ({
-    doInit : function(component, event, helper) {
-        helper.getMeetings(component);
+    handleClick : function(component, event, helper) {
+        helper.updateMeetings(component);
     }
 })
