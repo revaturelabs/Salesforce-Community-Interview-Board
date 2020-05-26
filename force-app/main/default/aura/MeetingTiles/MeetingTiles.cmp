@@ -17,12 +17,12 @@
             <lightning:button variant="brand" label="Update" title="Update" onclick="{! c.handleClick }" />
         </aura:set>
 
-        <lightning:recordEditForm recordId="{!v.Meeting.recordId}">
-            <lightning:inputField fieldName="location"/>
-            <lightning:inputField fieldName="notes"/>
-            <lightning:inputField fieldName="feedback"/>
-            <lightning:inputField fieldName="scheduled"/>
-            <lightning:inputField fieldName="completed"/>
+        <lightning:recordEditForm recordId="{!v.Meeting.recordId}" objectApiName="Meeting__c">
+            <lightning:inputField fieldName="Location__c"/>
+            <lightning:inputField fieldName="Notes__c"/>
+            <lightning:inputField fieldName="Feedback__c"/>
+            <lightning:inputField fieldName="Scheduled__c"/>
+            <lightning:inputField fieldName="Completed__c"/>
         </lightning:recordEditForm>
 
 
