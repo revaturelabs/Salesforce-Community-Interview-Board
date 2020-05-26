@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component controller="MeetingListController">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="Meetings" type="list" />
 
