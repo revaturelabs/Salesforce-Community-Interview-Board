@@ -13,7 +13,6 @@
     </alerts>
     <alerts>
         <fullName>Initial_Meeting_Notification_24h</fullName>
-        <ccEmails>pricem0595@gmail.com</ccEmails>
         <description>Initial Meeting Notification (24h)</description>
         <protected>false</protected>
         <recipients>
@@ -25,7 +24,6 @@
     </alerts>
     <alerts>
         <fullName>Initial_Meeting_Notification_72h</fullName>
-        <ccEmails>pricem0595@gmail.com</ccEmails>
         <description>Initial Meeting Notification (72h)</description>
         <protected>false</protected>
         <recipients>
