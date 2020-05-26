@@ -1,3 +1,17 @@
-<aura:component>
+<aura:component controller="MeetingListController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="Meetings" type="list" />
+
+    <aura:iteration items="{!v.Meetings}" var="meeting">
+        
+   <lightning:card>
+       
+        <p class="slds-p-horizontal_small">
+            <!--meeting Data here-->
+            {!meeting.Completed_Date__c}
+        </p>
+    </lightning:card>
+
+    </aura:iteration>
 
 </aura:component>	
