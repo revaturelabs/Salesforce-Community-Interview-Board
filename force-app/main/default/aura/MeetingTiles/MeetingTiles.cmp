@@ -3,7 +3,8 @@
     <aura:attribute name="Meetings" type="list" />
 
     <aura:iteration items="{!v.Meetings}" var="meeting">
-        <lightning:card footer="Card Footer" title="Hello">
+        
+   <lightning:card>
        
         <p class="slds-p-horizontal_small">
             <!--meeting Data here-->
