@@ -17,7 +17,7 @@
             <lightning:button variant="brand" label="Update" title="Update" onclick="{! c.handleClick }" />
         </aura:set>
 
-        <lightning:recordEditForm recordId="{!v.Meeting.recordId}">
+        <lightning:recordEditForm recordId="{!v.Meeting.recordId}" objectApiName="Meeting__c">
             <lightning:inputField fieldName="location"/>
             <lightning:inputField fieldName="notes"/>
             <lightning:inputField fieldName="feedback"/>
