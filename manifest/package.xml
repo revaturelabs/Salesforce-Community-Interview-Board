@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">	
-<types>
-		<members></members>
-		<name>ApexPage</name>
-	</types>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members></members>
-		<name>ApexTestSuite</name>
-	</types>
-	<types>
+		<members>Account</members>
 		<members>Batch_Client__c</members>
+		<members>Contact</members>
 		<members>Interview_Question__c</members>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
@@ -20,6 +14,10 @@
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<name>Profile</name>
 	</types>
 	<types>
 		<members>Account.Batch</members>
@@ -55,5 +53,4 @@
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>
-
 </Package>
