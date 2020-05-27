@@ -1,4 +1,4 @@
-<aura:component controller="MeetingListController">
+<aura:component controller="MeetingListController" implements="flexipage:availableForAllPageTypes" access="global">
    
 
     <aura:attribute name="Meeting" type="Meeting__c" />
@@ -14,7 +14,7 @@
     <lightning:card title="{!v.Meeting.name}">
 
         <aura:set attribute="actions">
-            <lightning:button variant="brand" label="Update" title="Update" onclick="{! c.handleClick }" />
+            <lightning:button variant="brand" label="Update" title="Update" onclick="{!c.handleClick }" />
         </aura:set>
 
         <lightning:recordEditForm recordId="{!v.Meeting.recordId}" objectApiName="Meeting__c">
