@@ -1,7 +1,0 @@
-Hello {!Meeting_Participant__c.Participant__c},
-
-This is a reminder that you have a meeting with {!Meeting__c.Participating_Client__c} on {!Meeting_Participant__c.Scheduled_Meeting_Date__c}
-
-Please arrive 15 minutes early and bring two copies of your resume.
-
-Good luck!
