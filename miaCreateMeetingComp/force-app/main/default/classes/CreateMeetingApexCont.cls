@@ -16,34 +16,22 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static List<Account> getBatches()
     {
-        //try to get  a list of batches, if nothing's there, return empty list
-        try {
-            return [SELECT Id, Name FROM Account WHERE RecordType.Name = 'Batch'];
-        } catch(Exception e) {
-            return new List<Account>();
-        }
+        // get  a list of batches, if nothing's there, return empty list
+        return [SELECT Id, Name FROM Account WHERE RecordType.Name = 'Batch'];
     }
 
     @AuraEnabled
     public static List<Contact> getAssociates()
     {
-        //try to get  a list of associates, if nothing's there, return empty list
-        try {
-            return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Associate'];
-        } catch(Exception e) {
-            return new List<Contact>();
-        }
+        // get  a list of associates, if nothing's there, return empty list
+        return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Associate'];
     }
 
     @AuraEnabled
     public static List<Contact> getClients()
     {
-        //try to get  a list of clients, if nothing's there, return empty list
-        try {
-            return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Client'];
-        } catch(Exception e) {
-            return new List<Contact>();
-        }
+        // get  a list of clients, if nothing's there, return empty list
+        return [SELECT Id, Name, AccountId FROM Contact WHERE RecordType.Name = 'Client'];
     }
 
 
