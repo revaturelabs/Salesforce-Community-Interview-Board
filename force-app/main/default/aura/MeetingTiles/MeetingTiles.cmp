@@ -1,15 +1,8 @@
 <aura:component controller="MeetingListController" implements="flexipage:availableForAllPageTypes" access="global">
-   
-
+    <!--Displays an individual meeting-->
+    
     <aura:attribute name="Meeting" type="Meeting__c" />
-    <!--
-    <aura:attribute name="name" type="String" />
-    <aura:attribute name="location" type="String" />
-    <aura:attribute name="notes" type="String" />
-    <aura:attribute name="feedback" type="String" />
-    <aura:attribute name="scheduled" type="DateTime" />
-    <aura:attribute name="completed" type="DateTime" />
-    -->
+
         
     <lightning:card title="{!v.Meeting.name}">
 
