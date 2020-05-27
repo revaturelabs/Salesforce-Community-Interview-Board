@@ -11,5 +11,8 @@ declare module "@salesforce/apex/CreateMeetingApexCont.getClients" {
   export default function getClients(): Promise<any>;
 }
 declare module "@salesforce/apex/CreateMeetingApexCont.createMeeting" {
-  export default function createMeeting(param: {meeting: any, batch: any, interviewer: any, associate: any}): Promise<any>;
+  export default function createMeeting(param: {meeting: any, strInterviewer: any, strAssociate: any}): Promise<any>;
+}
+declare module "@salesforce/apex/CreateMeetingApexCont.createMeetingAllBatch" {
+  export default function createMeetingAllBatch(param: {meeting: any, strInterviewer: any, fullBatch: any}): Promise<any>;
 }
