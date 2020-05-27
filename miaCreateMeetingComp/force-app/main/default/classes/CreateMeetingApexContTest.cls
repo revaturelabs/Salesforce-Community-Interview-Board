@@ -130,6 +130,47 @@ public with sharing class CreateMeetingApexContTest {
 
         System.assertEquals(ascList.size()+1, partCount);
     }
+
+    @isTest
+    public static void createMeetingNullTest()
+    {
+        makeClients(1);
+        makeAssociates(1,10);
+
+        Contact client = [SELECT Id FROM Contact WHERE RecordType.Name = 'Client' LIMIT 1];
+        Contact associate = [SELECT Id FROM Contact WHERE RecordType.Name = 'Associate' LIMIT 1];
+
+        String strCli = String.valueOf(client.Id);
+        String strAsc = String.valueOf(associate.Id);
+
+        Meeting__c m1 = CreateMeetingApexCont.createMeeting(new Meeting__c(), strCli, strAsc),
+                   m2 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), '', strAsc),
+                   m3 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), strCli, '');
+
+        System.assertEquals(null, m1);
+        System.assertEquals(null, m2);
+        System.assertEquals(null, m3);
+    }
+
+    @isTest
+    public static void createMeetingAllBatchNullTest()
+    {
+        makeClients(1);
+        makeAssociates(1,10);
+
+        Contact client = [SELECT Id FROM Contact WHERE RecordType.Name = 'Client' LIMIT 1];
+        List<Contact> associates = [SELECT Id FROM Contact WHERE RecordType.Name = 'Associate'];
+
+        String strCli = String.valueOf(client.Id);
+
+        Meeting__c m1 = CreateMeetingApexCont.createMeetingAllBatch(new Meeting__c(), strCli, associates),
+                   m2 = CreateMeetingApexCont.createMeetingAllBatch(new Meeting__c(Name = 'Meeting 2'), '', associates),
+                   m3 = CreateMeetingApexCont.createMeetingAllBatch(new Meeting__c(Name = 'Meeting 2'), strCli, new List<Contact>());
+
+        System.assertEquals(null, m1);
+        System.assertEquals(null, m2);
+        System.assertEquals(null, m3);
+    }
 }
 
 /*@TestSetup
