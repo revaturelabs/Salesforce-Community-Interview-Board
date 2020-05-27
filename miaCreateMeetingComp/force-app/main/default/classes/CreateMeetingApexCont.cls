@@ -38,51 +38,50 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate)
     {
-        Database.SaveResult msert = Database.insert(meeting);
-        
-        Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
-        Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
+        try{
+            insert meeting;
+            Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+            Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
 
-        if(msert.isSuccess())
-        {
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = msert.getId()));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
 
             //Adds the selected associate will be added to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = msert.getId()));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = meeting.Id));
 
-           
+        
 
             insert meetingParticipants;
             return meeting;
+        } catch (Exception e) {
+            return null;
         }
-        return null;
     }
 
     @AuraEnabled
     public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strInterviewer, List<Contact> fullBatch)
     {
-        Database.SaveResult msert = Database.insert(meeting);
-        Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
-
-        if(msert.isSuccess())
-        {
+        try {
+            insert meeting;
+            Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+            
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = msert.getId()));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
 
             //if no associate was selected, the entire batch will be added to the meeting
             for(Contact c : fullBatch)
             {
-                meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = msert.getId()));
+                meetingParticipants.add(new Meeting_Participant__c(Participant__c = c.Id, Meeting__c = meeting.Id));
             }
 
             insert meetingParticipants;
             return meeting;
+        } catch (Exception e) {
+            return null;
         }
-        return null;
     }
 }
