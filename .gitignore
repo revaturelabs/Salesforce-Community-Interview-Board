@@ -49,6 +49,7 @@ package.json
 README
 .node_modules
 sfdx-project.json
-force-app/*
+force-app/main/default/*
+#except the things we wanna keep
 !force-app/main/default/classes
 !force-app/main/default/aura
