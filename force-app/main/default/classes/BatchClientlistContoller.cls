@@ -1,6 +1,6 @@
 public with sharing class BatchClientlistContoller {
     @AuraEnabled
-    public static PageWrapper fetchBatchClient(Decimal pageNumber ,Integer recordToDisply,string picklistV) {
+    public static PageWrapper fetchBatchClient(Decimal pageNumber ,Integer recordToDisply) {
          Integer pageSize = recordToDisply;
          Integer offset = ((Integer)pageNumber - 1) * pageSize;
        
@@ -18,6 +18,7 @@ public with sharing class BatchClientlistContoller {
        // return the wrapper class instance .
            return obj;
         }
+
         @AuraEnabled
     public static PageWrapper SearchPicklist(Decimal pageNumber ,Integer recordToDisply,string picklistV)
     {
