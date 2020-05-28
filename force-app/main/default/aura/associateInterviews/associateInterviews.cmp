@@ -2,9 +2,12 @@
 	<!--Attributes-->
 	<aura:attribute name="meetings" type="Meeting__c" />
 	<aura:attribute name="columns" type="List" />
+	<aura:attribute name="associateId" type="String" />
+	<aura:attribute name="searchLoading" type="Boolean" />
 	<!--Handlers-->
 	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
 	<!--Content-->
+	Associate ID:<lightning:input value="{!v.associateId}" type="search" isLoading="{!v.searchLoading}" /><lightning:button onclick="{!c.search}" label="Search" />
 	<lightning:datatable
 		data="{!v.meetings}"
 		columns="{!v.columns}"
