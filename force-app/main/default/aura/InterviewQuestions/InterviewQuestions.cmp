@@ -1,6 +1,6 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
     <aura:attribute name="questionMap" type="Map"/>
-    <aura:attribute name="meetings" type="Meeting__c[]"/>
+    <aura:attribute name="meetings" type="String[]"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     
     <lightning:select label="Meetings">

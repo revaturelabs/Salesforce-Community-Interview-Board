@@ -9,61 +9,43 @@
 		<name>ApexTestSuite</name>
 	</types>
 	<types>
-		<members>CreateMeetingApex</members>
+		
 		<members>InterviewQuestions</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>CreateMeeting</members>
-		<members>throwMeeting</members>
+		
+		
 		<members>InterviewQuestions</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 
 	<types>
-		<members>Batch_Client__c</members>
-		<members>Interview_Question__c</members>
-		<members>Meeting_Participant__c</members>
-		<members>Meeting__c</members>
+		<members></members>
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>unfiled$public/Client_Feedback</members>
-		<members>unfiled$public/Meeting_Notification_24h</members>
-		<members>unfiled$public/Meeting_Notification_72h</members>
+		<members></members>
 		<name>EmailTemplate</name>
 	</types>
 	<types>
-		<members>Account.Batch</members>
-		<members>Account.Client</members>
-		<members>Contact.Associate</members>
-		<members>Contact.Client</members>
-		<members>Meeting__c.Intervention_1_1</members>
-		<members>Meeting__c.Intervention_Batch</members>
-		<members>Meeting__c.Interview_1_1</members>
-		<members>Meeting__c.Interview_Batch</members>
+		<members></members>
 		<name>RecordType</name>
 	</types>
 	<types>
-		<members>Meeting_Participant__c</members>
-		<members>Meeting__c</members>
+		<members></members>
 		<name>Workflow</name>
 	</types>
 	<types>
-		<members>Meeting_Participant__c.Client_Feedback_to_associate</members>
-		<members>Meeting_Participant__c.Initial_Meeting_Notification_24h</members>
-		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
+		<members></members>
 		<name>WorkflowAlert</name>
 	</types>
 	<types>
-		<members>Meeting__c.Finalize_Meeting_Completion</members>
+		<members></members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
 	<types>
-		<members>Meeting_Participant__c.Associate Feedback</members>
-		<members>Meeting_Participant__c.Client interview notification</members>
-		<members>Meeting_Participant__c.Initial Meeting Notification</members>
-		<members>Meeting__c.Completed Date Creation</members>
+		
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>

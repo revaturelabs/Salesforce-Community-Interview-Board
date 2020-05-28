@@ -12,14 +12,14 @@ public class InterviewQuestions {
     
         }
         
-        for(Meeting__c m : [select Id from meeting__c])
+        /*for(Meeting__c m : [select Id from meeting__c])
         {
             for(Interview_Question__c q : questionMap.get(m.Id))
             {
                 system.debug('Subject: '+q.Subject__c+'\n Question: '+q.Body__c);
             }
             
-        }
+        }*/
        
         return questionMap;
     }
