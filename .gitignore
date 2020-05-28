@@ -51,4 +51,4 @@ README
 sfdx-project.json
 force-app/*
 !force-app/main/default/classes
-!force-app/main/default/
+!force-app/main/default/aura
