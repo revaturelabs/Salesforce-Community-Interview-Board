@@ -6,21 +6,24 @@
         var meetings = component.get("v.meetings");
         
         action.setCallback(this,function(response){
-            if(response.getState()=="SUCCESS")
+            if(response.getState()==="SUCCESS")
             {
-                component.set("v.QuestionMap",response.getReturnValue());
-
-                for (let key of mQuestions.keys())
-                {
-                    meetings.push(key);
-                }
-
-                component.set("v.meetings",meetings);
+                var result = response.getReturnValue();
+                component.set("v.meetings", result[0]);
+                helper.createMap(component, result[1]);
             }
             
         });
         
         $A.enqueueAction(action);
 		
-	}
+    },
+    
+    changeMeeting : function(component, event, helper) {
+
+    },
+
+    changeSubject : function(component, event, helper) {
+
+    }
 })

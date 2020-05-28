@@ -1,11 +1,33 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
-    <aura:attribute name="questionMap" type="Map"/>
-    <aura:attribute name="meetings" type="String[]"/>
+    <!--Component Attributes-->
+    <aura:attribute name="subjectMap" type="Map" default="{}"/>
+    <aura:attribute name="questionMap" type="Map" default="{}"/>
+    <aura:attribute name="subjects" type="List"/>
+    <aura:attribute name="questions" type="List"/>
+    <aura:attribute name="meetings" type="List"/>
+    <aura:attribute name="meeting" type="Meeting__c"/>
+    <!--End of Component Attributes-->
+    
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     
-    <lightning:select label="Meetings">
+    <!--Select Meeting picklist-->
+    <lightning:select label="Meetings" onchange="{!c.changeSelect}">
+        <option text="--NONE SELECTED--" value=""/>
         <aura:iteration items="{!v.meetings}" var="meet">
-        	<option>{!meet.Name}</option>
+        	<option text="{!meet.Name}" value="{!meet.Id}"/>
         </aura:iteration>   
     </lightning:select>
+
+    <p>Hi - {!v.subjectMap}</p>
+
+    <lightning:select label="Question Subject" onchange="{!c.changeSubject}">
+        <option text="--NONE SELECTED--" value=""/>
+        <aura:iteration items="{!v.subjectMap.keys}" var="s">
+            <option text="{!s}" value="{!s}"/>
+        </aura:iteration>
+    </lightning:select>
+
+    <aura:iteration items="{!v.questions}" var="q">
+        <p>{!q.Body__c}</p>
+    </aura:iteration>
 </aura:component>
