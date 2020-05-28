@@ -1,3 +1,63 @@
-<aura:component>
+<aura:component controller="BatchClientlistContoller" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="BatchClient" type="Batch_Client__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+    
+    <div class="slds-m-around_small">
+        <div class="slds-page-header" role="banner">
+            
+            <p class="slds-page-header__title slds-truncate">{!v.total} BatchClients • page {!v.page} / {!v.pages}</p>
+            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
+                <ui:inputSelectOption text="5" label="5" value="true"/>
+                <ui:inputSelectOption text="10" label="10"/>
+                <ui:inputSelectOption text="20" label="20"/>
+            </ui:inputSelect>
+        </div>
+        
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">BatchClient Name</div>
+                    </th>
+                    <th scope="col">
+                    <div class="slds-truncate" title="Name">InterestedClient</div>
+                     </th>
 
-</aura:component>	
+                     <th scope="col">
+                        <div class="slds-truncate" title="Name">Batch</div>
+                         </th>
+                </tr>
+                
+            </thead>
+            
+           
+            
+            <tbody>
+                <aura:iteration items="{!v.BatchClient}" var="BatchC"> 
+                    <tr>
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Name}">{!BatchC.Name}</div>
+                        </th>
+                    
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Interested_Client__c}">{!BatchC.Interested_Client__r.Name}</div>
+                        </th>
+
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Batch__c}">{!BatchC.Batch__r.Name}</div>
+                        </th>
+                    </tr>
+                </aura:iteration>	
+            </tbody>
+            <div class="slds-align_absolute-center">            
+                <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
+            </div>
+        </table>
+    </div>
+</aura:component>
