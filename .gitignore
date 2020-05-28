@@ -33,3 +33,22 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+
+# Lawrence's evil experiment
+#ignore all files we don't wanna push to Dev
+.vscode
+Component-UIs 
+config 
+manifest
+scripts
+.eslintignore
+.forceignore
+prettierignore
+prettierrc
+package.json
+README
+.node_modules
+sfdx-project.json
+force-app/*
+!force-app/main/default/classes
+!force-app/main/default/
