@@ -1,4 +1,4 @@
-<aura:component controller="completedInterviewController">
+<aura:component controller="associateInterviewController">
 	<!--Attributes-->
 	<aura:attribute name="meetings" type="Meeting__c" />
 	<aura:attribute name="columns" type="List" />
