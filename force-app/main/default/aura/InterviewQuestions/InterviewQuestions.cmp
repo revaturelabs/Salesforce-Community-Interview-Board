@@ -1,0 +1,53 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
+    <!-- COMPONENT ATTRIBUTES -->
+    <aura:attribute name="questionMap" type="Map" default="{}"/>
+    <aura:attribute name="questions" type="List"/>
+    <aura:attribute name="qSub" type="List"/>
+    <aura:attribute name="meetings" type="List"/>
+    <aura:attribute name="page" type="Integer" default="1"/>
+    <aura:attribute name="perPage" type="Integer" default="5"/>
+    <aura:attribute name="disPrev" type="Boolean" default="{!true}"/>
+    <aura:attribute name="disNext" type="Boolean" default="{!true}"/>
+    <!-- END COMPONENT ATTRIBUTES -->
+   
+    <!-- EVENT HANDLING -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <!-- END EVENT HANDLING -->
+
+    <!-- PICKLIST AREA -->
+    <div aria-labelledby="InterviewQuestionsComponent">  
+
+        <fieldset class="slds-box slds-theme--default slds-container--medium">
+            <legend id="newCustomObjectForm" class="slds-text-heading--small 
+				slds-p-vertical--medium">
+                Meeting Questions
+            </legend>
+
+    <!-- SELECT MEETING PICKLIST -->
+    <lightning:select label="Meetings" onchange="{!c.changeMeeting}">
+        <option text="--NONE SELECTED--" value=""/>
+        <aura:iteration items="{!v.meetings}" var="meet">
+        	<option text="{!meet.Name}" value="{!meet.Id}"/>
+        </aura:iteration>   
+    </lightning:select>
+    <!-- END SELECT MEETING PICKLIST -->
+
+    <div class="slds-grid slds-grid_align-spread">
+        <lightning:button name="btnPrev" label="PREV" onclick="{!c.prevPage}" disabled="{!v.disPrev}" class="slds-m-around_small slds-col slds-size_1-of-6"/>
+        <lightning:button name="btnNext" label="NEXT" onclick="{!c.nextPage}" disabled="{!v.disNext}" class="slds-m-around_small slds-col slds-size_1-of-6"/>
+    </div>
+
+    <!-- SELECT QUESTIONS BY MEETING -->
+    <lightning:accordion allowMultipleSectionsOpen="true">
+        <aura:iteration items="{!v.qSub}" var="q">
+            <lightning:accordionSection name="{!q.Name}" label="{!q.Subject__c}">
+                <p>{!q.Body__c}</p>
+        </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
+    <!-- END SELECT QUESTIONS BY MEETING-->
+
+        </fieldset>
+    </div>
+    <!-- END PICKLIST AREA -->
+</aura:component>
