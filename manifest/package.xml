@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	
+	<types>
+		<members>CreateMeetingApexCont</members>
+		<members>CreateMeetingApexContTest</members>
+		<members>MeetingListController</members>
+		<members>QuestionCreationController</members>
+		<members>QuestionCreationTest</members>
+		<members>AssociateInfoController</members>
+	    <members>associateInterviewController</members>
+		<members>MeetingAssignmentController</members>
+		<members>MeetingAssignmentControllerTest</members>
+		<name>ApexClass</name>
+	</types>
+	
+	<!-- UNCOMMENT FOR DEPLOY
+	<types>
+		<members>*</members>
+		<name>ApexTrigger</name>
+	</types>
+	-->
+	
+	<types>
+		<members>CreateMeeting</members>
+		<members>MeetingTiles</members>
+		<members>QuestionCreation</members>
+		<members>throwMeeting</members>
+		<members>associate_wrapper</members>
+		<members>AssociateInfo</members>
+	    <members>associateInterviews</members>
+		<members>MeetingAssignment</members>
+		<members>QuestionCreationHarness</members>
+		<members>throwMeeting</members>
+
+		<name>AuraDefinitionBundle</name>
+	</types>
+	
 	<types>
 		<members>Account</members>
 		<members>Batch_Client__c</members>
