@@ -12,6 +12,21 @@ public with sharing class associateInterviewController {
 
 	@AuraEnabled
     public static List<associateMeeting> associateSearch(String associateId) {
+		// Validate ID
+		{
+			Contact associate;
+			// Check that the contact ID exists
+			try {
+				associate = [SELECT RecordType.Name FROM Contact WHERE Id = :associateId];
+			} catch (QueryException qe) {
+				throw new AuraHandledException('ID not found.');
+			}
+			// Check that they are an associate
+			if (associate.RecordType.Name != 'Associate') {
+				throw new AuraHandledException('Not of associate record type.');
+			}
+		}
+
 		// Locate all the meetings which the associate is a participant
 		List<Meeting_Participant__c> participants;
 		try {
