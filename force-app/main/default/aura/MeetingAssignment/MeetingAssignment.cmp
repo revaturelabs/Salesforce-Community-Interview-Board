@@ -1,6 +1,6 @@
 <aura:component controller="MeetingAssignmentController">
   <!--extends="force:slds" INSERT INTO APPLICATION TAG WHEN IN ORG-->
-  <!--c:createMeeting/-->
+  <c:CreateMeeting/>
   <aura:attribute name="assocName" type="String" />
   <aura:attribute name="batchName" type="String" />
   <aura:attribute name="assocList" type="String[]" />
