@@ -1,9 +1,7 @@
 ({
 	doInit : function(component, event, helper) {
         
-        var mQuestions = component.get("v.questionMap");
         var action = component.get("c.loadQuestionMap");
-        var meetings = component.get("v.meetings");
         
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS")
@@ -20,7 +18,9 @@
     },
     
     changeMeeting : function(component, event, helper) {
-
+        console.log("this");
+        component.set("v.questions", component.get("v.questionMap")[event.getSource().get("v.value")]);
+        console.log("that");
     },
 
     changeSubject : function(component, event, helper) {

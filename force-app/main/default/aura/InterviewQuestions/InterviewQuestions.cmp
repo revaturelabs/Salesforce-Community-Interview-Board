@@ -1,33 +1,39 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
-    <!--Component Attributes-->
-    <aura:attribute name="subjectMap" type="Map" default="{}"/>
+    <!-- COMPONENT ATTRIBUTES -->
     <aura:attribute name="questionMap" type="Map" default="{}"/>
-    <aura:attribute name="subjects" type="List"/>
     <aura:attribute name="questions" type="List"/>
     <aura:attribute name="meetings" type="List"/>
-    <aura:attribute name="meeting" type="Meeting__c"/>
-    <!--End of Component Attributes-->
-    
+    <!-- END COMPONENT ATTRIBUTES -->
+   
+    <!-- EVENT HANDLING -->
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
-    
-    <!--Select Meeting picklist-->
-    <lightning:select label="Meetings" onchange="{!c.changeSelect}">
+    <!-- END EVENT HANDLING -->
+
+    <!-- PICKLIST AREA -->
+    <div aria-labelledby="InterviewQuestionsComponent">  
+
+        <fieldset class="slds-box slds-theme--default slds-container--medium">
+            <legend id="newCustomObjectForm" class="slds-text-heading--small 
+				slds-p-vertical--medium">
+                Meeting Questions
+            </legend>
+
+    <!-- SELECT MEETING PICKLIST -->
+    <lightning:select label="Meetings" onchange="{!c.changeMeeting}">
         <option text="--NONE SELECTED--" value=""/>
         <aura:iteration items="{!v.meetings}" var="meet">
         	<option text="{!meet.Name}" value="{!meet.Id}"/>
         </aura:iteration>   
     </lightning:select>
+    <!-- END SELECT MEETING PICKLIST -->
 
-    <p>Hi - {!v.subjectMap}</p>
-
-    <lightning:select label="Question Subject" onchange="{!c.changeSubject}">
-        <option text="--NONE SELECTED--" value=""/>
-        <aura:iteration items="{!v.subjectMap.keys}" var="s">
-            <option text="{!s}" value="{!s}"/>
-        </aura:iteration>
-    </lightning:select>
-
+    <!-- SELECT QUESTIONS BY MEETING -->
     <aura:iteration items="{!v.questions}" var="q">
         <p>{!q.Body__c}</p>
     </aura:iteration>
+    <!-- END SELECT QUESTIONS BY MEETING-->
+
+        </fieldset>
+    </div>
+    <!-- END PICKLIST AREA -->
 </aura:component>
