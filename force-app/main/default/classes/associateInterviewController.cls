@@ -1,16 +1,57 @@
 public with sharing class associateInterviewController {
+	public class associateMeeting {
+		@AuraEnabled
+		public Id Id {get; set;}
+		@AuraEnabled
+		public String Name {get; set;}
+		@AuraEnabled
+		public Datetime Schedule {get; set;}
+		@AuraEnabled
+		public String Interviewers {get; set;}
+	}
+
 	@AuraEnabled
-    public static List<Meeting__c> associateSearch(String associateId) {
+    public static List<associateMeeting> associateSearch(String associateId) {
+		// Locate all the meetings which the associate is a participant
 		List<Meeting_Participant__c> participants;
 		try {
-			participants = [SELECT Meeting__r.Id FROM Meeting_Participant__c WHERE Participant__r.Id = :associateId];
+			participants = [SELECT Meeting__c, Meeting__r.Name, Meeting__r.Scheduled__c FROM Meeting_Participant__c WHERE Participant__c = :associateId];
 		} catch (QueryException qe) {
-			return new List<Meeting__c>();
+			// Return empty list if no records are returned from the query
+			return new List<associateMeeting>();
 		}
+
+		// Convert participants list to ids
+		List<associateMeeting> meetings = new List<associateMeeting>();
 		List<Id> meetingIds = new List<Id>();
-		for (Meeting_Participant__c p : participants) {
-			meetingIds.add(p.Meeting__r.Id);
+		{
+			associateMeeting meet = new associateMeeting();
+			for (Meeting_Participant__c p : participants) {
+				meet.Id = p.Meeting__c;
+				meet.Name = p.Meeting__r.Name;
+				meet.Schedule = p.Meeting__r.Scheduled__c;
+				meetings.add(meet);
+
+				meetingIds.add(p.Meeting__c);
+			}
 		}
-		return [SELECT Id, Name, Scheduled__c FROM Meeting__c WHERE Id IN :meetingIds];
+
+		// Locate all interviewers for each of the associate's meetings
+		for (Meeting_Participant__c interviewer : [SELECT Meeting__c, Participant__r.Name FROM Meeting_Participant__c WHERE Meeting__c IN :meetingIds AND Participant__r.RecordType.Name = :'Client']) {
+			for (associateMeeting meet : meetings) {
+				if (meet.Id == interviewer.Meeting__c) {
+					if (meet.Interviewers == null) {
+						meet.Interviewers = interviewer.Participant__r.Name;
+					} else {
+						meet.Interviewers += ', ' + interviewer.Participant__r.Name;
+					}
+				}
+			}
+		}
+
+		System.debug(meetings);
+		System.debug(participants);
+
+		return meetings;
     }
 }

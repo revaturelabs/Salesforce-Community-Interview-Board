@@ -1,6 +1,6 @@
 <aura:component controller="associateInterviewController">
 	<!--Attributes-->
-	<aura:attribute name="meetings" type="Meeting__c" />
+	<aura:attribute name="meetings" type="associateInterviewController.associateMeeting" />
 	<aura:attribute name="columns" type="List" />
 	<aura:attribute name="associateId" type="String" />
 	<aura:attribute name="searchLoading" type="Boolean" />
@@ -11,6 +11,6 @@
 	<lightning:datatable
 		data="{!v.meetings}"
 		columns="{!v.columns}"
-		keyField="id"
+		keyField="Id"
 		hideCheckboxColumn="true" />
 </aura:component>	

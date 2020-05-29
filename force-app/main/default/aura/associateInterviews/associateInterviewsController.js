@@ -6,22 +6,15 @@
 				fieldName: "Name",
 				type: "String"
 			},
-			/*
 			{
-				label: "Associate",
-				fieldName: "",
-				type: ""
+				label: "Interviewer(s)",
+				fieldName: "Interviewers",
+				type: "String"
 			},
-			{
-				label: "Interviewer",
-				fieldName: "",
-				type: ""
-			},
-			*/
 			{
 				label: "Date",
-				fieldName: "Scheduled__c",
-				type: "date"
+				fieldName: "Schedule",
+				type: "Datetime"
 			}
 		]);
 	},
@@ -31,11 +24,12 @@
 		component.set("v.searchLoading", true);
 
 		var action = component.get("c.associateSearch");
-		action.setParams({identifier: component.get("v.associateId")});
+		action.setParams({associateId: component.get("v.associateId")});
 		action.setCallback(this, $A.getCallback(function (response) {
+			component.set("v.searchLoading", false);
 			if (response.getState() === "SUCCESS") {
-				component.set("v.searchLoading", false);
 				component.set("v.meetings", response.getReturnValue());
+				console.log(response.getReturnValue());
 			} else {
 				console.error(response.getError());
 			}
