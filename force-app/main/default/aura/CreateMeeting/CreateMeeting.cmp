@@ -8,7 +8,6 @@
     <aura:attribute name="ascbatchmap" type="Map" default="{}"/>
     <aura:attribute name="batches" type="Account[]"/>
     <aura:attribute name="selInterviewer" type="Id"/>
-    <aura:attribute name="selBatch" type="Id"/>
     <aura:attribute name="selAssociate" type="Id"/>
     <aura:attribute name="buttonLabel" type="String" default="Create Meeting"/>
     <aura:attribute name="buttonStatus" type="Boolean" default="false"/>
@@ -49,7 +48,7 @@
     
 <!-- SELECT BATCH PICKLIST -->        
             <lightning:select label="Batch" onchange="{!c.updateAssociates}"
-                              value="{!v.selBatch}">
+                              value="{!v.meeting.Batch__c}">
                 <option text="--NONE SELECTED--" value=""/>
                 <aura:iteration items="{!v.batches}" var="bat">
                     <option text="{!bat.Name}" value="{!bat.Id}"/>

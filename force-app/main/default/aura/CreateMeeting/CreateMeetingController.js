@@ -26,7 +26,7 @@
         //get all the things from the view
         var meet = component.get("v.meeting");
         var entireBatch = component.get("v.allbatch");
-        var batch = component.get("v.selBatch");
+        var batch = component.get("v.meeting.Batch__c");
         var interviewer = component.get("v.selInterviewer");
         var associate = null;
 
@@ -72,7 +72,7 @@
                 //reset form
                 component.set("v.meeting", {"sObject":"Meeting__c"});
                 component.set("v.selInterviewer", "");
-                component.set("v.selBatch", "");
+                component.set("v.meeting.Batch__c", "");
                 component.set("v.selAssociate", "");
                 //show success message if meeting is created                
                 component.set("v.buttonLabel","Meeting Created!");
@@ -80,10 +80,6 @@
                     component.set("v.buttonLabel","Create Meeting");
                     component.set("v.buttonStatus",false);
                 },2000);
-            }
-            else if (state === "ERROR")
-            {
-                response.get
             }
             
             
