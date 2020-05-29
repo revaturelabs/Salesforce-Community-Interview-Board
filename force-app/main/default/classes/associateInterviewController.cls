@@ -49,9 +49,6 @@ public with sharing class associateInterviewController {
 			}
 		}
 
-		System.debug(meetings);
-		System.debug(participants);
-
 		return meetings;
     }
 }
