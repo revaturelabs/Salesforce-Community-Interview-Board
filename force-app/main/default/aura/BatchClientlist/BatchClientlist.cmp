@@ -5,11 +5,22 @@
     <aura:attribute name="page" type="integer" description="using for store page Number"/>
     <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
     <aura:attribute name="total" type="integer" description="total records count store "/>
-    
+    <aura:attribute name="Batches" type="Account[]" description="List of Batches for drop-down"/>
+
     <div class="slds-m-around_small">
+
+        <!-- Picklist of batches to select from -->
+        <ui:inputSelect aura:id="batchName" label="Select Batch" change="{!c.batchSelect}">
+            <ui:inputSelectOption text="All" label="All" />
+            <aura:iteration items="{!v.Batches}" var="batch">
+                <ui:inputSelectOption text="{!batch}" label="{!batch.Name}" />
+            </aura:iteration>
+        </ui:inputSelect>
+
         <div class="slds-page-header" role="banner">
             
             <p class="slds-page-header__title slds-truncate">{!v.total} BatchClients • page {!v.page} / {!v.pages}</p>
+            <!-- Picklist for number of records to show -->
             <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
                 <ui:inputSelectOption text="5" label="5" value="true"/>
                 <ui:inputSelectOption text="10" label="10"/>
@@ -17,6 +28,7 @@
             </ui:inputSelect>
         </div>
         
+        <!-- Resulting table of records -->
         <table class="slds-table slds-table_bordered slds-table_cell-buffer">
             <thead>
                 

@@ -6,7 +6,7 @@
        // get the select option (drop-down) values.   
        var recordToDisply = component.find("recordSize").get("v.value");
        // call the helper function   
-       helper.getBatchClient(component, page, recordToDisply);
+       helper.getBatchData(component, page, recordToDisply);
   
     },
   
@@ -30,5 +30,15 @@
        var recordToDisply = component.find("recordSize").get("v.value");
        helper.getBatchClient(component, page, recordToDisply);
     },
+
+    batchSelect: function(component, event, helper) {
+     // get the page Number if it's not define, take 1 as default
+     var page = component.get("v.page") || 1;
+     // get the select option (drop-down) values.   
+     var recordToDisply = component.find("recordSize").get("v.value");
+     
+     // call the helper function   
+     helper.getBatchClient(component, page, recordToDisply);
+   },
   
  })
