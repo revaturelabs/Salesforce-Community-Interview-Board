@@ -8,7 +8,7 @@
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>AssociateInfoController</members>
-	    <members>associateInterviewController</members>
+	    <members>AssociateMeetingsController</members>
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
 		<name>ApexClass</name>
@@ -28,7 +28,7 @@
 		<members>throwMeeting</members>
 		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
-	    <members>associateInterviews</members>
+	    <members>AssociateMeetings</members>
 		<members>MeetingAssignment</members>
 		<members>QuestionCreationHarness</members>
 		<members>throwMeeting</members>
