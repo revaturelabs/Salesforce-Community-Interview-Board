@@ -11,6 +11,7 @@ public with sharing class BatchClientlistContoller {
           obj.total = [SELECT count() FROM Batch_Client__c];
           return obj;
      }
+     
     @AuraEnabled
     public static PageWrapper fetchBatchClient(Decimal pageNumber ,Integer recordToDisply,string picklistV) {
          Integer pageSize = recordToDisply;

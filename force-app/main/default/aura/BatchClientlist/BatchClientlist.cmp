@@ -6,7 +6,7 @@
     <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
     <aura:attribute name="total" type="integer" description="total records count store "/>
     <aura:attribute name="Batches" type="Account[]" description="List of Batches for drop-down"/>
-
+     <div class="slds-box slds-theme_default">
     <div class="slds-m-around_small">
         <div class="slds-page-header" role="banner">
             
@@ -34,7 +34,7 @@
         </div>
         
         <!-- Resulting table of records -->
-        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_cell-buffer slds-table_resizable-cols slds-table_fixed-layout" role= "grid" >
             <thead>
                 
                 <tr class="slds-text-title_caps">
@@ -72,10 +72,15 @@
                 </aura:iteration>	
             </tbody>
 
-            <div class="slds-align_absolute-center">            
-                <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
-                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
-            </div>
+           
         </table>
     </div>
+    
+        
+     
+    <div class="slds-clearfix">            
+        <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+        <lightning:button class="slds-float_right" disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
+    </div>
+</div>
 </aura:component>
