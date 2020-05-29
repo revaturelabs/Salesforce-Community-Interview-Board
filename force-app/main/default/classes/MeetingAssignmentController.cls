@@ -23,8 +23,9 @@ public with sharing class MeetingAssignmentController {
         //If no participant, collect all batch meetings by record type
 		Recordtype interviewBatchMeeting = [SELECT ID, Name FROM RecordType WHERE SobjectType='Meeting__c' AND Name='Interview Batch' LIMIT 1];
         Recordtype interventionBatchMeeting = [SELECT ID, Name FROM RecordType WHERE SobjectType='Meeting__c' AND Name='Intervention Batch' LIMIT 1];
-        meetingList = [SELECT Id, Name, RecordTypeId, Location__c, Notes__c, Feedback__c, Scheduled__c, Completed__c FROM Meeting__c
-                      WHERE RecordTypeId = :interviewBatchMeeting.Id OR RecordTypeId = :interventionBatchMeeting.Id];
+
+        meetingList = [SELECT Id, Name, RecordTypeId, Batch__r.Name, Location__c, Notes__c, Feedback__c, Scheduled__c, Completed__c FROM Meeting__c
+                      WHERE Batch__r.Name=:batch AND ( RecordTypeId = :interviewBatchMeeting.Id OR RecordTypeId = :interventionBatchMeeting.Id)];
       //Need to adjust so it works based on selected batch?//add RecordTypeId to queries for meetingList when testing
     }
     else 

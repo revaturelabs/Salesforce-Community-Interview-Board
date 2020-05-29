@@ -39,6 +39,8 @@ public class MeetingAssignmentControllerTest {
         {            
 			if (meeting.RecordTypeId==RT.Id | meeting.RecordTypeId==RT2.Id)
             {
+                System.debug(meeting);
+                System.assertEquals(meeting.Batch__r.Name, 'Batch 3');
                 test=true;
             }
             else
