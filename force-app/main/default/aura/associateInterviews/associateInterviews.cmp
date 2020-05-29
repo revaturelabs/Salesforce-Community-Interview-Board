@@ -8,6 +8,7 @@
 	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
 	<!--Content-->
 	<lightning:input
+		aura:id="searchInput"
 		isLoading="{!v.searchLoading}"
 		label="Associate ID"
 		maxlength="15"
@@ -15,7 +16,7 @@
 		messageWhenTooLong="ID must be 15 characters long."
 		messageWhenTooShort="ID msut be 15 characters long."
 		minlength="15"
-		pattern="^[A-a-z0-9]+$"
+		pattern="^[A-Za-z0-9]+$"
 		type="search"
 		value="{!v.associateId}" />
 	<lightning:button onclick="{!c.search}" label="Search" />
