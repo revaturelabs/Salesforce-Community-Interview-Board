@@ -1,4 +1,4 @@
-public with sharing class associateInterviewController {
+public with sharing class AssociateMeetingsController {
 	public class associateMeeting {
 		@AuraEnabled
 		public Id Id {get; set;}

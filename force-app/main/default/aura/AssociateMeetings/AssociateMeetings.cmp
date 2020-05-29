@@ -1,6 +1,6 @@
-<aura:component controller="associateInterviewController">
+<aura:component controller="AssociateMeetingsController">
 	<!--Attributes-->
-	<aura:attribute name="meetings" type="associateInterviewController.associateMeeting" />
+	<aura:attribute name="meetings" type="AssociateMeetingsController.associateMeeting" />
 	<aura:attribute name="columns" type="List" />
 	<aura:attribute name="associateId" type="String" />
 	<aura:attribute name="searchLoading" type="Boolean" />
