@@ -17,7 +17,7 @@ public with sharing class associateInterviewController {
 			Contact associate;
 			// Check that the contact ID exists
 			try {
-				associate = [SELECT RecordType.Name FROM Contact WHERE Id = :associateId];
+				associate = [SELECT RecordType.Name FROM Contact WHERE Id = :associateId LIMIT 1];
 			} catch (QueryException qe) {
 				throw new AuraHandledException('ID not found.');
 			}
