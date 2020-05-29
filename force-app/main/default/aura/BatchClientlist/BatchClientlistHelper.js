@@ -1,6 +1,6 @@
 ({
     getBatchClient: function(component, page, recordToDisply) {
-      var PicklistValue = component.find("batchName").get("v.value").toString();
+      var PicklistValue = component.find("batchName").get("v.value");
        // create a server side action. 
        var action = component.get("c.fetchBatchClient");
        // set the parameters to method 

@@ -8,20 +8,25 @@
     <aura:attribute name="Batches" type="Account[]" description="List of Batches for drop-down"/>
 
     <div class="slds-m-around_small">
-
-        <!-- Picklist of batches to select from -->
-        <ui:inputSelect aura:id="batchName" label="Select Batch" change="{!c.batchSelect}">
-            <ui:inputSelectOption text="All" label="All" />
-            <aura:iteration items="{!v.Batches}" var="batch">
-                <ui:inputSelectOption text="{!batch}" label="{!batch.Name}" />
-            </aura:iteration>
-        </ui:inputSelect>
-
         <div class="slds-page-header" role="banner">
             
+
+
+        
+            
             <p class="slds-page-header__title slds-truncate">{!v.total} BatchClients • page {!v.page} / {!v.pages}</p>
+            
+            <!-- Picklist of batches to select from -->
+            <ui:inputSelect aura:id="batchName" label="Select Batch" change="{!c.batchSelect}">
+                <ui:inputSelectOption text="All" label="All" />
+                <aura:iteration items="{!v.Batches}" var="batch">
+                    <ui:inputSelectOption text="{!batch.Name}" label="{!batch.Name}" />
+                </aura:iteration>
+            </ui:inputSelect>
+            
+            
             <!-- Picklist for number of records to show -->
-            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
+            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}" class="slds-size_1-of-8">
                 <ui:inputSelectOption text="5" label="5" value="true"/>
                 <ui:inputSelectOption text="10" label="10"/>
                 <ui:inputSelectOption text="20" label="20"/>
@@ -34,10 +39,10 @@
                 
                 <tr class="slds-text-title_caps">
                     <th scope="col">
-                        <div class="slds-truncate" title="Name">BatchClient Name</div>
+                        <div class="slds-truncate" title="Name">Batch-Client Name</div>
                     </th>
                     <th scope="col">
-                    <div class="slds-truncate" title="Name">InterestedClient</div>
+                    <div class="slds-truncate" title="Name">Interested Client</div>
                      </th>
 
                      <th scope="col">
@@ -66,6 +71,7 @@
                     </tr>
                 </aura:iteration>	
             </tbody>
+
             <div class="slds-align_absolute-center">            
                 <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
                 <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
