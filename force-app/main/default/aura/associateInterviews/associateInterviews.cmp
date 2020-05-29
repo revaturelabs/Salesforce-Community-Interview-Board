@@ -1,13 +1,28 @@
 <aura:component controller="associateInterviewController">
 	<!--Attributes-->
-	<aura:attribute name="meetings" type="Meeting__c" />
+	<aura:attribute name="meetings" type="associateInterviewController.associateMeeting" />
 	<aura:attribute name="columns" type="List" />
+	<aura:attribute name="associateId" type="String" />
+	<aura:attribute name="searchLoading" type="Boolean" />
 	<!--Handlers-->
 	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
 	<!--Content-->
+	<lightning:input
+		aura:id="searchInput"
+		isLoading="{!v.searchLoading}"
+		label="Associate ID"
+		maxlength="15"
+		messageWhenPatternMismatch="ID must contain only letters and numbers."
+		messageWhenTooLong="ID must be 15 characters long."
+		messageWhenTooShort="ID msut be 15 characters long."
+		minlength="15"
+		pattern="^[A-Za-z0-9]+$"
+		type="search"
+		value="{!v.associateId}" />
+	<lightning:button onclick="{!c.search}" label="Search" />
 	<lightning:datatable
 		data="{!v.meetings}"
 		columns="{!v.columns}"
-		keyField="id"
+		keyField="Id"
 		hideCheckboxColumn="true" />
 </aura:component>	
