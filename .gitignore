@@ -65,8 +65,11 @@ package.json
 README
 .node_modules
 sfdx-project.json
-force-app/main/default/profiles
 force-app/main/default/*
 #except the things we wanna keep
 !force-app/main/default/classes
 !force-app/main/default/aura
+!force-app/main/default/objects/Account
+!force-app/main/default/profiles
+
+
