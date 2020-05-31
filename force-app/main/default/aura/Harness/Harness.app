@@ -8,6 +8,7 @@
         </lightning:tab>
     	<lightning:tab label="QUESTIONS" id="three">
             <c:QuestionCreation/>
+            <c:InterviewQuestions/>
         </lightning:tab>
     </lightning:tabset>
 </aura:application>
