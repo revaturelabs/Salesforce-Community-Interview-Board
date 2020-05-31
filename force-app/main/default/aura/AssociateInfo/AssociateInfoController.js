@@ -9,5 +9,9 @@
             }
          });
          $A.enqueueAction(action); 
-    }     
+    },
+    handleEvent : function(cmp, event, helper) {
+        var id = event.getParam("AId");
+        cmp.set('v.recordId', id);
+    }
 })

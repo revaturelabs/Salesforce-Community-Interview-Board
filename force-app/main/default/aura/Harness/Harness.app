@@ -1,11 +1,10 @@
 <aura:application extends="force:slds">
     <lightning:tabset selectedtabid="two" variant="scoped">
     	<lightning:tab label="ASSOCIATES" id="one">
-            Content 1
+            <c:AssociateWrapper/>
         </lightning:tab>
         <lightning:tab label="MEETINGS" id="two">
-            <c:CreateMeeting/>
-            <c:MeetingTiles/>
+            <c:MeetingAssignment/>
         </lightning:tab>
     	<lightning:tab label="QUESTIONS" id="three">
             <c:QuestionCreation/>

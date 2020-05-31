@@ -14,17 +14,17 @@ public with sharing class AssociateMeetingsController {
     public static List<associateMeeting> associateSearch(String associateId) {
 		// Validate ID
 		{
-			Contact associate;
+			List<Contact> associate;
 			// Check that the contact ID exists
 			try {
-				associate = [SELECT RecordType.Name FROM Contact WHERE Id = :associateId LIMIT 1];
+				associate = [SELECT RecordType.Name, Id, Name FROM Contact WHERE Name = :associateId];
 			} catch (QueryException qe) {
 				throw new AuraHandledException('ID not found.');
 			}
 			// Check that they are an associate
-			if (associate.RecordType.Name != 'Associate') {
+			/*if (associate.RecordType.Name != 'Associate') {
 				throw new AuraHandledException('Not of associate record type.');
-			}
+			}*/
 		}
 
 		// Locate all the meetings which the associate is a participant
