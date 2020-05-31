@@ -1,19 +1,13 @@
 <aura:component controller="AssociateInfoController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
-    
-	<aura:attribute name="recordId" type="String"/><!--Contains recordId of selected contact-->
+
+    <aura:attribute name="recordId" type="String"/><!--Contains recordId of selected contact-->
+    <aura:attribute name="fields" type="String[]" default="['Name','AccountId','Title','MobilePhone','Email','MailingAddress']"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    
+    <aura:handler event="c:AssociateName" action="{!c.handleEvent}"/>
+
     <lightning:card iconName="standard:contact" title="Associate Info">
-        <lightning:recordViewForm recordId="0035w000036VuZkAAK" objectApiName="Contact"><!--hard-coded recordId needs to be replaced by a handler that gets a contact-->
-        <div class="slds-col slds-size_1-of-1">
-            <lightning:outputField fieldName="Name"/>
-            <lightning:outputField fieldName="AccountId"/>
-            <lightning:outputField fieldName="Title"/>
-            <lightning:outputField fieldName="MobilePhone"/>
-            <lightning:outputField fieldName="Email"/>
-            <lightning:outputField fieldName="MailingAddress"/>
-        </div>
-        </lightning:recordViewForm>
+        <lightning:recordForm recordId="{!v.recordId}" objectApiName="Contact" mode="view" fields="{!v.fields}"/>
+        <!--hard-coded recordId needs to be replaced by a handler that gets a contact-->
     </lightning:card>
-    
+
 </aura:component>

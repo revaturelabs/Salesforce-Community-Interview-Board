@@ -21,7 +21,7 @@
 	},
 
 	search: function(component, event, helper) {
-		let searchInput = component.find("searchInput");
+        let searchInput = component.find("searchInput").get("v.value");
 
 		// Users must fix errors, other than custom ones, before searching
 		if (!searchInput.get("v.validity").valid && !searchInput.get("v.validity").customError) {
@@ -36,7 +36,7 @@
 
 		// Initialize new action
 		var action = component.get("c.associateSearch");
-		action.setParams({associateId: component.get("v.associateId")});
+		action.setParams({associateId: component.get("v.searchKeyword")});
 
 		action.setCallback(this, $A.getCallback(function (response) {
 			// Done loading, remove indicator

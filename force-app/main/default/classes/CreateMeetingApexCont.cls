@@ -55,6 +55,10 @@ public with sharing class CreateMeetingApexCont {
         
 
             insert meetingParticipants;
+            meeting_participant__C Client = [select ID from Meeting_Participant__C where Participant__c = :interviewer.id and Meeting__c = :meeting.Id];
+            meeting.Participating_client__C = client.id;
+            
+            update meeting;
             return meeting;
         } catch (Exception e) {
             return null;
@@ -80,6 +84,10 @@ public with sharing class CreateMeetingApexCont {
             }
 
             insert meetingParticipants;
+            meeting_participant__C Client = [select ID from Meeting_Participant__C where Participant__c = :interviewer.id and Meeting__c = :meeting.Id];
+            meeting.Participating_client__C = client.id;
+            
+            update meeting;
             return meeting;
         } catch (Exception e) {
             return null;

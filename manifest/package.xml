@@ -11,6 +11,7 @@
 	    <members>AssociateMeetingsController</members>
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
+		<members>*</members>
 		<name>ApexClass</name>
 	</types>
 	
@@ -26,13 +27,12 @@
 		<members>MeetingTiles</members>
 		<members>QuestionCreation</members>
 		<members>throwMeeting</members>
-		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
 	    <members>AssociateMeetings</members>
 		<members>MeetingAssignment</members>
 		<members>QuestionCreationHarness</members>
 		<members>throwMeeting</members>
-
+		<members>*</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	

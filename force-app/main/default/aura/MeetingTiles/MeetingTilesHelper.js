@@ -5,5 +5,3 @@
         $A.enqueueAction(action);
     }
 })
-
-
