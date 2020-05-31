@@ -11,7 +11,7 @@
                 label: "View",
                 type: "button",
                 initialwidth: 135,
-                typeAttributes: {label: "get Info",
+                typeAttributes: {label: "Get Info",
                                  name: "Get_info",
                                  title: "Click to view Associate"}
             }
