@@ -2,6 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	
 	<types>
+		<members>BatchClientCreation</members>
+		<members>BatchClientlist</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>MeetingListController</members>
@@ -16,7 +18,6 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-		
 
 		<name>ApexClass</name>
 	</types>
@@ -44,8 +45,6 @@
 		<members>Harness</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewForceComponent</members>
-	
-
 
 		<name>AuraDefinitionBundle</name>
 	</types>
