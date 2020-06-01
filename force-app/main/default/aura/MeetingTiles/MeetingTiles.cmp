@@ -4,7 +4,7 @@
     <aura:attribute name="Meeting" type="Meeting__c" />
 
         
-    <lightning:card title="{!v.Meeting.name}">
+    <lightning:card title="{!v.Meeting.name}" class = "slds-m-top_none">
 
         <aura:set attribute="actions">
             <lightning:button variant="neutral" label="Update" title="Update" onclick="{!c.handleClick }" />

@@ -43,6 +43,7 @@
 		<members>CompletedInterviews</members>
 		<members>Harness</members>
 		<members>InterviewQuestions</members>
+		<members>InterviewForceComponent</members>
 	
 
 
