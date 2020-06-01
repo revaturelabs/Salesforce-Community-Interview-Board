@@ -1,9 +1,9 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
     <!-- COMPONENT ATTRIBUTES -->
     <aura:attribute name="questionMap" type="Map" default="{}"/>
-    <aura:attribute name="questions" type="List"/>
-    <aura:attribute name="qSub" type="List"/>
-    <aura:attribute name="meetings" type="List"/>
+    <aura:attribute name="questions" type="List" default="[]"/>
+    <aura:attribute name="qSub" type="List" default="[]"/>
+    <aura:attribute name="meetings" type="List" default="[]"/>
     <aura:attribute name="page" type="Integer" default="1"/>
     <aura:attribute name="perPage" type="Integer" default="5"/>
     <aura:attribute name="disPrev" type="Boolean" default="{!true}"/>

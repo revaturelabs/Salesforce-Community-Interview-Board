@@ -10,7 +10,7 @@
                 //use the helper to unpack the questions
                 var result = response.getReturnValue();
                 component.set("v.meetings", result[0]);
-                helper.createMap(component, result[1]);
+                helper.createMap(component, result[0], result[1]);
             }
             
         });
