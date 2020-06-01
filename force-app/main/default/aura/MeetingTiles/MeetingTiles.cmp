@@ -1,0 +1,28 @@
+<aura:component controller="MeetingListController" implements="flexipage:availableForAllPageTypes" access="global">
+   <!--Displays an individual meeting-->   
+
+    <aura:attribute name="Meeting" type="Meeting__c" />
+    <aura:attribute name="Location" type="String" default="{!v.Meeting.Location__c}"/>
+
+        
+    <lightning:card title="{!v.Meeting.Name}" class = "slds-m-top_none">
+
+        <aura:set attribute="actions">
+            <lightning:button variant="neutral" label="Update" title="Update" onclick="{!c.handleClick }" />
+        </aura:set>
+
+        <lightning:recordEditForm recordId="{!v.Meeting.recordId}" objectApiName="Meeting__c" class="slds-align_absolute-center">
+            <lightning:outputField value="{!v.Location}" fieldName="Location__c"/>
+            <lightning:outputField value="{v.Meeting.Notes__c.value}" fieldName="Notes__c"/>
+            <lightning:outputField value="{v.Meeting.Feedback__c.value}" fieldName="Feedback__c"/>
+            <lightning:outputField value="{v.Meeting.Scheduled__c.value}" fieldName="Scheduled__c"/>
+            <lightning:outputField value="{!v.Meeting.Completed__c.value}" fieldName="Completed__c"/>
+
+        </lightning:recordEditForm>
+
+
+    </lightning:card>
+
+
+
+</aura:component>
