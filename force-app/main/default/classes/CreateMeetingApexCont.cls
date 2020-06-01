@@ -38,7 +38,7 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate)
     {
-        if(meeting.Name == null) return null;
+        if(meeting.Name == null || meeting.Name == '') return null;
         try{
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
@@ -68,7 +68,7 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strInterviewer, List<Contact> fullBatch)
     {
-        if(fullBatch.size() == 0 || meeting.Name == null) return null;
+        if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
         try {
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             insert meeting;

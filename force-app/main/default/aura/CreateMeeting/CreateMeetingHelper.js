@@ -22,5 +22,28 @@
 
         // setting the map back in the component
         component.set("v.ascbatchmap", ascMap);
+    },
+
+    showToast : function(success) {
+        try{
+            var toastEvent = $A.get("e.force:showToast");
+            if(success)
+            {
+                toastEvent.setParams({
+                    "title": "Success!",
+                    "message": "The record has been created successfully.",
+                    "type":"success"
+                });
+            }
+            else
+            {
+                toastEvent.setParams({
+                    "title": "Creation Failed!",
+                    "message": "The record creation failed.",
+                    "type":"error"
+                });
+            }
+            toastEvent.fire();
+        } catch(err) {}
     }
 })

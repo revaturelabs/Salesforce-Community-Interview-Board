@@ -1,9 +1,14 @@
 ({
-    createMap : function(component, questions)
+    createMap : function(component, meetings, questions)
     {
         //take the list of questions (result1), put it in a map
         //Meeting ID is the key, question sObject is the value
         var qMap = component.get("v.questionMap");
+        for(var i = 0; i < meetings.length; i++)
+        {
+            qMap[meetings[i].Id] = [];
+        }
+
         for(var i = 0; i < questions.length; i++)
         {
             if(qMap[questions[i].Meeting__c] == null)
@@ -54,7 +59,7 @@
     {
         component.set("v.page", 1);
         this.setPage(component);
-    }
+    },
 })
 
 /* if the createMap code was in Apex, this is what it'd be:

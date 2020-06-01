@@ -69,17 +69,34 @@
             if(state === "SUCCESS")
             {
                 var meeting = response.getReturnValue();
+                //show success message if meeting is created
+                if(meeting!=null)
+                {
+                    component.set("v.buttonLabel","Meeting Created!");
+                    setTimeout(function(){
+                        component.set("v.buttonLabel","Create Meeting");
+                        component.set("v.buttonStatus",false);
+                    },2000);
+                    helper.showToast(true);
+                }
+                else
+                {
+                    component.set("v.buttonLabel","Creation Failed!");
+                    setTimeout(function(){
+                        component.set("v.buttonLabel","Create Meeting");
+                        component.set("v.buttonStatus",false);
+                    },2000);
+                    helper.showToast(false);
+                }
+                    
+
+                
                 //reset form
                 component.set("v.meeting", {"sObject":"Meeting__c"});
                 component.set("v.selInterviewer", "");
                 component.set("v.meeting.Batch__c", "");
                 component.set("v.selAssociate", "");
-                //show success message if meeting is created                
-                component.set("v.buttonLabel","Meeting Created!");
-                setTimeout(function(){
-                    component.set("v.buttonLabel","Create Meeting");
-                    component.set("v.buttonStatus",false);
-                },2000);
+                
             }
             
             
