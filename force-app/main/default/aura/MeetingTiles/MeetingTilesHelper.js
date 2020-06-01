@@ -1,10 +1,7 @@
 ({
     updateMeetings : function(component) {
         var action = component.get("c.updateMeetings");
-        var param = component.get("v.Meeting");
-        action.setParams("UpdateMeeting" , param);
+        action.setParams({updateMeeting : component.get("v.Meeting")});
         $A.enqueueAction(action);
     }
 })
-
-
