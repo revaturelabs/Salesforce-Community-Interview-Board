@@ -1,6 +1,11 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="QuestionCreationController">
     <aura:attribute name="subject" type="String"/>
     <aura:attribute name="question" type="String"/>
+    <aura:attribute name="meetings" type="Meeting__c[]"/>
+    <aura:attribute name="selectedMeetingId" type="String"/>
+
+    <!--The component below should populate meetings component with all meeting records-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
 
     <div class="slds-p-horizontal_x-large">
         <lightning:card title="Question Creation">
@@ -8,10 +13,19 @@
                 <lightning:input name="inputSubject" type="String" placeholder="Subject" value="{!v.subject}" maxlength="143"/>
                 <br/>
                 <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
-            </div>
 
+                <br/>
+
+                <!--A picklist of all Meetings to select-->
+                <lightning:select label="Meetings" aura:id="meetingPicker" onchange="{!c.meetingChange}">
+                    <option value="evilvalue" text="Pick a Meeting..."/>
+                    <aura:iteration items="{!v.meetings}" var="meeting">
+                        <option value="{!meeting.Id}" text="{!meeting.Name}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
             <br/>
-            
+
             <div class="slds-align_absolute-center">
                 <lightning:button variant="brand" label="Submit" onclick="{!c.inputQuestion}"/>
             </div>
