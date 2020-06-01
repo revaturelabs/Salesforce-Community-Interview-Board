@@ -70,9 +70,9 @@ public with sharing class CreateMeetingApexCont {
     {
         if(fullBatch.size() == 0 || meeting.Name == null) return null;
         try { 
-            //RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
-        //RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
-       // meeting.RecordTypeId = RTInterviewBatch.Id;
+            RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
+        RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
+        meeting.RecordTypeId = RTInterviewBatch.Id;
 
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             insert meeting;
