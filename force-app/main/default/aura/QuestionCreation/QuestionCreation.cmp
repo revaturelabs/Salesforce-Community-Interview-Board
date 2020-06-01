@@ -10,6 +10,7 @@
     <div class="slds-p-horizontal_x-large">
         <lightning:card title="Question Creation">
             <div class="slds-p-horizontal_xx-small">
+                <!--Inputs for subject and question-->
                 <lightning:input name="inputSubject" type="String" placeholder="Subject" value="{!v.subject}" maxlength="143"/>
                 <br/>
                 <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
@@ -18,14 +19,14 @@
 
                 <!--A picklist of all Meetings to select-->
                 <lightning:select label="Meetings" aura:id="meetingPicker" onchange="{!c.meetingChange}">
-                    <option value="evilvalue" text="Pick a Meeting..."/>
+                    <option value="evilValue" text="None"/>
                     <aura:iteration items="{!v.meetings}" var="meeting">
                         <option value="{!meeting.Id}" text="{!meeting.Name}" />
                     </aura:iteration>
                 </lightning:select>
             </div>
             <br/>
-
+            <!--Button to submit Interview Question record-->
             <div class="slds-align_absolute-center">
                 <lightning:button variant="brand" label="Submit" onclick="{!c.inputQuestion}"/>
             </div>
