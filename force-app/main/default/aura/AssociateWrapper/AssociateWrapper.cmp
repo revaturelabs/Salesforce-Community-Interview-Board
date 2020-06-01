@@ -39,7 +39,7 @@
             <c:CompletedInterviews/>
         </div>
         <div class="slds-col slds-size_1-of-2">
-            <c:associateInterviews/>
+            <c:AssociateMeetings/>
         </div>
     </div>
     
