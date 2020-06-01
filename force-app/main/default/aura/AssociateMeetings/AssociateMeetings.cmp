@@ -1,23 +1,16 @@
 <aura:component controller="AssociateMeetingsController">
+	<h1 style="text-align:center;"><b><u>All Interviews</u></b></h1>
 	<!--Attributes-->
-	<aura:attribute name="meetings" type="AssociateMeetingsController.associateMeeting" />
+	<aura:attribute name="meetings" type="Meeting__c" />
 	<aura:attribute name="columns" type="List" />
-	<aura:attribute name="searchKeyword" type="String" />
-	<aura:attribute name="searchLoading" type="Boolean" />
 	<!--Handlers-->
 	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="c:AssociateName" action="{!c.handleEvent}"/>
+
 	<!--Content-->
-	<lightning:input
-		aura:id="searchInput"
-		isLoading="{!v.searchLoading}"
-		label="Associate Name"
-		type="search"
-		value="{!v.searchKeyword}"
-        placeholder="Search Associates"/>    	
-	<lightning:button onclick="{!c.search}" label="Search" />
 	<lightning:datatable
 		data="{!v.meetings}"
 		columns="{!v.columns}"
-		keyField="Id"
+		keyField="id"
 		hideCheckboxColumn="true" />
 </aura:component>

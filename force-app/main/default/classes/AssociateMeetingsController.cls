@@ -1,69 +1,12 @@
 public with sharing class AssociateMeetingsController {
-	public class associateMeeting {
-		@AuraEnabled
-		public Id Id {get; set;}
-		@AuraEnabled
-		public String Name {get; set;}
-		@AuraEnabled
-		public Datetime Schedule {get; set;}
-		@AuraEnabled
-		public String Interviewers {get; set;}
-	}
-
 	@AuraEnabled
-    public static List<associateMeeting> associateSearch(String associateId) {
-		// Validate ID
-		{
-			List<Contact> associate;
-			// Check that the contact ID exists
-			try {
-				associate = [SELECT RecordType.Name, Id, Name FROM Contact WHERE Name = :associateId];
-			} catch (QueryException qe) {
-				throw new AuraHandledException('ID not found.');
-			}
-			// Check that they are an associate
-			/*if (associate.RecordType.Name != 'Associate') {
-				throw new AuraHandledException('Not of associate record type.');
-			}*/
-		}
-
-		// Locate all the meetings which the associate is a participant
-		List<Meeting_Participant__c> participants;
-		try {
-			participants = [SELECT Meeting__c, Meeting__r.Name, Meeting__r.Scheduled__c FROM Meeting_Participant__c WHERE Participant__c = :associateId];
-		} catch (QueryException qe) {
-			// Return empty list if no records are returned from the query
-			return new List<associateMeeting>();
-		}
-
-		// Convert participants list to ids
-		List<associateMeeting> meetings = new List<associateMeeting>();
-		List<Id> meetingIds = new List<Id>();
-		{
-			associateMeeting meet = new associateMeeting();
-			for (Meeting_Participant__c p : participants) {
-				meet.Id = p.Meeting__c;
-				meet.Name = p.Meeting__r.Name;
-				meet.Schedule = p.Meeting__r.Scheduled__c;
-				meetings.add(meet);
-
-				meetingIds.add(p.Meeting__c);
-			}
-		}
-
-		// Locate all interviewers for each of the associate's meetings
-		for (Meeting_Participant__c interviewer : [SELECT Meeting__c, Participant__r.Name FROM Meeting_Participant__c WHERE Meeting__c IN :meetingIds AND Participant__r.RecordType.Name = :'Client']) {
-			for (associateMeeting meet : meetings) {
-				if (meet.Id == interviewer.Meeting__c) {
-					if (meet.Interviewers == null) {
-						meet.Interviewers = interviewer.Participant__r.Name;
-					} else {
-						meet.Interviewers += ', ' + interviewer.Participant__r.Name;
-					}
-				}
-			}
-		}
-
-		return meetings;
+    public static List<Meeting__c> getMeetings(String AId) {
+		list<Meeting_participant__C> MPList= [SELECT Meeting__C from Meeting_Participant__C where Participant__C = :AId];
+        list<Meeting__C> MList = new List<Meeting__C>();
+        for(Meeting_Participant__C MP : MPList){
+			MList.add([SELECT Name, Completed_Date__c, Client_Name__C FROM Meeting__c WHERE Id = :MP.Meeting__c LIMIT 1]) ;
+        }
+        system.debug(mlist);
+        return MList;
     }
 }
