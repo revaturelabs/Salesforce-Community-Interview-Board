@@ -8,7 +8,7 @@ public class QuestionCreationTest {
     @isTest
     public static void testMethod1(){
         //test the "try", when no exceptions occur 
-        QuestionCreationController.saveQuestion('subject101', '101');
+        QuestionCreationController.saveQuestion('subject101', '101', '');
         Interview_Question__c tester = [Select Body__c, Subject__c From Interview_Question__c where Subject__c ='Subject101' LIMIT 1];
         System.assertEquals('101', tester.Body__c);
     }

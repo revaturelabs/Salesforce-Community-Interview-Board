@@ -2,8 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	
 	<types>
-		<members>BatchClientCreation</members>
-		<members>BatchClientlist</members>
+		<members>BatchClientCreationController</members>
+		<members>BatchClientlistContoller</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>MeetingListController</members>
