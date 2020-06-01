@@ -45,7 +45,7 @@
 		<members>Harness</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewForceComponent</members>
-
+		<members>BatchClientWrapper</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
