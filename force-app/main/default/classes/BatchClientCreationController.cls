@@ -3,8 +3,11 @@ public class BatchClientCreationController {
     //Get all account records with the batch recordtype id
     @AuraEnabled
     public static List<Account> getBatchAccounts(){
-        //Hard coded RecordTypeIds based on Dev Branch. Change if needed.
-        String batchRecordTypeId = '0125w000001PYxsAAG';
+        //In Dev branch, batch record type id should be => 0125w000001PYxsAAG
+        RecordType batch = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Batch' Limit 1];
+        String batchRecordTypeId = batch.id;
+        
+
         
 
         return [SELECT Name, Id FROM Account WHERE RecordTypeId =: batchRecordTypeId];  
@@ -13,8 +16,9 @@ public class BatchClientCreationController {
     //Get all account records with the client recordtype id
     @AuraEnabled
     public static List<Account> getClientAccounts(){
-        //Hard coded RecordTypeIds based on Dev Branch. Change if needed.
-        String clientRecordTypeId = '0125w000001PYxtAAG';
+        //In Dev branch, client record type id should be => 0125w000001PYxtAAG
+        RecordType client = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Client' Limit 1];
+        String clientRecordTypeId = client.id;
         
 
         return [SELECT Name, Id FROM Account WHERE RecordTypeId =: clientRecordTypeId];   

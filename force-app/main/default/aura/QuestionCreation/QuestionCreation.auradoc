@@ -3,4 +3,4 @@
 	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
 		Example Description
 	</aura:example>
-</aura:documentation>
+</aura:documentation> 
