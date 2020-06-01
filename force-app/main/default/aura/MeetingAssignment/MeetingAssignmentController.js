@@ -65,6 +65,8 @@
     */
     initAssocs : function(component, event, helper)
     {
+        var resetAssoc = component.find("assoclist").set("v.value", "");
+
         var searchAssociates = component.get("c.getAssociates");// apex getAssociates
         //get batch dropdown selection and set parameter for callback function
         var setName = component.find("selectlist").get("v.value");
