@@ -7,9 +7,6 @@ public class BatchClientCreationController {
         RecordType batch = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Batch' Limit 1];
         String batchRecordTypeId = batch.id;
         
-
-        
-
         return [SELECT Name, Id FROM Account WHERE RecordTypeId =: batchRecordTypeId];  
     }
 
@@ -20,7 +17,6 @@ public class BatchClientCreationController {
         RecordType client = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Client' Limit 1];
         String clientRecordTypeId = client.id;
         
-
         return [SELECT Name, Id FROM Account WHERE RecordTypeId =: clientRecordTypeId];   
     }
     
