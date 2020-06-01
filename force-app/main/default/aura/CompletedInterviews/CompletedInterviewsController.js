@@ -8,7 +8,7 @@
 			},
             {
                 label: "Interviewer",
-                fieldName: "Participating_Client__c",
+                fieldName: "Client_Name__c",
                 type: "String"
             },
 			{
