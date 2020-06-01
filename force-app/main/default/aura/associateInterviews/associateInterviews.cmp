@@ -1,5 +1,5 @@
 <aura:component controller="associateInterviewController">
-    <h1 style="text-align:center;"><b><u>Interviews</u></b></h1>
+    <h1 style="text-align:center;"><b><u>All Interviews</u></b></h1>
 	<!--Attributes-->
 	<aura:attribute name="meetings" type="Meeting__c" />
 	<aura:attribute name="columns" type="List" />

@@ -6,12 +6,6 @@
 				fieldName: "Name",
 				type: "String"
 			},
-			/*
-			{
-				label: "Associate",
-				fieldName: "",
-				type: ""
-			}*/
             {
 				label: "Interviewer",
 				fieldName: "Client_Name__c",
