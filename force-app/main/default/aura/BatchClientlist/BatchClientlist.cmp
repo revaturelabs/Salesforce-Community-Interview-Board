@@ -1,0 +1,86 @@
+<aura:component controller="BatchClientlistContoller" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="BatchClient" type="Batch_Client__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+    <aura:attribute name="Batches" type="Account[]" description="List of Batches for drop-down"/>
+     <div class="slds-box slds-theme_default">
+    <div class="slds-m-around_small">
+        <div class="slds-page-header" role="banner">
+            
+
+
+        
+            
+            <p class="slds-page-header__title slds-truncate">{!v.total} BatchClients • page {!v.page} / {!v.pages}</p>
+            
+            <!-- Picklist of batches to select from -->
+            <ui:inputSelect aura:id="batchName" label="Select Batch" change="{!c.batchSelect}">
+                <ui:inputSelectOption text="All" label="All" />
+                <aura:iteration items="{!v.Batches}" var="batch">
+                    <ui:inputSelectOption text="{!batch.Name}" label="{!batch.Name}" />
+                </aura:iteration>
+            </ui:inputSelect>
+            
+            
+            <!-- Picklist for number of records to show -->
+            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}" class="slds-size_1-of-8">
+                <ui:inputSelectOption text="5" label="5" value="true"/>
+                <ui:inputSelectOption text="10" label="10"/>
+                <ui:inputSelectOption text="20" label="20"/>
+            </ui:inputSelect>
+        </div>
+        
+        <!-- Resulting table of records -->
+        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_cell-buffer slds-table_resizable-cols slds-table_fixed-layout" role= "grid" >
+            <thead>
+                
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Batch-Client Name</div>
+                    </th>
+                    <th scope="col">
+                    <div class="slds-truncate" title="Name">Interested Client</div>
+                     </th>
+
+                     <th scope="col">
+                        <div class="slds-truncate" title="Name">Batch</div>
+                         </th>
+                </tr>
+                
+            </thead>
+            
+           
+            
+            <tbody>
+                <aura:iteration items="{!v.BatchClient}" var="BatchC"> 
+                    <tr>
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Name}">{!BatchC.Name}</div>
+                        </th>
+                    
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Interested_Client__c}">{!BatchC.Interested_Client__r.Name}</div>
+                        </th>
+
+                        <th scope="row" >
+                            <div class="slds-truncate" title="{!BatchC.Batch__c}">{!BatchC.Batch__r.Name}</div>
+                        </th>
+                    </tr>
+                </aura:iteration>	
+            </tbody>
+
+           
+        </table>
+    </div>
+    
+        
+     
+    <div class="slds-clearfix">            
+        <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+        <lightning:button class="slds-float_right" disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
+    </div>
+</div>
+</aura:component>
