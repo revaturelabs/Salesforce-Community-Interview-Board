@@ -1,8 +1,8 @@
 public with sharing class BatchClientlistContoller {
      @AuraEnabled
      public static PageWrapper LoadData(Decimal pageNumber ,Integer recordToDisply)
-     {    Integer pageSize = recordToDisply;
-          Integer offset = ((Integer)pageNumber - 1) * pageSize;
+     {    Integer pageSize = recordToDisply; //Determine number of records to display based on input value
+          Integer offset = ((Integer)pageNumber - 1) * pageSize; //deals with pagination
           PageWrapper obj =  new PageWrapper();
           // Get btach client Rec type
           obj.BatchList=[SELECT name FROM Account WHERE RecordType.DeveloperName ='Batch'];
@@ -39,10 +39,10 @@ public with sharing class BatchClientlistContoller {
       
     // create a wrapper class with @AuraEnabled Properties    
     public class PageWrapper {
-       @AuraEnabled public Integer pageSize {get;set;}
-       @AuraEnabled public Integer page {get;set;}
-       @AuraEnabled public Integer total {get;set;}
-       @AuraEnabled public List<Batch_Client__c> BatchClient {get;set;}
-       @AuraEnabled public List<Account> BatchList {get;set;}
+       @AuraEnabled public Integer pageSize {get;set;}//5, 10, or 20
+       @AuraEnabled public Integer page {get;set;} //page you're on
+       @AuraEnabled public Integer total {get;set;} //total number of pages
+       @AuraEnabled public List<Batch_Client__c> BatchClient {get;set;}//The records to be displayed
+       @AuraEnabled public List<Account> BatchList {get;set;}//used for populating picklist with values 
       }
 }
