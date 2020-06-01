@@ -38,7 +38,6 @@
 		<members>QuestionCreationHarness</members>
 		<members>throwMeeting</members>
 		<members>associate_wrapper</members>
-		<members>AssociateInterviews</members>
 		<members>AssociateName</members>
 		<members>AssociateWrapper</members>
 		<members>CompletedInterviews</members>
