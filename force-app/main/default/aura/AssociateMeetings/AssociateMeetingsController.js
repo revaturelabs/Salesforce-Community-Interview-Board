@@ -10,12 +10,8 @@
 				label: "Interviewer",
 				fieldName: "Client_Name__c",
 				type: "String"
-			},
-			{
-				label: "Completion Date",
-				fieldName: "Completed_Date__c",
-				type: "date"
 			}
+			
 		]);
 		
 	},

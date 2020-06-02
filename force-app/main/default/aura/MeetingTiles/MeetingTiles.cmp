@@ -7,20 +7,19 @@
         
     <lightning:card title="{!v.Meeting.Name}" class = "slds-m-top_none">
 
-        <aura:set attribute="actions">
-            <lightning:button variant="neutral" label="Update" title="Update" onclick="{!c.handleClick }" />
-        </aura:set>
+          
 
         <lightning:recordEditForm recordId="{!v.Meeting.Id}" objectApiName="Meeting__c" class="slds-align_absolute-center">
-            <lightning:outputField value="{!v.Location}" fieldName="Location__c"/>
-            <lightning:outputField value="{v.Meeting.Notes__c.value}" fieldName="Notes__c"/>
-            <lightning:outputField value="{v.Meeting.Feedback__c.value}" fieldName="Feedback__c"/>
-            <lightning:outputField value="{v.Meeting.Scheduled__c.value}" fieldName="Scheduled__c"/>
-            <lightning:outputField value="{!v.Meeting.Completed__c.value}" fieldName="Completed__c"/>
-
+            <lightning:inputField value="{!v.Location}" fieldName="Location__c"/>
+            <lightning:inputField value="{!v.Meeting.Notes__c.value}" fieldName="Notes__c"/>
+            <lightning:inputField value="{!v.Meeting.Feedback__c}" fieldName="Feedback__c"/>
+            <lightning:inputField value="{!v.Meeting.Scheduled__c.value}" fieldName="Scheduled__c"/>
+            <lightning:inputField value="{!v.Meeting.Completed__c.value}" fieldName="Completed__c"/>
+            
         </lightning:recordEditForm>
-
-
+        <div class="slds-align_absolute-center">
+                <lightning:button variant="neutral" label="Update" title="Update" onclick="{!c.handleClick }" />
+            </div>
     </lightning:card>
 
 

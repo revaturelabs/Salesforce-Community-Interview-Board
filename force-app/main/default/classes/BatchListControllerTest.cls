@@ -11,7 +11,7 @@ public with sharing class BatchListControllerTest {
     
         AccountsList.add(A);
   }
-    insert(AccountsList);
+    insert AccountsList;
     for(integer i = 0 ; i < 10 ; i++)
     {
         Batch_Client__c C = new Batch_Client__c();
@@ -20,7 +20,7 @@ public with sharing class BatchListControllerTest {
         BatchList.add(C);
   }
   
-    insert(BatchList);
+    insert BatchList;
 }
       
     @isTest
