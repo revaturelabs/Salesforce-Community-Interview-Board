@@ -10,5 +10,8 @@
             <c:QuestionCreation/>
             <c:InterviewQuestions/>
         </lightning:tab>
+        <lightning:tab label="INTERESTS" id="four">
+            <c:BatchClientWrapper/>
+        </lightning:tab>
     </lightning:tabset>
 </aura:component>
