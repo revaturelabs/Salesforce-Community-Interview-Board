@@ -12,6 +12,17 @@
         <template>unfiled$public/Client_Feedback</template>
     </alerts>
     <alerts>
+        <fullName>Client_Feedback_to_associate_v2</fullName>
+        <description>Client Feedback to associate_v2</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Participant__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Client_Feedback</template>
+    </alerts>
+    <alerts>
         <fullName>Initial_Meeting_Notification_24h</fullName>
         <description>Initial Meeting Notification (24h)</description>
         <protected>false</protected>

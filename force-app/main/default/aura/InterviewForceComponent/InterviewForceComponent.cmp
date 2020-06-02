@@ -1,11 +1,12 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
 	 <lightning:tabset selectedtabid="two" variant="scoped">
-    	<lightning:tab label="ASSOCIATES" id="one">
-            <c:AssociateWrapper/>
-        </lightning:tab>
-        <lightning:tab label="MEETINGS" id="two">
+        <lightning:tab label="MEETINGS" id="one">
             <c:MeetingAssignment/>
         </lightning:tab>
+    	<lightning:tab label="ASSOCIATES" id="two">
+            <c:AssociateWrapper/>
+        </lightning:tab>
+        
     	<lightning:tab label="QUESTIONS" id="three">
             <c:QuestionCreation/>
             <c:InterviewQuestions/>
