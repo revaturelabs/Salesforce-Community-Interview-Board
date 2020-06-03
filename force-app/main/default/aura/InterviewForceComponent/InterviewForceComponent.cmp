@@ -1,5 +1,5 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-    <header /> 
+    <c:header /> 
     <lightning:tabset selectedtabid="two" variant="scoped">
         <lightning:tab label="MEETINGS" id="one">
             <c:MeetingAssignment/>
