@@ -27,6 +27,9 @@
 
             $A.enqueueAction(action);
         }
+        else {
+            component.set("v.questions", []);
+        }
     },
     
     //pagination management
