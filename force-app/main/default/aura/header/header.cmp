@@ -1,0 +1,5 @@
+<aura:component >
+	<div class = "div__style">
+        <img class = "img__style" src="{!$Resource.RevatureLogo}"/>
+    </div>
+</aura:component>

@@ -46,6 +46,7 @@
 		<members>InterviewQuestions</members>
 		<members>InterviewForceComponent</members>
 		<members>BatchClientWrapper</members>
+		<members>header</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	

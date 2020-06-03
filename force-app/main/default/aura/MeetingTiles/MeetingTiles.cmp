@@ -11,10 +11,10 @@
 
         <lightning:recordEditForm recordId="{!v.Meeting.Id}" objectApiName="Meeting__c" class="slds-align_absolute-center">
             <lightning:inputField value="{!v.Location}" fieldName="Location__c"/>
-            <lightning:inputField value="{!v.Meeting.Notes__c.value}" fieldName="Notes__c"/>
+            <lightning:inputField value="{!v.Meeting.Notes__c}" fieldName="Notes__c"/>
             <lightning:inputField value="{!v.Meeting.Feedback__c}" fieldName="Feedback__c"/>
-            <lightning:inputField value="{!v.Meeting.Scheduled__c.value}" fieldName="Scheduled__c"/>
-            <lightning:inputField value="{!v.Meeting.Completed__c.value}" fieldName="Completed__c"/>
+            <lightning:inputField value="{!v.Meeting.Scheduled__c}" fieldName="Scheduled__c"/>
+            <lightning:inputField value="{!v.Meeting.Completed__c}" fieldName="Completed__c"/>
             
         </lightning:recordEditForm>
         <div class="slds-align_absolute-center">
