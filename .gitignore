@@ -14,6 +14,22 @@ coverage/
 
 # Logs
 logs
+# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
+# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
+# For useful gitignore templates see: https://github.com/github/gitignore
+
+# Salesforce cache
+.sfdx/
+.localdevserver/
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -33,3 +49,28 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+
+# Lawrence's evil experiment
+#ignore all files we don't wanna push to Dev
+.vscode
+Component-UIs 
+config 
+
+scripts
+.eslintignore
+.forceignore
+prettierignore
+prettierrc
+package.json
+README
+.node_modules
+sfdx-project.json
+force-app/main/default/*
+#except the things we wanna keep
+!force-app/main/default/classes
+!force-app/main/default/aura
+!force-app/main/default/objects
+
+
+
+
