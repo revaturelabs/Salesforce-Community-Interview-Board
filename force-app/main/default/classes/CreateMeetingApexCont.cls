@@ -38,7 +38,7 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate)
     {
-        if(meeting.Name == null) return null;
+        if(meeting.Name == null || meeting.Name == '') return null;
         try{
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
@@ -55,6 +55,10 @@ public with sharing class CreateMeetingApexCont {
         
 
             insert meetingParticipants;
+            meeting_participant__C Client = [select ID from Meeting_Participant__C where Participant__c = :interviewer.id and Meeting__c = :meeting.Id];
+            meeting.Participating_client__C = client.id;
+            
+            update meeting;
             return meeting;
         } catch (Exception e) {
             return null;
@@ -64,8 +68,11 @@ public with sharing class CreateMeetingApexCont {
     @AuraEnabled
     public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strInterviewer, List<Contact> fullBatch)
     {
-        if(fullBatch.size() == 0 || meeting.Name == null) return null;
+        if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
         try {
+            RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
+        RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
+        meeting.RecordTypeId = RTInterviewBatch.Id;
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             insert meeting;
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
@@ -80,6 +87,10 @@ public with sharing class CreateMeetingApexCont {
             }
 
             insert meetingParticipants;
+            meeting_participant__C Client = [select ID from Meeting_Participant__C where Participant__c = :interviewer.id and Meeting__c = :meeting.Id];
+            meeting.Participating_client__C = client.id;
+            
+            update meeting;
             return meeting;
         } catch (Exception e) {
             return null;

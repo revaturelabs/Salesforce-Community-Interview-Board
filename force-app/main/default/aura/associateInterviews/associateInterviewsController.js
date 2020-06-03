@@ -6,24 +6,30 @@
 				fieldName: "Name",
 				type: "String"
 			},
-			/*
-			{
-				label: "Associate",
-				fieldName: "",
-				type: ""
-			},
-			{
+            {
 				label: "Interviewer",
-				fieldName: "",
-				type: ""
+				fieldName: "Client_Name__c",
+				type: "String"
 			},
-			*/
 			{
 				label: "Completion Date",
 				fieldName: "Completed_Date__c",
 				type: "date"
 			}
 		]);
-		helper.getMeetings(component);
-	}
+		
+	},
+    handleEvent : function(cmp, event, helper) {
+        var id = event.getParam("AId");
+    	var action = cmp.get("c.getMeetings");
+        action.setParams({AId: id});
+		action.setCallback(this, $A.getCallback(function (response) {
+			if (response.getState() === "SUCCESS") {
+				cmp.set("v.meetings", response.getReturnValue());
+			} else {
+				console.error(response.getError());
+			}
+		}));
+		$A.enqueueAction(action);
+    }
 })

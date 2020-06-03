@@ -30,7 +30,7 @@
 <!-- BEGIN INPUT AREA -->        
             <form class="slds-form--stacked">
     
-            <lightning:input label="Name" type="text"
+            <lightning:input label="Name (Required) " type="text"
                              value="{!v.meeting.Name}"/>
             <lightning:input label="When" type="datetime"
                              value="{!v.meeting.Scheduled__c}"/>
@@ -38,7 +38,7 @@
                              value="{!v.meeting.Location__c}"/>
     
 <!-- SELECT INTERVIEWER -->
-            <lightning:select label="Interviewer" value="{!v.selInterviewer}">
+            <lightning:select label="Interviewer (Required) " value="{!v.selInterviewer}">
                 <option text="--NONE SELECTED--" value=""/>
                 <aura:iteration items="{!v.interviewers}" var="int">
                     <option text="{!int.Name}" value="{!int.Id}"/>
@@ -47,7 +47,7 @@
 <!-- END SELECT INTERVIWER -->
     
 <!-- SELECT BATCH PICKLIST -->        
-            <lightning:select label="Batch" onchange="{!c.updateAssociates}"
+            <lightning:select label="Batch (Required) " onchange="{!c.updateAssociates}"
                               value="{!v.meeting.Batch__c}">
                 <option text="--NONE SELECTED--" value=""/>
                 <aura:iteration items="{!v.batches}" var="bat">
@@ -61,7 +61,7 @@
                              
 <!-- AURA:IF TO DISPLAY ASSOCIATES PICKLIST -->
             <aura:if isTrue="{!!v.allbatch}">
-                <lightning:select label="Associates" value="{!v.selAssociate}">
+                <lightning:select label="Associates (Required) " value="{!v.selAssociate}">
                     <option text="--NONE SELECTED--" value=""/>
                     <aura:iteration items="{!v.batchAssociates}" var="asc">
                         <option text="{!asc.Name}" value="{!asc.Id}"/>

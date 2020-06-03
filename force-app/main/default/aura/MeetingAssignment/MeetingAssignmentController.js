@@ -12,7 +12,7 @@
       var batchItem = component.find("selectlist").get("v.value");
        var nameItem = component.find("assoclist").get("v.value");
         var searchSF = component.get("c.getMeetings");//apex getMeeting
-
+		 var reset = component.set("v.body", ''); 
         searchSF.setParams({participant:nameItem,
                             batch:batchItem});
         searchSF.setCallback(this, function(response)
@@ -24,8 +24,10 @@
                 console.log('STATE SUCCESSFUL');
                 var returns = response.getReturnValue();
                 console.log(returns);
+                 
                 for (let i=0; i<returns.length; i++)
-                {                  
+                {               
+   
                     var value = returns[i];
                     console.log(value);
                     helper.build(component, value);
@@ -63,6 +65,8 @@
     */
     initAssocs : function(component, event, helper)
     {
+        var resetAssoc = component.find("assoclist").set("v.value", "");
+
         var searchAssociates = component.get("c.getAssociates");// apex getAssociates
         //get batch dropdown selection and set parameter for callback function
         var setName = component.find("selectlist").get("v.value");

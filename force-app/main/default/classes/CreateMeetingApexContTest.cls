@@ -7,7 +7,7 @@ public with sharing class CreateMeetingApexContTest {
         RecordType batch = [SELECT Id FROM RecordType WHERE Name = 'Batch' LIMIT 1];
 
         for(integer i = 0; i < cnt; i++)
-            batches.add(new Account(Name='Batch ' + i, RecordType = batch));
+            batches.add(new Account(Name='Batch ' + i, RecordTypeId = batch.Id));
 
         insert batches;
     }
@@ -26,7 +26,7 @@ public with sharing class CreateMeetingApexContTest {
             {
                 associates.add(new Contact(FirstName = 'Bat' + i,
                                            LastName = 'Asc' + j,
-                                           RecordType = associate,
+                                           RecordTypeId = associate.Id,
                                            AccountId = batches.get(i).Id));
             }
         }

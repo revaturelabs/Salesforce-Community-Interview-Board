@@ -55,7 +55,7 @@ $RECYCLE.BIN/
 .vscode
 Component-UIs 
 config 
-manifest
+
 scripts
 .eslintignore
 .forceignore
@@ -69,6 +69,8 @@ force-app/main/default/*
 #except the things we wanna keep
 !force-app/main/default/classes
 !force-app/main/default/aura
+!force-app/main/default/objects
+
 
 
 

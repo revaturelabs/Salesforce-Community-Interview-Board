@@ -1,0 +1,52 @@
+<aura:component controller="BatchClientCreationController">
+    <aura:attribute name="batchClientName" type="String"/>
+    <aura:attribute name="selectedBatchId" type="String"/>
+    <aura:attribute name="selectedClientId" type="String"/>
+    <aura:attribute name="batchAccounts" type="Account[]"/> 
+    <aura:attribute name="clientAccounts" type="Account[]"/>
+
+    <!--The component below should populate the two components above with a list of Accounts with the corresponding Record Type-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+
+    <!--Below is card where the user can input a name, select a batch account, select a client account, and submit-->
+    <div class="slds-p-horizontal_x-large">
+        <lightning:card title="Create a Batch Client">
+
+            <div class="slds-p-horizontal_xx-small">
+                <lightning:input name="inputBatchName" placeholder="Batch Name" value="{!v.batchClientName}" maxlength="79"/>
+
+                <br/>
+
+                <!--A picklist of all Batch Accounts to select-->
+                <lightning:select label="Batch Accounts" aura:id="batchPicker" onchange="{!c.batchChange}">
+                    <option value="evilvalue" text="Pick a Batch..."/>
+                    <aura:iteration items="{!v.batchAccounts}" var="batch">
+                        <option value="{!batch.Id}" text="{!batch.Name}" />
+                    </aura:iteration>
+                </lightning:select>
+
+
+
+                <!--A picklist of all Client Accounts to select-->
+                <lightning:select label="Client Accounts" aura:id="clientPicker" onchange="{!c.clientChange}">
+                    <option value="evilvalue" text="Pick a Client..."/>
+                    <aura:iteration items="{!v.clientAccounts}" var="client">
+                        <option value="{!client.Id}" text="{!client.Name}"/>
+                    </aura:iteration>
+                </lightning:select>
+
+                <br/>
+
+                <!--The button to create the Batch Client Record-->
+                <div class="slds-align_absolute-center">
+                    <lightning:button name="submitButton" label="Submit" onclick="{!c.submitBtn}" />
+                </div>
+
+            </div>
+        </lightning:card>
+    </div>
+
+
+
+</aura:component>	
