@@ -1,13 +1,14 @@
-public class InterviewQuestions {
-    //grabbing the meetings and the questions for our picklist
-    @AuraEnabled
-    public static List<List<sObject>> loadQuestionMap()
-    {
-        List<List<sObject>> objs = new List<List<sObject>>();
+public class InterviewQuestions { 
 
-        objs.add([SELECT Id, Name FROM Meeting__c]);
-        objs.add([SELECT Id, Subject__c, Body__c, Meeting__c FROM Interview_Question__c ORDER BY CreatedDate DESC]);
-       
-        return objs;
+    @AuraEnabled
+    public static List<Meeting__c> getMeetings() {
+        return [SELECT Id, Name FROM Meeting__c]; 
     }
+
+    @AuraEnabled
+    public static List<Interview_Question__c> getQuestions(Id meetingId) {
+        return [SELECT Id, Subject__c, Body__c, Name, Meeting__c 
+            FROM Interview_Question__c WHERE Meeting__c = :meetingId ORDER BY CreatedDate DESC];
+    }
+    
 }

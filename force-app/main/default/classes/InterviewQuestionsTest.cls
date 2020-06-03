@@ -23,87 +23,87 @@ public with sharing class InterviewQuestionsTest {
     }
 
 //test positive multiple records
-    @isTest
-    public static void MultipleBothTest()
-    {
-        makeQuestions(10, 10);
+//     @isTest
+//     public static void MultipleBothTest()
+//     {
+//         makeQuestions(10, 10);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(10, result.get(0).size());
-        System.assertEquals(100, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(10, result.get(0).size());
+//         System.assertEquals(100, result.get(1).size());
+//     }
 
-    @isTest
-    public static void MultipleMeetingNoQuestionTest()
-    {
-        makeQuestions(10, 0);
+//     @isTest
+//     public static void MultipleMeetingNoQuestionTest()
+//     {
+//         makeQuestions(10, 0);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(10, result.get(0).size());
-        System.assertEquals(0, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(10, result.get(0).size());
+//         System.assertEquals(0, result.get(1).size());
+//     }
 
-    @isTest
-    public static void MultipleQuestionNoMeetingTest()
-    {
-        makeQuestions(0, 10);
+//     @isTest
+//     public static void MultipleQuestionNoMeetingTest()
+//     {
+//         makeQuestions(0, 10);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(0, result.get(0).size());
-        System.assertEquals(10, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(0, result.get(0).size());
+//         System.assertEquals(10, result.get(1).size());
+//     }
 
-//test one record
-    @isTest
-    public static void OneBothTest()
-    {
-        makeQuestions(1, 1);
+// //test one record
+//     @isTest
+//     public static void OneBothTest()
+//     {
+//         makeQuestions(1, 1);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(1, result.get(0).size());
-        System.assertEquals(1, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(1, result.get(0).size());
+//         System.assertEquals(1, result.get(1).size());
+//     }
 
-    @isTest
-    public static void OneMeetingNoQuestionTest()
-    {
-        makeQuestions(1, 0);
+//     @isTest
+//     public static void OneMeetingNoQuestionTest()
+//     {
+//         makeQuestions(1, 0);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(1, result.get(0).size());
-        System.assertEquals(0, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(1, result.get(0).size());
+//         System.assertEquals(0, result.get(1).size());
+//     }
 
-    @isTest
-    public static void OneQuestionNoMeetingTest()
-    {
-        makeQuestions(0, 1);
+//     @isTest
+//     public static void OneQuestionNoMeetingTest()
+//     {
+//         makeQuestions(0, 1);
 
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(0, result.get(0).size());
-        System.assertEquals(1, result.get(1).size());
-    }
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(0, result.get(0).size());
+//         System.assertEquals(1, result.get(1).size());
+//     }
 
-//test null?
-    @isTest
-    public static void NoEitherTest()
-    {
-        List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
+// //test null?
+//     @isTest
+//     public static void NoEitherTest()
+//     {
+//         List<List<sObject>> result = InterviewQuestions.loadQuestionMap();
 
-        System.assertEquals(2, result.size());
-        System.assertEquals(0, result.get(0).size());
-        System.assertEquals(0, result.get(1).size());
-    }
-}
+//         System.assertEquals(2, result.size());
+//         System.assertEquals(0, result.get(0).size());
+//         System.assertEquals(0, result.get(1).size());
+//     }
+ }

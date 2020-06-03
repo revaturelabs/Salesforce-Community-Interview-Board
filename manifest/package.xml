@@ -46,6 +46,8 @@
 		<members>InterviewQuestions</members>
 		<members>InterviewForceComponent</members>
 		<members>BatchClientWrapper</members>
+		<members>BatchClientCreation</members>
+		<members>BatchClientlist</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
@@ -64,10 +66,12 @@
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
 	</types>
+
 	<types>
 		<members>Admin</members>
 		<name>Profile</name>
 	</types>
+		
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
