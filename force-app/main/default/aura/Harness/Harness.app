@@ -1,6 +1,6 @@
 <aura:application extends="force:slds">
+    <c:header />
     <lightning:tabset selectedtabid="two" variant="scoped">
-    	
         <lightning:tab label="MEETINGS" id="one">
             <c:MeetingAssignment/>
         </lightning:tab>
