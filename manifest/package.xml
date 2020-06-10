@@ -81,6 +81,10 @@
 		<name>RecordType</name>
 	</types>
 	<types>
+		<members>RevatureLogo</members>
+		<name>StaticResource</name>
+	</types>
+	<types>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<name>Workflow</name>
