@@ -1,0 +1,4 @@
+<aura:component>
+    <c:BatchClientCreation />
+    <c:BatchClientlist />
+</aura:component>
