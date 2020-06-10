@@ -1,0 +1,72 @@
+<!-- AURA STYLE GUIDE -->
+<!-- Comments have a space before and after the start and end tags -->
+<aura:component controller="Callout">
+	<!-- different types of element tags should have an empty line between them -->
+	<!-- Attribute tags, event registration, and handler tags at the top -->
+	<!-- tags with more than two attributes should wrap and indent each extra attribute -->
+	<!-- name attributes should self comment -->
+	<!-- Object attributes should define defaults as appropriate -->
+    <aura:attribute name="newCustomObject" type="CustomObject__c"
+                    default="{ 'sobjectType' : 'CustomObject__c',
+                                'Name' : '',
+                                'StringField__c' : '',
+                                'NumberField__c' : 1,
+                                'Checkbox__c' : false }"/>
+    <aura:attribute name="listNames" type="String[]"/>
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+	<!-- Embedded lightning components should have a descriptor comment -->
+	<!-- Displays a text screen flow for successful record creation -->
+    <lightning:flow aura:id="flowTag"/>
+	
+	<!-- Nested elements should be wrapped in a beginning and ending comment -->
+	<!-- The comment should be all CAPS, describe the element block function, -->
+	<!-- And the ending comment should start with the word END -->
+	<!-- Wrapper comments should have an empty line between them and following elements -->
+    <!-- CREATE CLASS PICKLIST -->
+    <lightning:select name="listNamePicklist" label="Class" aura:id="classChoice">
+        <aura:iteration items="{!v.listNames}" var="classPick">
+            <!--<option text="{!classPick}"/>-->
+            <option value="{!classPick}" text="{!classPick}"/>
+        </aura:iteration>
+    </lightning:select>
+    <!-- END CREATE CLASS PICKLIST -->
+	
+    <!-- CREATE NEW SHEET -->
+    <div aria-labelledby="newCustomObjectForm">
+	
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--medium">
+            <legend id="newCustomObjectForm" class="slds-text-heading--small 
+				slds-p-vertical--medium">
+                Create Object
+            </legend>
+			
+            <!-- CREATE NEW CHAR SHEET FORM -->
+            <form class="slds-form--stacked">
+                <lightning:input aura:id="customForm" label="Character Name"
+                                name="customName"
+                                value="{!v.newCustomObject.Name}"
+                                required="true"/>
+                <lightning:input type="number" aura:id="customForm" label="Cha"
+                                name="chaName"
+                                min="3"
+                                max="40"
+                                step="1"
+                                value="{!v.newCustomObject.ChaField__c}"
+                                messageWhenRangeUnderflow="Enter number 3-40."/>
+                <lightning:input type="toggle" aura:id="customForm" label="Inspiration"
+                                name="chaCheckbox"
+                                checked="{!v.newCustomObject.Checkbox__c}"/>
+                <lightning:button label="Create Object"
+                                class="slds-m-top--medium"
+                                variant="brand"
+                                onclick="{!c.clickCreate}"/>
+            </form>
+            <!-- END CREATE NEW CHAR SHEET FORM-->
+        </fieldset>
+        <!-- END BOXED AREA-->
+    </div>
+    <!-- END CREATE NEW SHEET-->
+</aura:component>	
