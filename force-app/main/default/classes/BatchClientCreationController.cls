@@ -7,10 +7,7 @@ public class BatchClientCreationController {
         RecordType batch = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Batch' Limit 1];
         String batchRecordTypeId = batch.id;
         
-        Id batchTypeId =
-            Schema.SObjectType.Account.getRecordTypeInfosByName().get('Batch').getRecordTypeId();
-
-        return [SELECT Name, Id FROM Account WHERE RecordTypeId =: batchTypeId];  
+        return [SELECT Name, Id FROM Account WHERE RecordTypeId = '0125w000001PYxsAAG'];  
     }
 
     //Get all account records with the client recordtype id
@@ -20,10 +17,7 @@ public class BatchClientCreationController {
         RecordType client = [Select name, Id from RecordType where sObjectType='Account' and Name = 'Client' Limit 1];
         String clientRecordTypeId = client.id;
         
-        Id clientTypeId =
-            Schema.SObjectType.Account.getRecordTypeInfosByName().get('Client').getRecordTypeId();
-
-        return [SELECT Name, Id FROM Account WHERE RecordTypeId =: clientTypeId];   
+        return [SELECT Name, Id FROM Account WHERE RecordTypeId = '0125w000001PYxtAAG'];   
     }
     
     //create a batch client record based on user input.
