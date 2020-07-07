@@ -149,17 +149,17 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Interview Question</label>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Question</label>
     <nameField>
-        <label>Interview Question Name</label>
+        <label>Question Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Interview Questions</pluralLabel>
+    <pluralLabel>Questions</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
