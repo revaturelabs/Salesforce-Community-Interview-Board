@@ -17,10 +17,10 @@ public with sharing class syncUtilityClass {
             Contact[] externalData = new Contact[]{};
 			for(Object data : responseList) {
                 Map<String, Object> contactInfo = (Map<String,Object>) data;
-                Contact newContact = new Contact( firstName = contactInfo.get('firstName'),
-                                                    lastName = contactInfo.get('lastName'),
-                                                    email = contactInfo.get('email'),
-                                                    salesforceId__c = contactInfo.get('salesforceId'),
+                Contact newContact = new Contact( firstName = (String)contactInfo.get('firstName'),
+                                                    lastName = (String) contactInfo.get('lastName'),
+                                                    email = (String)contactInfo.get('email'),
+                                                    salesforceId__c = (String)contactInfo.get('salesforceId'),
                                                     flag = null);
                 externalData.add(newContact);
             }
