@@ -10,6 +10,12 @@ public with sharing class QuestionPoolApexController {
             return allQuestions;
             
         }
+    
+    	@AuraEnabled
+    public static void deleteQuestions(Id[] idList){
+        Question__c[] questionList = [SELECT Id FROM Question__c WHERE Id IN :idList];
+        delete questionList;
+    }
         
 
 }
