@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "Interview-Board-Frontend",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT"
+            "versionName": "version 1",
+            "versionNumber": "1.0.0.NEXT"
         }
     ],
     "namespace": "",
