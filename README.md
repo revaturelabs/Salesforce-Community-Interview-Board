@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Team3
-=======
 Team2
->>>>>>> b34ba657ff356a11787b0123ce86cc53e537a36f
 # Salesforce App
 
 This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
