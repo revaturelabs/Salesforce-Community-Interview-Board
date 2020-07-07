@@ -1,11 +1,18 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "Interview-Board-Frontend",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "Interview-Board-Frontend": "0Ho3h000000PBWGCA4",
+        "Interview-Board-Frontend@0.1.0-1": "04t3h000004BQX9AAO"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
 }
