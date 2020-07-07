@@ -149,16 +149,16 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
-    <label>Batch Client</label>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Question</label>
     <nameField>
-        <label>Batch Client Name</label>
+        <label>Question Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Batch Clients</pluralLabel>
+    <pluralLabel>Questions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
