@@ -20,7 +20,7 @@ public with sharing class syncUtilityClass {
                 Contact newContact = new Contact( firstName = contactInfo.get('firstName'),
                                                     lastName = contactInfo.get('lastName'),
                                                     email = contactInfo.get('email'),
-                                                    name = contactInfo.get('salesforceId'),
+                                                    salesforceId__c = contactInfo.get('salesforceId'),
                                                     flag = null);
                 externalData.add(newContact);
             }
@@ -63,14 +63,14 @@ public with sharing class syncUtilityClass {
             flag = null,
             id = '',
             name = '',
-            trainingStatus = ''
+            trainingStatus = 'Training'
         );
         for(Contact newExternal : internalAssociatesToAdd) {
-            contactData.batchId = newExternal.batchId;
+            contactData.batchId = newExternal.batchId__c;
             contactData.email = newExternal.email;
-            contactData.id = newExternal.name;
+            contactData.id = newExternal.salesforceId__c;
             contactData.name = newExternal.firstName + ' ' + newExternal.lastName;
-            contactData.trainingStatus = newExternal.trainingStatus;
+            contactData.trainingStatus = 'Training';
 
             String parsedObject = JSON.serialize(contactData);
 
