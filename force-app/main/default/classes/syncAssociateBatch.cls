@@ -14,7 +14,7 @@ public with sharing class syncUtilityClass {
         
 		if(response.getStatusCode() == 200){
             Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
-            Contact[] externalData = new Contact[];
+            Contact[] externalData = new Contact[]{};
 			for(Object data : responseList) {
                 Map<String, Object> contactInfo = (Map<String,Object>) data;
                 Contact newContact = new Contact( firstName = contactInfo.get('firstName'),
@@ -58,18 +58,18 @@ public with sharing class syncUtilityClass {
         request.setMethod('POST');
         
         Object contactData = new Object(
-            batchId = "",
-            email = "",
+            batchId = '',
+            email = '',
             flag = null,
-            id = "",
-            name = "",
-            trainingStatus = ""
-        )
+            id = '',
+            name = '',
+            trainingStatus = ''
+        );
         for(Contact newExternal : internalAssociatesToAdd) {
             contactData.batchId = newExternal.batchId;
             contactData.email = newExternal.email;
             contactData.id = newExternal.name;
-            contactData.name = newExternal.firstName + " " + newExternal.lastName;
+            contactData.name = newExternal.firstName + ' ' + newExternal.lastName;
             contactData.trainingStatus = newExternal.trainingStatus;
 
             String parsedObject = JSON.serialize(contactData);
@@ -79,7 +79,7 @@ public with sharing class syncUtilityClass {
             HttpResponse response = protocol.send(request);
 
             if(response.getStatusCode() == '201') {
-                System.debug('External Associate created successfully!')
+                System.debug('External Associate created successfully!');
             } else {
                 System.debug(response.getStatusCode());
                 System.debug(response.getBody());
