@@ -1,5 +1,5 @@
 @isTest
-public class BatchClientCreationTest {
+public class BatchClientCreationControllerTest {
 
    @TestSetup
     public static void createRecords(){
