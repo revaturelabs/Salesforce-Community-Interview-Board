@@ -19,7 +19,7 @@
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>QuestionPoolApexController</members>
-
+		<members>InterviewsListController</members>
 		<name>ApexClass</name>
 	</types>
 	
@@ -49,6 +49,7 @@
 		<members>BatchClientlist</members>
 		<members>header</members>
 		<members>QuestionPoolList</members>
+		<members>InterviewsList</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
