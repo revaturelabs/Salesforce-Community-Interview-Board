@@ -21,6 +21,7 @@
 		<members>QuestionPoolApexController</members>>
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
+		<members>CreateMockInterviewController</members>
 		<name>ApexClass</name>
 	</types>
 	
