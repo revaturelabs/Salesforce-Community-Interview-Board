@@ -86,11 +86,15 @@ public with sharing class syncUtilityClass {
         return externalData;
     }
 
-    //Method to compare 2 lists of Contacts and return a list of the ones missing from the second
+    //Method to compare 2 lists of Contacts and return a list of the ones missing
+    //  If an item from list #1 is not contained in list #2, it will be added
+    //  This will return all items that would need to be added to list #2
     private Contact[] compareContacts(Contact[] listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
         Boolean match = false;
         
+        //Iterate through list #1, and compare each item against all the items in list #2 
+        //  to see if list#2 is missing anything
         for(Contact first : listOuter) {
             for(Contact second : listInner) {
                 if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
