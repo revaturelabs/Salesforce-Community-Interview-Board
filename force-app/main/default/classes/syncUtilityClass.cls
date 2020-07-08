@@ -1,27 +1,29 @@
 /*
-    This class synchronizes between the external API (Caliber) and the internal Database
-    Items Synced are Associate Contacts, Client Contacts, Batch Accounts, and Client Accouts
+This class synchronizes between the external API (Caliber) and the internal Database
+Items Synced are Associate Contacts, Client Contacts, Batch Accounts, and Client Accouts
 */
 
 public with sharing class syncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
-    Contact[] internalAssociates = [SELECT Id, Name, Email FROM Contact WHERE recordType.Name IN ('Associate')];
+    Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
     Contact[] externalAssociates = new Contact[]{};
-        Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
+    Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
     Account[] externalBatches = new Account[]{};
         
-        Http protocol = new Http();
+    Http protocol = new Http();
     HttpRequest request = new HttpRequest();
     
     // Get external associate data
     public Contact[] getAssociates() {
-        request.setEndpoint(baseUrl + '/associate');
-        request.setMethod('GET');
-        HttpResponse response = protocol.send(request);
-        
         Contact[] externalData = new Contact[]{};
-            
+        request.setMethod('GET');
+        // Loop through batch account records
+        for(Account batch : [SELECT Id, BatchId__c FROM Account WHERE recordType.Name IN ('Batch')]) {
+            // Set batchId as parameters for request
+            request.setEndpoint(baseUrl + '/associate?batch=' + batch.BatchId__c);
+            HttpResponse response = protocol.send(request);
+                
             if(response.getStatusCode() == 200){
                 // Associate data parsing
                 Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
@@ -33,6 +35,8 @@ public with sharing class syncUtilityClass {
                     Map<String, Object> contactInfo = (Map<String,Object>) data;
                     Contact newContact = new Contact( firstName = (String)contactInfo.get('firstName'),
                                                      lastName = (String) contactInfo.get('lastName'),
+                                                     batchId__c = batch.batchId__c,
+                                                     AccountId = batch.Id,
                                                      email = (String)contactInfo.get('email'),
                                                      SalesforceId__c = (String)contactInfo.get('salesforceId'),
                                                      RecordTypeId = recordTypeId);
@@ -40,7 +44,7 @@ public with sharing class syncUtilityClass {
                 }
                 
             }
-        
+        }
         return externalData;
     }
     
@@ -100,30 +104,31 @@ public with sharing class syncUtilityClass {
             }
         return externalData;
     }
-
+    
     //Method to compare 2 lists of Contacts and return a list of the ones missing
     //  If an item from list #1 is not contained in list #2, it will be added
     //  This will return all items that would need to be added to list #2
     private Contact[] compareContacts(Contact[] listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
-            Boolean match = false;
-        
-        //Iterate through list #1, and compare each item against all the items in list #2 
-        //  to see if list#2 is missing anything, and if so, add it to the list of items to add
-        for(Contact first : listOuter) {
-            for(Contact second : listInner) {
-                if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
-                    match = true;
+            
+            //Iterate through list #1, and compare each item against all the items in list #2 
+            //  to see if list#2 is missing anything, and if so, add it to the list of items to add
+            for(Contact first : listOuter) {
+                Boolean match = false;
+                for(Contact second : listInner) {
+                    if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
+                        match = true;
+                    }
+                }
+                if(!match) {
+                    associatesToAdd.add(first);
                 }
             }
-            if(!match) {
-                associatesToAdd.add(first);
-            }
-        }
         //Return the list of items to add
+        System.debug(associatesToAdd);
         return associatesToAdd;
     }
-
+    
     // This method compares 2 lists of Accounts
     //  If any records are missing from list #2, they will be returned in a new list
     private Account[] compareBatches(Account[] listOuter, Account[] listInner) {
@@ -144,34 +149,20 @@ public with sharing class syncUtilityClass {
         //Return the list of every item that list #2 didn't have
         return batchesToAdd;
     }
-
-    // Match each Batch Account Record to their associates
-    public void setBatchAssociates() {
-        Contact[] allAssociates = [SELECT batchId__c, AccountId FROM Contact WHERE recordType.Name IN ('Associate')];
-        for(Account batch : [SELECT Id, batchId__c FROM Account WHERE recordType.Name IN ('Batch')]) {
-            for(Contact associate : allAssociates) {
-                if(associate.batchId__c == batch.batchId__c) {
-                    associate.AccountId = batch.Id;
-                }
-            }
-        }
-    }
     
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabases() {
         // Get external data
-        externalAssociates = getAssociates();
         externalBatches = getBatches();
-        
-        // Update Saleforce database
         Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
         insert externalBatchesToAdd;
-
+        
+        externalAssociates = getAssociates();
         Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
-        setBatchAssociates();
         upsert externalAssociatesToAdd;
         
         // Update Caliber database 
+        /*
         request.setMethod('POST');
         request.setHeader('Content-Type', 'application/json');
         
@@ -183,6 +174,7 @@ public with sharing class syncUtilityClass {
         contactData.put('trainingStatus', 'Training Status');
         
         for(Contact newExternal : internalAssociatesToAdd) {
+            System.debug(newExternal);
             contactData.put('batchId', newExternal.batchId__c);
             contactData.put('email', newExternal.email);
             contactData.put('id', newExternal.name);
@@ -192,7 +184,7 @@ public with sharing class syncUtilityClass {
             
             request.setBody(parsedObject);
             HttpResponse response = protocol.send(request);
-
+            
             //Check to confirm we got the correct response
             if(response.getStatusCode() == 201) {
                 System.debug('External Associate created successfully!');
@@ -200,6 +192,6 @@ public with sharing class syncUtilityClass {
                 System.debug(response.getStatusCode());
                 System.debug(response.getBody());
             }
-        }
+        }*/
     }
 }
