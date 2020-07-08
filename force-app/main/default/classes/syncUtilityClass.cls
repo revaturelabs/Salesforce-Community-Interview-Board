@@ -10,7 +10,7 @@ public with sharing class syncUtilityClass {
     Contact[] externalAssociates = new Contact[]{};
     Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
     Account[] externalBatches = new Account[]{};
-        
+
     Http protocol = new Http();
     HttpRequest request = new HttpRequest();
     
@@ -163,5 +163,22 @@ public with sharing class syncUtilityClass {
         externalAssociates = getAssociates();
         Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
         upsert externalAssociatesToAdd;
+    }
+
+    private static String CRON = '0 0 0 ? * SUN *'; 
+
+    @AuraEnabled
+    public static void setCRONExpression(String newCRON){
+        CRON = newCRON;
+    }
+
+    @AuraEnabled
+    public static String[] getCRONExpression(){
+        String[] getValues = CRON.split(' ');
+        getValues.remove(6);
+        getValues.remove(4);
+        getValues.remove(3);
+        getValues.remove(0);
+        return getValues;
     }
 }
