@@ -22,7 +22,10 @@ global class SyncCalloutMock implements HttpCalloutMock {
                   '"currentWeek": 11}]'
                 );
         } else {
-            res.setBody('[{ "email": "mock15.associate7e28dcdf-8ce7-40bc-8b75-12a0ba305009@mock.com","salesforceId": "SF-1840","firstName": "Mock 15","lastName": "Associate 15","flag": null},{"email": "mock12.associate46353ee8-34ab-4ac5-a0c0-c781590da3f7@mock.com","salesforceId": "SF-1837","firstName": "Mock 12","lastName": "Associate 12","flag": null}]');
+            res.setBody('[{ "email": "mock15.associate7e28dcdf-8ce7-40bc-8b75-12a0ba305009@mock.com",' + 
+                        '"salesforceId": "SF-1840","firstName": "Mock 15","lastName": "Associate 15",' + 
+                        '"flag": null},{"email": "mock12.associate46353ee8-34ab-4ac5-a0c0-c781590da3f7@mock.com",' +
+                        '"salesforceId": "SF-1837","firstName": "Mock 12","lastName": "Associate 12","flag": null}]');
         }
         return res;
     }
