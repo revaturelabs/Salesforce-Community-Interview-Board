@@ -18,7 +18,7 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-		<members>QuestionPoolApexController</members>>
+		<members>QuestionPoolApexController</members>
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
 		<members>CreateMockInterviewController</members>

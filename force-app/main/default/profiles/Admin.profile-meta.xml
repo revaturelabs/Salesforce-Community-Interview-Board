@@ -33,6 +33,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateMockInterviewController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -50,6 +54,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingListController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MockInterviewsListController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
