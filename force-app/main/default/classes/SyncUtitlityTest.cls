@@ -23,4 +23,15 @@ private class SyncUtitlityTest {
         System.assertEquals(10, contacts.size());
     }
     
+    @isTest
+    private static void testGetBatches() {
+        syncUtilityClass SUC = new syncUtilityClass();
+        Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
+
+        Test.startTest();
+        Account[] accounts = SUC.getBatches();
+        Test.stopTest();
+
+        System.assertEquals(2, accounts.size());
+    }
 }
