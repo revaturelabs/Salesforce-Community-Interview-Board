@@ -18,13 +18,10 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-<<<<<<< HEAD
 		<members>QuestionPoolApexController</members>
 		<members>InterviewsListController</members>
-=======
 		<members>AssociateMockInterviewsController</members>
 
->>>>>>> premaster
 		<name>ApexClass</name>
 	</types>
 	
