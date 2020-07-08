@@ -57,20 +57,15 @@ public with sharing class syncUtilityClass {
         request.setEndpoint(baseUrl + '/associate');
         request.setMethod('POST');
         
-        Object contactData = new Object(
-            batchId = "",
-            email = "",
-            flag = null,
-            id = "",
-            name = "",
-            trainingStatus = ""
-        )
+        Map<String, Object> contactData = new Map<String, Object>();
+        contactData.put('flag', null);
+        contactData.put('trainingStatus', 'Training Status');
+
         for(Contact newExternal : internalAssociatesToAdd) {
-            contactData.batchId = newExternal.batchId;
-            contactData.email = newExternal.email;
-            contactData.id = newExternal.name;
-            contactData.name = newExternal.firstName + " " + newExternal.lastName;
-            contactData.trainingStatus = newExternal.trainingStatus;
+            contactData.put('batchId', newExternal.batchId);
+            contactData.put('email', newExternal.email);
+            contactData.put('id', newExternal.name);
+            contactData.put('name', newExternal.firstName + " " + newExternal.lastName);
 
             String parsedObject = JSON.serialize(contactData);
 
