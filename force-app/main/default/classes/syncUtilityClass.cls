@@ -144,6 +144,18 @@ public with sharing class syncUtilityClass {
         //Return the list of every item that list #2 didn't have
         return batchesToAdd;
     }
+
+    // Match each Batch Account Record to their associates
+    public void setBatchAssociates() {
+        Contact[] allAssociates = [SELECT batchId__c, AccountId FROM Contact WHERE recordType.Name IN ('Associate')];
+        for(Account batch : [SELECT Id, batchId__c FROM Account WHERE recordType.Name IN ('Batch')]) {
+            for(Contact associate : allAssociates) {
+                if(associate.batchId__c == batch.batchId__c) {
+                    associate.AccountId = batch.Id;
+                }
+            }
+        }
+    }
     
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabases() {
@@ -152,11 +164,12 @@ public with sharing class syncUtilityClass {
         externalBatches = getBatches();
         
         // Update Saleforce database
-        Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
-        insert externalAssociatesToAdd;
-        
         Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
         insert externalBatchesToAdd;
+
+        Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
+        setBatchAssociates();
+        upsert externalAssociatesToAdd;
         
         // Update Caliber database 
         request.setMethod('POST');
