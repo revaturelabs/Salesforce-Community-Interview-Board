@@ -1,11 +1,6 @@
 /*
-<<<<<<< HEAD
-This class synchronizes between the external API (Caliber) and the internal Database
-Items Synced are Associate Contacts, Client Contacts, Batch Accounts, and Client Accouts
-=======
     This class synchronizes between the external API (Caliber) and the internal Database
     Items Synced are Associate Contacts and Batch Accounts
->>>>>>> fdc800dd621b462535a27b8937b13edd329105fe
 */
 
 public with sharing class syncUtilityClass {
@@ -165,38 +160,5 @@ public with sharing class syncUtilityClass {
         externalAssociates = getAssociates();
         Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
         upsert externalAssociatesToAdd;
-        
-        // Update Caliber database 
-        /*
-        request.setMethod('POST');
-        request.setHeader('Content-Type', 'application/json');
-        
-        Contact[] internalAssociatesToAdd = compareContacts(internalAssociates, externalAssociates);
-        request.setEndpoint(baseUrl + '/associate');
-        
-        Map<String, Object> contactData = new Map<String, Object>();
-        contactData.put('flag', null);
-        contactData.put('trainingStatus', 'Training Status');
-        
-        for(Contact newExternal : internalAssociatesToAdd) {
-            System.debug(newExternal);
-            contactData.put('batchId', newExternal.batchId__c);
-            contactData.put('email', newExternal.email);
-            contactData.put('id', newExternal.name);
-            contactData.put('name', newExternal.firstName + ' ' + newExternal.lastName);
-            
-            String parsedObject = JSON.serialize(contactData);
-            
-            request.setBody(parsedObject);
-            HttpResponse response = protocol.send(request);
-            
-            //Check to confirm we got the correct response
-            if(response.getStatusCode() == 201) {
-                System.debug('External Associate created successfully!');
-            } else {
-                System.debug(response.getStatusCode());
-                System.debug(response.getBody());
-            }
-        }*/
     }
 }
