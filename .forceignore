@@ -11,5 +11,5 @@ package.xml
 # LWC Jest
 **/__tests__/**
 
-#Workflow doesn't work in an unlocked package
-/force-app/main/default/workflows
+# No need for list views to be shared across orgs and some prevent deployment
+**/listViews/**
