@@ -1,3 +1,8 @@
+/*
+    This class synchronizes between the external API (Caliber) and the internal Database
+    Items Synced are Associate Contacts, Client Contacts, Batch Accounts, and Client Accouts
+*/
+
 public with sharing class syncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
@@ -95,21 +100,16 @@ public with sharing class syncUtilityClass {
             }
         return externalData;
     }
-<<<<<<< HEAD
-    
-    //Method to compare 2 lists of Contacts and return a list of the ones missing from the second
-=======
 
     //Method to compare 2 lists of Contacts and return a list of the ones missing
     //  If an item from list #1 is not contained in list #2, it will be added
     //  This will return all items that would need to be added to list #2
->>>>>>> 4fe4bf453c6864f1bbdb0b96f7c8575975ade6f7
     private Contact[] compareContacts(Contact[] listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
             Boolean match = false;
         
         //Iterate through list #1, and compare each item against all the items in list #2 
-        //  to see if list#2 is missing anything
+        //  to see if list#2 is missing anything, and if so, add it to the list of items to add
         for(Contact first : listOuter) {
             for(Contact second : listInner) {
                 if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
@@ -120,14 +120,17 @@ public with sharing class syncUtilityClass {
                 associatesToAdd.add(first);
             }
         }
-        
+        //Return the list of items to add
         return associatesToAdd;
     }
-    
+
+    // This method compares 2 lists of Accounts
+    //  If any records are missing from list #2, they will be returned in a new list
     private Account[] compareBatches(Account[] listOuter, Account[] listInner) {
         Account[] batchesToAdd = new Account[]{};
             Boolean match = false;
         
+        //Iterate through list #1 and check each item against every item in list #2 
         for(Account first : listOuter) {
             for(Account second : listInner) {
                 if(first.batchId__c == second.batchId__c) {
@@ -138,10 +141,11 @@ public with sharing class syncUtilityClass {
                 batchesToAdd.add(first);
             }
         }
-        
+        //Return the list of every item that list #2 didn't have
         return batchesToAdd;
     }
     
+    //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabases() {
         // Get external data
         externalAssociates = getAssociates();
@@ -175,7 +179,8 @@ public with sharing class syncUtilityClass {
             
             request.setBody(parsedObject);
             HttpResponse response = protocol.send(request);
-            
+
+            //Check to confirm we got the correct response
             if(response.getStatusCode() == 201) {
                 System.debug('External Associate created successfully!');
             } else {
