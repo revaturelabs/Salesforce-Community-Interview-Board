@@ -52,7 +52,6 @@
 		<members>header</members>
 		<members>QuestionPoolList</members>
 		<members>InterviewsList</members>
-		<members>AssociateInterviews</members>
 		<members>AssociateUpcomingInterviews</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
