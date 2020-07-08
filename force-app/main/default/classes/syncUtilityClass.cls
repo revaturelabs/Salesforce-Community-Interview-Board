@@ -1,5 +1,5 @@
 public with sharing class syncUtilityClass {
-    
+    //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
     Contact[] internalAssociates = [SELECT Id, Name, Email FROM Contact WHERE recordType.Name IN ('Associate')];
     Contact[] externalAssociates = new Contact[]{};
@@ -21,6 +21,7 @@ public with sharing class syncUtilityClass {
             // Associate data parsing
             Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
 
+            //To assign the associate record type id, you have to first get the ID
             Id recordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Associate').getRecordTypeId();
             // Add each associate
             for(Object data : responseList) {
@@ -38,6 +39,7 @@ public with sharing class syncUtilityClass {
         return externalData;
     }
 
+    //Get the external Batches to compare them against the ones already in the internal DB
     public Account[] getBatches() {
         request.setEndpoint(baseUrl + '/batch');
 		request.setMethod('GET');
@@ -46,9 +48,13 @@ public with sharing class syncUtilityClass {
         Account[] externalData = new Account[]{};
 
 		if(response.getStatusCode() == 200){
+            //Convert the JSON response into something we can work with
             Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
 
+            //Get the record type ID so that we can assign it
             Id recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Batch').getRecordTypeId();
+
+            //Iterate through the list in the response
             for(Object data : responseList) {
                 Map<String, Object> accountInfo = (Map<String,Object>) data;
                 
@@ -62,7 +68,7 @@ public with sharing class syncUtilityClass {
                     }
                 }
                 
-                // Get batch information
+                // Get relevant batch Account information
                 Account newAccount = new Account( name = (String)accountInfo.get('name'),
                                                     BatchId__c = (String)accountInfo.get('batchId'),
                                                     startDate__c = Date.parse((String)accountInfo.get('startDate')),
@@ -73,19 +79,21 @@ public with sharing class syncUtilityClass {
                                                     goodGrade__c = (Integer)accountInfo.get('goodGrade'),
                                                     currentWeek__c = (Integer)accountInfo.get('currentWeek'),
                                                     RecordTypeId = recordTypeId);
+                //Add the sObjects to the list of Account objects for comparisson later
                 externalData.add(newAccount);
             }
         }
         return externalData;
     }
 
+    //Method to compare 2 lists of Contacts and return a list of the ones missing from the second
     private Contact[] compareContacts(Contact[] listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
         Boolean match = false;
         
         for(Contact first : listOuter) {
             for(Contact second : listInner) {
-                if(first.name == second.name || first.email == second.email) {
+                if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
                     match = true;
                 }
             }
