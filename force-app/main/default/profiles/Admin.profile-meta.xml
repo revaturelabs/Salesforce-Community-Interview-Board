@@ -13,6 +13,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssociateMockInterviewsController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BatchClientCreationController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -54,10 +58,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionCreationTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>QuestionPoolApexController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -547,6 +547,11 @@
         <recordType>Meeting__c.Interview_Batch</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting__c.Mock_Interview</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
@@ -967,6 +972,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManagePackageLicenses</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManagePartners</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
