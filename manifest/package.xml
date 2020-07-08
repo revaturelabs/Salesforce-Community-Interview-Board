@@ -18,7 +18,7 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-		<members>QuestionPoolApexController</members>
+		<members>AssociateMockInterviewsController</members>
 
 		<name>ApexClass</name>
 	</types>
@@ -48,7 +48,8 @@
 		<members>BatchClientCreation</members>
 		<members>BatchClientlist</members>
 		<members>header</members>
-		<members>QuestionPoolList</members>
+		<members>AssociateInterviews</members>
+		<members>AssociateUpcomingInterviews</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
@@ -70,6 +71,7 @@
 	</types>
 	<types>
 		<members>Admin</members>
+		<members>Associate</members>
 		<name>Profile</name>
 	</types>
 	<types>
@@ -81,6 +83,7 @@
 		<members>Meeting__c.Intervention_Batch</members>
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
+		<members>Meeting__c.Mock_Interview</members>
 		<name>RecordType</name>
 	</types>
 	<types>
