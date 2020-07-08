@@ -14,13 +14,13 @@ public with sharing class syncUtilityClass {
         
 		if(response.getStatusCode() == 200){
             Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
-            Contact[] externalData = new Contact[];
+            Contact[] externalData = new Contact[]{};
 			for(Object data : responseList) {
                 Map<String, Object> contactInfo = (Map<String,Object>) data;
-                Contact newContact = new Contact( firstName = contactInfo.get('firstName'),
-                                                    lastName = contactInfo.get('lastName'),
-                                                    email = contactInfo.get('email'),
-                                                    name = contactInfo.get('salesforceId'),
+                Contact newContact = new Contact( firstName = (String)contactInfo.get('firstName'),
+                                                    lastName = (String) contactInfo.get('lastName'),
+                                                    email = (String)contactInfo.get('email'),
+                                                    salesforceId__c = (String)contactInfo.get('salesforceId'),
                                                     flag = null);
                 externalData.add(newContact);
             }
@@ -57,6 +57,7 @@ public with sharing class syncUtilityClass {
         request.setEndpoint(baseUrl + '/associate');
         request.setMethod('POST');
         
+<<<<<<< HEAD
         Map<String, Object> contactData = new Map<String, Object>();
         contactData.put('flag', null);
         contactData.put('trainingStatus', 'Training Status');
@@ -66,6 +67,22 @@ public with sharing class syncUtilityClass {
             contactData.put('email', newExternal.email);
             contactData.put('id', newExternal.name);
             contactData.put('name', newExternal.firstName + " " + newExternal.lastName);
+=======
+        Object contactData = new Object(
+            batchId = '',
+            email = '',
+            flag = null,
+            id = '',
+            name = '',
+            trainingStatus = 'Training'
+        );
+        for(Contact newExternal : internalAssociatesToAdd) {
+            contactData.batchId = newExternal.batchId__c;
+            contactData.email = newExternal.email;
+            contactData.id = newExternal.salesforceId__c;
+            contactData.name = newExternal.firstName + ' ' + newExternal.lastName;
+            contactData.trainingStatus = 'Training';
+>>>>>>> 4f4f29faf1994b49138717b1544fddd06a5f7845
 
             String parsedObject = JSON.serialize(contactData);
 
@@ -74,7 +91,7 @@ public with sharing class syncUtilityClass {
             HttpResponse response = protocol.send(request);
 
             if(response.getStatusCode() == '201') {
-                System.debug('External Associate created successfully!')
+                System.debug('External Associate created successfully!');
             } else {
                 System.debug(response.getStatusCode());
                 System.debug(response.getBody());
