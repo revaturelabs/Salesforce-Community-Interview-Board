@@ -18,10 +18,9 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-		<members>QuestionPoolApexController</members>
-		<members>InterviewsListController</members>
+		<members>QuestionPoolApexController</members>>
 		<members>AssociateMockInterviewsController</members>
-
+		<members>MockInterviewsListController</members>
 		<name>ApexClass</name>
 	</types>
 	
@@ -51,8 +50,8 @@
 		<members>BatchClientlist</members>
 		<members>header</members>
 		<members>QuestionPoolList</members>
-		<members>InterviewsList</members>
 		<members>AssociateUpcomingInterviews</members>
+		<members>MockInterviewsList</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
