@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
 This class synchronizes between the external API (Caliber) and the internal Database
 Items Synced are Associate Contacts, Client Contacts, Batch Accounts, and Client Accouts
+=======
+    This class synchronizes between the external API (Caliber) and the internal Database
+    Items Synced are Associate Contacts and Batch Accounts
+>>>>>>> fdc800dd621b462535a27b8937b13edd329105fe
 */
 
 public with sharing class syncUtilityClass {
