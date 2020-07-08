@@ -1,4 +1,4 @@
-<aura:component controller="InterviewsListController">
+<aura:component controller="MockInterviewsListController">
     <aura:attribute name="interview" type="Object"/>
     <aura:attribute name="interviewList" type="List"/>
 

@@ -1,9 +1,8 @@
 ({
     doinit : function(component, event, helper) {
         component.set("v.interviewList", [
-            {label: "Interviewer", fieldName:"Client_Name__c", type:"String"},
-            {label: "Location", fieldName:"Location__c", type:"String"},
-            {label: "Time", fieldName:"Scheduled__c", type:"Date/Time"}
+            {label: "Mock Interview", fieldName:"Name", type:"String"},
+            {label: "Your Notes", fieldName:"Notes__c", type:"String"}
         ]);
         var action = component.get("c.getInterviews");
         //action.setParams();
