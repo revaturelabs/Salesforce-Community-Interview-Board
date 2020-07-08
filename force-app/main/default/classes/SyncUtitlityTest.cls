@@ -23,6 +23,7 @@ private class SyncUtitlityTest {
         System.assertEquals(10, contacts.size());
     }
     
+    //method still in progress, currently throws exception: Attemot to dereference a null object
     @isTest
     private static void testGetBatches() {
         syncUtilityClass SUC = new syncUtilityClass();
