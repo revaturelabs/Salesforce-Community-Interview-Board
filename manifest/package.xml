@@ -18,7 +18,7 @@
 		<members>completedInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-
+		<members>SyncUtilityClass</members>
 		<name>ApexClass</name>
 	</types>
 	

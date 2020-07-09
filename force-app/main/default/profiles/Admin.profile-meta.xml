@@ -89,7 +89,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>syncUtilityClass</apexClass>
+        <apexClass>SyncUtilityClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>

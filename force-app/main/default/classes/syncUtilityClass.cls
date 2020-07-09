@@ -3,7 +3,7 @@
     Items Synced are Associate Contacts and Batch Accounts
 */
 
-public with sharing class syncUtilityClass {
+public with sharing class SyncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
     Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
@@ -154,12 +154,6 @@ public with sharing class syncUtilityClass {
         //Return the list of every item that list #2 didn't have
         return batchesToAdd;
     }
-    
-    @AuraEnabled
-    public static void updateFromAura(){
-        syncUtilityClass util = new syncUtilityClass();
-        util.updateDatabases();
-    }
 
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabases() {
@@ -171,22 +165,5 @@ public with sharing class syncUtilityClass {
         externalAssociates = getAssociates();
         Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
         upsert externalAssociatesToAdd;
-    }
-
-    private static String CRON = '0 0 0 ? * SUN *'; 
-
-    @AuraEnabled
-    public static void setCRONExpression(String newCRON){
-        CRON = newCRON;
-    }
-
-    @AuraEnabled
-    public static String[] getCRONExpression(){
-        String[] getValues = CRON.split(' ');
-        getValues.remove(6);
-        getValues.remove(4);
-        getValues.remove(3);
-        getValues.remove(0);
-        return getValues;
     }
 }
