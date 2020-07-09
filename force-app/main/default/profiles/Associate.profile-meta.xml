@@ -9,7 +9,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AssociateMeetingsController</apexClass>
+        <apexClass>AssociateMeetingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
