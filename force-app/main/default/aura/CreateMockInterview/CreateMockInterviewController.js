@@ -15,7 +15,7 @@
                 // component.set("v.Stack",outputList);
                 let bigMap = response.getReturnValue();
                 component.set("v.TypeMap",bigMap);
-                component.set("v.Stack",Object.keys(bigMap));
+                component.set("v.AllStacks",Object.keys(bigMap));
                 console.log(bigMap);
                 console.log(Object.keys(bigMap));
             } else {
@@ -25,5 +25,10 @@
 
 
         $A.enqueueAction(action);
+    },
+
+    ChangeLeftSideTypes : function(component, event, helper){
+        console.log(component.find("stack id").get("v.value"));
+
     }
 })
