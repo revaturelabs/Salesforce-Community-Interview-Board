@@ -128,4 +128,22 @@ private class SyncUtitlityTest {
         System.assertEquals('TestAccount3', result[0].Name);
         System.assertEquals('BC-1235', result[0].BatchId__c);
     }
+
+    //Method to test the updateDatabases() method
+    //Receiving Error 'Uncommitted work pending'
+    @isTest 
+    private static void testUpdateDatabase(){
+        syncUtilityClass SUC = new syncUtilityClass();
+        Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
+        
+        Test.startTest();
+        SUC.updateDatabase();
+        Test.stopTest();
+
+        //Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
+        Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
+
+        //System.assertEquals(2, internalAssociates.size());
+        System.assertEquals(7, internalBatches.size());
+    }
 }

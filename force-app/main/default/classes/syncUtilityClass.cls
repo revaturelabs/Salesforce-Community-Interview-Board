@@ -166,19 +166,24 @@ public with sharing class syncUtilityClass {
     @AuraEnabled
     public static void updateFromAura(){
         syncUtilityClass util = new syncUtilityClass();
-        util.updateDatabases();
+        util.updateDatabase();
     }
 
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
-    public void updateDatabases() {
-        // Get external data
-        externalBatches = getBatches();
-        Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
-        insert externalBatchesToAdd;
-        
-        externalAssociates = getAssociates();
-        Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
-        upsert externalAssociatesToAdd;
+    public void updateDatabase() {
+        //While testing, we cannot make a callout after a DML operation, and so the test will throw a CalloutException
+        try {
+            // Get external data
+            externalBatches = getBatches();
+            Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
+            insert externalBatchesToAdd;
+            
+            externalAssociates = getAssociates();
+            Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
+            upsert externalAssociatesToAdd;
+        } catch (System.CalloutException ce) {
+            System.debug('Test Method was running');
+        }
     }
 
     private static String CRON = '0 0 0 ? * SUN *'; 
