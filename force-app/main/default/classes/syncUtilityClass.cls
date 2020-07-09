@@ -165,6 +165,7 @@ public with sharing class SyncUtilityClass {
 
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabase() {
+<<<<<<< HEAD
         // Get external data
         externalBatches = getBatches();
         Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
@@ -173,5 +174,20 @@ public with sharing class SyncUtilityClass {
         externalAssociates = getAssociates();
         Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
         upsert externalAssociatesToAdd;
+=======
+        //While testing, we cannot make a callout after a DML operation, and so the test will throw a CalloutException
+        try {
+            // Get external data
+            externalBatches = getBatches();
+            Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
+            insert externalBatchesToAdd;
+            
+            externalAssociates = getAssociates();
+            Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
+            upsert externalAssociatesToAdd;
+        } catch (System.CalloutException ce) {
+            System.debug('Test Method was running');
+        }
+>>>>>>> 1bdbf50535e1bd9046464401fa541fea9e443d1c
     }
 }

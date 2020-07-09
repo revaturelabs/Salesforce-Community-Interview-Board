@@ -67,6 +67,7 @@
 		<members>Meeting__c.Intervention_Batch</members>
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
+		<members>Meeting__c.Mock_Interview</members>
 		<name>RecordType</name>
 	</types>
 	<types>
