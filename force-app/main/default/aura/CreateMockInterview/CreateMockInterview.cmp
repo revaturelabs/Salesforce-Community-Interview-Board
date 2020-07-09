@@ -1,0 +1,28 @@
+<aura:component controller="CreateMockInterviewController">
+    <aura:attribute name="LeftSideTypes" type="List"/>
+    <aura:attribute name="AllStacks" type="List"/>
+    <aura:attribute name="RightSideTypes" type="List"/>
+    <aura:attribute name="TypeMap" type="Map"/>
+    <aura:attribute name="ActiveStack" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+
+    <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.ChangeLeftSideTypes}">
+        <aura:iteration items="{!v.AllStacks}" var="option">
+            <option text="{!option}" value="{!option}"/>
+        </aura:iteration>
+    </lightning:select>
+
+    <lightning:dualListbox name="typeSelection"
+                           label="Select Types"
+                           sourceLabel="Available"
+                           selectedLabel="SelectedTypes"
+                           fieldLevelHelp="Select your interview question types."
+                           options="{!v.LeftSideTypes}"
+                           onchange="{! c.holdSelected}"/>
+
+                           
+
+
+
+</aura:component>	
