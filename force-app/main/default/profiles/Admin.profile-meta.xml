@@ -90,6 +90,9 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataCreationTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuestionPoolApexController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
