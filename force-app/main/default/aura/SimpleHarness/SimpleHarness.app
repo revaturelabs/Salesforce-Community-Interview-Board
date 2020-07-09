@@ -1,5 +1,4 @@
 <aura:application extends="force:slds">
-
-    <c:BatchClientCreation/>
-    
+    <c:ScheduleSync/>
+    <c:ManualSync/>
 </aura:application>
