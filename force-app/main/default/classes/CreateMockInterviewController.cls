@@ -33,4 +33,47 @@ public class CreateMockInterviewController {
         }
         insert interviewQuestions;
     }
+
+    @AuraEnabled
+    public static Map<String,List<String>> getTypePicklistValues() {
+        Schema.DescribeFieldResult questionType = Question__c.Type__c.getDescribe();
+        Schema.sObjectField stackToken = questionType.getController();
+        if ( stackToken == null ) return null;
+        Schema.DescribeFieldResult stack = stackToken.getDescribe();
+        List<Schema.PicklistEntry> stackEntries =
+        (   stack.getType() == Schema.DisplayType.Boolean
+        ?   null
+        :   stack.getPicklistValues()
+        );
+    
+        String base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        Map<String,List<String>> typePicklistValues = new Map<String,List<String>>();
+        for ( Schema.PicklistEntry entry : questionType.getPicklistValues() ) if ( entry.isActive() )
+        {
+            List<String> base64chars =
+                String.valueOf
+                (   ((Map<String,Object>) JSON.deserializeUntyped( JSON.serialize( entry ) )).get( 'validFor' )
+                ).split( '' );
+                //System.debug(entry);
+                //System.debug(JSON.serialize(entry));
+                //System.debug(JSON.deserializeUntyped(JSON.serialize( entry)));
+            
+            for ( Integer index = 0; index < (stackEntries != null ? stackEntries.size() : 2); index++ )
+            {
+                String stackValue = (String)(stackEntries == null ? (Object) (index == 1)
+                : (Object) (stackEntries[ index ].isActive() ? stackEntries[ index ].getLabel() : null));
+                //System.debug(stackValue);
+                Integer bitIndex = index / 6, bitShift = 5 - Math.mod( index, 6 );
+                if  (   stackValue == null ||
+                (base64map.indexOf( base64chars[ bitIndex ] ) & (1 << bitShift)) == 0) continue;
+                if ( !typePicklistValues.containsKey( stackValue ) )
+                {
+                    typePicklistValues.put( stackValue, new List<String>() );
+                }
+                typePicklistValues.get(stackValue).add( entry.getLabel() );
+            }
+        }
+        System.debug(typePicklistValues);
+        return typePicklistValues;
+    }
 }
