@@ -25,6 +25,7 @@ public with sharing class syncUtilityClass {
             HttpResponse response = protocol.send(request);
                 
             if(response.getStatusCode() == 200){
+                //System.debug('Response was 200');
                 // Associate data parsing
                 Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
                 
@@ -43,6 +44,8 @@ public with sharing class syncUtilityClass {
                     externalData.add(newContact);
                 }
                 
+            } else {
+                System.debug('response status code was ' + response.getStatusCode());
             }
         }
         return externalData;
