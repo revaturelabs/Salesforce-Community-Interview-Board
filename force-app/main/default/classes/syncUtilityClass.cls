@@ -112,6 +112,7 @@ public with sharing class syncUtilityClass {
     //Method to compare 2 lists of Contacts and return a list of the ones missing
     //  If an item from list #1 is not contained in list #2, it will be added
     //  This will return all items that would need to be added to list #2
+    @testVisible
     private Contact[] compareContacts(Contact[] listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
             

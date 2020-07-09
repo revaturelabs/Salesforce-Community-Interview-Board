@@ -23,7 +23,7 @@ private class SyncUtitlityTest {
         System.assertEquals(10, contacts.size());
     }
     
-    //method still in progress, currently throws exception: Attempt to dereference a null object
+    //method to test getBatches() in SyncUtilityClass
     @isTest
     private static void testGetBatches() {
         syncUtilityClass SUC = new syncUtilityClass();
@@ -33,7 +33,56 @@ private class SyncUtitlityTest {
         Account[] accounts = SUC.getBatches();
         Test.stopTest();
 
-        System.debug( 'size: '+ accounts.size() + 'contacts: ' + accounts );
+        //System.debug( 'size: '+ accounts.size() + 'contacts: ' + accounts );
         System.assertEquals(2, accounts.size());
+    }
+
+    //method to test compareContacts() in SyncUtilityClass
+    @isTest
+    private static void testCompareContacts(){
+        syncUtilityClass SUC = new syncUtilityClass();
+        //Generate test data 
+        Contact[] contactList1 = new Contact[]{
+            new Contact(
+                lastName='Test1',
+                SalesforceId__c='SF-1234',
+                email='Someemail1@email.com'
+            ),
+            new Contact(
+                lastName='Test2',
+                SalesforceId__c='SF-2234',
+                email='Someemail2@email.com'
+            ),
+            new Contact(
+                lastName='Test3',
+                SalesforceId__c='SF-3234',
+                email='Someemail3@email.com'
+            )
+        };
+        Contact[] contactList2 = new Contact[]{
+            new Contact(
+                lastName='Test1',
+                SalesforceId__c='SF-1234',
+                email='Someemail1@email.com'
+            ),
+            new Contact(
+                lastName='Test2',
+                SalesforceId__c='SF-2234',
+                email='Someemail2@email.com'
+            ),
+            new Contact(
+                lastName='Test4',
+                SalesforceId__c='SF-4234',
+                email='Someemail4@email.com'
+            )
+        };
+
+        //Call the method
+        List<Contact> result = SUC.compareContacts(contactList1, contactList2);
+
+        //Check the result list
+        System.assertEquals(1, result.size());
+        System.assertEquals('SF-3234', result[0].SalesforceId__c);
+        System.assertEquals('Someemail3@email.com', result[0].email);
     }
 }
