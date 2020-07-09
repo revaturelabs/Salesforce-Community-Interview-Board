@@ -11,4 +11,4 @@
                            options="{!v.options}" 
                            value="{!v.values}" 
                            onchange="{! c.handleChange }"/>
-</aura:component>	
+</aura:component>
