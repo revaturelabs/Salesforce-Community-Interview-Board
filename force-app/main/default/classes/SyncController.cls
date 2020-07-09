@@ -3,13 +3,13 @@ public class SyncController {
     static {
         SyncSchedule schedule = new SyncSchedule();
         String initialCron = '';
-        
+
     }
 
     @AuraEnabled
     public static void updateFromAura(){
         SyncUtilityClass util = new SyncUtilityClass();
-        util.updateDatabases();
+        util.updateDatabase();
     }
 
     private static String CRON = '0 0 0 ? * SUN *'; 

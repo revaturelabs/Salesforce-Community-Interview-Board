@@ -156,7 +156,7 @@ public with sharing class SyncUtilityClass {
     }
 
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
-    public void updateDatabases() {
+    public void updateDatabase() {
         // Get external data
         externalBatches = getBatches();
         Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
