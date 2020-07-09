@@ -28,7 +28,23 @@
     },
 
     ChangeLeftSideTypes : function(component, event, helper){
-        console.log(component.find("stack id").get("v.value"));
+        component.set("v.DisplayList", false);
+        var selectedStack = component.find("stack id").get("v.value");
+        console.log(typeof selectedStack);
+        var stackTypeMap = component.get("v.TypeMap");
+        console.log(Object.keys(stackTypeMap));
+        var leftSideList = [];
+        var tempList = [];
+        tempList = stackTypeMap[selectedStack];
+        //console.log(leftSideList);
 
+        if (selectedStack) {
+            for(let type of tempList) {
+                leftSideList.push({label : type,value : type});
+                 }
+            component.set("v.LeftSideTypes", leftSideList);
+            console.log(component.get("v.LeftSideTypes"));
+        }
+        component.set("v.DisplayList", true);
     }
 })
