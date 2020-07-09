@@ -6,9 +6,7 @@
 
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
- <lightning:card  title="Upcoming Meetings">
-      
-        <p class="slds-p-horizontal_small">
+ <lightning:card  title="Mock Interviews">
 
     <!-- the container element determine the height of the datatable -->
     <div style="height: 300px">
@@ -20,7 +18,6 @@
                 hideCheckboxColumn="true"/>
          </fieldset>
     </div>
-    
-	       </p>
     </lightning:card>
+	
 </aura:component>
