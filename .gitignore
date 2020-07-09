@@ -71,6 +71,8 @@ force-app/main/default/*
 !force-app/main/default/aura
 !force-app/main/default/objects
 !force-app/main/default/staticresources
+!force-app/main/default/flows
+!force-app/main/default/profiles
 
 
 
