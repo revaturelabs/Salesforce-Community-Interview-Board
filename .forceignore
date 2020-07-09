@@ -10,6 +10,3 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
-
-#Workflow doesn't work in an unlocked package
-/force-app/main/default/workflows
