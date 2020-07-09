@@ -94,6 +94,13 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataCreationTest</apexClass>
+<<<<<<< HEAD
+=======
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuestionPoolApexController</apexClass>
+>>>>>>> eaf56c0235fba37bf082ebf989bea04491496f92
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
