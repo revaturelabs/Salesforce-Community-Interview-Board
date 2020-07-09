@@ -162,12 +162,6 @@ public with sharing class syncUtilityClass {
         //System.debug(batchesToAdd);
         return batchesToAdd;
     }
-    
-    @AuraEnabled
-    public static void updateFromAura(){
-        syncUtilityClass util = new syncUtilityClass();
-        util.updateDatabase();
-    }
 
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabase() {
@@ -184,22 +178,5 @@ public with sharing class syncUtilityClass {
         } catch (System.CalloutException ce) {
             System.debug('Test Method was running');
         }
-    }
-
-    private static String CRON = '0 0 0 ? * SUN *'; 
-
-    @AuraEnabled
-    public static void setCRONExpression(String newCRON){
-        CRON = newCRON;
-    }
-
-    @AuraEnabled
-    public static String[] getCRONExpression(){
-        String[] getValues = CRON.split(' ');
-        getValues.remove(6);
-        getValues.remove(4);
-        getValues.remove(3);
-        getValues.remove(0);
-        return getValues;
     }
 }
