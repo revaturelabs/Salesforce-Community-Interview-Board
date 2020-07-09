@@ -1,9 +1,9 @@
-<aura:component controller="AssociateMeetingController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:component controller="AssociateMeetingController" implements="lightning:actionOverride,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
     
     <!-- attributes -->
     <aura:attribute name="data" type="Meeting__c[]"/>
     <aura:attribute name="idlist" type="String[]" />
-    
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
     
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
@@ -19,16 +19,44 @@
                             	
                             <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
                             </p>
-                            	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onflowlaunch}" id="{!item.Id}">Begin Interview</button> 
+                            	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onmodalopen}" id="{!item.Id}">Begin Interview</button> 
                         </lightning:accordionSection>
                     </aura:iteration>
                     
                 </lightning:accordion>
             </fieldset>
         </div>
-        <div>
-        <lightning:flow aura:id="MockInterviewFlow" onstatuschange="{!c.onstatuschange}"/>
-        </div>
+        <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.onmodalclose }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_large" id="modal-content-id-1">
+                        <p>
+                            
+                            <lightning:flow aura:id="MockInterviewFlow" onstatuschange="{!c.onstatuschange}"/>
+                        </p>
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Close"
+                                          title="Close"
+                                          onclick="{! c.onmodalclose }"/>
+
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
     </lightning:card>
     
 </aura:component>

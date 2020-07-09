@@ -9,5 +9,16 @@
     
     onflowlaunch : function(component, event, helper) {
     	helper.launchflow(component, event, helper);
+	},
+    
+    onmodalopen : function(component, event, helper) {
+        
+        component.set("v.isModalOpen", true);
+        helper.launchflow(component, event, helper);
+    	
+	},
+      onmodalclose : function(component, event, helper) {
+    	component.set("v.isModalOpen", false);
 	}
+    
 })
