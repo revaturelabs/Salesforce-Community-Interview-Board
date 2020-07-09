@@ -160,7 +160,7 @@
         <apexClass>completedInterviewController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <custom>true</custom>
+    <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -672,26 +672,26 @@
         <layout>Meeting_Participant__c-Meeting Participant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Meeting__c-Meeting Associate View</layout>
+        <layout>Meeting__c-Meeting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Intervention_1_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Meeting__c-Meeting Associate View</layout>
+        <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Intervention_Batch</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Meeting__c-Meeting Associate View</layout>
+        <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Interview_1_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Meeting__c-Meeting Associate View</layout>
+        <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Interview_Batch</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting__c-Meeting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Meeting__c-Mock Interview Layout</layout>
         <recordType>Meeting__c.Mock_Interview</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -834,42 +834,6 @@
         <object>Contact</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Interview_Question__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Meeting_Participant__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Meeting__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Question__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
     <pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>false</enabled>
@@ -999,9 +963,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Meeting__c.Mock_Interview</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -1019,9 +983,9 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Contact</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Customer Community</userLicense>
+    <userLicense>Customer Portal Manager Custom</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivitiesAccess</name>
@@ -1036,6 +1000,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ApexRestServices</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>AssignTopics</name>
     </userPermissions>
     <userPermissions>
@@ -1044,7 +1012,15 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ContentWorkspaces</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>CreateTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTopics</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -1057,10 +1033,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>RemoveDirectMessageMembers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RunFlow</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

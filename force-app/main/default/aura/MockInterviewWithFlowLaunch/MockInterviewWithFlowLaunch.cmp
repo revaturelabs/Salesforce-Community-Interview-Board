@@ -19,7 +19,7 @@
                             	
                             <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
                             </p>
-                            	  <button type="button" onclick="{!c.onflowlaunch}" id="{!item.Id}">Launch Flow</button> 
+                            	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onflowlaunch}" id="{!item.Id}">Begin Interview</button> 
                         </lightning:accordionSection>
                     </aura:iteration>
                     
