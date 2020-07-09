@@ -70,6 +70,7 @@ public with sharing class syncUtilityClass {
             
             if(response.getStatusCode() == 200){
                 //Convert the JSON response into something we can work with
+                System.debug(response.getBody());
                 Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
                 
                 //Get the record type ID so that we can assign it

@@ -23,7 +23,7 @@ private class SyncUtitlityTest {
         System.assertEquals(10, contacts.size());
     }
     
-    //method still in progress, currently throws exception: Attemot to dereference a null object
+    //method still in progress, currently throws exception: Attempt to dereference a null object
     @isTest
     private static void testGetBatches() {
         syncUtilityClass SUC = new syncUtilityClass();
@@ -33,6 +33,7 @@ private class SyncUtitlityTest {
         Account[] accounts = SUC.getBatches();
         Test.stopTest();
 
+        System.debug( 'size: '+ accounts.size() + 'contacts: ' + accounts );
         System.assertEquals(2, accounts.size());
     }
 }
