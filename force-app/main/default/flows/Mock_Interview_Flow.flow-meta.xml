@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>assignnumberofquestions</name>
+        <label>assignnumberofquestions</label>
+        <locationX>344</locationX>
+        <locationY>89</locationY>
+        <assignmentItems>
+            <assignToReference>numberofquestions</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>getinterviewquestions</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>checkforrecords</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>checkforrecords</name>
+        <label>checkforrecords</label>
+        <locationX>456</locationX>
+        <locationY>91</locationY>
+        <defaultConnector>
+            <targetReference>MainQuestionLoop</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>norecords</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>numberofquestions</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>No_Questions_Found</targetReference>
+            </connector>
+            <label>norecords</label>
+        </rules>
+    </decisions>
     <interviewLabel>Mock Interview Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Mock Interview Flow</label>
     <loops>
         <name>MainQuestionLoop</name>
         <label>MainQuestionLoop</label>
-        <locationX>514</locationX>
-        <locationY>65</locationY>
+        <locationX>662</locationX>
+        <locationY>63</locationY>
         <assignNextValueToReference>Mainloopvariable</assignNextValueToReference>
         <collectionReference>getinterviewquestions</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -33,11 +74,11 @@
     <recordLookups>
         <name>getinterviewquestions</name>
         <label>getinterviewquestions</label>
-        <locationX>368</locationX>
-        <locationY>60</locationY>
+        <locationX>257</locationX>
+        <locationY>77</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>MainQuestionLoop</targetReference>
+            <targetReference>assignnumberofquestions</targetReference>
         </connector>
         <filters>
             <field>Meeting_md__c</field>
@@ -64,13 +105,13 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>flaksjdf</name>
         <label>flaksjdf</label>
-        <locationX>233</locationX>
-        <locationY>57</locationY>
+        <locationX>160</locationX>
+        <locationY>67</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -79,17 +120,33 @@
         </connector>
         <fields>
             <name>dt3</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Get ready to begin interview!&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;Get ready to begin interview!&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>No_Questions_Found</name>
+        <label>No Questions Found!</label>
+        <locationX>464</locationX>
+        <locationY>356</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>dt5</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;Selected Mock Interview has no Questions assigned to it!&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>S1</name>
         <label>S1</label>
-        <locationX>611</locationX>
-        <locationY>177</locationY>
+        <locationX>677</locationX>
+        <locationY>214</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -98,11 +155,11 @@
         </connector>
         <fields>
             <name>dt1</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;{!Mainloopvariable.Question__r.Body__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;{!Mainloopvariable.Question__r.Body__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <start>
         <locationX>50</locationX>
@@ -134,6 +191,14 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>numberofquestions</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
     </variables>
     <variables>
         <name>Questionlist</name>

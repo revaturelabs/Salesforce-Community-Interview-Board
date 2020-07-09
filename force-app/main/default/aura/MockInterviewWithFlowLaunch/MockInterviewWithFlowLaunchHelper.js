@@ -52,13 +52,8 @@
     
     flowstatuschange : function (component, event, helper) {
      if (event.getParam('status') === "FINISHED_SCREEN" || event.getParam('status') === "FINISHED") {
-            var toastEvent = $A.get("e.force:showToast");
-            toastEvent.setParams({
-                title: "Success!",
-                message: "Questions Completed!",
-                type: "success"
-            });
-            toastEvent.fire();
+            
+           
             $A.get("e.force:closeQuickAction").fire();
             $A.get('e.force:refreshView').fire();
         }
