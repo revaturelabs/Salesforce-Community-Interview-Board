@@ -154,6 +154,12 @@ public with sharing class syncUtilityClass {
         return batchesToAdd;
     }
     
+    @AuraEnabled
+    public static void updateFromAura(){
+        syncUtilityClass util = new syncUtilityClass();
+        util.updateDatabases();
+    }
+
     //Method to update Associate Contacts and Batch Accounts in Caliber and internal DB
     public void updateDatabases() {
         // Get external data
