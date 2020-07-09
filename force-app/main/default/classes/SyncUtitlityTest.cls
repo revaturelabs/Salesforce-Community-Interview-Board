@@ -85,4 +85,47 @@ private class SyncUtitlityTest {
         System.assertEquals('SF-3234', result[0].SalesforceId__c);
         System.assertEquals('Someemail3@email.com', result[0].email);
     }
+
+    //Method to test compareBatches() in SyncUtilityClass
+    @isTest
+    private static void testCompareBatches(){
+        syncUtilityClass SUC = new syncUtilityClass();
+        //Generate test data
+        Account[] accountList1 = new Account[]{
+            new Account(
+                Name='TestAccount1',
+                BatchId__c='BC-1234'
+            ),
+            new Account(
+                Name='TestAccount2',
+                BatchId__c='BC-1234'
+            ),
+            new Account(
+                Name='TestAccount3',
+                BatchId__c='BC-1235'
+            )
+        };
+        Account[] accountList2 = new Account[]{
+            new Account(
+                Name='TestAccount1',
+                BatchId__c='BC-1234'
+            ),
+            new Account(
+                Name='TestAccount2',
+                BatchId__c='BC-1234'
+            ),
+            new Account(
+                Name='TestAccount4',
+                BatchId__c='BC-1236'
+            )
+        };
+
+        //Run method
+        Account[] result = SUC.compareBatches(accountList1, accountList2);
+
+        //Test resulting List
+        System.assertEquals(1, result.size());
+        System.assertEquals('TestAccount3', result[0].Name);
+        System.assertEquals('BC-1235', result[0].BatchId__c);
+    }
 }

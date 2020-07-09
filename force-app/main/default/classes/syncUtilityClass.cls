@@ -70,7 +70,7 @@ public with sharing class syncUtilityClass {
             
             if(response.getStatusCode() == 200){
                 //Convert the JSON response into something we can work with
-                System.debug(response.getBody());
+                //System.debug(response.getBody());
                 Object[] responseList = (Object[]) JSON.deserializeUntyped(response.getBody());
                 
                 //Get the record type ID so that we can assign it
@@ -130,28 +130,36 @@ public with sharing class syncUtilityClass {
                 }
             }
         //Return the list of items to add
-        System.debug(associatesToAdd);
+        //System.debug(associatesToAdd);
         return associatesToAdd;
     }
     
     // This method compares 2 lists of Accounts
     //  If any records are missing from list #2, they will be returned in a new list
+    @testVisible
     private Account[] compareBatches(Account[] listOuter, Account[] listInner) {
+        //System.debug('Inside method compareBatches()');
         Account[] batchesToAdd = new Account[]{};
-            Boolean match = false;
+        Boolean match = false;
         
         //Iterate through list #1 and check each item against every item in list #2 
         for(Account first : listOuter) {
+            match = false;
+            //System.debug('First: ' + first.name + ': ' + first.BatchId__c);
             for(Account second : listInner) {
+            	//System.debug('Second: ' + second.name + ': ' + second.BatchId__c);
                 if(first.batchId__c == second.batchId__c) {
                     match = true;
+                    //System.debug('Match');
                 }
             }
             if(!match) {
+                //System.debug('Not a match: ' + first.Name);
                 batchesToAdd.add(first);
             }
         }
         //Return the list of every item that list #2 didn't have
+        //System.debug(batchesToAdd);
         return batchesToAdd;
     }
     
