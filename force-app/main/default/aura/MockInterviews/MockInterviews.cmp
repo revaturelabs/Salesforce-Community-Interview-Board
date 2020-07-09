@@ -1,0 +1,30 @@
+<aura:component controller="AssociateMeetingController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <!-- attributes -->
+    <aura:attribute name="data" type="Meeting__c[]"/>
+    
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:card  title="Mock Interviews">
+        
+        <!-- the container element determine the height of the datatable -->
+        <div style="height: 300px">
+            <fieldset class="slds-box slds-theme--default ">
+                <lightning:accordion activeSectionName="A">
+                    <aura:iteration items="{!v.data}" var="item">
+                        <lightning:accordionSection name="{!item.Name}" label="{!item.Display_Name__c}">
+                            Notes: {!item.Notes__c} <br/>  
+                            	
+                            <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
+                            </p>
+                            
+                        </lightning:accordionSection>
+                    </aura:iteration>
+                    
+                </lightning:accordion>
+            </fieldset>
+        </div>
+    </lightning:card>
+    
+</aura:component>

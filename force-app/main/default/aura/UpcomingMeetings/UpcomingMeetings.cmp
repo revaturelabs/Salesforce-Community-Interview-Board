@@ -1,0 +1,43 @@
+<aura:component controller="AssociateMeetingController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+<!-- attributes -->
+    <aura:attribute name="data" type="Meeting__c[]"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+ <lightning:card  title="Upcoming Meetings">
+      
+        <p class="slds-p-horizontal_small">
+
+    <!-- the container element determine the height of the datatable -->
+    <div style="height: 300px">
+        <fieldset class="slds-box slds-theme--default ">
+    <lightning:accordion activeSectionName="A">
+                    <aura:iteration items="{!v.data}" var="item">
+                        <lightning:accordionSection name="{!item.Name}" label="{!item.Display_Name__c}">
+                             
+                            
+                            Client Name: {!item.Client_Name__c} <br></br>
+                            Meeting Status: {!item.Meeting_status__c}<br></br>
+                            Scheduled Time: <lightning:formattedDateTime value="{!item.Scheduled__c}" year="2-digit" month="short" day="2-digit" weekday="long"/> <br></br>
+					
+                            Location: {!item.location__c} <br></br>
+                            Notes: {!item.Notes__c} <br/> 
+                                 
+                                 
+                            
+                            <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
+                            </p>
+                                 
+                           
+                        </lightning:accordionSection>
+                    </aura:iteration>
+                    
+                </lightning:accordion>
+         </fieldset>
+    </div>
+    
+	       </p>
+    </lightning:card>
+</aura:component>

@@ -1,4 +1,4 @@
-<aura:component controller="AssociateMockInterviewsController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:component controller="AssociateMeetingController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
     
 <!-- attributes -->
     <aura:attribute name="data" type="Meeting__c[]"/>
