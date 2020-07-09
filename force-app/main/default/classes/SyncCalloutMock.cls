@@ -18,18 +18,9 @@ global class SyncCalloutMock implements HttpCalloutMock {
                     '"type": "Corporate",' +
                     '"goodGrade": 70,' +
                     '"passingGrade": 80,' +
-                    '"employeeAssignments": [' +
-                    '{' +
-                        '"role": "ROLE_LEAD_TRAINER",' +
-                        '"employee": {' +
-                        '"email": "mock1048.employee381fdc34-12af-48ee-87d3-20fcd312ec16@mock.com",' +
-                        '"firstName": "Mock 1048",' +
-                        '"lastName": "Associate 1048"' +
-                        '},' +
-        				'"deletedAt": null' +
-      				'}],' +
-                	'"currentWeek": 11},' +
-                	'{"id": 469,' +
+                    '"employeeAssignments": [],' +
+                '"currentWeek": 11},' +
+                '{"id": 469,' +
                     '"batchId": "TR-1714",' +
                     '"name": "Mock Batch 469",' +
                     '"startDate": "2020-09-16",' +
@@ -38,25 +29,21 @@ global class SyncCalloutMock implements HttpCalloutMock {
                     '"location": "West Virginia",' +
                     '"type": "Corporate",' +
                     '"goodGrade": 70,' +
-                    '"passingGrade": 80,'  +
-                    '"employeeAssignments": [' +
-                    '{' +
-                        '"role": "ROLE_LEAD_TRAINER",' +
-                        '"employee": {' +
-                        '"email": "mock1048.employee381fdc34-12af-48ee-87d3-20fcd312ec16@mock.com",' +
-                        '"firstName": "Mock 1048",' +
-                        '"lastName": "Associate 1048"' +
-                        '},' +
-        				'"deletedAt": null' +
-      				'}],' +
-                    '"currentWeek": 11}' + 
-                    ']'
+                    '"passingGrade": 80,' +
+                '"currentWeek": 11}]'
                 );
         } else {
-            res.setBody('[{ "email": "mock15.associate7e28dcdf-8ce7-40bc-8b75-12a0ba305009@mock.com",' + 
-                        '"salesforceId": "SF-1840","firstName": "Mock 15","lastName": "Associate 15",' + 
-                        '"flag": null},{"email": "mock12.associate46353ee8-34ab-4ac5-a0c0-c781590da3f7@mock.com",' +
-                        '"salesforceId": "SF-1837","firstName": "Mock 12","lastName": "Associate 12","flag": null}]');
+            res.setBody('[{ "email": "mock15.associate7e28dcdf-8ce7-40bc-8b75-12a0ba305009@mock.com",' +
+                '"salesforceId": "SF-1840",' +
+                '"firstName": "Mock 15",' +
+                '"lastName": "Associate 15",' +
+                '"flag": null},' +
+                '{"email": "mock12.associate46353ee8-34ab-4ac5-a0c0-c781590da3f7@mock.com",' +
+                '"salesforceId": "SF-1837",' +
+                '"firstName": "Mock 12",' +
+                '"lastName": "Associate 12",' +
+                '"flag": null}]'
+                );
         }
         return res;
     }
