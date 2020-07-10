@@ -1,6 +1,6 @@
 public class SyncController {
     
-    static {
+    /*static {
         Setting__c[] currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
         if(currentCRON.size() == 0) {
             SyncSchedule schedule = new SyncSchedule();
@@ -9,7 +9,7 @@ public class SyncController {
                                                     Expression__c = '0 0 0 ? * SUN *',
                                                     JobId__c = jobId);
         }
-    }
+    }*/
 
     @AuraEnabled
     public static void updateFromAura(){
@@ -29,21 +29,40 @@ public class SyncController {
 
     @AuraEnabled
     public static void setCRONExpression(String newCRON){
-        Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-        currentCRON.Expression__c = newCRON;
-        update currentCRON;
-        SyncController instance = new SyncController();
-        instance.createNewSchedule(newCRON);
+        try{
+            Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
+            currentCRON.Expression__c = newCRON;
+            update currentCRON;
+        }
+        catch(exception e){
+            Setting__c thisCron = new Setting__c(name='Current CRON', Expression__C=newCRON);
+            insert thisCron;
+        }
+        finally{
+            SyncController instance = new SyncController();
+            instance.createNewSchedule(newCRON);
+        }
+        
     }
 
     @AuraEnabled
-    public static String[] getCRONExpression(){
-        Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-        String[] getValues = currentCRON.Expression__c.split(' ');
-        getValues.remove(6);
-        getValues.remove(4);
-        getValues.remove(3);
-        getValues.remove(0);
-        return getValues;
+    public static String[] getCRONExpression(){ 
+        
+        try{
+            Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
+            String[] getValues = currentCRON.Expression__c.split(' ');
+            getValues.remove(6);
+            getValues.remove(4);
+            getValues.remove(3);
+            getValues.remove(0);
+            
+            return getValues;
+        }
+        catch(exception e){
+            List<String> x = new List<String>();
+            x.add('-1');
+            return x;
+        }
+        
     }
 }

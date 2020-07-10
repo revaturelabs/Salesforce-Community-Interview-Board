@@ -15,6 +15,7 @@
                 component.set('v.oldMinutes', minutes);
                 component.set('v.oldDayOfWeek', dayOfWeek);
                 component.set('v.timeRetrieved', true);
+                component.set('v.noJob', false);
             }
             else{
                 component.set('v.error', true);
@@ -30,20 +31,27 @@
             if(response.getState() == 'SUCCESS'){
                 let thisTime = response.getReturnValue();
                 
-                for(let i = 0; i < 2; i++){
+                if(thisTime[0] == '-1'){
+                    component.set('v.noJob', true);
+                }
+                else{
+                    for(let i = 0; i < 2; i++){
                     if(thisTime[i].length < 2){
                         thisTime[i] = '0' + thisTime[i];
-                    }
-                }
+                    	}
+                	}
                 
                 component.set('v.oldHours', thisTime[0]);
                 component.set('v.oldMinutes', thisTime[1]);
                 component.set('v.oldDayOfWeek', thisTime[2]);
                 component.set('v.timeRetrieved', true);
+                }
+                
             }
             else{
                 component.set('v.error', true);
                 console.log(response.getState());
+                console.log(response.getError());
             }
         });
         $A.enqueueAction(getSync);

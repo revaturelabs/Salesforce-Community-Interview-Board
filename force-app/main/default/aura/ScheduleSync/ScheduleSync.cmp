@@ -6,6 +6,7 @@
     <aura:attribute name="oldMinutes" type="String"/>
     <aura:attribute name="oldDayOfWeek" type="String"/>
     <aura:attribute name="timeRetrieved" type="Boolean" default="false"/>
+    <aura:attribute name="noJob" type="Boolean" default="false"/>
     <aura:attribute name="error" type="Boolean" default="false"/>
     <aura:attribute name="updateSuccess" type="Boolean" default="false"/>
     <aura:handler name="init" action="{! c.getSchedule }" value="{! this }"/>
@@ -13,6 +14,11 @@
         <aura:if isTrue="{! v.timeRetrieved }">
             <ui:message title="Current Synchronization Time" severity="info">
                 Synchronization is currently scheduled for {! v.oldHours }:{! v.oldMinutes } every {! v.oldDayOfWeek }
+            </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! v.noJob }">
+            <ui:message title="Current Synchronization Time" severity="info">
+                No synchronization task is currently scheduled.
             </ui:message>
         </aura:if>
         <aura:if isTrue="{! v.error }">
