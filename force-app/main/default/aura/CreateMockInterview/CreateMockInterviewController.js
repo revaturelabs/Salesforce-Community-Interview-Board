@@ -39,7 +39,8 @@
     createMockInterviewJS : function(component,event,helper) {
         var action = component.get("c.createMockInterview");
         var rightTypes = component.get("v.RightSideTypes");
-        action.setParams({numQuestions : 20, filter : rightTypes});
+        var numbQuestions = component.get("v.numberOfQuestions");
+        action.setParams({numQuestions : numbQuestions, filter : rightTypes});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
                 console.log("Created Mock Interview");
@@ -54,5 +55,11 @@
         var rightSideTypes = event.getParam("value");
         console.log(rightSideTypes);
         component.set("v.RightSideTypes", rightSideTypes);
+    },
+
+    HoldNumberOfQuestions : function (component, event, helper){
+        var numbQuestions = component.get("v.value");
+        console.log(numbQuestions);
+        component.set("v.numberOfQuestions", numbQuestions);
     }
 })
