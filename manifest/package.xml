@@ -46,6 +46,7 @@
         <members>UpcomingMeetings</members>
         <members>MockInterviews</members>
         <members>MockInterviewWithFlowLaunch</members>
+		<members>InterviewReview</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
