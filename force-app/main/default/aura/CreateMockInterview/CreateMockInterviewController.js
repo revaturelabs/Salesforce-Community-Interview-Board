@@ -48,5 +48,11 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    holdRightSideTypes : function(component, event, helper) {
+        var rightSideTypes = event.getParam("value");
+        console.log(rightSideTypes);
+        component.set("v.RightSideTypes", rightSideTypes);
     }
 })

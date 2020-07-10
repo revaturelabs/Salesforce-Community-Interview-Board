@@ -20,7 +20,7 @@
                                 selectedLabel="SelectedTypes"
                                 fieldLevelHelp="Select your interview question types."
                                 options="{!v.LeftSideTypes}"
-                                values="{!v.RightSideTypes}"/>
+                                onchange="{!c.holdRightSideTypes}"/>
     </aura:if>
     <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" />
 
