@@ -19,5 +19,10 @@
         });
         $A.enqueueAction(action);
 
+    },
+    
+    refreshComponent : function(component, event, helper) {
+        component.set("v.DisplayPage", false);
+        component.set("v.DisplayPage", true);
     }
 })

@@ -49,6 +49,10 @@
             }
         });
         $A.enqueueAction(action);
+
+        var updater = component.getEvent("UpdateList");
+        updater.setParams({"UpdateList": "UpdateIt"});
+        updater.fire();
     },
 
     holdRightSideTypes : function(component, event, helper) {

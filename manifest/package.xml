@@ -54,6 +54,7 @@
 		<members>AssociateUpcomingInterviews</members>
 		<members>MockInterviewsList</members>
 		<members>CreateMockInterview</members>
+		<members>UpdateMockInterviewList</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
