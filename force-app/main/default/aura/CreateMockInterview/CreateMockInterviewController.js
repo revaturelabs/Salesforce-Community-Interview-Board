@@ -58,7 +58,7 @@
     },
 
     HoldNumberOfQuestions : function (component, event, helper){
-        var numbQuestions = component.get("v.value");
+        var numbQuestions = event.getParam("value");
         console.log(numbQuestions);
         component.set("v.numberOfQuestions", numbQuestions);
     }
