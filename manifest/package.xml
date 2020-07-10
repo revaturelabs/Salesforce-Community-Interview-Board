@@ -53,6 +53,7 @@
 		<members>QuestionPoolList</members>
 		<members>AssociateUpcomingInterviews</members>
 		<members>MockInterviewsList</members>
+		<members>CreateMockInterview</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
