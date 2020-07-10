@@ -17,14 +17,29 @@ public class SyncController {
         util.updateDatabase();
     }
 
+    @testVisible
     private void createNewSchedule(String cronTime) {
-        CronTrigger existingJob = [SELECT Id, CronJobDetail.Id, CronJobDetail.Name FROM CronTrigger WHERE CronJobDetail.JobType = '7' ORDER BY CreatedDate ASC LIMIT 1];
-        System.abortJob(existingJob.Id);
+        try {
+            CronTrigger existingJob = [SELECT Id, CronJobDetail.Id, CronJobDetail.Name FROM CronTrigger WHERE CronJobDetail.JobType = '7' ORDER BY CreatedDate ASC LIMIT 1];
+            System.abortJob(existingJob.Id);
+        } catch (exception e) {
+            System.debug('No existing job found');
+        }
+
         SyncSchedule schedule = new SyncSchedule();
         String jobId = System.schedule('Sync Caliber', cronTime, schedule);
-        Setting__c defaultCRON = new Setting__c(Name = 'Current CRON',
-                                                Expression__c = cronTime,
-                                                JobId__c = jobId);
+        Setting__c defaultCRON;
+
+        try {
+            defaultCRON = [SELECT Id FROM Setting__c WHERE Name = 'Current CRON'];
+        } catch(exception e) {
+            defaultCRON = new Setting__c(Name='Current CRON',
+                                         Expression__c = '0 0 0 ? * SUN *' );
+            insert defaultCRON;
+        }
+
+        defaultCRON.JobId__c = jobId;
+        update defaultCRON;
     }
 
     @AuraEnabled
