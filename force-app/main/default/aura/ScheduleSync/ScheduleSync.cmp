@@ -1,4 +1,4 @@
-<aura:component controller="syncUtilityClass" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component controller="SyncController" implements="forceCommunity:availableForAllPageTypes" access="global">
     <aura:attribute name="Hours" type="String"/>
     <aura:attribute name="Minutes" type="String"/>
     <aura:attribute name="DayOfWeek" type="String"/>
