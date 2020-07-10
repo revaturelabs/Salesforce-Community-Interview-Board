@@ -1,7 +1,7 @@
 public class CreateMockInterviewController {
-    public static List<Question__c> getQuestionList(Integer numQuestions){
+    public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
         //TODO must filter by types. Need to add type field to Question Object
-        List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c];
+        List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c WHERE type__c IN :filter];
         List<Question__c> outputList = new List<Question__c>();
         Integer index;
         while(outputList.size()<numQuestions){
@@ -12,9 +12,9 @@ public class CreateMockInterviewController {
         return outputList;
     }
     @AuraEnabled
-    public static void createMockInterview(Integer numQuestions){
+    public static void createMockInterview(Integer numQuestions, List<String> filter){
         List<Question__c> questionsToBeAdded = new List<Question__c>();
-        questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions);
+        questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
         Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
         Meeting__c mockInterview = new Meeting__c(Name= 'Mock interview with '+numQuestions+' questions',
                                                     Meeting_Status__c='Mock',
