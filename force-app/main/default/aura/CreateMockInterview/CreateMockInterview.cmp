@@ -4,6 +4,7 @@
     <aura:attribute name="RightSideTypes" type="List"/>
     <aura:attribute name="TypeMap" type="Map"/>
     <aura:attribute name="ActiveStack" type="String"/>
+    <aura:attribute name="DisplayList"  type="Boolean"  default="true"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
 
@@ -13,17 +14,19 @@
             <option text="{!option}" value="{!option}"/>
         </aura:iteration>
     </lightning:select>
-
-    <lightning:dualListbox name="typeSelection"
-                           label="Select Types"
-                           sourceLabel="Available"
-                           selectedLabel="SelectedTypes"
-                           fieldLevelHelp="Select your interview question types."
-                           options="{!v.LeftSideTypes}"
-                           onchange="{! c.holdSelected}"/>
+    <aura:if isTrue="{!v.DisplayList}">
+        <lightning:dualListbox name="typeSelection"
+                                label="Select Types"
+                                sourceLabel="Available"
+                                selectedLabel="SelectedTypes"
+                                fieldLevelHelp="Select your interview question types."
+                                options="{!v.LeftSideTypes}"
+                                onchange="{!c.holdRightSideTypes}"/>
+    </aura:if>
+    <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" />
 
                            
 
 
 
-</aura:component>	
+</aura:component>
