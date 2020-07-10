@@ -32,9 +32,9 @@
                 //After the record is submitted, reset the component values to blank
                 component.set("v.subject", null);
                 component.set("v.question", null);
+            	alert("You have successfuly entered a question");
             }
             //Display message to user of a successful transaction
-            alert("You have successfuly entered a question");
         })
         $A.enqueueAction(saveQuestionAction); 
     }

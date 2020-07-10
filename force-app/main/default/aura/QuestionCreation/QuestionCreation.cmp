@@ -36,6 +36,7 @@
                 
                 <!--Dropdown list for selecting type-->
     			<aura:if isTrue="{!v.DisplayList}">
+                    <option text="--NONE SELECTED--"/>
                     <lightning:select name="chooseType" label="Choose Type" aura:id="type id" value="{!v.questionType}" required="true">
                         <aura:iteration items="{!v.availableTypes}" var="option">
                             <option text="{!option}" value="{!option}"/>
