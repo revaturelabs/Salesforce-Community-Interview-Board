@@ -2,26 +2,27 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	
 	<types>
+		<members>AssociateController</members>
+		<members>AssociateInfoController</members>
+		<members>associateInterviewController</members>
+	    <members>AssociateMeetingsController</members>
+		<members>AssociateMockInterviewsController</members>
 		<members>BatchClientCreationController</members>
 		<members>BatchClientlistContoller</members>
+		<members>completedInterviewController</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
-		<members>MeetingListController</members>
-		<members>QuestionCreationController</members>
-		<members>QuestionCreationTest</members>
-		<members>AssociateInfoController</members>
-	    <members>AssociateMeetingsController</members>
-		<members>MeetingAssignmentController</members>
-		<members>MeetingAssignmentControllerTest</members>
-		<members>AssociateController</members>
-		<members>associateInterviewController</members>
-		<members>completedInterviewController</members>
+		<members>CreateMockInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
-		<members>QuestionPoolApexController</members>
-		<members>AssociateMockInterviewsController</members>
+		<members>MeetingAssignmentController</members>
+		<members>MeetingAssignmentControllerTest</members>
+		<members>MeetingListController</members>
 		<members>MockInterviewsListController</members>
-		<members>CreateMockInterviewController</members>
+		<members>QuestionCreationController</members>
+		<members>QuestionCreationTest</members>
+		<members>QuestionPoolApexController</members>
+		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
 	
