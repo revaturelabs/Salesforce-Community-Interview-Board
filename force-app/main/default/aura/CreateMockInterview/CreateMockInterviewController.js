@@ -26,6 +26,7 @@
         var stackTypeMap = component.get("v.TypeMap");
         var leftSideList = [];
         var tempList = [];
+        component.set("v.default", [""]);
         tempList = stackTypeMap[selectedStack];
         if (selectedStack) {
             for(let type of tempList) {
@@ -40,6 +41,7 @@
         var action = component.get("c.createMockInterview");
         var rightTypes = component.get("v.RightSideTypes");
         var numbQuestions = component.get("v.numberOfQuestions");
+        
         action.setParams({numQuestions : numbQuestions, filter : rightTypes});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
@@ -66,5 +68,28 @@
         var numbQuestions = event.getParam("value");
         console.log(numbQuestions);
         component.set("v.numberOfQuestions", numbQuestions);
+    },
+
+    SelectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
+        var getAllLeftSide = component.get("v.LeftSideTypes");
+        var tempoList = [];
+        console.log(getAllLeftSide);
+        
+        
+        for(let type of getAllLeftSide) {
+            tempoList.push(type.value);
+        }
+        console.log(tempoList);
+        component.set("v.default", tempoList);
+        console.log(tempoList);
+        component.set("v.DisplayList", true);
+
+    },
+
+    DeselectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
+        component.set("v.default", [""]);
+        component.set("v.DisplayList", true);
     }
 })
