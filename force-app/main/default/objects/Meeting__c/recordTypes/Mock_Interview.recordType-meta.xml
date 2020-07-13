@@ -6,8 +6,22 @@
     <picklistValues>
         <picklist>Meeting_Status__c</picklist>
         <values>
+<<<<<<< HEAD
             <fullName>Mock</fullName>
             <default>false</default>
         </values>
+=======
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Schedule</fullName>
+            <default>true</default>
+        </values>
+>>>>>>> Team1
     </picklistValues>
 </RecordType>

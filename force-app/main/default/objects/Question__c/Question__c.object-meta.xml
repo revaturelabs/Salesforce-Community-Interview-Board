@@ -149,7 +149,11 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
+<<<<<<< HEAD
     <enableSearch>false</enableSearch>
+=======
+    <enableSearch>true</enableSearch>
+>>>>>>> Team1
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>

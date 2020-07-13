@@ -9,7 +9,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AssociateMeetingsController</apexClass>
+        <apexClass>AssociateMeetingController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -273,8 +273,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
         <field>Meeting__c.Participating_Client__c</field>
+=======
+        <editable>false</editable>
+        <field>Meeting__c.Client_Name__c</field>
+>>>>>>> Team1
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -283,6 +288,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
+=======
+        <editable>false</editable>
+        <field>Meeting__c.Completed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Display_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+>>>>>>> Team1
         <editable>true</editable>
         <field>Question__c.Body__c</field>
         <readable>true</readable>
@@ -307,8 +325,43 @@
         <field>Setting__c.JobId__c</field>
         <readable>true</readable>
     </fieldPermissions>
+<<<<<<< HEAD
     <layoutAssignments>
         <layout>Question__c-Question Layout</layout>
+=======
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question__c.Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question__c.Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+        <recordType>Meeting__c.Intervention_1_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+        <recordType>Meeting__c.Intervention_Batch</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+        <recordType>Meeting__c.Interview_1_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+        <recordType>Meeting__c.Interview_Batch</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting__c-Meeting Layout</layout>
+        <recordType>Meeting__c.Mock_Interview</recordType>
+>>>>>>> Team1
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -364,6 +417,15 @@
         <object>Setting__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Question__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Batch</recordType>
@@ -409,6 +471,27 @@
         <recordType>Meeting__c.Mock_Interview</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+<<<<<<< HEAD
+=======
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Metric.Completion</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Metric.Progress</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contact</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+>>>>>>> Team1
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
