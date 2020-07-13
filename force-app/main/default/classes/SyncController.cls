@@ -1,15 +1,4 @@
 public class SyncController {
-    
-    /*static {
-        Setting__c[] currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-        if(currentCRON.size() == 0) {
-            SyncSchedule schedule = new SyncSchedule();
-            String jobId = System.schedule('Sync Caliber', '0 0 0 ? * SUN *', schedule);
-            Setting__c defaultCRON = new Setting__c(Name = 'Current CRON',
-                                                    Expression__c = '0 0 0 ? * SUN *',
-                                                    JobId__c = jobId);
-        }
-    }*/
 
     @AuraEnabled
     public static void updateFromAura(){
