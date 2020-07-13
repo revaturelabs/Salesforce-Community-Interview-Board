@@ -108,7 +108,8 @@
         <apexClass>SyncUtitlityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+    <!-- Commented out because Interview_Question__c changes broke it
+        <classAccesses>
         <apexClass>TestDataCreation</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -116,6 +117,7 @@
         <apexClass>TestDataCreationTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    -->
     <classAccesses>
         <apexClass>associateInterviewController</apexClass>
         <enabled>true</enabled>
