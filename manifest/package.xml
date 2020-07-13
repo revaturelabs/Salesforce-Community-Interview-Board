@@ -121,6 +121,10 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
+		<types>
+		<members>*</members>
+		<name>SiteDotCom</name>
+	</types>
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
