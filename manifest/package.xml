@@ -40,7 +40,6 @@
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
 		<members>MockInterviewWithFlowLaunch</members>
-		<members>MockInterviews</members>
 		<members>QuestionCreation</members>
 		<members>UpcomingMeetings</members>
 		<members>header</members>
@@ -48,7 +47,7 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>Internal Zone</members>
 		<name>Community</name>
 	</types>
 	<types>
@@ -62,7 +61,7 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>InterviewForce</members>
 		<name>CustomSite</name>
 	</types>
 	<types>
@@ -84,10 +83,7 @@
 		<members>unfiled$public/SupportSelfServiceResetPassword</members>
 		<name>EmailTemplate</name>
 	</types>
-	<types>
-        <members>*</members>
-        <name>ExperienceBundle</name>
-    </types>
+
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
@@ -98,8 +94,12 @@
 		<members>Meeting__c-Mock Interview Layout</members>
 		<name>Layout</name>
 	</types>
-	<types>
+		<types>
 		<members>*</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
 	<types>
@@ -122,7 +122,7 @@
 		<name>RecordType</name>
 	</types>
 		<types>
-		<members>*</members>
+		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>
 	</types>
 	<types>
