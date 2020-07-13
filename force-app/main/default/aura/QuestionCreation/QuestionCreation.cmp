@@ -18,11 +18,9 @@
     <div class="slds-p-horizontal_x-large">
         <lightning:card title="Question Creation">
             <div class="slds-p-horizontal_small">
-                <!--Inputs for subject and question-->
-                <lightning:input name="inputSubject" type="String" placeholder="Subject" value="{!v.subject}" maxlength="143"/>
+                <!-- Input for the Question -->
                 <br/>
                 <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
-                
                 <br/>
                 
                 <!--Dropdown list for selecting stack-->
