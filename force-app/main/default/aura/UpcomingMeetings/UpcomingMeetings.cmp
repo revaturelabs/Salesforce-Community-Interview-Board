@@ -19,16 +19,15 @@
                              
                             
                             Client Name: {!item.Client_Name__c} <br></br>
-                            Meeting Status: {!item.Meeting_status__c}<br></br>
+                            Meeting Status: {!item.Meeting_Status__c}<br></br>
                             Scheduled Time: <lightning:formattedDateTime value="{!item.Scheduled__c}" year="2-digit" month="short" day="2-digit" weekday="long"/> <br></br>
 					
-                            Location: {!item.location__c} <br></br>
+                            Location: {!item.Location__c} <br></br>
                             Notes: {!item.Notes__c} <br/> 
                                  
                                  
                             
-                            <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
-                            </p>
+                     
                                  
                            
                         </lightning:accordionSection>

@@ -14,7 +14,7 @@
             <fieldset class="slds-box slds-theme--default ">
                 <lightning:accordion activeSectionName="A">
                     <aura:iteration items="{!v.data}" var="item">
-                        <lightning:accordionSection name="{!item.Name}" label="{!item.Display_Name__c}">
+                        <lightning:accordionSection name="{!item.Name}" label="{!item.Name}">
                             Notes: {!item.Notes__c} <br/>  
                             	
                             <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />

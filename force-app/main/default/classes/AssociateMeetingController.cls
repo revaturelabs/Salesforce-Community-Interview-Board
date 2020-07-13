@@ -53,7 +53,7 @@ public class AssociateMeetingController {
     
      @auraEnabled
     public static Meeting__c[]  GetPastInterviews()
-    {//returns all upcoming mock interviews
+    {//returns all interviews that are completed, past their schedule time, and of interview batch and interview 1-1 record type
         
         
         
@@ -61,10 +61,10 @@ public class AssociateMeetingController {
             try {
                 ID userId = System.UserInfo.getUserId();
                 User userContactId = [Select Contact.id FROM USER WHERE ID = :userId] ;
-             //   Id interview11 = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId();
-             //   Id interviewbatch = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId();
+         
+             //   make list of record types we wish to retrieve as parameter for SOQL query
                 list<ID> rectypelist = new list<id>{Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId(),Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId()};
-                meetinglist=  [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c, (SELECT id, name, Question__r.Subject__c, Question__r.body__c FROM Interview_Questions__r)
+                meetinglist=  [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c
                                FROM Meeting__c
                                WHERE Id IN (SELECT Meeting__c 
                                             FROM Meeting_Participant__c 

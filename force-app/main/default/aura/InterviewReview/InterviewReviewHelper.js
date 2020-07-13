@@ -1,9 +1,6 @@
 ({
     fetchmeetingsHelper : function(component, event, helper) {
-       component.set('v.columns', [
-            {label: 'Question', fieldName: 'Body__c', type: 'text'},
-         
-        ]);
+      
         var action = component.get("c.GetPastInterviews");
         
         action.setCallback(this, function(response){

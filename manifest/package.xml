@@ -1,73 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>AssociateController</members>
+		<members>AssociateInfoController</members>
+		<members>AssociateMeetingController</members>
 		<members>BatchClientCreationController</members>
-        <members>BatchClientlistContoller</members>
-        <members>CreateMeetingApexCont</members>
-        <members>CreateMeetingApexContTest</members>
-        <members>MeetingListController</members>
-        <members>QuestionCreationController</members>
-        <members>QuestionCreationTest</members>
-        <members>AssociateInfoController</members>
-        <members>AssociateMeetingsController</members>
-        <members>MeetingAssignmentController</members>
-        <members>MeetingAssignmentControllerTest</members>
-        <members>AssociateController</members>
-        <members>associateInterviewController</members>
-        <members>completedInterviewController</members>
-        <members>InterviewQuestions</members>
-        <members>InterviewQuestionsTest</members>
-        <members>AssociateMeetingController</members>
+		<members>BatchClientlistContoller</members>
+		<members>CreateMeetingApexCont</members>
+		<members>CreateMeetingApexContTest</members>
+		<members>InterviewQuestions</members>
+		<members>InterviewQuestionsTest</members>
+		<members>MeetingAssignmentController</members>
+		<members>MeetingAssignmentControllerTest</members>
+		<members>MeetingListController</members>
+		<members>QuestionCreationController</members>
+		<members>QuestionCreationTest</members>
+		<members>associateInterviewController</members>
+		<members>completedInterviewController</members>
 		<name>ApexClass</name>
 	</types>
-
 	<types>
 		<members>*</members>
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>AssociateInfo</members>
+		<members>AssociateMeetings</members>
+		<members>AssociateName</members>
+		<members>AssociateWrapper</members>
+		<members>BatchClientCreation</members>
+		<members>BatchClientWrapper</members>
+		<members>BatchClientlist</members>
+		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
-        <members>MeetingTiles</members>
-        <members>QuestionCreation</members>
-        <members>AssociateInfo</members>
-        <members>AssociateMeetings</members>
-        <members>MeetingAssignment</members>
-        <members>throwMeeting</members>
-        <members>AssociateName</members>
-        <members>AssociateWrapper</members>
-        <members>CompletedInterviews</members>
-        <members>Harness</members>
-        <members>InterviewQuestions</members>
-        <members>InterviewForceComponent</members>
-        <members>BatchClientWrapper</members>
-        <members>BatchClientCreation</members>
-        <members>BatchClientlist</members>
-        <members>header</members>
-        <members>UpcomingMeetings</members>
-        <members>MockInterviews</members>
-        <members>MockInterviewWithFlowLaunch</members>
+		<members>Harness</members>
+		<members>InterviewForceComponent</members>
+		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
+		<members>MeetingAssignment</members>
+		<members>MeetingTiles</members>
+		<members>MockInterviewWithFlowLaunch</members>
+		<members>MockInterviews</members>
+		<members>QuestionCreation</members>
+		<members>UpcomingMeetings</members>
+		<members>header</members>
+		<members>throwMeeting</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>Community</name>
+	</types>
+	<types>
 		<members>Account</members>
-		
 		<members>Batch_Client__c</members>
-
 		<members>Contact</members>
-
 		<members>Interview_Question__c</members>
-	
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
-
 		<members>Question__c</members>
-
 		<name>CustomObject</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>CustomSite</name>
+	</types>
+	<types>
 		<members>unfiled$public/Client_Feedback</members>
-
 		<members>unfiled$public/MarketingProductInquiryResponse</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
@@ -86,19 +85,26 @@
 		<name>EmailTemplate</name>
 	</types>
 	<types>
+        <members>*</members>
+        <name>ExperienceBundle</name>
+    </types>
+	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
 	<types>
 		<members>Meeting__c-Meeting Associate View</members>
-    	<members>Meeting__c-Meeting Layout</members>
-    	<members>Meeting__c-Mock Interview Layout</members>
+		<members>Meeting__c-Meeting Layout</members>
+		<members>Meeting__c-Mock Interview Layout</members>
 		<name>Layout</name>
 	</types>
-
+	<types>
+		<members>*</members>
+		<name>Network</name>
+	</types>
 	<types>
 		<members>Admin</members>
-        <members>Associate</members>
+		<members>Associate</members>
 		<name>Profile</name>
 	</types>
 	<types>
@@ -120,8 +126,8 @@
 		<name>StaticResource</name>
 	</types>
 	<types>
+		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
-        <members>Meeting_Participant__c</members>
 		<name>Workflow</name>
 	</types>
 	<types>
