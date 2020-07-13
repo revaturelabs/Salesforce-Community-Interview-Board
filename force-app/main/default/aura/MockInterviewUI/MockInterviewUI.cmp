@@ -1,0 +1,10 @@
+<aura:component>
+    <div class="slds-grid slds-wrap">
+        <lightning:card class="slds-col slds-size_1-of-2">
+            <c:MockInterviewsList/>
+        </lightning:card>
+        <lightning:card class="slds-col slds-size_1-of-2">
+            <c:CreateMockInterview/>
+        </lightning:card>
+    </div>
+</aura:component>	

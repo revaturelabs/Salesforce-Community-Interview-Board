@@ -64,4 +64,15 @@
             <default>false</default>
         </values>
     </picklistValues>
+    <picklistValues>
+        <picklist>trainingStatus__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
 </RecordType>

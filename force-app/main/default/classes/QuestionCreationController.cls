@@ -1,7 +1,7 @@
 //Interview Question Object Controller
 //Responds to Aura Component- QuestionCreation
 
-public class QuestionCreationController {
+public with sharing class QuestionCreationController {
     //Get all account records with the batch recordtype id
     @AuraEnabled
     public static List<Meeting__c> loadAllMeetings(){
