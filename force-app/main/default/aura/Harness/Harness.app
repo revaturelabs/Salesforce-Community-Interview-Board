@@ -1,3 +1,4 @@
 <aura:application extends="force:slds">
-    <c:CreateMockInterview />
+    <c:MockInterviewUI/>
+    <c:QuestionPoolList/>
 </aura:application>

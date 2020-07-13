@@ -7,4 +7,4 @@
             <c:CreateMockInterview/>
         </lightning:card>
     </div>
-</aura:component>	
+</aura:component>

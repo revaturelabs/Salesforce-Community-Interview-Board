@@ -22,7 +22,7 @@
             <lightning:dualListbox name="typeSelection"
                                     label="Select Types"
                                     sourceLabel="Available"
-                                    selectedLabel="SelectedTypes"
+                                    selectedLabel="Selected Types"
                                     fieldLevelHelp="Select your interview question types."
                                     options="{!v.LeftSideTypes}"
                                     onchange="{!c.holdRightSideTypes}"/>

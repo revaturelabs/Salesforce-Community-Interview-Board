@@ -1,3 +1,2 @@
 <aura:event type="APPLICATION" >
-    <aura:attribute name="UpdateList" type="String"/>
 </aura:event>
