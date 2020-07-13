@@ -2,11 +2,23 @@
 //Responds to Aura Component- QuestionCreation
 
 public with sharing class QuestionCreationController {
-    //Get all account records with the batch recordtype id
+    //Get all existing Meeting records
     @AuraEnabled
     public static List<Meeting__c> loadAllMeetings(){
         return [SELECT Name, Id FROM Meeting__c];  
     }
+    
+    //Get the user info for the option to add the question to a meeting
+    @AuraEnabled
+    public static Boolean isAssociate() {
+        Profile currentProfile = [SELECT Id, Name FROM Profile WHERE Id=:UserInfo.getProfileId()];
+        if(currentProfile.Name == 'Associate') {
+            return true;
+        } else {
+        	return false;
+        }
+    }
+    
     //Save a record that a user has created from corresponding QuestionCreation.cmp
     @AuraEnabled
     public static void saveQuestion(String question, String meeting, String type, String stack){
@@ -24,6 +36,7 @@ public with sharing class QuestionCreationController {
              System.debug(e.getMessage());
         }
     }
+    
     //get the type picklist sorted by stack
     @AuraEnabled
     public static Map<String,List<String>> getTypePicklistValues() {

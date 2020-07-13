@@ -2,6 +2,7 @@
     //Initial population of Meetings. Passes to a helper functions.
     init : function(component, event, helper) {
         helper.loadMeetingsAndTypeMap(component);
+        helper.getUserType(component);
     },
     
     //Create an InterviewQuestion record from user's input: subject and body

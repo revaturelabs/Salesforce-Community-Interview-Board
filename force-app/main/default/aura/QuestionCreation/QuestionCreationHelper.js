@@ -37,5 +37,13 @@
             //Display message to user of a successful transaction
         })
         $A.enqueueAction(saveQuestionAction); 
+    },
+    
+    getUserType : function(component) {
+        let action = component.get('c.isAssociate');
+        action.setCallback(this, (res) => {
+            component.set('v.isAssociate', res.getReturnValue());
+        });
+        $A.enqueueAction(action);
     }
 })
