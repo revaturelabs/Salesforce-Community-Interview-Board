@@ -14,31 +14,7 @@
 	-->
 	
 	<types>
-<<<<<<< HEAD
 		<members>*</members>
-=======
-		<members>CreateMeeting</members>
-		<members>MeetingTiles</members>
-		<members>QuestionCreation</members>
-		<members>AssociateInfo</members>
-	    <members>AssociateMeetings</members>
-		<members>MeetingAssignment</members>
-		<members>throwMeeting</members>
-		<members>AssociateName</members>
-		<members>AssociateWrapper</members>
-		<members>CompletedInterviews</members>
-		<members>Harness</members>
-		<members>InterviewQuestions</members>
-		<members>InterviewForceComponent</members>
-		<members>BatchClientWrapper</members>
-		<members>BatchClientCreation</members>
-		<members>BatchClientlist</members>
-		<members>header</members>
-		<members>QuestionPoolList</members>
-		<members>AssociateUpcomingInterviews</members>
-		<members>MockInterviewsList</members>
-		<members>CreateMockInterview</members>
->>>>>>> 0035fccea402b6d8002e7b16460ee753ede6dcec
 		<name>AuraDefinitionBundle</name>
 	</types>
 	
