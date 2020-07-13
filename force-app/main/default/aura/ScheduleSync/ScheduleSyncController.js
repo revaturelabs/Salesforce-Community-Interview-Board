@@ -35,14 +35,15 @@
                     component.set('v.noJob', true);
                 }
                 else{
+                    console.log(thisTime);
                     for(let i = 0; i < 2; i++){
                     if(thisTime[i].length < 2){
                         thisTime[i] = '0' + thisTime[i];
                     	}
                 	}
                 
-                component.set('v.oldHours', thisTime[0]);
-                component.set('v.oldMinutes', thisTime[1]);
+                component.set('v.oldMinutes', thisTime[0]);
+                component.set('v.oldHours', thisTime[1]);
                 component.set('v.oldDayOfWeek', thisTime[2]);
                 component.set('v.timeRetrieved', true);
                 }
