@@ -81,6 +81,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Utilities</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SyncCalloutMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -224,26 +228,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.trainingStatus__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Body__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Feedback__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Meeting__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

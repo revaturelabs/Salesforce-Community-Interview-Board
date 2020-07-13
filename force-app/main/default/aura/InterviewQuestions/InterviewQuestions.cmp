@@ -2,12 +2,13 @@
     <!-- COMPONENT ATTRIBUTES -->
     <aura:attribute name="questionMap" type="Map" default="{}"/>
     <aura:attribute name="questions" type="List" default="[]"/>
-    <aura:attribute name="qSub" type="List" default="[]"/>
+    <aura:attribute name="qType" type="List" default="[]"/>
     <aura:attribute name="meetings" type="List" default="[]"/>
     <aura:attribute name="page" type="Integer" default="1"/>
     <aura:attribute name="perPage" type="Integer" default="5"/>
     <aura:attribute name="disPrev" type="Boolean" default="{!true}"/>
     <aura:attribute name="disNext" type="Boolean" default="{!true}"/>
+    <aura:attribute name="displayValue" type="Boolean" default="{!true}"/>
     <!-- END COMPONENT ATTRIBUTES -->
    
     <!-- EVENT HANDLING -->
@@ -38,13 +39,13 @@
     </div>
 
     <!-- SELECT QUESTIONS BY MEETING -->
-    <lightning:accordion allowMultipleSectionsOpen="true">
-        <aura:iteration items="{!v.qSub}" var="q">
-            <lightning:accordionSection name="{!q.Name}" label="{!q.Subject__c}">
-                <p>{!q.Body__c}</p>
-        </lightning:accordionSection>
-        </aura:iteration>
-    </lightning:accordion>
+		<lightning:accordion allowMultipleSectionsOpen="true">
+			<aura:iteration items="{!v.qType}" var="q">
+				<lightning:accordionSection name="{!q.Stack__c}" label="{!q.Type__c}">
+					<p>{!q.Body__c}</p>
+				</lightning:accordionSection>
+			</aura:iteration>
+		</lightning:accordion>
     <!-- END SELECT QUESTIONS BY MEETING-->
 
         </fieldset>

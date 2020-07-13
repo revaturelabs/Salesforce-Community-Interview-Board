@@ -23,12 +23,8 @@ public class CreateMockInterviewController {
         Id interviewId = savedInterview.getId();
         List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
         for (Question__c q : questionsToBeAdded) {
-            Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
-                                                                            Name=q.Name,
-                                                                            Meeting_md__c=interviewId,
-                                                                            Meeting__c=interviewId,
-                                                                            Question__c=q.Id,
-                                                                            Subject__c=q.Subject__c);
+            Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
+                                                                            Question__c=q.Id);
             interviewQuestions.add(addedQuestion);
         }
         insert interviewQuestions;
@@ -36,6 +32,10 @@ public class CreateMockInterviewController {
 
     @AuraEnabled
     public static Map<String,List<String>> getTypePicklistValues() {
+        return Utilities.getTypePicklistValues();
+    }
+}
+        /*
         Schema.DescribeFieldResult questionType = Question__c.Type__c.getDescribe();
         Schema.sObjectField stackToken = questionType.getController();
         if ( stackToken == null ) return null;
@@ -76,4 +76,4 @@ public class CreateMockInterviewController {
         System.debug(typePicklistValues);
         return typePicklistValues;
     }
-}
+}*/
