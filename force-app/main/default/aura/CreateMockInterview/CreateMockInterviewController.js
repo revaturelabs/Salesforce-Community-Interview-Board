@@ -43,6 +43,10 @@
         action.setParams({numQuestions : numbQuestions, filter : rightTypes});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
+                var UpdateList = $A.get("e.c:UpdateMockInterviewList");;
+                UpdateList.setParams({"UpdateList": "UpdateIt"});
+                console.log(UpdateList);
+                UpdateList.fire();
                 console.log("Created Mock Interview");
             } else {
                 console.log("Successfully Failed");
@@ -50,9 +54,7 @@
         });
         $A.enqueueAction(action);
 
-        var updater = component.getEvent("UpdateList");
-        updater.setParams({"UpdateList": "UpdateIt"});
-        updater.fire();
+        
     },
 
     holdRightSideTypes : function(component, event, helper) {

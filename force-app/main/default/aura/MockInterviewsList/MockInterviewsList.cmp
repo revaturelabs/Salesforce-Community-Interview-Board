@@ -4,8 +4,8 @@
     <aura:attribute name="DisplayPage" type="Boolean" default="true"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-    <aura:handler name="updateList" event="c:UpdateMockInterviewList" action="{!c.refreshComponent}"/>
-    <aura:if isTrue="DisplayPage">
+    <aura:handler name="UpdateList" event="c:UpdateMockInterviewList" action="{!c.refreshComponent}"/>
+    
         <lightning:card>
             <lightning:datatable
             columns="{!v.interviewList}"
@@ -13,5 +13,5 @@
             keyField="Id"
             hideCheckboxColumn="true"/>
         </lightning:card>
-    </aura:if>
+    
 </aura:component>
