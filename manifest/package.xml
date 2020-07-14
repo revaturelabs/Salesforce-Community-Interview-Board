@@ -22,6 +22,7 @@
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
 		<members>CreateMockInterviewController</members>
+		<members>CreateMockInterviewControllerTest</members>
 		<name>ApexClass</name>
 	</types>
 	
