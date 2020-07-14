@@ -306,6 +306,11 @@
         <field>Setting__c.SetDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Setting__c.Weekday__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Question__c-Question Layout</layout>
     </layoutAssignments>
