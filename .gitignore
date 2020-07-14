@@ -50,7 +50,6 @@ ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 
-# Lawrence's evil experiment
 #ignore all files we don't wanna push to Dev
 .vscode
 Component-UIs 
@@ -78,6 +77,11 @@ force-app/main/default/*
 !force-app/main/default/siteDotComSites
 !force-app/main/default/networks
 !force-app/main/default/communities
+force-app\main\default\layout
+
+
+
+
 
 
 

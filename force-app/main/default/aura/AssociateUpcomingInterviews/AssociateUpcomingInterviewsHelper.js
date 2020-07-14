@@ -1,15 +1,16 @@
 ({
     fetchmeetingsHelper : function(component, event, helper) {
-       
+        component.set('v.columns', [
+                 {label: 'Name', fieldName: 'Name', type: 'text'},
+            	{label: 'Notes', fieldName: 'Notes__c', type: 'text'}
+        
+            ]);
         var action = component.get("c.GetFutureMockInterviews");
         
         action.setCallback(this, function(response){
             var state = response.getState();
            if (state === "SUCCESS") {
                 var rows = response.getReturnValue();
-              	 
-               	
-               
                 component.set("v.data", rows);
             } else {
                 let errors = response.getError();
@@ -28,34 +29,5 @@
             }
         });
         $A.enqueueAction(action);
-    },
-    
-    launchflow : function(component, event, helper) {
-    	
-    		var meetid = event.target.id;
-			console.log(meetid);			
-        	var flow = component.find("MockInterviewFlow");
-        
-        //Put input variable values
-        var inputVariables = [
-            {
-                name : "meetingid",
-                type : "String",
-                value : meetid
-            }
-        ];
-        console.log("input" +inputVariables);
-        //Reference flow's Unique Name
-        flow.startFlow("Mock_Interview_Flow", inputVariables);
-    
-	},
-    
-    flowstatuschange : function (component, event, helper) {
-     if (event.getParam('status') === "FINISHED_SCREEN" || event.getParam('status') === "FINISHED") {
-            
-           
-            $A.get("e.force:closeQuickAction").fire();
-            $A.get('e.force:refreshView').fire();
-        }
-	}
+    }
 })
