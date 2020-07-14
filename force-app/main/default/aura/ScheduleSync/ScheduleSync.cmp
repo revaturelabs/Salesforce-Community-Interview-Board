@@ -1,0 +1,95 @@
+<aura:component controller="SyncController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="Hours" type="String"/>
+    <aura:attribute name="Minutes" type="String"/>
+    <aura:attribute name="DayOfWeek" type="String"/>
+    <aura:attribute name="oldHours" type="String"/>
+    <aura:attribute name="oldMinutes" type="String"/>
+    <aura:attribute name="oldDayOfWeek" type="String"/>
+    <aura:attribute name="timeRetrieved" type="Boolean" default="false"/>
+    <aura:attribute name="noJob" type="Boolean" default="false"/>
+    <aura:attribute name="error" type="Boolean" default="false"/>
+    <aura:attribute name="updateSuccess" type="Boolean" default="false"/>
+    <aura:handler name="init" action="{! c.getSchedule }" value="{! this }"/>
+    <lightning:card title="Schedule Synchronization">
+        <aura:if isTrue="{! v.timeRetrieved }">
+            <ui:message title="Current Synchronization Time" severity="info">
+                Synchronization is currently scheduled for {! v.oldHours }:{! v.oldMinutes } every {! v.oldDayOfWeek }
+            </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! v.noJob }">
+            <ui:message title="Current Synchronization Time" severity="info">
+                No synchronization task is currently scheduled.
+            </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! v.error }">
+        	<ui:message title="Error" severity="error">
+            An error has occured. Please contact your system administrator.
+        </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! v.updateSuccess }">
+            <ui:message title="Update Successful" severity="confirm">
+                Synchronization time updated successfully.
+            </ui:message>
+        </aura:if>
+        <div class="c-container">
+            <lightning:layout>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:select value="{! v.Hours }" name="Hours" label="Hours" required="true">
+                        <option value="0">00</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </lightning:select>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:select value="{! v.Minutes }" name="Minutes" label="Minutes" required="true">
+                        <option value="0">00</option>
+                        <option value="5">05</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </lightning:select>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:select value="{! v.DayOfWeek }" name="DayOfWeek" label="Every" required="true">
+                        <option value="SUN">Sunday</option>
+                        <option value="MON">Monday</option>
+                        <option value="TUE">Tuesday</option>
+                        <option value="WED">Wednesday</option>
+                        <option value="THU">Thursday</option>
+                        <option value="FRI">Friday</option>
+                        <option value="SAT">Saturday</option>
+                    </lightning:select>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <lightning:button class="go-button" variant="brand" label="Update" title="Update Schedule" onclick="{! c.updateSchedule }" />
+    </lightning:card>
+</aura:component>
