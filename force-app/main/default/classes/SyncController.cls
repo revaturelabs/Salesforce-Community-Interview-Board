@@ -34,14 +34,18 @@ public class SyncController {
     @AuraEnabled
     public static void setCRONExpression(String newCRON){
         String[] getValues = newCRON.split(' ');
-        DateTime toStore = DateTime.newInstance(Date.today().year(), Date.today().month(), Date.today().day(), integer.valueof(getValues.get(2)), integer.valueof(getValues.get(1)), 0);
+        DateTime today = DateTime.now();
+        DateTime toStore = DateTime.newInstance(today.year(), today.month(), today.day(), integer.valueof(getValues.get(2)), integer.valueof(getValues.get(1)), 0);
         try{
             Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
             currentCRON.Expression__c = newCRON;
+            currentCRON.SetDate__c = toStore;
             update currentCRON;
         }
         catch(exception e){
-            Setting__c thisCron = new Setting__c(name='Current CRON', Expression__C=newCRON);
+            Setting__c thisCron = new Setting__c(name='Current CRON',
+                                                Expression__C=newCRON,
+                                                SetDate__c=toStore);
             insert thisCron;
         }
         finally{
@@ -53,16 +57,14 @@ public class SyncController {
 
     @AuraEnabled
     public static String[] getCRONExpression(){ 
-        
+        String tz = UserInfo.getTimeZone().getDisplayName();
         try{
-            Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-            String[] getValues = currentCRON.Expression__c.split(' ');
-            getValues.remove(6);
-            getValues.remove(4);
-            getValues.remove(3);
-            getValues.remove(0);
+            Setting__c currentCron = [SELECT Name, Expression__c, SetDate__c FROM Setting__c WHERE Name = 'Current CRON'];
+            String userDisplay = currentCRON.SetDate__c.format('mm-hh-EE');
+            String[] values = userDisplay.split('-');
+            values.add(tz);
             
-            return getValues;
+            return values;
         }
         catch(exception e){
             List<String> x = new List<String>();

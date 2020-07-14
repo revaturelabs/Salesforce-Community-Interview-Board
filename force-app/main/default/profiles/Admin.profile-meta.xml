@@ -108,16 +108,10 @@
         <apexClass>SyncUtitlityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <!-- Commented out because Interview_Question__c changes broke it
     <classAccesses>
         <apexClass>Utilities</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>TestDataCreationTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    -->
     <classAccesses>
         <apexClass>associateInterviewController</apexClass>
         <enabled>true</enabled>
@@ -307,8 +301,16 @@
         <field>Setting__c.JobId__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Setting__c.SetDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Question__c-Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Setting__c-Setting Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
