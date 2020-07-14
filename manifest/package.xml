@@ -17,6 +17,23 @@
 		<members>QuestionCreationTest</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
+<<<<<<< Updated upstream
+=======
+		<members>Utilities</members>
+	
+		<members>BatchClientCreationTest</members>
+		<members>CreateMockInterviewController</members>
+		<members>MockInterviewsListController</members>
+		<members>QuestionPoolApexController</members>
+		<members>SyncUtilityClass</members>
+		<members>SyncCalloutMock</members>
+		<members>SyncController</members>
+		<members>SyncSchedule</members>
+		<members>SyncControllerTest</members>
+		<members>SyncScheduleTest</members>
+		<members>SyncUtitlityTest</members>
+		<members>MockInterviewQuestionPoolController</members>
+>>>>>>> Stashed changes
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -44,7 +61,10 @@
 		<members>UpcomingMeetings</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>QuestionPoolList</members>
+		<members>MockInterviewQuestionPool</members>
 		<name>AuraDefinitionBundle</name>
+
 	</types>
 	<types>
 		<members>Internal Zone</members>

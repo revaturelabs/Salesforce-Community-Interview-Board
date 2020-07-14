@@ -32,7 +32,7 @@
     
     launchflow : function(component, event, helper) {
     	
-    		var meetid= event.target.id;
+    		var meetid = event.target.id;
 			console.log(meetid);			
         	var flow = component.find("MockInterviewFlow");
         
@@ -44,7 +44,7 @@
                 value : meetid
             }
         ];
-        
+        console.log("input" +inputVariables);
         //Reference flow's Unique Name
         flow.startFlow("Mock_Interview_Flow", inputVariables);
     
