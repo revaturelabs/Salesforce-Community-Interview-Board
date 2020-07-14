@@ -14,13 +14,22 @@ public class CreateMockInterviewController {
     @AuraEnabled
     public static void createMockInterview(Integer numQuestions, List<String> filter){
         List<Question__c> questionsToBeAdded = new List<Question__c>();
+        ID userId = System.UserInfo.getUserId();
+        User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
+        system.debug(userContactId);
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
         Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
         Meeting__c mockInterview = new Meeting__c(Name= 'Mock interview with '+numQuestions+' questions',
                                                     Meeting_Status__c='Mock',
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
-        Id interviewId = savedInterview.getId();
+        Id interviewId = savedInterview.getId();                              //CHANGE THIS YA GOOF
+        Meeting_Participant__c meetParti = new Meeting_Participant__c(Name = 'LOL this should be an auto number',
+                                                                     Meeting__c = interviewId,
+                                                                     Participant__c = userContactId.Id);
+        insert meetParti;
+
+
         List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
         for (Question__c q : questionsToBeAdded) {
             Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
