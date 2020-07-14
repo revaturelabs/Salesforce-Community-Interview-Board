@@ -11,6 +11,7 @@
                 component.set("v.AllStacks",Object.keys(bigMap));
                 console.log(bigMap);
                 console.log(Object.keys(bigMap));
+                component.find("CreateButton").set("v.disabled", true);
             } else {
                 console.log("Failed in Create Mock Interview Controller (JS)")
             }
@@ -34,6 +35,7 @@
                  }
             component.set("v.LeftSideTypes", leftSideList);
         }
+        component.find("CreateButton").set("v.disabled", true);
         component.set("v.DisplayList", true);
     },
 
@@ -62,6 +64,11 @@
         var rightSideTypes = event.getParam("value");
         console.log(rightSideTypes);
         component.set("v.RightSideTypes", rightSideTypes);
+        if (rightSideTypes[0]) {
+            component.find("CreateButton").set("v.disabled", false);
+        } else {
+            component.find("CreateButton").set("v.disabled", true);
+        }
     },
 
     HoldNumberOfQuestions : function (component, event, helper){
@@ -83,6 +90,7 @@
         console.log(tempoList);
         component.set("v.default", tempoList);
         console.log(tempoList);
+        component.find("CreateButton").set("v.disabled", false);
         component.set("v.DisplayList", true);
 
     },
@@ -90,6 +98,7 @@
     DeselectAll : function (component, event, helper){
         component.set("v.DisplayList", false);
         component.set("v.default", [""]);
+        component.find("CreateButton").set("v.disabled", true);
         component.set("v.DisplayList", true);
     }
 })
