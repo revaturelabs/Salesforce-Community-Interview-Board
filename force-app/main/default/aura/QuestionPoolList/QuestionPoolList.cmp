@@ -1,10 +1,8 @@
 <aura:component controller="QuestionPoolApexController"
-<<<<<<< HEAD
+
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
 
-=======
-                implements="flexipage:availableForAllPageTypes">
->>>>>>> 9bd25fef5be4085a1140fdb43125b867f898a3cf
+
     <aura:attribute name="question" type="object"/>
     <aura:attribute name="questionList" type="List"/>
     <aura:attribute name="selectedRowCount" type="integer" default ="0"/>
@@ -12,11 +10,9 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <lightning:card title="Interview Questions(lightning card)">
-<<<<<<< HEAD
+
         <h1>Interview Questions</h1>
-=======
-        <h1>InterviewQuestions(h1)</h1>
->>>>>>> 9bd25fef5be4085a1140fdb43125b867f898a3cf
+
         <div style="height: auto">
             <lightning:datatable columns="{!v.questionList}"
                                  data="{!v.question}"

@@ -25,6 +25,11 @@
                 <default>false</default>
                 <label>Cancelled</label>
             </value>
+            <value>
+                <fullName>Mock</fullName>
+                <default>false</default>
+                <label>Mock</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

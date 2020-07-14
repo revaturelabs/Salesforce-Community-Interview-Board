@@ -17,5 +17,9 @@
             <fullName>On Schedule</fullName>
             <default>true</default>
         </values>
+        <values>
+            <fullName>Mock</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
 </RecordType>
