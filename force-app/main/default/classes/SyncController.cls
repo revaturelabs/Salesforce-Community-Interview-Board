@@ -33,6 +33,8 @@ public class SyncController {
 
     @AuraEnabled
     public static void setCRONExpression(String newCRON){
+        String[] getValues = newCRON.split(' ');
+        DateTime toStore = DateTime.newInstance(Date.today().year(), Date.today().month(), Date.today().day(), integer.valueof(getValues.get(2)), integer.valueof(getValues.get(1)), 0);
         try{
             Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
             currentCRON.Expression__c = newCRON;
