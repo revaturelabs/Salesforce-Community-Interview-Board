@@ -17,6 +17,10 @@
 		<members>QuestionCreationTest</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
+		<members>Utilities</members>
+		<members>SyncSchedule</members>
+		<members>SyncScheduleTest</members>
+		<members>syncUtilityClass</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -66,24 +70,10 @@
 	</types>
 	<types>
 		<members>unfiled$public/Client_Feedback</members>
-		<members>unfiled$public/MarketingProductInquiryResponse</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
-		<members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
-		<members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
-		<members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
-		<members>unfiled$public/SalesNewCustomerEmail</members>
-		<members>unfiled$public/SupportCaseAssignmentNotification</members>
-		<members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
-		<members>unfiled$public/SupportCaseCreatedWebInquiries</members>
-		<members>unfiled$public/SupportCaseResponse</members>
-		<members>unfiled$public/SupportEscalatedCaseNotification</members>
-		<members>unfiled$public/SupportEscalatedCaseReassignment</members>
-		<members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
-		<members>unfiled$public/SupportSelfServiceResetPassword</members>
 		<name>EmailTemplate</name>
 	</types>
-
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
@@ -94,7 +84,7 @@
 		<members>Meeting__c-Mock Interview Layout</members>
 		<name>Layout</name>
 	</types>
-		<types>
+	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
