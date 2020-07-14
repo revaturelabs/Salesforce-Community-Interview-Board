@@ -2,6 +2,7 @@
     //Initial population of Meetings. Passes to a helper functions.
     init : function(component, event, helper) {
         helper.loadMeetingsAndTypeMap(component);
+        helper.getUserType(component);
     },
     
     //Create an InterviewQuestion record from user's input: subject and body
@@ -12,6 +13,7 @@
         var meet = component.get("v.selectedMeetingId");
         var type = component.get("v.questionType");
         var stack = component.get("v.questionStack");
+        var associate = component.get('v.isAssociate');
         
         //Subject is null
         if(sub == null){
@@ -27,7 +29,7 @@
             alert("Please select a value for stack");
             //Save to database
         } else{
-            helper.saveQuestionHelper(component, sub, quest, type, stack, meet);
+            helper.saveQuestionHelper(component, sub, quest, type, stack, meet, associate);
         } 
     },
     

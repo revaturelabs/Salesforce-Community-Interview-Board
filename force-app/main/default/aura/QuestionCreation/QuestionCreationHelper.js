@@ -20,11 +20,11 @@
         $A.enqueueAction(getTypeMapAction);
     },
     
-    saveQuestionHelper : function(component, sub, quest, type, stack, meet) {
+    saveQuestionHelper : function(component, sub, quest, type, stack, meet, associate) {
         //Initialize the apex controller and set it's paramaters
         var saveQuestionAction = component.get("c.saveQuestion");
         saveQuestionAction.setParams({subject : sub, question : quest, meeting: meet,
-                                      type : type, stack : stack});
+                                      type : type, stack : stack, associate: associate});
   
         //Set the callback and enqueue the apex controller
         saveQuestionAction.setCallback(this, function(response){
@@ -37,5 +37,13 @@
             //Display message to user of a successful transaction
         })
         $A.enqueueAction(saveQuestionAction); 
+    },
+    
+    getUserType : function(component) {
+        let action = component.get('c.isAssociate');
+        action.setCallback(this, (res) => {
+            component.set('v.isAssociate', res.getReturnValue());
+        });
+        $A.enqueueAction(action);
     }
 })
