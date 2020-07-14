@@ -1,0 +1,19 @@
+<aura:component controller="MockInterviewsListController">
+    <aura:attribute name="interview" type="Object"/>
+    <aura:attribute name="interviewList" type="List"/>
+    <aura:attribute name="DisplayPage" type="Boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:handler event="c:UpdateMockInterviewList" action="{!c.refreshComponent}"/>
+    
+    <aura:if isTrue="{!v.DisplayPage}">
+        <lightning:card>
+            <lightning:datatable
+                                 columns="{!v.interviewList}"
+                                 data="{!v.interview}"
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"/>
+        </lightning:card>
+    </aura:if>
+    
+</aura:component>
