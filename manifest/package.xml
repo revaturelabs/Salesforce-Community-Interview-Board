@@ -62,6 +62,7 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+		<members>Setting__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
