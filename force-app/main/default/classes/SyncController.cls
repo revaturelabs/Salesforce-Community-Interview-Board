@@ -1,9 +1,15 @@
 public class SyncController {
     
     @AuraEnabled
-    public static void updateFromAura(){
+    public static List<Integer> updateFromAura(){
+        List<Integer> updateCounts = new List<Integer>();
+        
         SyncUtilityClass util = new SyncUtilityClass();
-        util.updateDatabase();
+        updateCounts = util.updateDatabase();
+        
+        System.debug(updateCounts);
+        
+        return updateCounts;
     }
     
     @AuraEnabled
@@ -24,7 +30,7 @@ public class SyncController {
         String tz = UserInfo.getTimeZone().getDisplayName();
         try{
             CronTrigger cronInfoRecord = [SELECT NextFireTime FROM CronTrigger];
-            String cronInfo = cronInfoRecord.NextFireTime.format('hh-mm-EEE').toUpperCase();
+            String cronInfo = cronInfoRecord.NextFireTime.format('kk-mm-EEE').toUpperCase();
             String[] values = cronInfo.split('-');
             values.add(tz);
             
