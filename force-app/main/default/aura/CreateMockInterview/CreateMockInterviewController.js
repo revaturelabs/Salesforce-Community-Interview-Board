@@ -13,16 +13,16 @@
                 console.log(Object.keys(bigMap));
                 component.find("CreateButton").set("v.disabled", true);
             } else {
-                console.log("Failed in Create Mock Interview Controller (JS)")
+                console.log("Failed in Create Mock Interview Controller (JS)");
             }
-        })
+        });
 
 
         $A.enqueueAction(action);
     },
 
     ChangeLeftSideTypes : function(component, event, helper){
-        component.set("v.DisplayList", false);
+        //component.set("v.DisplayList", false);
         var selectedStack = component.find("stack id").get("v.value");
         var stackTypeMap = component.get("v.TypeMap");
         var leftSideList = [];
@@ -36,7 +36,7 @@
             component.set("v.LeftSideTypes", leftSideList);
         }
         component.find("CreateButton").set("v.disabled", true);
-        component.set("v.DisplayList", true);
+        //component.set("v.DisplayList", true);
     },
 
     createMockInterviewJS : function(component,event,helper) {
@@ -51,9 +51,9 @@
                 console.log(UpdateList);
                 UpdateList.fire();
                 console.log("Created Mock Interview");
-                console.log(response.getReturnValue());
+                //console.log(response.getReturnValue());
             } else {
-                console.log("Successfully Failed");
+                console.log(response.getError());
             }
         });
         $A.enqueueAction(action);

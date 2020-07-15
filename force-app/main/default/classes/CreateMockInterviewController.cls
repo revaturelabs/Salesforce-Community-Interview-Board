@@ -1,4 +1,4 @@
-public class CreateMockInterviewController {
+public without sharing class CreateMockInterviewController {
     public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
         //TODO must filter by types. Need to add type field to Question Object
         List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c WHERE type__c IN :filter];
@@ -12,10 +12,10 @@ public class CreateMockInterviewController {
         return outputList;
     }
     @AuraEnabled
-    public static Meeting_Participant__c createMockInterview(Integer numQuestions, List<String> filter){
+    public static void createMockInterview(Integer numQuestions, List<String> filter){
         List<Question__c> questionsToBeAdded = new List<Question__c>();
-        //String userId = System.UserInfo.getUserId();
-        String userId='0053h000002lXy9AAE';
+        String userId = System.UserInfo.getUserId();
+        //String userId='0053h000002lXy9AAE';
         User userContactId = [SELECT ContactId FROM User WHERE Id = :userId] ;
         //return userContactId.ContactId;
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
@@ -24,26 +24,28 @@ public class CreateMockInterviewController {
                                                     Meeting_Status__c='Mock',
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
-        Id interviewId = savedInterview.getId();                              //CHANGE THIS YA GOOF
-        Meeting_Participant__c meetParti = new Meeting_Participant__c(Name = 'LOL this should be an auto number',
+        Id interviewId = savedInterview.getId();
+        Meeting_Participant__c meetParti = new Meeting_Participant__c(
                                                                      Meeting__c = interviewId,
                                                                      Participant__c = userContactId.ContactId);
-       
-        insert meetParti;
-        return meetParti;
-
-
-        /*List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
-        for (Question__c q : questionsToBeAdded) {
-            Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
-                                                                            Name=q.Name,
-                                                                            Meeting_md__c=interviewId,
-                                                                            Meeting__c=interviewId,
-                                                                            Question__c=q.Id,
-                                                                            Subject__c=q.Subject__c);
-            interviewQuestions.add(addedQuestion);
+        try{
+            insert meetParti;
+                List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
+                for (Question__c q : questionsToBeAdded) {
+                    Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
+                                                                                    Name=q.Name,
+                                                                                    Meeting_md__c=interviewId,
+                                                                                    Meeting__c=interviewId,
+                                                                                    Question__c=q.Id,
+                                                                                    Subject__c=q.Subject__c);
+            		interviewQuestions.add(addedQuestion);
+        	}
+            insert interviewQuestions;
+       }
+       catch(Exception e) {
+           //throw new AuraHandledException(JSON.serialize(meetParti));
+           throw new AuraHandledException(e.getMessage());
         }
-        insert interviewQuestions;*/
     }
 
     @AuraEnabled
