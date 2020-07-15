@@ -34,7 +34,7 @@
             <name>Update_Completed_Date</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Meeting__c.Meeting_Status__c</field>
             <operation>equals</operation>

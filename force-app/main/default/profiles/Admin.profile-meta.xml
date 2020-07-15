@@ -402,11 +402,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Question__c.Subject__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Question__c.Visibility__c</field>
         <readable>true</readable>
     </fieldPermissions>
