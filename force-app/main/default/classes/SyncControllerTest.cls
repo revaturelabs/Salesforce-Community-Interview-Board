@@ -15,20 +15,6 @@ private class SyncControllerTest {
     }
 
     @isTest 
-    private static void testCreateNewSchedule(){
-        SyncController sc = new SyncController();
-        SyncCalloutMock scm = new SyncCalloutMock();
-        Test.setMock(HttpCalloutMock.class, scm);
-
-        Test.startTest();
-        sc.createNewSchedule('0 0 0 1 1 ? *');
-        Test.stopTest();
-
-        List<CronTrigger> existingJobs = [SELECT Id FROM CronTrigger];
-        System.assertEquals(1, existingJobs.size());
-    }
-
-    @isTest 
     private static void testSetCroneExpression(){
         SyncCalloutMock scm = new SyncCalloutMock();
         Test.setMock(HttpCalloutMock.class, scm);
