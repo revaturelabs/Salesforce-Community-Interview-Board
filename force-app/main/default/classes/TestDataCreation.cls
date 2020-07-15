@@ -461,7 +461,6 @@ public with sharing class TestDataCreation {
             {
                 q = new Interview_Question__c();
 
-                q.Name = m.Name + ' Question ' + i;
                 q.Subject__c = 'Question ' + i;
                 q.Body__c = 'The Body of Question ' + i + ' goes here.\nIt can even be multiple lines!';
 
