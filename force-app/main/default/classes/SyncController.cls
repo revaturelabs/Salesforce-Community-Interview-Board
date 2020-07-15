@@ -32,10 +32,11 @@ public class SyncController {
     }
     
     @AuraEnabled
-    public static void setCRONExpression(String newCRON){
+    public static String setCRONExpression(String newCRON){
         String[] getValues = newCRON.split(' ');
         DateTime today = DateTime.now();
         DateTime toStore = DateTime.newInstance(today.year(), today.month(), today.day(), integer.valueof(getValues.get(2)), integer.valueof(getValues.get(1)), 0);
+        String tz = UserInfo.getTimeZone().getDisplayName();
         try{
             Setting__c currentCron = [SELECT Name, Expression__c, SetDate__c, Weekday__c FROM Setting__c WHERE Name = 'Current CRON'];
             currentCRON.Expression__c = newCRON;
@@ -54,7 +55,7 @@ public class SyncController {
             SyncController instance = new SyncController();
             instance.createNewSchedule(newCRON);
         }
-        
+        return tz;
     }
     
     private Integer getIndex(String day) {
@@ -101,7 +102,7 @@ public class SyncController {
             } else if ( dateData.day() < dayForUser ) {
                 weekday = sc.getWeekday(sc.getIndex(weekday) + 1);
             }
-            String userDisplay = dateData.format('mm-hh');
+            String userDisplay = dateData.format('mm-kk');
             String[] values = userDisplay.split('-');
             values.add(weekday);
             values.add(tz);
