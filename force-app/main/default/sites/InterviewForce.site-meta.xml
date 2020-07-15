@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>test-yhmuic9r0arw@example.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>test-yhmuic9r0arw@example.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>test-q0inw6ctyfte@example.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>test-q0inw6ctyfte@example.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>interviewforce2342-developer-edition</subdomain>
+    <subdomain>test</subdomain>
 </CustomSite>
