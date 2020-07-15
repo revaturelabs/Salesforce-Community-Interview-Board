@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>thejoey46@creative-hawk-bjnphr.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>thejoey46@creative-hawk-bjnphr.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>hughes.dillon1994@curious-shark-3rxind.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>hughes.dillon1994@curious-shark-3rxind.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>interviewforce2342-developer-edition</subdomain>
 </CustomSite>

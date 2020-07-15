@@ -19,19 +19,19 @@ public class CreateMockInterviewControllerTest {
                 switch on mod {
                     when 0 {
 
-                        question.Name= 'Apex'+i;
+                       
                         question.Stack__c='Salesforce';
                         question.Type__c='Apex';
 
                     }
                     when 1 {
-                        question.Name='Visualforce'+i;
+                        
                         question.Stack__c='Salesforce';
                         question.Type__c='Visualforce';
 
                     }
                     when 2 {
-                        question.Name='Java'+i;
+                        
                         question.Stack__c='Java';
                         question.Type__c='Java';
                     }
