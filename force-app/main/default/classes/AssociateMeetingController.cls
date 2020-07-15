@@ -84,7 +84,7 @@ public class AssociateMeetingController {
         List<Interview_Question__c> returnlist = new List<Interview_Question__c>{};
        try {
            
-        returnlist = [SELECT id, name, body__c FROM Interview_Question__c WHERE Meeting_md__c = : meetingid];
+        returnlist = [SELECT id, name FROM Interview_Question__c WHERE Meeting_md__c = : meetingid];
         
          }catch(Exception e){
                 throw new AuraHandledException('Server-side Error: ' + e.getMessage()); 

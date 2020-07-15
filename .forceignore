@@ -15,5 +15,9 @@ package.xml
 **/listViews/**
 
 **profiles/Custom
-**layouts
+**layouts/Contact
+**layouts/Account
 **classes/TestDataCreation
+**siteDotComSites
+**networks
+**sites

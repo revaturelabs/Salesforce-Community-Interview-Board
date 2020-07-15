@@ -324,10 +324,6 @@
         <editable>true</editable>
         <field>Setting__c.SetDate__c</field>
         <readable>true</readable>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Body__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
