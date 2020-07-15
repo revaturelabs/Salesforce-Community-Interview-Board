@@ -1,6 +1,5 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="QuestionCreationController">
     <!--Declare all attributes-->
-    <aura:attribute name="subject" type="String"/>
     <aura:attribute name="question" type="String"/>
     <aura:attribute name="questionType" type="String"/>
     <aura:attribute name="questionStack" type="String"/>
