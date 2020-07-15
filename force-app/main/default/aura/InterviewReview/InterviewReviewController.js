@@ -1,6 +1,6 @@
 ({
     init : function(component, event, helper) {
-        helper.fetchmeetingsHelper(component, event, helper);
+        helper.fetchMeetingsHelper(component, event, helper);
     },
     
     getquestions : function(component, event, helper){
