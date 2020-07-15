@@ -4,7 +4,7 @@
     <aura:attribute name="data" type="Meeting__c[]"/>
     <aura:attribute name="idlist" type="String[]" />
     <aura:attribute name="isModalOpen" type="boolean" default="false"/>
-     <aura:registerEvent name="FlowLaunch" type="c:FlowLaunch"  />
+    <aura:registerEvent name="FlowLaunch" type="c:FlowLaunch"  />
     <aura:handler name="FlowClose" event="c:FlowClose" action="{!c.onmodalclose}" />
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
@@ -16,16 +16,11 @@
                 <lightning:accordion activeSectionName="A">
                     <aura:iteration items="{!v.data}" var="item">
                         <lightning:accordionSection name="{!item.Name}" label="{!item.Name}">
-                            Notes: {!item.Notes__c} <br></br>
+                            Notes: {!item.Notes__c} <br/>  
                             	
                             <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
-                            </p><br></br>
+                            </p>
                             	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onmodalopen}" id="{!item.Id}">Begin Interview</button> 
-                           	<br></br><br></br>
-                            <div class="slds-box">
-                            <c.MockInterviewQuestionPool parentid="{!item.Id}"/>
-                            </div>
-                            
                         </lightning:accordionSection>
                     </aura:iteration>
                     
@@ -33,7 +28,7 @@
             </fieldset>
         </div>
         <aura:if isTrue="{!v.isModalOpen}">
-             <c:FlowHost />
+       <c:FlowHost />
         </aura:if>
     </lightning:card>
     

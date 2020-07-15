@@ -70,6 +70,10 @@
 		<members>UpdateMockInterviewList</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewPrepareWithFlowLaunch</members>
+		<members>FlowLaunch</members>
+		<members>FlowClose</members>
+		<members>FlowHost</members>
+		<members>MockInterviewFlowLaunchHost</members>
 		<name>AuraDefinitionBundle</name>
 
 

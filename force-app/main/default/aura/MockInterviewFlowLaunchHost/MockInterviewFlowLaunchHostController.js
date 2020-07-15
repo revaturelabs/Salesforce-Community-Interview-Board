@@ -13,6 +13,7 @@
     
     onmodalopen : function(component, event, helper) {
         
+        
         component.set("v.isModalOpen", true);
         var MockId = event.target.id;
         var e =$A.get("e.c:FlowLaunch");
