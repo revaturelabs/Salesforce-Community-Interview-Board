@@ -10,11 +10,18 @@
         setSync.setParams({newCRON: cronExp});
         setSync.setCallback(this, function(response){
             if(response.getState() == 'SUCCESS'){
+                console.log('RESPONSE');
+                console.log(response.getReturnValue());
+                
+                let tz = response.getReturnValue();
+                tz = tz.split(' (');
+                
                 component.set('v.updateSuccess', true);
                 component.set('v.oldHours', hours);
                 component.set('v.oldMinutes', minutes);
                 component.set('v.oldDayOfWeek', dayOfWeek);
                 component.set('v.timeRetrieved', true);
+                component.set('v.timeZone', tz[0]);
                 component.set('v.noJob', false);
             }
             else{
@@ -35,16 +42,19 @@
                     component.set('v.noJob', true);
                 }
                 else{
-                    console.log(thisTime);
                     for(let i = 0; i < 2; i++){
                     if(thisTime[i].length < 2){
                         thisTime[i] = '0' + thisTime[i];
                     	}
                 	}
-                
+
+					let timeZone = thisTime[3];
+                    timeZone = timeZone.split(' (');
+                    
                 component.set('v.oldMinutes', thisTime[0]);
                 component.set('v.oldHours', thisTime[1]);
                 component.set('v.oldDayOfWeek', thisTime[2]);
+                component.set('v.timeZone', ' ' + timeZone[0]);
                 component.set('v.timeRetrieved', true);
                 }
                 
