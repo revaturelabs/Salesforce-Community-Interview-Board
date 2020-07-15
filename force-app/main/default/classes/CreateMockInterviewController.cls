@@ -33,7 +33,6 @@ public without sharing class CreateMockInterviewController {
                 List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
                 for (Question__c q : questionsToBeAdded) {
                     Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
-                                                                                    Name=q.Name,
                                                                                     Meeting_md__c=interviewId,
                                                                                     Meeting__c=interviewId,
                                                                                     Question__c=q.Id,
