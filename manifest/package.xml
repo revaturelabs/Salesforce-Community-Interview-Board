@@ -69,7 +69,7 @@
 		<members>CreateMockInterview</members>
 		<members>UpdateMockInterviewList</members>
 		<members>MockInterviewUI</members>
-	
+		<members>MockInterviewPrepareWithFlowLaunch</members>
 		<name>AuraDefinitionBundle</name>
 
 
