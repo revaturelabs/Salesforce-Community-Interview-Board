@@ -13,6 +13,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssociateMeetingsControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AssociateMockInterviewsController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -236,12 +240,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.AddQuestionVisibility__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting__c.Batch__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting__c.Client_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -251,9 +260,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Completed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Display_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -271,11 +285,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting__c.Client_Name__c</field>
-        <readable>true</readable> 
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting__c.Participating_Client__c</field>
         <readable>true</readable>
@@ -286,16 +295,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting__c.Completed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting__c.Display_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Body__c</field>
         <readable>true</readable>
@@ -303,6 +302,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Interviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -330,11 +334,6 @@
         <field>Setting__c.Weekday__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Subject__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <layoutAssignments>
         <layout>Meeting__c-Meeting Layout</layout>
     </layoutAssignments>
@@ -357,9 +356,6 @@
     <layoutAssignments>
         <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Mock_Interview</recordType>
-        </layoutAssignments>
-    <layoutAssignments>
-        <layout>Question__c-Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Setting__c-Setting Layout</layout>
@@ -418,15 +414,6 @@
         <object>Setting__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Question__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Batch</recordType>
@@ -482,14 +469,6 @@
         <recordType>Metric.Progress</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
-        <tab>standard-Account</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-Contact</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
@@ -739,7 +718,10 @@
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
-
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>FieldServiceAccess</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>GiveRecognitionBadge</name>
@@ -1016,7 +998,10 @@
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
     </userPermissions>
-
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SendExternalEmailAvailable</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>
