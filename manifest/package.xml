@@ -39,21 +39,30 @@
 		<members>AssociateInfo</members>
 		<members>AssociateMeetings</members>
 		<members>AssociateName</members>
+		<members>AssociateUpcomingInterviews</members>
 		<members>AssociateWrapper</members>
 		<members>BatchClientCreation</members>
+		<members>BatchClientCreationApp</members>
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
+		<members>CreateMockInterview</members>
 		<members>Harness</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
+		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
+		<members>MockInterviews</members>
+		<members>MockInterviewsList</members>
+		<members>MockInterviewsUI</members>
 		<members>MockInterviewWithFlowLaunch</members>
 		<members>QuestionCreation</members>
+		<members>QuestionPoolList</members>
 		<members>UpcomingMeetings</members>
+		<members>UpdateMockInterviewList</members>
 		<members>header</members>
 		<members>throwMeeting</members>
 		<name>AuraDefinitionBundle</name>
