@@ -8,14 +8,23 @@
         {
             qMap[meetings[i].Id] = [];
         }
+        var temp = [];
+        for (let i=0; i<questions.length;i++) {
+            let id = questions[i].Interview_Questions__r[0];
+            let question = questions[i];
+            question.Interview_Questions__r=id;
+            temp.push(question);
+        }
+        console.log(temp);
 
-        for(var i = 0; i < questions.length; i++)
+        for(var i = 0; i < temp.length; i++)
         {
-            if(qMap[questions[i].Meeting__c] == null)
-                qMap[questions[i].Meeting__c] = [];
-            qMap[questions[i].Meeting__c].push(questions[i]);
+            if(qMap[temp[i].Interview_Questions__r.Meeting_md__c] == null)
+                qMap[temp[i].Interview_Questions__r.Meeting_md__c] = [];
+            qMap[temp[i].Interview_Questions__r.Meeting_md__c].push(temp[i]);
         }
         //set the qMap to questionMap on the component
+        console.log(qMap);
         component.set("v.questionMap", qMap);
         
     },
@@ -42,16 +51,16 @@
     setPage : function(component)
     {
         var questions = component.get("v.questions");
-        var qSub = [];
+        var qType = [];
         var page = component.get("v.page") - 1;
         var perPage = component.get("v.perPage");
 
         for(var i = 0; i < perPage && i + page * perPage < questions.length; i++)
         {
-            qSub.push(questions[i + page * perPage]);
+            qType.push(questions[i + page * perPage]);
         }
 
-        component.set("v.qSub", qSub);
+        component.set("v.qType", qType);
     },
 
     //if you change the meeting you pick, it should go back to page 1

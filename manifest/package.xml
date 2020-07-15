@@ -2,28 +2,45 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	
 	<types>
+		<members>AssociateController</members>
+		<members>AssociateInfoController</members>
+		<members>associateInterviewController</members>
+		<members>AssociateMeetingController</members>
+		<members>AssociateMeetingsControllerTest</members>
+		<members>AssociateMockInterviewsController</members>
 		<members>BatchClientCreationController</members>
+		<members>BatchClientCreationTest</members>
 		<members>BatchClientlistContoller</members>
+		<members>BatchListControllerTest</members>
+		<members>completedInterviewController</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
-		<members>MeetingListController</members>
-		<members>QuestionCreationController</members>
-		<members>QuestionCreationTest</members>
-		<members>AssociateInfoController</members>
-	    <members>AssociateMeetingsController</members>
-		<members>MeetingAssignmentController</members>
-		<members>MeetingAssignmentControllerTest</members>
-		<members>AssociateController</members>
-		<members>associateInterviewController</members>
-		<members>completedInterviewController</members>
+		<members>CreateMockInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
+		<members>MeetingAssignmentController</members>
+		<members>MeetingAssignmentControllerTest</members>
+		<members>MeetingListController</members>
+		<members>MockInterviewQuestionPoolController</members>
+		<members>MockInterviewsListController</members>
+		<members>QuestionCreationController</members>
+		<members>QuestionCreationTest</members>
 		<members>QuestionPoolApexController</members>
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
 		<members>QuestionPoolApexControllerTest</members>
+		<members>SyncCalloutMock</members>
+		<members>SyncController</members>
+		<members>SyncControllerTest</members>
+		<members>SyncSchedule</members>
+		<members>SyncScheduleTest</members>
+		<members>syncUtilityClass</members>
+		<members>SyncUtitlityTest</members>
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
+		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
 	
@@ -35,52 +52,104 @@
 	-->
 	
 	<types>
-		<members>CreateMeeting</members>
-		<members>MeetingTiles</members>
-		<members>QuestionCreation</members>
+		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
-	    <members>AssociateMeetings</members>
-		<members>MeetingAssignment</members>
-		<members>throwMeeting</members>
+		<members>associateInterviews</members>
 		<members>AssociateName</members>
-		<members>AssociateWrapper</members>
-		<members>CompletedInterviews</members>
-		<members>Harness</members>
-		<members>InterviewQuestions</members>
-		<members>InterviewForceComponent</members>
-		<members>BatchClientWrapper</members>
-		<members>BatchClientCreation</members>
-		<members>BatchClientlist</members>
-		<members>header</members>
-		<members>QuestionPoolList</members>
 		<members>AssociateUpcomingInterviews</members>
-		<members>MockInterviewsList</members>
+		<members>AssociateWrapper</members>
+		<members>BatchClientCreation</members>
+		<members>BatchClientCreationApp</members>
+		<members>BatchClientlist</members>
+		<members>BatchClientWrapper</members>
+		<members>CompletedInterviews</members>
+		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
-		<members>UpdateMockInterviewList</members>
+		<members>Harness</members>
+		<members>header</members>
+		<members>InterviewForceComponent</members>
+		<members>InterviewQuestions</members>
+		<members>InterviewReview</members>
+		<members>ManualSync</members>
+		<members>MeetingAssignment</members>
+		<members>MeetingTiles</members>
+		<members>MockInterviewQuestionPool</members>
+		<members>MockInterviews</members>
+		<members>MockInterviewsList</members>
 		<members>MockInterviewUI</members>
+		<members>MockInterviewWithFlowLaunch</members>
+		<members>QuestionCreation</members>
+		<members>QuestionCreationHarness</members>
+		<members>QuestionPoolList</members>
+		<members>ScheduleSync</members>
+		<members>SimpleHarness</members>
+		<members>testComponent</members>
+		<members>throwMeeting</members>
+		<members>UpcomingMeetings</members>
+		<members>UpdateMockInterviewList</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
-	
+
+	<types>
+		<members>Internal Zone</members>
+		<name>Community</name>
+	</types>
+
 	<types>
 		<members>Account</members>
 		<members>Batch_Client__c</members>
 		<members>Contact</members>
 		<members>Interview_Question__c</members>
-		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
+		<members>Meeting_Participant__c</members>
+		<members>Metric</members>
 		<members>Question__c</members>
+		<members>Setting__c</members>
 		<name>CustomObject</name>
 	</types>
+
+	<types>
+		<members>InterviewForce</members>
+		<name>CustomSite</name>
+	</types>
+
 	<types>
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
 	</types>
+
+	<types>
+		<members>*</members>
+		<name>ExperienceBundle</name>
+	</types>
+
+	<types>
+		<members>Mock_Interview_Flow</members>
+		<name>Flow</name>
+	</types>
+
+	<types>
+		<members>*</members>
+		<name>Layout</name>
+	</types>
+
+	<types>
+		<members>*</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>InterviewForce</members>
+		<name>Network</name>
+	</types>
+
 	<types>
 		<members>Admin</members>
+		<members>Associate</members>
 		<name>Profile</name>
 	</types>
+
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
@@ -91,27 +160,45 @@
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
 		<members>Meeting__c.Mock_Interview</members>
+		<members>Metric.Completion</members>
+		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
+
 	<types>
-		<members>RevatureLogo</members>
+		<members>InterviewForce1</members>
+		<name>SiteDotCom</name>
+	</types>
+
+	<types>
+		<members>Caliber_Mock_URL</members>
+		<name>RemoteSiteSetting</name>
+	</types>
+
+	<types>
+		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<name>Workflow</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate</members>
+		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_24h</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
 		<name>WorkflowAlert</name>
 	</types>
+
 	<types>
 		<members>Meeting__c.Finalize_Meeting_Completion</members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Associate Feedback</members>
 		<members>Meeting_Participant__c.Client interview notification</members>
@@ -119,5 +206,6 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
+
 	<version>48.0</version>
 </Package>

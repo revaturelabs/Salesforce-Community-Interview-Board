@@ -1,7 +1,7 @@
 public without sharing class CreateMockInterviewController {
     public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
         //TODO must filter by types. Need to add type field to Question Object
-        List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c WHERE type__c IN :filter];
+        List<Question__c> qList = [SELECT Body__c,Name FROM Question__c WHERE type__c IN :filter];
         List<Question__c> outputList = new List<Question__c>();
         Integer index;
         while(outputList.size()<numQuestions){
@@ -50,6 +50,10 @@ public without sharing class CreateMockInterviewController {
 
     @AuraEnabled
     public static Map<String,List<String>> getTypePicklistValues() {
+        return Utilities.getTypePicklistValues();
+    }
+}
+        /*
         Schema.DescribeFieldResult questionType = Question__c.Type__c.getDescribe();
         Schema.sObjectField stackToken = questionType.getController();
         if ( stackToken == null ) return null;
@@ -90,4 +94,4 @@ public without sharing class CreateMockInterviewController {
         System.debug(typePicklistValues);
         return typePicklistValues;
     }
-}
+}*/

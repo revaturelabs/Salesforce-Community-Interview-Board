@@ -50,7 +50,6 @@ ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 
-# Lawrence's evil experiment
 #ignore all files we don't wanna push to Dev
 .vscode
 Component-UIs 
@@ -71,8 +70,21 @@ force-app/main/default/*
 !force-app/main/default/aura
 !force-app/main/default/objects
 !force-app/main/default/staticresources
+!force-app/main/default/flows
+!force-app/main/default/profiles
+!force-app/main/default/layouts
+!force-app/main/default/sites
+!force-app/main/default/siteDotComSites
+!force-app/main/default/networks
+!force-app/main/default/communities
+<<<<<<< HEAD
+=======
+force-app\main\default\layout
 
 
+
+
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
 
 
 
