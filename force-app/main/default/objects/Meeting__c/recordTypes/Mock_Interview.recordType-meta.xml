@@ -7,10 +7,13 @@
         <picklist>Meeting_Status__c</picklist>
         <values>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <fullName>Mock</fullName>
             <default>false</default>
         </values>
 =======
+=======
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
             <fullName>Cancelled</fullName>
             <default>false</default>
         </values>
@@ -22,6 +25,13 @@
             <fullName>On Schedule</fullName>
             <default>true</default>
         </values>
+<<<<<<< HEAD
 >>>>>>> Team1
+=======
+        <values>
+            <fullName>Mock</fullName>
+            <default>false</default>
+        </values>
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
     </picklistValues>
 </RecordType>

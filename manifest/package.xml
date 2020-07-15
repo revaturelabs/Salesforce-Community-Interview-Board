@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
 		<members>AssociateController</members>
 		<members>AssociateInfoController</members>
+		<members>associateInterviewController</members>
 		<members>AssociateMeetingController</members>
+		<members>AssociateMeetingsControllerTest</members>
+		<members>AssociateMockInterviewsController</members>
 		<members>BatchClientCreationController</members>
+		<members>BatchClientCreationTest</members>
 		<members>BatchClientlistContoller</members>
+		<members>BatchListControllerTest</members>
+		<members>completedInterviewController</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
+		<members>CreateMockInterviewController</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
 		<members>MeetingListController</members>
+		<members>MockInterviewQuestionPoolController</members>
+		<members>MockInterviewsListController</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
+<<<<<<< HEAD
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
+=======
+		<members>QuestionPoolApexController</members>
+		<members>SyncCalloutMock</members>
+		<members>SyncController</members>
+		<members>SyncControllerTest</members>
+		<members>SyncSchedule</members>
+		<members>SyncScheduleTest</members>
+		<members>SyncUtilityClass</members>
+		<members>SyncUtitlityTest</members>
+		<members>Utilities</members>
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -25,7 +50,7 @@
 	</types>
 	<types>
 		<members>AssociateInfo</members>
-		<members>AssociateMeetings</members>
+		
 		<members>AssociateName</members>
 		<members>AssociateWrapper</members>
 		<members>BatchClientCreation</members>
@@ -44,7 +69,21 @@
 		<members>UpcomingMeetings</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+<<<<<<< HEAD
+=======
+	
+		<members>MockInterviewQuestionPool</members>
+		<members>QuestionPoolList</members>
+		<members>AssociateUpcomingInterviews</members>
+		<members>MockInterviewsList</members>
+		<members>CreateMockInterview</members>
+		<members>UpdateMockInterviewList</members>
+		<members>MockInterviewUI</members>
+	
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
 		<name>AuraDefinitionBundle</name>
+
+
 	</types>
 	<types>
 		<members>Internal Zone</members>
@@ -88,12 +127,7 @@
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
-	<types>
-		<members>Meeting__c-Meeting Associate View</members>
-		<members>Meeting__c-Meeting Layout</members>
-		<members>Meeting__c-Mock Interview Layout</members>
-		<name>Layout</name>
-	</types>
+
 		<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>

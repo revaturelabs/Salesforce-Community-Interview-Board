@@ -77,6 +77,14 @@ force-app/main/default/*
 !force-app/main/default/siteDotComSites
 !force-app/main/default/networks
 !force-app/main/default/communities
+<<<<<<< HEAD
+=======
+force-app\main\default\layout
+
+
+
+
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
 
 
 

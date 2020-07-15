@@ -150,10 +150,14 @@
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <enableSearch>false</enableSearch>
 =======
     <enableSearch>true</enableSearch>
 >>>>>>> Team1
+=======
+    <enableSearch>true</enableSearch>
+>>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
