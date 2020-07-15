@@ -37,6 +37,8 @@
             //Display message to user of a successful transaction
         })
         $A.enqueueAction(saveQuestionAction); 
+        let fireEvent = component.getEvent('questionSubmitted');
+        fireEvent.fire();
     },
     
     getUserType : function(component) {
