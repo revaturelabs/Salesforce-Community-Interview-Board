@@ -16,19 +16,7 @@
                       <lightning:accordionSection name="{!item.Name}" label="{!item.Display_Name__c}">
                           Feedback: {!item.Feedback__c}<br/>
                             Notes: {!item.Notes__c} <br/>  
-                          <p> 
-                            </p>
                           
-                           
- 
-                            
-               
-                            
-                            
-                            
-                            
-                            
-                            
                         </lightning:accordionSection>
                     </aura:iteration>
                     
