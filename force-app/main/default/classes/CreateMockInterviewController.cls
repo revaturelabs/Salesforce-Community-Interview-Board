@@ -12,11 +12,12 @@ public class CreateMockInterviewController {
         return outputList;
     }
     @AuraEnabled
-    public static void createMockInterview(Integer numQuestions, List<String> filter){
+    public static Meeting_Participant__c createMockInterview(Integer numQuestions, List<String> filter){
         List<Question__c> questionsToBeAdded = new List<Question__c>();
-        ID userId = System.UserInfo.getUserId();
-        User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
-        system.debug(userContactId);
+        //String userId = System.UserInfo.getUserId();
+        String userId='0053h000002lXy9AAE';
+        User userContactId = [SELECT ContactId FROM User WHERE Id = :userId] ;
+        //return userContactId.ContactId;
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
         Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
         Meeting__c mockInterview = new Meeting__c(Name= 'Mock interview with '+numQuestions+' questions',
@@ -26,11 +27,13 @@ public class CreateMockInterviewController {
         Id interviewId = savedInterview.getId();                              //CHANGE THIS YA GOOF
         Meeting_Participant__c meetParti = new Meeting_Participant__c(Name = 'LOL this should be an auto number',
                                                                      Meeting__c = interviewId,
-                                                                     Participant__c = userContactId.Id);
+                                                                     Participant__c = userContactId.ContactId);
+       
         insert meetParti;
+        return meetParti;
 
 
-        List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
+        /*List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
         for (Question__c q : questionsToBeAdded) {
             Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
                                                                             Name=q.Name,
@@ -40,7 +43,7 @@ public class CreateMockInterviewController {
                                                                             Subject__c=q.Subject__c);
             interviewQuestions.add(addedQuestion);
         }
-        insert interviewQuestions;
+        insert interviewQuestions;*/
     }
 
     @AuraEnabled

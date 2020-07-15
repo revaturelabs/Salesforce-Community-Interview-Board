@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
     <div class="slds-grid slds-wrap">
         <lightning:card class="slds-col slds-size_1-of-2">
             <c:MockInterviewsList/>

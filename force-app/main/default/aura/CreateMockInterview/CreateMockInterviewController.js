@@ -51,6 +51,7 @@
                 console.log(UpdateList);
                 UpdateList.fire();
                 console.log("Created Mock Interview");
+                console.log(response.getReturnValue());
             } else {
                 console.log("Successfully Failed");
             }

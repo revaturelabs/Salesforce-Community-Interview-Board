@@ -37,6 +37,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateMockInterviewControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -70,6 +74,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionPoolApexController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuestionPoolApexControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
