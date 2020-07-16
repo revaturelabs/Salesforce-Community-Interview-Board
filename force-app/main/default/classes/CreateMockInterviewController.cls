@@ -1,13 +1,53 @@
-public class CreateMockInterviewController {
+public without sharing class CreateMockInterviewController {
     public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
-        //TODO must filter by types. Need to add type field to Question Object
-        List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c WHERE type__c IN :filter];
+
+        if (numQuestions==null) {
+            List<Question__c> emptyList = new List<Question__c>();
+            return emptyList;
+        }
+
+        Integer remainder = Math.mod(numQuestions, filter.size());
+        System.debug(remainder);
+        Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
+        System.debug(dividend);
+        //Map<String, List<Question__c>> outputListConstructor = new Map<String, List<Question__c>>();
+        Map<String, List<Question__c>> qListMap = new Map<String, List<Question__c>>();
+        for (String s : filter) {
+            List<Question__c> tempList = new List<Question__c>();
+            //outputListConstructor.put(s, tempList);
+            qListMap.put(s,tempList);
+        }
+        //List<Question__c> remainderList = new List<Question__c>();
+        //outputListConstructor.put('remainder', remainderList);
+        for (Question__c q : [SELECT Subject__c,Body__c,Name, Type__c FROM Question__c WHERE type__c IN :filter]) {
+            for (String s : filter) {
+                if (s==q.Type__c) {
+                    qListMap.get(s).add(q);
+                }
+            }
+        }
         List<Question__c> outputList = new List<Question__c>();
-        Integer index;
-        while(outputList.size()<numQuestions){
-            index=Math.floor(Math.random() * qList.size()).intValue();
-            outputList.add(qList[index]);
-            qList.remove(index);
+        Integer counter=0;
+        Integer listItemCounter = 0;
+        Integer whichList = 0;
+        Integer questionLocation;
+        while(counter<numQuestions-remainder){
+            if (listItemCounter<dividend) {
+                questionLocation=Math.floor(Math.random() * qListMap.get(filter[whichList]).size()).intValue();
+                outputList.add(qListMap.get(filter[whichList])[questionLocation]);
+                qListMap.get(filter[whichList]).remove(questionLocation);
+                listItemCounter++;
+                counter++;
+            }else{
+                listItemCounter=0;
+                whichList++;
+            }
+            
+        }
+        for(Integer i=0; i<remainder; i++){
+            questionLocation=Math.floor(Math.random() * qListMap.get(filter[i]).size()).intValue();
+            outputList.add(qListMap.get(filter[i])[questionLocation]);
+            qListMap.get(filter[i]).remove(questionLocation);
         }
         return outputList;
     }
