@@ -109,7 +109,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SyncUtilityClass</apexClass>
+        <apexClass>syncUtilityClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -283,6 +283,19 @@
         <editable>true</editable>
         <field>Meeting__c.Notes__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting__c.Participating_Client__c</field>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Client_Name__c</field>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Client_Name__c</field>
+        <readable>true</readable> 
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

@@ -3,7 +3,7 @@
     Items Synced are Associate Contacts and Batch Accounts
 */
 
-public with sharing class SyncUtilityClass {
+public with sharing class syncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
     Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
