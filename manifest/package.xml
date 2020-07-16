@@ -28,6 +28,7 @@
 		<members>QuestionPoolApexController</members>
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
+		<members>MockInterviewsListControllerTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
 		<members>QuestionPoolApexControllerTest</members>

@@ -155,9 +155,8 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Interview Question</label>
     <nameField>
-        <displayFormat>IQ-{0000000000}</displayFormat>
         <label>Interview Question Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Interview Questions</pluralLabel>
     <searchLayouts/>

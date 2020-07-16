@@ -184,29 +184,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Location__c</picklist>
-        <values>
-            <fullName>Arlington</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>New York</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Reston</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Tampa</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>West Virginia</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Ownership</picklist>
         <values>
             <fullName>Other</fullName>
