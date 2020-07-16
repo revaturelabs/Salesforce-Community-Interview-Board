@@ -26,9 +26,14 @@ public class CreateMockInterviewController {
                                                     Meeting_Status__c='Mock',
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
+<<<<<<< HEAD
         Id interviewId = savedInterview.getId();                              //CHANGE THIS YA GOOF
         Meeting_Participant__c meetParti = new Meeting_Participant__c(Name = 'LOL this should be an auto number',
                                                                      Meeting__c = interviewId,
+=======
+        Id interviewId = savedInterview.getId();
+        Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
+>>>>>>> 706141ddda4b455609966892b091b566cb4635c1
                                                                      Participant__c = userContactId.ContactId);
         try{
             insert meetParti;
