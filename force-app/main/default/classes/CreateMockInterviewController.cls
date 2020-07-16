@@ -12,12 +12,12 @@ public class CreateMockInterviewController {
         return outputList;
     }
     @AuraEnabled
-    public static string createMockInterview(Integer numQuestions, List<String> filter){
+    public static void createMockInterview(Integer numQuestions, List<String> filter){
         //List<Question__c> questionsToBeAdded = new List<Question__c>();
         ID userId = System.UserInfo.getUserId();
         System.debug(userId);
-        return userId;
-       /* Id userId = '0053h000003gNSiAAM' contact id = 0033h000009tdoyAAA;
+        //return userId;
+       // Id userId = '0053h000003gNSiAAM' contact id = 0033h000009tdoyAAA;
         User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
         system.debug(userContactId);
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
@@ -29,21 +29,25 @@ public class CreateMockInterviewController {
         Id interviewId = savedInterview.getId();                              //CHANGE THIS YA GOOF
         Meeting_Participant__c meetParti = new Meeting_Participant__c(Name = 'LOL this should be an auto number',
                                                                      Meeting__c = interviewId,
-                                                                     Participant__c = userContactId.Contact.Id);
-        insert meetParti;
-
-
-        List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
-        for (Question__c q : questionsToBeAdded) {
-            Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
-                                                                            Name=q.Name,
-                                                                            Meeting_md__c=interviewId,
-                                                                            Meeting__c=interviewId,
-                                                                            Question__c=q.Id,
-                                                                            Subject__c=q.Subject__c);
-            interviewQuestions.add(addedQuestion);
+                                                                     Participant__c = userContactId.ContactId);
+        try{
+            insert meetParti;
+                List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
+                for (Question__c q : questionsToBeAdded) {
+                    Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
+                                                                                    Meeting_md__c=interviewId,
+                                                                                    Meeting__c=interviewId,
+                                                                                    Question__c=q.Id,
+                                                                                    Subject__c=q.Subject__c);
+            		interviewQuestions.add(addedQuestion);
+        	}
+            insert interviewQuestions;
+       }
+       catch(Exception e) {
+           //throw new AuraHandledException(JSON.serialize(meetParti));
+           throw new AuraHandledException(e.getMessage());
         }
-        insert interviewQuestions;*/
+        insert interviewQuestions;
         
         
     }

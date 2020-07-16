@@ -39,8 +39,6 @@
 		<members>SyncScheduleTest</members>
 		<members>syncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
@@ -145,11 +143,11 @@
 		<name>Network</name>
 	</types>
 
-	<types>
+	<!--<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
-	</types>
+	</types>-->
 
 	<types>
 		<members>Account.Batch</members>

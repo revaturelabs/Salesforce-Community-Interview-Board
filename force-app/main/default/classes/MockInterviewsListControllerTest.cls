@@ -50,7 +50,7 @@ public class MockInterviewsListControllerTest {
             
             
             
-            List<Meeting__c> wtfman = MockInterviewsListController.getInterviews();
+            List<Meeting__c> returnedList = MockInterviewsListController.getInterviews();
 
             
             
