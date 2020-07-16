@@ -29,7 +29,6 @@
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
 		<members>SyncUtilityClass</members>
-		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
@@ -95,6 +94,7 @@
 	</types>
 	<types>
 		<members>Interview_Board_Administration_UtilityBar</members>
+		<members>Synchronization</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
