@@ -118,10 +118,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SyncUtitlityTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Utilities</apexClass>
         <enabled>true</enabled>
     </classAccesses>
