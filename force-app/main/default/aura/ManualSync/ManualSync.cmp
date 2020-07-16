@@ -1,4 +1,4 @@
-<aura:component controller="SyncController" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
     <aura:attribute name="isLoading" type="Boolean" default="false"/>
     <aura:attribute name="isSuccess" type="Boolean" default="false"/>
     <aura:attribute name="isError" type="Boolean" default="false"/>
