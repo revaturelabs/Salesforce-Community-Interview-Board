@@ -1,10 +1,21 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
-    <div class="slds-grid slds-wrap">
-        <lightning:card class="slds-col slds-size_1-of-2">
-            <c:MockInterviewsList/>
-        </lightning:card>
-        <lightning:card class="slds-col slds-size_1-of-2">
-            <c:CreateMockInterview/>
-        </lightning:card>
-    </div>
+    
+<lightning:layout horizontalAlign="spread">
+    <lightning:layoutItem padding="around-small">
+        <div class="custom-box">
+            
+                <c:MockInterviewsList/>
+
+        </div>
+    </lightning:layoutItem>
+</lightning:layout>
+<lightning:layout horizontalAlign="spread">
+    <lightning:layoutItem padding="around-small">
+        <div class="custom-box">
+            
+                <c:CreateMockInterview/>
+            
+        </div>
+    </lightning:layoutItem>
+</lightning:layout>
 </aura:component>

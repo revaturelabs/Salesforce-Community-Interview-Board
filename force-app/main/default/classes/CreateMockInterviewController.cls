@@ -13,7 +13,7 @@ public class CreateMockInterviewController {
     }
     @AuraEnabled
     public static void createMockInterview(Integer numQuestions, List<String> filter){
-        //List<Question__c> questionsToBeAdded = new List<Question__c>();
+        List<Question__c> questionsToBeAdded = new List<Question__c>();
         ID userId = System.UserInfo.getUserId();
         System.debug(userId);
         //return userId;
@@ -46,7 +46,7 @@ public class CreateMockInterviewController {
            //throw new AuraHandledException(JSON.serialize(meetParti));
            throw new AuraHandledException(e.getMessage());
         }
-        insert interviewQuestions;
+        //insert interviewQuestions;
         
         
     }
