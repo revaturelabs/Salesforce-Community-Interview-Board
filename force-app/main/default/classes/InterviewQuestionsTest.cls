@@ -8,32 +8,18 @@ public with sharing class InterviewQuestionsTest {
             meets.add(new Meeting__c(Name='Test ' + i));
             
         insert meets;
-        Integer choice = 0;
-        List<Question__c> ques = new List<Question__c>();
-        for(integer i = 0; i < qCount; i++) {
-            choice = Math.mod(i,3);
-            switch on choice {
-                when 0 {
-                    ques.add(new Question__c(type__c='SOQL/SOSL',stack__c='Salesforce'));
-                }
-                when 1 {
-                    ques.add(new Question__c(type__c='React',stack__c='Java'));
-                }
-                when 2 {
-                    ques.add(new Question__c(type__c='C#',stack__c='.NET'));
-                }
-            }
-        }
+        
+        List<Interview_Question__c> ques = new List<Interview_Question__c>();
+
+        if(mCount > 0)
+            for(Meeting__c m : meets)
+                for(integer i = 0; i < qCount; i++)
+                    ques.add(new Interview_Question__c(Name='Ques ' + 1, Meeting__c=m.Id));
+        else
+            for(integer i = 0; i < qCount; i++)
+                ques.add(new Interview_Question__c(Name='Ques ' + 1));
+
         insert ques;
-        List<Interview_Question__c> iqList = new List<Interview_Question__c>();
-        Integer randomNum = 0;
-        for(Meeting__c m : meets){
-            randomNum = (Integer) (Math.random() * qCount);
-            for(Integer i=0;i<randomNum;i++){
-                iqList.add(new Interview_Question__c(meeting_md__c=m.Id,Question__c=ques[i].Id));
-            }
-        }
-        insert iqList;
     }
 
 //test positive multiple records

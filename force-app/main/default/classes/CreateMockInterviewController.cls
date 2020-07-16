@@ -1,7 +1,7 @@
-public without sharing class CreateMockInterviewController {
+public class CreateMockInterviewController {
     public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
         //TODO must filter by types. Need to add type field to Question Object
-        List<Question__c> qList = [SELECT Body__c,Name FROM Question__c WHERE type__c IN :filter];
+        List<Question__c> qList = [SELECT Subject__c,Body__c,Name FROM Question__c WHERE type__c IN :filter];
         List<Question__c> outputList = new List<Question__c>();
         Integer index;
         while(outputList.size()<numQuestions){
@@ -14,10 +14,12 @@ public without sharing class CreateMockInterviewController {
     @AuraEnabled
     public static void createMockInterview(Integer numQuestions, List<String> filter){
         List<Question__c> questionsToBeAdded = new List<Question__c>();
-        String userId = System.UserInfo.getUserId();
-        //String userId='0053h000002lXy9AAE';
-        User userContactId = [SELECT ContactId FROM User WHERE Id = :userId] ;
-        //return userContactId.ContactId;
+        ID userId = System.UserInfo.getUserId();
+        System.debug(userId);
+        //return userId;
+       // Id userId = '0053h000003gNSiAAM' contact id = 0033h000009tdoyAAA;
+        User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
+        system.debug(userContactId);
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
         Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
         Meeting__c mockInterview = new Meeting__c(Name= 'Mock interview with '+numQuestions+' questions',
@@ -25,8 +27,7 @@ public without sharing class CreateMockInterviewController {
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
         Id interviewId = savedInterview.getId();
-        Meeting_Participant__c meetParti = new Meeting_Participant__c(
-                                                                     Meeting__c = interviewId,
+        Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
                                                                      Participant__c = userContactId.ContactId);
         try{
             insert meetParti;
@@ -45,14 +46,13 @@ public without sharing class CreateMockInterviewController {
            //throw new AuraHandledException(JSON.serialize(meetParti));
            throw new AuraHandledException(e.getMessage());
         }
+        //insert interviewQuestions;
+        
+        
     }
 
     @AuraEnabled
     public static Map<String,List<String>> getTypePicklistValues() {
-        return Utilities.getTypePicklistValues();
-    }
-}
-        /*
         Schema.DescribeFieldResult questionType = Question__c.Type__c.getDescribe();
         Schema.sObjectField stackToken = questionType.getController();
         if ( stackToken == null ) return null;
@@ -93,4 +93,4 @@ public without sharing class CreateMockInterviewController {
         System.debug(typePicklistValues);
         return typePicklistValues;
     }
-}*/
+}
