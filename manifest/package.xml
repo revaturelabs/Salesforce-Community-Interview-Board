@@ -29,7 +29,7 @@
 		<members>SyncControllerTest</members>
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
-		<members>SyncUtitlityClass</members>
+		<members>SyncUtilityClass</members>
 		<members>TestDataCreation</members>
 		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
