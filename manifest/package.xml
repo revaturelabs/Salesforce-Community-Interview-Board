@@ -29,8 +29,7 @@
 		<members>SyncControllerTest</members>
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
-		<members>SyncUtilityClass</members>
-		<members>SyncUtitlityTest</members>
+		<members>SyncUtitlityClass</members>
 		<members>TestDataCreation</members>
 		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
@@ -38,14 +37,10 @@
 		<members>completedInterviewController</members>
 		<name>ApexClass</name>
 	</types>
-	
-	<!-- UNCOMMENT FOR DEPLOY
 	<types>
 		<members>*</members>
 		<name>ApexTrigger</name>
 	</types>
-	-->
-	
 	<types>
 		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
@@ -78,7 +73,6 @@
 		<members>EmptyComponentEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
-
 	<types>
 		<members>Internal Zone</members>
 		<name>Community</name>

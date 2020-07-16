@@ -6,15 +6,15 @@
     <picklistValues>
         <picklist>Meeting_Status__c</picklist>
         <values>
-            <fullName>Mock</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Cancelled</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mock</fullName>
             <default>false</default>
         </values>
         <values>

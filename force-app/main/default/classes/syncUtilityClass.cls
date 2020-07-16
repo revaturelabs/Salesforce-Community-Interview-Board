@@ -64,7 +64,7 @@ public with sharing class SyncUtilityClass {
             for(Account batch : externalBatchData) {
                 // Set batchId as parameters for request
                 request.setEndpoint(baseUrl + '/associate?batch=' + batch.BatchId__c);
-                HttpResponse response = protocol.send(request);
+                response = protocol.send(request);
 
                     Contact[] contactsForBatch = new Contact[]{};
 
@@ -91,10 +91,9 @@ public with sharing class SyncUtilityClass {
                     } else {
                         System.debug('response status code was ' + response.getStatusCode());
                     }
+                    externalContactData.add(contactsForBatch);
                 }
-                externalContactData.add(contactsForBatch);
-            }
-
+                
         externalBatches = externalBatchData;
         externalAssociates = externalContactData;
     }
@@ -165,13 +164,13 @@ public with sharing class SyncUtilityClass {
             // Get external data
             getData();
             Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
-            Contact[] externalContactsToAdd = compareContacts(externalContacts, internalContacts);
+            Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
             insert externalBatchesToAdd;
-            insert externalContactsToAdd;
+            insert externalAssociatesToAdd;
             
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
-            updateCounts.add(externalAssociatestoAdd.size());
+            updateCounts.add(externalAssociatesToAdd.size());
             
         } catch (System.CalloutException ce) {
             System.debug('Test Method was running');

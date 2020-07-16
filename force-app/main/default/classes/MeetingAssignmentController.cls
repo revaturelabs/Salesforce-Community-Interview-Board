@@ -24,7 +24,7 @@ public with sharing class MeetingAssignmentController {
         Recordtype interviewBatchMeeting = [SELECT ID, Name FROM RecordType WHERE SobjectType='Meeting__c' AND Name='Interview Batch' LIMIT 1];
         Recordtype interventionBatchMeeting = [SELECT ID, Name FROM RecordType WHERE SobjectType='Meeting__c' AND Name='Intervention Batch' LIMIT 1];
 
-        meetingList = [SELECT Id, Name, RecordTypeId, Batch__r.Name, Location__c, Notes__c, Feedback__c, Scheduled__c, Completed__c FROM Meeting__c
+        meetingList = [SELECT Id, Name, RecordTypeId, Batch__r.Name, Location__c, Notes__c, Feedback__c, Scheduled__c FROM Meeting__c
                       WHERE Batch__r.Name=:batch AND ( RecordTypeId = :interviewBatchMeeting.Id OR RecordTypeId = :interventionBatchMeeting.Id)];
       //Need to adjust so it works based on selected batch?//add RecordTypeId to queries for meetingList when testing
     }
@@ -41,7 +41,7 @@ public with sharing class MeetingAssignmentController {
             meetingIds.add(MP.Meeting__c);
         }
         //Gather meetings against meeting Ids in the return participant set
-        meetingList = [SELECT Id, Name, RecordTypeId, Location__c, Notes__c, Feedback__c, Scheduled__c, Completed__c FROM Meeting__c
+        meetingList = [SELECT Id, Name, RecordTypeId, Location__c, Notes__c, Feedback__c, Scheduled__c FROM Meeting__c
                       WHERE Id IN :meetingIds];
         //add RecordTypeId to select for meetingList when testing
         
