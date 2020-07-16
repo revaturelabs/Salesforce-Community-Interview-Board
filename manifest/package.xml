@@ -50,6 +50,7 @@
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>EmptyComponentEvent</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
