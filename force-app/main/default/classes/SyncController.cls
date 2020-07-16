@@ -7,8 +7,6 @@ public class SyncController {
         SyncUtilityClass util = new SyncUtilityClass();
         updateCounts = util.updateDatabase();
         
-        System.debug(updateCounts);
-        
         return updateCounts;
     }
     

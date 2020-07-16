@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	
 	<types>
 		<members>AssociateController</members>
 		<members>AssociateInfoController</members>
@@ -28,8 +29,9 @@
 		<members>SyncControllerTest</members>
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
-		<members>SyncUtilityClass</members>
-		<members>SyncUtitlityTest</members>
+		<members>SyncUtitlityClass</members>
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
@@ -40,13 +42,15 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
 		<members>AssociateName</members>
 		<members>AssociateUpcomingInterviews</members>
 		<members>AssociateWrapper</members>
 		<members>BatchClientCreation</members>
-		<members>BatchClientWrapper</members>
+		<members>BatchClientCreationApp</members>
 		<members>BatchClientlist</members>
+		<members>BatchClientWrapper</members>
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
@@ -54,6 +58,7 @@
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
+		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
 		<members>MockInterviewQuestionPool</members>
@@ -66,33 +71,35 @@
 		<members>UpdateMockInterviewList</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>EmptyComponentEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>Internal Zone</members>
 		<name>Community</name>
 	</types>
+
 	<types>
 		<members>Account</members>
 		<members>Batch_Client__c</members>
 		<members>Contact</members>
 		<members>Interview_Question__c</members>
-		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
+		<members>Meeting_Participant__c</members>
+		<members>Metric</members>
 		<members>Question__c</members>
+		<members>Setting__c</members>
 		<name>CustomObject</name>
 	</types>
+
 	<types>
 		<members>InterviewForce</members>
 		<name>CustomSite</name>
 	</types>
+
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Layout</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -102,11 +109,13 @@
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
+
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
 	</types>
+
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
@@ -125,15 +134,23 @@
 		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>
 	</types>
+
+	<types>
+		<members>Caliber_Mock_URL</members>
+		<name>RemoteSiteSetting</name>
+	</types>
+
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<name>Workflow</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate</members>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
@@ -141,10 +158,12 @@
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
 		<name>WorkflowAlert</name>
 	</types>
+
 	<types>
 		<members>Meeting__c.Finalize_Meeting_Completion</members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Associate Feedback</members>
 		<members>Meeting_Participant__c.Client interview notification</members>
@@ -152,5 +171,6 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
+
 	<version>48.0</version>
 </Package>
