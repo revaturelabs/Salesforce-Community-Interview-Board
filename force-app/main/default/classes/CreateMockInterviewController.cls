@@ -25,8 +25,7 @@ public without sharing class CreateMockInterviewController {
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
         Id interviewId = savedInterview.getId();
-        Meeting_Participant__c meetParti = new Meeting_Participant__c(
-                                                                     Meeting__c = interviewId,
+        Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
                                                                      Participant__c = userContactId.ContactId);
         try{
             insert meetParti;
