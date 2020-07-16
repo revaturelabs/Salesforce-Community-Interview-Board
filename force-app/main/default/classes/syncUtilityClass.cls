@@ -25,6 +25,7 @@ public with sharing class SyncUtilityClass {
     
     //Get the external Batches to compare them against the ones already in the internal DB
     public void getData() {
+        System.debug('GET DATA');
         request.setEndpoint(baseUrl + '/batch');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
@@ -171,9 +172,10 @@ public with sharing class SyncUtilityClass {
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
             updateCounts.add(externalAssociatesToAdd.size());
+            System.debug(updateCounts);
             
-        } catch (System.CalloutException ce) {
-            System.debug('Test Method was running');
+        } catch (exception e) {
+            System.debug('An error has occured with Caliber sync.');
             updateCounts.add(-1);
             updateCounts.add(-1);
         }
