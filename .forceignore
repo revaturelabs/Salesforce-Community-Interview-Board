@@ -13,12 +13,3 @@ package.xml
 
 # No need for list views to be shared across orgs and some prevent deployment
 **/listViews/**
-
-**profiles/Custom
-**layouts/Contact
-**layouts/Account
-**classes/TestDataCreation
-**siteDotComSites
-**networks
-**sites
-**aura/Harness

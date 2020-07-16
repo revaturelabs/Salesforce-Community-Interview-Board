@@ -4,7 +4,6 @@
 	<types>
 		<members>AssociateController</members>
 		<members>AssociateInfoController</members>
-		<members>associateInterviewController</members>
 		<members>AssociateMeetingController</members>
 		<members>AssociateMeetingsControllerTest</members>
 		<members>AssociateMockInterviewsController</members>
@@ -12,7 +11,6 @@
 		<members>BatchClientCreationTest</members>
 		<members>BatchClientlistContoller</members>
 		<members>BatchListControllerTest</members>
-		<members>completedInterviewController</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
@@ -36,6 +34,8 @@
 		<members>TestDataCreation</members>
 		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
+		<members>associateInterviewController</members>
+		<members>completedInterviewController</members>
 		<name>ApexClass</name>
 	</types>
 	
@@ -49,7 +49,6 @@
 	<types>
 		<members>associate_wrapper</members>
 		<members>AssociateInfo</members>
-		<members>associateInterviews</members>
 		<members>AssociateName</members>
 		<members>AssociateUpcomingInterviews</members>
 		<members>AssociateWrapper</members>
@@ -60,8 +59,6 @@
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
-		<members>Harness</members>
-		<members>header</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
@@ -69,19 +66,15 @@
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
 		<members>MockInterviewQuestionPool</members>
-		<members>MockInterviews</members>
-		<members>MockInterviewsList</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewWithFlowLaunch</members>
+		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
-		<members>QuestionCreationHarness</members>
 		<members>QuestionPoolList</members>
-		<members>ScheduleSync</members>
-		<members>SimpleHarness</members>
-		<members>testComponent</members>
-		<members>throwMeeting</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>header</members>
+		<members>throwMeeting</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 
@@ -109,27 +102,13 @@
 	</types>
 
 	<types>
-		<members>unfiled$public/Client_Feedback</members>
-		<members>unfiled$public/Meeting_Notification_24h</members>
-		<members>unfiled$public/Meeting_Notification_72h</members>
-		<name>EmailTemplate</name>
-	</types>
-
-	<types>
-		<members>*</members>
-		<name>ExperienceBundle</name>
-	</types>
-
-	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
-
 	<types>
 		<members>*</members>
 		<name>Layout</name>
 	</types>
-
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
@@ -159,7 +138,6 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
-
 	<types>
 		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>

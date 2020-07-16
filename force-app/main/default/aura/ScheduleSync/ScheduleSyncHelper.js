@@ -23,8 +23,8 @@
                         thisTime[1] = '00';
                     }
                     
-                component.set('v.oldMinutes', thisTime[0]);
-                component.set('v.oldHours', thisTime[1]);
+                component.set('v.oldHours', thisTime[0]);
+                component.set('v.oldMinutes', thisTime[1]);
                 component.set('v.oldDayOfWeek', thisTime[2]);
                 component.set('v.timeZone', ' ' + timeZone[0]);
                 component.set('v.timeRetrieved', true);
