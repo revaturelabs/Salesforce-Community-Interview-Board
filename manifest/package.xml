@@ -72,6 +72,10 @@
 		<name>Community</name>
 	</types>
 	<types>
+		<members>IBCloud</members>
+		<name>ContentAsset</name>
+	</types>
+	<types>
 		<members>Interview_Board_Administration</members>
 		<name>CustomApplication</name>
 	</types>
