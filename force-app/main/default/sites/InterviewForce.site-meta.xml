@@ -23,13 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD
     <siteAdmin>gcohavy@resourceful-moose-lh9mmg.com</siteAdmin>
     <siteGuestRecordDefaultOwner>gcohavy@resourceful-moose-lh9mmg.com</siteGuestRecordDefaultOwner>
-=======
-    <siteAdmin>ajamesmiller35@playful-otter-lu67g0.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>ajamesmiller35@playful-otter-lu67g0.com</siteGuestRecordDefaultOwner>
->>>>>>> e559534f79c294453edad68107ad1ea4775203a4
     <siteType>ChatterNetwork</siteType>
     <subdomain>Project-3</subdomain>
 </CustomSite>
