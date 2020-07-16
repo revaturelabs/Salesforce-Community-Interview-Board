@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ajamesmiller35@playful-otter-lu67g0.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>ajamesmiller35@playful-otter-lu67g0.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>arturo.a.king.p@brave-narwhal-1507gi.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>arturo.a.king.p@brave-narwhal-1507gi.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>p3scratch3</subdomain>
 </CustomSite>

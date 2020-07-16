@@ -18,10 +18,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Mock</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>On Schedule</fullName>
             <default>true</default>
         </values>
