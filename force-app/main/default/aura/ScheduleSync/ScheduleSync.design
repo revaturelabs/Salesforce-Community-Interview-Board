@@ -1,5 +1,2 @@
-<design:component>
-	<design:attribute name="Hours" label="Hours"/>
-    <design:attribute name="Minutes" label="Minutes"/>
-    <design:attribute name="DayOfWeek" label="Day of Week"/>
+<design:component label="Schedule Sync">
 </design:component>
