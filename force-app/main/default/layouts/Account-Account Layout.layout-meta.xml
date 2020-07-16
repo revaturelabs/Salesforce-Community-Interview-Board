@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
-    <excludeButtons>Submit</excludeButtons>
-=======
     <emailDefault>false</emailDefault>
     <headers>PersonalTagging</headers>
     <headers>PublicTagging</headers>
->>>>>>> 1bdbf50535e1bd9046464401fa541fea9e443d1c
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>

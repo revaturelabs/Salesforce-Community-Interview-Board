@@ -402,32 +402,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Question__c.Subject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Question__c.Visibility__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Setting__c.Expression__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Setting__c.JobId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Setting__c.SetDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Setting__c.Weekday__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -443,18 +418,11 @@
         <recordType>Meeting__c.Interview_1_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Meeting__c-Meeting Associate View</layout>
-        <recordType>Meeting__c.Interview_Batch</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Meeting__c-Meeting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting__c-Mock Interview Layout</layout>
         <recordType>Meeting__c.Mock_Interview</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Setting__c-Setting Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -667,10 +635,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EnableNotifications</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>FieldServiceAccess</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
