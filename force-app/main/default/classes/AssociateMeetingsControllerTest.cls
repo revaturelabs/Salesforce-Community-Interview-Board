@@ -54,7 +54,8 @@ public class AssociateMeetingsControllerTest {
             
             for (Integer k=0;k<x;k++) {
                 Question__c quest = quests[k];
-                questions.add(new Interview_Question__c(Meeting_md__c = testMeeting.Id,
+                questions.add(new Interview_Question__c(
+                                                        Meeting_md__c = testMeeting.Id,
                                                         Question__c = quest.Id));
             }
             
