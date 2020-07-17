@@ -1,5 +1,5 @@
 @isTest
-public class BatchClientCreationTest {
+public without sharing class BatchClientCreationTest {
 
    @TestSetup
     public static void createRecords(){
@@ -7,14 +7,20 @@ public class BatchClientCreationTest {
         //create the account records with appropriate record type for both
         //'0125w000000LYXSAA4' client recordtype id
         //'0125w000000LYXTAA4' batch recordtype id
-     
+        
+        Id batchTypeId =
+            Schema.SObjectType.Account.getRecordTypeInfosByName().get('Batch').getRecordTypeId();
+
         Account alpha = new Account();
         alpha.Name = 'Johnson';
-        alpha.RecordTypeId = '0125w000000LYXSAA4';
+        alpha.RecordTypeId = batchTypeId;
+
+        Id clientTypeId =
+            Schema.SObjectType.Account.getRecordTypeInfosByName().get('Client').getRecordTypeId();
         
         Account beta = new Account();
 		beta.Name = 'Anderson';
-        beta.RecordTypeId = '0125w000000LYXTAA4';
+        beta.RecordTypeId = clientTypeId;
 
         //insert records
         insert alpha;
