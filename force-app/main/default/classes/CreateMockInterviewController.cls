@@ -73,11 +73,8 @@ public without sharing class CreateMockInterviewController {
             insert meetParti;
                 List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
                 for (Question__c q : questionsToBeAdded) {
-                    Interview_Question__c addedQuestion = new Interview_Question__c(Body__c = q.Body__c,
-                                                                                    Meeting_md__c=interviewId,
-                                                                                    Meeting__c=interviewId,
-                                                                                    Question__c=q.Id,
-                                                                                    Subject__c=q.Subject__c);
+                    Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
+                                                                                    Question__c=q.Id);
             		interviewQuestions.add(addedQuestion);
         	}
             insert interviewQuestions;
