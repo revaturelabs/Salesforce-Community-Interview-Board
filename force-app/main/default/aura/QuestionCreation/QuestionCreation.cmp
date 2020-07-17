@@ -1,56 +1,29 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="QuestionCreationController">
     <aura:attribute name="subject" type="String"/>
     <aura:attribute name="question" type="String"/>
-    <aura:attribute name="questionType" type="String"/>
-    <aura:attribute name="questionStack" type="String"/>
-    <aura:attribute name="selectedMeetingId" type="String" default="null"/>
-    <aura:attribute name="typeMap" type="Map"/>
-    <aura:attribute name="DisplayList" type="Boolean"/>
-    <aura:attribute name="isAssociate" type="Boolean" default="true"/>
-    <!--picklist values-->
     <aura:attribute name="meetings" type="Meeting__c[]"/>
-    <aura:attribute name="allStacks" type="String[]"/>
-    <aura:attribute name="availableTypes" type="String[]"/>
+    <aura:attribute name="selectedMeetingId" type="String"/>
 
     <!--The component below should populate meetings component with all meeting records-->
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
 
     <div class="slds-p-horizontal_x-large">
         <lightning:card title="Question Creation">
-            <div class="slds-p-horizontal_small">
-                <!-- Input for the Question -->
+            <div class="slds-p-horizontal_xx-small">
+                <!--Inputs for subject and question-->
+                <lightning:input name="inputSubject" type="String" placeholder="Subject" value="{!v.subject}" maxlength="143"/>
                 <br/>
                 <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
+
                 <br/>
-                
-                <!--Dropdown list for selecting stack-->
-                <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.questionStack}" required="true" onchange="{!c.changeTypes}">
-                    <option text="--NONE SELECTED--"/>
-                    <aura:iteration items="{!v.allStacks}" var="option">
-                        <option text="{!option}" value="{!option}"/>
-                    </aura:iteration>
-                </lightning:select>
-                
-                <br/>
-                
-                <!--Dropdown list for selecting type-->
-    			<aura:if isTrue="{!v.DisplayList}">
-                    <lightning:select name="chooseType" label="Choose Type" aura:id="type id" value="{!v.questionType}" required="true">
-                        <aura:iteration items="{!v.availableTypes}" var="option">
-                            <option text="{!option}" value="{!option}"/>
-                        </aura:iteration>
-                    </lightning:select>
-                </aura:if>
 
                 <!--A picklist of all Meetings to select-->
-                <aura:if isTrue="{! !v.isAssociate }">
-                    <lightning:select label="Meetings" aura:id="meetingPicker" onchange="{!c.meetingChange}">
-                        <option value="evilValue" text="None"/>
-                        <aura:iteration items="{!v.meetings}" var="meeting">
-                            <option value="{!meeting.Id}" text="{!meeting.Name}" />
-                        </aura:iteration>
-                    </lightning:select>
-                </aura:if>
+                <lightning:select label="Meetings" aura:id="meetingPicker" onchange="{!c.meetingChange}">
+                    <option value="evilValue" text="None"/>
+                    <aura:iteration items="{!v.meetings}" var="meeting">
+                        <option value="{!meeting.Id}" text="{!meeting.Name}" />
+                    </aura:iteration>
+                </lightning:select>
             </div>
             <br/>
             <!--Button to submit Interview Question record-->
