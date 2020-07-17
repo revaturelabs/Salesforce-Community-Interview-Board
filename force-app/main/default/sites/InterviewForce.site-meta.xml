@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>hughes.dillon1994@curious-shark-3rxind.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>hughes.dillon1994@curious-shark-3rxind.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>gcohavy@resourceful-moose-lh9mmg.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>gcohavy@resourceful-moose-lh9mmg.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>interviewforcecom-developer-edition</subdomain>
+    <subdomain>Project-3</subdomain>
 </CustomSite>

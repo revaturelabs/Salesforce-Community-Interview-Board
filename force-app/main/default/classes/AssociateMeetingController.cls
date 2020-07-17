@@ -51,26 +51,38 @@ public class AssociateMeetingController {
         return meetinglist;
     }
     
-     @auraEnabled
-    public static Meeting__c[]  GetPastInterviews()
-    {//returns all interviews that are completed, past their schedule time, and of interview batch and interview 1-1 record type
-        
-        
-        
-        list<Meeting__c>  meetinglist = new    list<Meeting__c>{}; 
+    //returns all interviews that are completed, past their schedule time, and of interview batch and interview 1-1 record type
+    @auraEnabled
+    public static Meeting__c[]  GetPastInterviews(){
+        list<Meeting__c> meetinglist = new list<Meeting__c>(); 
             try {
                 ID userId = System.UserInfo.getUserId();
-                User userContactId = [Select Contact.id FROM USER WHERE ID = :userId] ;
-         
-             //   make list of record types we wish to retrieve as parameter for SOQL query
-                list<ID> rectypelist = new list<id>{Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId(),Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId()};
-                meetinglist=  [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c
-                               FROM Meeting__c
-                               WHERE Id IN (SELECT Meeting__c 
-                                            FROM Meeting_Participant__c 
-                                            WHERE Participant__c  = :userContactId.ContactId
-                                           )  AND RecordTypeId IN :rectypelist   AND Scheduled__c < : system.now() AND Meeting_Status__c = 'Completed'];
+                ID userContactId = [Select Contact.id FROM USER WHERE ID = :userId].id ;
                 
+                //Allow an admin to view all
+                ID profileId = System.userInfo.getProfileId();
+                ID adminProfileId = [SELECT Id FROM Profile WHERE Name='System Administrator'].id;
+                	//System.debug('profile: ' + profileId + '\nadmin: ' + adminProfileId + '\nallVisible: ' + allVisible);
+                
+                //If the user is an admin, new SOQL query to return all completed Interviews
+                if(profileId == adminProfileId){
+                    meetingList = [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c, addQuestionVisibility__c, completed__c
+                                   FROM Meeting__c WHERE Meeting_Status__c = 'Completed'];
+                } else {
+                 	//make list of record types we wish to retrieve as parameter for SOQL query
+                    list<ID> rectypelist = new list<id>{
+                        Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId(),
+                        Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId()
+                    };
+                    meetinglist=  [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c, addQuestionVisibility__c , Completed__c
+                                   FROM Meeting__c
+                                   WHERE Id IN (SELECT Meeting__c FROM Meeting_Participant__c 
+                                                 WHERE Participant__c  = :userContactId)
+                                          AND RecordTypeId IN :rectypelist 
+                                          AND Scheduled__c < : system.now() 
+                                          AND Meeting_Status__c = 'Completed'
+                                   ];
+                }
             }catch(Exception e){
                 throw new AuraHandledException('Server-side Error: ' + e.getMessage()); 
             }
