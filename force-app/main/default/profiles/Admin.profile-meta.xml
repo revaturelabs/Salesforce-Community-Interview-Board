@@ -278,6 +278,7 @@
         <field>Account.Tradestyle</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
         <field>Account.Type</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -438,10 +439,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Subject__c</field>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.AddQuestionVisibility__c</field>
         <readable>true</readable>
@@ -509,13 +506,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Interviewer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
