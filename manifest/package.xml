@@ -74,6 +74,7 @@
 		<members>FlowClose</members>
 		<members>FlowHost</members>
 		<members>MockInterviewFlowLaunchHost</members>
+		<members>CommunityHeader</members>
 		<name>AuraDefinitionBundle</name>
 
 

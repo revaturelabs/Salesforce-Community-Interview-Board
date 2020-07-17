@@ -1,6 +1,6 @@
 ({
     fetchmeetingsHelper : function(component, event, helper) {
-       
+       //calls the apex method that returns the filtered query of mock interviewws that match up to this user
         var action = component.get("c.GetFutureMockInterviews");
         
         action.setCallback(this, function(response){
@@ -31,7 +31,7 @@
     },
     
     launchflow : function(component, event, helper) {
-    	
+    	//launches the flow 
     		var meetid= event.target.id;
 			console.log(meetid);			
         	var flow = component.find("MockInterviewFlow");
@@ -51,8 +51,9 @@
 	},
     
     flowstatuschange : function (component, event, helper) {
+        //called when the flow status changes
      if (event.getParam('status') === "FINISHED_SCREEN" || event.getParam('status') === "FINISHED") {
-            
+            //runs when the flow is finished, to close the window
            
             $A.get("e.force:closeQuickAction").fire();
             $A.get('e.force:refreshView').fire();
