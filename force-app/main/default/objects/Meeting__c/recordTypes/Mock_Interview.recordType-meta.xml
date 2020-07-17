@@ -10,16 +10,16 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Mock</fullName>
+            <fullName>Completed</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Mock</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>On Schedule</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
     </picklistValues>
 </RecordType>

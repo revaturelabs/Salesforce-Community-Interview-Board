@@ -7,35 +7,34 @@
     <aura:attribute name="DisplayList"  type="Boolean"  default="true"/>
     <aura:attribute name="val" type="integer" default="20" />
     <aura:attribute name="numberOfQuestions" type="integer"/>
-    <aura:attribute name="default" type="List"/>
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <aura:registerEvent name="UpdateList" type="c:UpdateMockInterviewList"/>
-
+    
     
     <lightning:card>
-        <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.ChangeLeftSideTypes}">
-            <option value=" " >--Select--</option>
-            <aura:iteration items="{!v.AllStacks}" var="option">
-                <option text="{!option}" value="{!option}"/>
-            </aura:iteration>
-        </lightning:select>
-        <lightning:button label="Select All" onclick="{!c.SelectAll}" variant="brand"/>
-        <lightning:button label="Deselect All" onclick="{!c.DeselectAll}" variant="brand"/>
-        <aura:if isTrue="{!v.DisplayList}">
-            <lightning:dualListbox name="typeSelection"
-                                    label="Select Types"
-                                    value="{!v.default}"
-                                    sourceLabel="Available"
-                                    selectedLabel="Selected Types"
-                                    fieldLevelHelp="Select your interview question types."
-                                    options="{!v.LeftSideTypes}"
-                                    onchange="{!c.holdRightSideTypes}"/>
-        </aura:if>
-        <lightning:slider label="Number of Questions" value="{!v.val}" max="40" step="5" onchange="{!c.HoldNumberOfQuestions}"/>
-        <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" aura:id="CreateButton"/>
+        
+        <div class="slds-m-horizontal--medium">
+            <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.ChangeLeftSideTypes}">
+                <option value=" " >--Select--</option>
+                <aura:iteration items="{!v.AllStacks}" var="option">
+                    <option text="{!option}" value="{!option}"/>
+                </aura:iteration>
+            </lightning:select>
+            <aura:if isTrue="{!v.DisplayList}">
+                <lightning:dualListbox name="typeSelection"
+                                       label="Select Types"
+                                       sourceLabel="Available"
+                                       selectedLabel="Selected Types"
+                                       fieldLevelHelp="Select your interview question types."
+                                       options="{!v.LeftSideTypes}"
+                                       onchange="{!c.holdRightSideTypes}"/>
+            </aura:if>
+            <lightning:slider label="Number of Questions" value="{!v.val}" max="40" step="5" onchange="{!c.HoldNumberOfQuestions}"/>
+            <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" />
+        </div>
     </lightning:card>
-                           
-
-
-
+    
+    
+    
+    
 </aura:component>
