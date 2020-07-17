@@ -76,7 +76,7 @@
 		<members>MeetingTiles</members>
 		<members>MockInterviews</members>
 		<members>MockInterviewsList</members>
-		<members>MockInterviewsUI</members>
+		<members>MockInterviewUI</members>
 		<members>MockInterviewQuestionPool</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewWithFlowLaunch</members>
