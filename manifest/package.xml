@@ -18,16 +18,11 @@
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
 		<members>MeetingListController</members>
-<<<<<<< HEAD
-=======
 		<members>MockInterviewQuestionPoolController</members>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>MockInterviewsListController</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>QuestionPoolApexController</members>
-<<<<<<< HEAD
-=======
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
@@ -42,7 +37,6 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
