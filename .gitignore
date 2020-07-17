@@ -14,22 +14,6 @@ coverage/
 
 # Logs
 logs
-# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
-# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
-# For useful gitignore templates see: https://github.com/github/gitignore
-
-# Salesforce cache
-.sfdx/
-.localdevserver/
-
-# LWC VSCode autocomplete
-**/lwc/jsconfig.json
-
-# LWC Jest coverage reports
-coverage/
-
-# Logs
-logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -65,6 +49,7 @@ README
 .node_modules
 sfdx-project.json
 force-app/main/default/*
+InterviewForce1.site
 #except the things we wanna keep
 !force-app/main/default/classes
 !force-app/main/default/aura
@@ -72,19 +57,7 @@ force-app/main/default/*
 !force-app/main/default/staticresources
 !force-app/main/default/flows
 !force-app/main/default/profiles
-!force-app/main/default/layouts
-!force-app/main/default/sites
+force-app/main/default/sites
 !force-app/main/default/siteDotComSites
 !force-app/main/default/networks
 !force-app/main/default/communities
-<<<<<<< HEAD
-=======
-force-app\main\default\layout
-
-
-
-
->>>>>>> 00b69561195cf92b820b2a99298577c2c6de94ae
-
-
-

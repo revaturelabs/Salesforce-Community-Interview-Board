@@ -1,3 +1,6 @@
+/*
+    Test class to test SyncUtilityClass.cls methods
+*/
 @isTest
 private class SyncUtitlityTest {
     @TestSetup
@@ -11,30 +14,17 @@ private class SyncUtitlityTest {
     }
 
     @isTest
-    private static void testGetAssociates() {
+    private static void testGetData() {
         syncUtilityClass SUC = new syncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
         
         Test.startTest();
-        Contact[] contacts = SUC.getAssociates();
+        SUC.getData();
         Test.stopTest();
         
         //System.debug( 'size: '+ contacts.size() + 'contacts: ' + contacts );
-        System.assertEquals(10, contacts.size());
-    }
-    
-    //method to test getBatches() in SyncUtilityClass
-    @isTest
-    private static void testGetBatches() {
-        syncUtilityClass SUC = new syncUtilityClass();
-        Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
-
-        Test.startTest();
-        Account[] accounts = SUC.getBatches();
-        Test.stopTest();
-
-        //System.debug( 'size: '+ accounts.size() + 'contacts: ' + accounts );
-        System.assertEquals(2, accounts.size());
+        System.assertEquals(2, SUC.externalAssociates.size());
+        System.assertEquals(2, SUC.externalBatches.size());
     }
 
     //method to test compareContacts() in SyncUtilityClass
@@ -42,6 +32,7 @@ private class SyncUtitlityTest {
     private static void testCompareContacts(){
         syncUtilityClass SUC = new syncUtilityClass();
         //Generate test data 
+        List<Contact[]> listOfContactLists = new List<Contact[]>();
         Contact[] contactList1 = new Contact[]{
             new Contact(
                 lastName='Test1',
@@ -59,6 +50,10 @@ private class SyncUtitlityTest {
                 email='Someemail3@email.com'
             )
         };
+        //Added twice to check for duplicate values
+        listOfContactLists.add(contactList1);
+        listOfContactLists.add(contactList1);
+
         Contact[] contactList2 = new Contact[]{
             new Contact(
                 lastName='Test1',
@@ -78,7 +73,7 @@ private class SyncUtitlityTest {
         };
 
         //Call the method
-        List<Contact> result = SUC.compareContacts(contactList1, contactList2);
+        List<Contact> result = SUC.compareContacts(listOfContactLists, contactList2);
 
         //Check the result list
         System.assertEquals(1, result.size());
@@ -86,7 +81,6 @@ private class SyncUtitlityTest {
         System.assertEquals('Someemail3@email.com', result[0].email);
     }
 
-    //Method to test compareBatches() in SyncUtilityClass
     @isTest
     private static void testCompareBatches(){
         syncUtilityClass SUC = new syncUtilityClass();
@@ -129,8 +123,40 @@ private class SyncUtitlityTest {
         System.assertEquals('BC-1235', result[0].BatchId__c);
     }
 
+    @isTest
+    private static void testMatchAssociateToBatch(){
+        syncUtilityClass SUC = new syncUtilityClass();
+
+        //Generate test data
+        Contact[] contactList = new Contact[]{
+            new Contact(
+                lastName='Test1',
+                SalesforceId__c='SF-1234',
+                email='Someemail1@email.com',
+                batchId__c='TR-1231'
+            ),
+            new Contact(
+                lastName='Test2',
+                SalesforceId__c='SF-2234',
+                email='Someemail2@email.com',
+                batchId__c='TR-1231'
+            ),
+            new Contact(
+                lastName='Test4',
+                SalesforceId__c='SF-4234',
+                email='Someemail4@email.com'
+            )
+        };
+
+        test.startTest();
+            SUC.matchAssociateToBatch(contactList);
+        test.stopTest();
+
+        Account batch = [SELECT Name, (SELECT Id FROM Contacts) FROM Account WHERE BatchId__c = 'TR-1231'];
+        System.assertEquals(2, batch.contacts.size());
+    }
+
     //Method to test the updateDatabases() method
-    //Receiving Error 'Uncommitted work pending'
     @isTest 
     private static void testUpdateDatabase(){
         syncUtilityClass SUC = new syncUtilityClass();
@@ -140,10 +166,10 @@ private class SyncUtitlityTest {
         SUC.updateDatabase();
         Test.stopTest();
 
-        //Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
+        Contact[] internalAssociates = [SELECT Id FROM Contact WHERE recordType.Name IN ('Associate')];
         Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
 
-        //System.assertEquals(2, internalAssociates.size());
+        System.assertEquals(2, internalAssociates.size());
         System.assertEquals(7, internalBatches.size());
     }
 }

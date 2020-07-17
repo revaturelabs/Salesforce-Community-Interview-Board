@@ -1,9 +1,11 @@
-<aura:component controller="AssociateMeetingController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:component controller="AssociateMeetingController" implements="lightning:actionOverride,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
     
     <!-- attributes -->
     <aura:attribute name="data" type="Meeting__c[]"/>
-    
-    
+    <aura:attribute name="idlist" type="String[]" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:registerEvent name="FlowLaunch" type="c:FlowLaunch"  />
+    <aura:handler name="FlowClose" event="c:FlowClose" action="{!c.onmodalclose}" />
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:card  title="Mock Interviews">
@@ -18,13 +20,16 @@
                             	
                             <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
                             </p>
-                            
+                            	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onmodalopen}" id="{!item.Id}">Begin Interview</button> 
                         </lightning:accordionSection>
                     </aura:iteration>
                     
                 </lightning:accordion>
             </fieldset>
         </div>
+        <aura:if isTrue="{!v.isModalOpen}">
+       <c:FlowHost />
+        </aura:if>
     </lightning:card>
     
 </aura:component>

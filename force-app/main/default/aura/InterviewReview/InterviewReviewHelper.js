@@ -1,15 +1,15 @@
 ({
-    fetchmeetingsHelper : function(component, event, helper) {
+    fetchMeetingsHelper : function(component, event, helper) {
       
         var action = component.get("c.GetPastInterviews");
         
         action.setCallback(this, function(response){
             var state = response.getState();
-           if (state === "SUCCESS") {
+            if (state === "SUCCESS") {
                 var rows = response.getReturnValue();
-              	console.log(rows);
+              	//console.log(rows);
                 component.set("v.data", rows);
-            } else {
+             } else {
                 let errors = response.getError();
                 let message = 'Unknown error'; // Default error message
                 // Retrieve the error message sent by the server.
@@ -26,8 +26,8 @@
             }
         });
         $A.enqueueAction(action);
-    },
-    
+    }/*,
+    //Unused functionality to get a list of questions
     getquestionsHelper : function(component, event, helper) {
        var action = component.get("c.GetInterviewQuestions");
         action.SetParams()
@@ -55,6 +55,6 @@
         });
         $A.enqueueAction(action);
     }
-    
+    */
     
 })

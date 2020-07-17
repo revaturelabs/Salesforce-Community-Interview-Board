@@ -23,8 +23,13 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
     <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+=======
+    <siteAdmin>gcohavy@resourceful-moose-lh9mmg.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>gcohavy@resourceful-moose-lh9mmg.com</siteGuestRecordDefaultOwner>
+>>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
     <siteType>ChatterNetwork</siteType>
-    <subdomain>interviewforcecom-developer-edition</subdomain>
+    <subdomain>Project-3</subdomain>
 </CustomSite>

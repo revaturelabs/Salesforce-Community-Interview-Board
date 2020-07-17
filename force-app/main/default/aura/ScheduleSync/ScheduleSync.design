@@ -1,0 +1,12 @@
+<design:component>
+	<design:attribute name="Hours" label="Hours"/>
+    <design:attribute name="Minutes" label="Minutes"/>
+    <design:attribute name="DayOfWeek" label="Day of Week"/>
+    <design:attribute name="oldMinutes"/>
+    <design:attribute name="oldDayOfWeek"/>
+    <design:attribute name="timeZone"/>
+    <design:attribute name="timeRetrieved"/>
+    <design:attribute name="noJob"/>
+    <design:attribute name="error"/>
+    <design:attribute name="updateSuccess"/>
+</design:component>
