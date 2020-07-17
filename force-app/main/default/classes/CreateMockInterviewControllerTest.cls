@@ -67,10 +67,18 @@ public class CreateMockInterviewControllerTest {
 
         System.runAs(testUser) {
             List<String> types = new List<String>{'Apex', 'Visualforce'};
-            CreateMockInterviewController.createMockInterview(20, types);
-            Integer gotQuestions = [SELECT COUNT() FROM Interview_Question__c WHERE Meeting_md__r.Name = 'Mock interview with 20 questions'];
+            CreateMockInterviewController.createMockInterview(21, types);
+            List<Interview_Question__c> gotQuestions = [SELECT Question__r.type__c FROM Interview_Question__c WHERE Meeting_md__r.Name = 'Mock interview with 21 questions'];
             //AggregateResult numQuestion = gotQuestions[0];
-            System.assertEquals(20, gotQuestions);
+            Integer aCount = 0;
+            Integer vCount = 0;
+            for(Interview_Question__c iQ : gotQuestions) {
+                if(iQ.Question__r.type__c=='Apex') aCount++;
+                if(iQ.Question__r.type__c=='Visualforce') vCount++;
+                
+            }
+            System.assertEquals(11, aCount);
+            System.assertEquals(10, vCount);
         }
     }
     @isTest
