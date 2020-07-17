@@ -8,11 +8,13 @@
     
     <aura:if isTrue="{!v.DisplayPage}">
         <lightning:card>
-            <lightning:datatable
-                                 columns="{!v.interviewList}"
-                                 data="{!v.interview}"
-                                 keyField="Id"
-                                 hideCheckboxColumn="true"/>
+            <div class="slds-scrollable--y datatable" style="height: 437px">
+                <lightning:datatable
+                                     columns="{!v.interviewList}"
+                                     data="{!v.interview}"
+                                     keyField="Id"
+                                     hideCheckboxColumn="true"/>
+            </div>
         </lightning:card>
     </aura:if>
     
