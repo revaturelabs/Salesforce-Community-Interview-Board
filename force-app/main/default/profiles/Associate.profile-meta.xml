@@ -114,7 +114,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SyncUtilityClass</apexClass>
+        <apexClass>syncUtilityClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -482,11 +482,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.trainingStatus__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Interview_Question__c.Body__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

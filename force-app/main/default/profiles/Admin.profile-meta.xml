@@ -94,7 +94,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SyncUtilityClass</apexClass>
+        <apexClass>syncUtilityClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -278,6 +278,7 @@
         <field>Account.Tradestyle</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
         <field>Account.Type</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -423,25 +424,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Body__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Feedback__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Meeting__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Interview_Question__c.Subject__c</field>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.AddQuestionVisibility__c</field>
         <readable>true</readable>
@@ -511,8 +493,6 @@
         <field>Question__c.Interviewer__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Subject__c</field>
