@@ -33,8 +33,6 @@
 		<members>SyncScheduleTest</members>
 		<members>syncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>
 		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
