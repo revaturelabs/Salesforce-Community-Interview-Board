@@ -28,8 +28,8 @@ public with sharing class InterviewQuestionsTest {
         List<Interview_Question__c> iqList = new List<Interview_Question__c>();
         Integer randomNum = 0;
         for(Meeting__c m : meets){
-            randomNum = (Integer) (Math.random() * qCount);
-            for(Integer i=0;i<randomNum;i++){
+            //randomNum = (Integer) (Math.random() * qCount);
+            for(Integer i=0;i<qCount;i++){
                 iqList.add(new Interview_Question__c(meeting_md__c=m.Id,Question__c=ques[i].Id));
             }
         }
