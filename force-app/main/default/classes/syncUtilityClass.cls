@@ -11,7 +11,7 @@ public with sharing class SyncUtilityClass {
     Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
     Account[] externalBatches = new Account[]{};
         
-        Http protocol = new Http();
+    Http protocol = new Http();
     HttpRequest request = new HttpRequest();
     
     private Date formatDate(String dateToParse) {
@@ -25,13 +25,13 @@ public with sharing class SyncUtilityClass {
     
     //Get the external Batches to compare them against the ones already in the internal DB
     public void getData() {
-        System.debug('GET DATA');
+        //System.debug('GET DATA');
         request.setEndpoint(baseUrl + '/batch');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
         
         Account[] externalBatchData = new Account[]{};
-            List<Contact[]> externalContactData = new List<Contact[]>();
+        List<Contact[]> externalContactData = new List<Contact[]>();
         
         if(response.getStatusCode() == 200){
             //Convert the JSON response into something we can work with
@@ -105,9 +105,10 @@ public with sharing class SyncUtilityClass {
     private Contact[] compareContacts(List<Contact[]> listOuter, Contact[] listInner) {
         Contact[] associatesToAdd = new Contact[]{};
             
-            //Iterate through list #1, and compare each item against all the items in list #2 
-            //  to see if list#2 is missing anything, and if so, add it to the list of items to add
+            //Iterate through the list of lists
             for(Contact[] currentlList : listOuter) {
+                //Iterate through list #1, and compare each item against all the items in list #2 
+                //  to see if list#2 is missing anything, and if so, add it to the list of items to add
                 for(Contact first : currentlList) {
                     Boolean match = false;
                     for(Contact second : listInner) {
