@@ -14,5 +14,10 @@ package.xml
 # No need for list views to be shared across orgs and some prevent deployment
 **/listViews/**
 
+<<<<<<< HEAD
 **profiles/Custom
 **classes/TestDataCreation
+=======
+**layouts
+**classes/TestDataCreation
+>>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
