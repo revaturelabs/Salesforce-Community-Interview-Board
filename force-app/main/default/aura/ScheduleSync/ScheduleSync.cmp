@@ -1,10 +1,11 @@
-<aura:component controller="SyncController" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
     <aura:attribute name="Hours" type="String"/>
     <aura:attribute name="Minutes" type="String"/>
     <aura:attribute name="DayOfWeek" type="String"/>
     <aura:attribute name="oldHours" type="String"/>
     <aura:attribute name="oldMinutes" type="String"/>
     <aura:attribute name="oldDayOfWeek" type="String"/>
+    <aura:attribute name="timeZone" type="String"/>
     <aura:attribute name="timeRetrieved" type="Boolean" default="false"/>
     <aura:attribute name="noJob" type="Boolean" default="false"/>
     <aura:attribute name="error" type="Boolean" default="false"/>
@@ -13,7 +14,7 @@
     <lightning:card title="Schedule Synchronization">
         <aura:if isTrue="{! v.timeRetrieved }">
             <ui:message title="Current Synchronization Time" severity="info">
-                Synchronization is currently scheduled for {! v.oldHours }:{! v.oldMinutes } every {! v.oldDayOfWeek }
+                Synchronization is currently scheduled for {! v.oldHours }:{! v.oldMinutes }  {! v.timeZone } every {! v.oldDayOfWeek }
             </ui:message>
         </aura:if>
         <aura:if isTrue="{! v.noJob }">

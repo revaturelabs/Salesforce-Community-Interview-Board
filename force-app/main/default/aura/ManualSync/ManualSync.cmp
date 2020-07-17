@@ -1,7 +1,10 @@
-<aura:component controller="SyncController" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
     <aura:attribute name="isLoading" type="Boolean" default="false"/>
     <aura:attribute name="isSuccess" type="Boolean" default="false"/>
     <aura:attribute name="isError" type="Boolean" default="false"/>
+    <aura:attribute name="batches" type="String"/>
+    <aura:attribute name="associates" type="String"/>
+    <aura:attribute name="time" type="String" default="0"/>
 	<lightning:card title="Manually Synchronize">   
         <aura:if isTrue="{! v.isLoading }">
 			<div aura:id="spinnerId" class="slds-spinner_container">
@@ -14,7 +17,7 @@
         </aura:if>
         <aura:if isTrue="{! v.isSuccess }">
             <ui:message title="Synchronization Successful" severity="confirm">
-                Synchronization with Caliber completed Successfully.
+                Synchronization with Caliber completed Successfully. New Batches: {! v.batches } New Associates: {! v.associates } Time: {! v.time }
             </ui:message>
         </aura:if>
         <aura:if isTrue="{! v.isError }">

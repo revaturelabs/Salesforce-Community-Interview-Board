@@ -1,6 +1,6 @@
 @isTest
 private class SyncControllerTest {
-    @isTest
+    /*@isTest
     private static void testUpdateFromAura() {
         SyncCalloutMock scm = new SyncCalloutMock();
         Test.setMock(HttpCalloutMock.class, scm);
@@ -12,20 +12,6 @@ private class SyncControllerTest {
         Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
 
         System.assertEquals(2, internalBatches.size());
-    }
-
-    @isTest 
-    private static void testCreateNewSchedule(){
-        SyncController sc = new SyncController();
-        SyncCalloutMock scm = new SyncCalloutMock();
-        Test.setMock(HttpCalloutMock.class, scm);
-
-        Test.startTest();
-        sc.createNewSchedule('0 0 0 1 1 ? *');
-        Test.stopTest();
-
-        List<CronTrigger> existingJobs = [SELECT Id FROM CronTrigger];
-        System.assertEquals(1, existingJobs.size());
     }
 
     @isTest 
@@ -58,5 +44,5 @@ private class SyncControllerTest {
         System.assertEquals('0', ex[2]);
         System.assertEquals('?', ex[3]);
         System.assertEquals(4, ex.size());
-    }
+    }*/
 }
