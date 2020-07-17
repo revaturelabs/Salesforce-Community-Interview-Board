@@ -34,7 +34,7 @@
 		<members>SyncControllerTest</members>
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
-		<members>syncUtilityClass</members>
+		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
 		<members>associateInterviewController</members>

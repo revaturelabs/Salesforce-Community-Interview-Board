@@ -1,4 +1,4 @@
-<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
+<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes" access="global">
     <aura:attribute name="Hours" type="String"/>
     <aura:attribute name="Minutes" type="String"/>
     <aura:attribute name="DayOfWeek" type="String"/>

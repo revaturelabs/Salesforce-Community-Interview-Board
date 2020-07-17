@@ -15,7 +15,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testGetData() {
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
         
         Test.startTest();
@@ -30,7 +30,7 @@ private class SyncUtitlityTest {
     //method to test compareContacts() in SyncUtilityClass
     @isTest
     private static void testCompareContacts(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         //Generate test data 
         List<Contact[]> listOfContactLists = new List<Contact[]>();
         Contact[] contactList1 = new Contact[]{
@@ -83,7 +83,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testCompareBatches(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         //Generate test data
         Account[] accountList1 = new Account[]{
             new Account(
@@ -125,7 +125,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testMatchAssociateToBatch(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
 
         //Generate test data
         Contact[] contactList = new Contact[]{
@@ -159,7 +159,7 @@ private class SyncUtitlityTest {
     //Method to test the updateDatabases() method
     @isTest 
     private static void testUpdateDatabase(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
         
         Test.startTest();
