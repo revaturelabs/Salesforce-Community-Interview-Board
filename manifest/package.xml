@@ -26,6 +26,12 @@
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>QuestionPoolApexController</members>
+		<members>AssociateMockInterviewsController</members>
+		<members>MockInterviewsListController</members>
+		<members>MockInterviewsListControllerTest</members>
+		<members>CreateMockInterviewController</members>
+		<members>CreateMockInterviewControllerTest</members>
+		<members>QuestionPoolApexControllerTest</members>
 		<members>SyncCalloutMock</members>
 		<members>SyncController</members>
 		<members>SyncControllerTest</members>
@@ -137,11 +143,11 @@
 		<name>Network</name>
 	</types>
 
-	<types>
+	<!--<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
-	</types>
+	</types>-->
 
 	<types>
 		<members>Account.Batch</members>

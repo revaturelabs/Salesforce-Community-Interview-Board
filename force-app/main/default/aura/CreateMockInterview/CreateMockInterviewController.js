@@ -11,6 +11,7 @@
                 component.set("v.AllStacks",Object.keys(bigMap));
                 console.log(bigMap);
                 console.log(Object.keys(bigMap));
+                component.find("CreateButton").set("v.disabled", true);
             } else {
                 console.log("Failed in Create Mock Interview Controller (JS)")
             }
@@ -26,6 +27,7 @@
         var stackTypeMap = component.get("v.TypeMap");
         var leftSideList = [];
         var tempList = [];
+        component.set("v.default", [""]);
         tempList = stackTypeMap[selectedStack];
         if (selectedStack) {
             for(let type of tempList) {
@@ -33,6 +35,7 @@
                  }
             component.set("v.LeftSideTypes", leftSideList);
         }
+        component.find("CreateButton").set("v.disabled", true);
         component.set("v.DisplayList", true);
     },
 
@@ -40,6 +43,7 @@
         var action = component.get("c.createMockInterview");
         var rightTypes = component.get("v.RightSideTypes");
         var numbQuestions = component.get("v.numberOfQuestions");
+        
         action.setParams({numQuestions : numbQuestions, filter : rightTypes});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
@@ -47,6 +51,7 @@
                 console.log(UpdateList);
                 UpdateList.fire();
                 console.log("Created Mock Interview");
+                console.log(response.getReturnValue());
             } else {
                 console.log("Successfully Failed");
             }
@@ -60,11 +65,41 @@
         var rightSideTypes = event.getParam("value");
         console.log(rightSideTypes);
         component.set("v.RightSideTypes", rightSideTypes);
+        if (rightSideTypes[0]) {
+            component.find("CreateButton").set("v.disabled", false);
+        } else {
+            component.find("CreateButton").set("v.disabled", true);
+        }
     },
 
     HoldNumberOfQuestions : function (component, event, helper){
         var numbQuestions = event.getParam("value");
         console.log(numbQuestions);
         component.set("v.numberOfQuestions", numbQuestions);
+    },
+
+    SelectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
+        var getAllLeftSide = component.get("v.LeftSideTypes");
+        var tempoList = [];
+        console.log(getAllLeftSide);
+        
+        
+        for(let type of getAllLeftSide) {
+            tempoList.push(type.value);
+        }
+        console.log(tempoList);
+        component.set("v.default", tempoList);
+        console.log(tempoList);
+        component.find("CreateButton").set("v.disabled", false);
+        component.set("v.DisplayList", true);
+
+    },
+
+    DeselectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
+        component.set("v.default", [""]);
+        component.find("CreateButton").set("v.disabled", true);
+        component.set("v.DisplayList", true);
     }
 })

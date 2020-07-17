@@ -1,5 +1,4 @@
 <aura:component controller="QuestionPoolApexController"
-
                 implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
 
 

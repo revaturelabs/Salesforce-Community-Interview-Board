@@ -1,5 +1,5 @@
 <aura:application extends="force:slds">
-    <lightning:tabset selectedtabid="two" variant="scoped">
+    <!--<lightning:tabset selectedtabid="two" variant="scoped">
         
         <lightning:tab label="MEETINGS" id="one">
             <c:MeetingAssignment/>
@@ -11,5 +11,6 @@
             <c:QuestionCreation/>
             <c:InterviewQuestions/>
         </lightning:tab>
-    </lightning:tabset>
+    </lightning:tabset>-->
+    <c:MockInterviewUI/>
 </aura:application>
