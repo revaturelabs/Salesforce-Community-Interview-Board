@@ -70,7 +70,7 @@ public with sharing class InterviewQuestionsTest {
 
         System.assertEquals(2, result.size());
         System.assertEquals(0, result.get(0).size());
-        System.assertEquals(10, result.get(1).size());
+        System.assertEquals(0, result.get(1).size());
     }
 
 //test one record
@@ -107,7 +107,7 @@ public with sharing class InterviewQuestionsTest {
 
         System.assertEquals(2, result.size());
         System.assertEquals(0, result.get(0).size());
-        System.assertEquals(1, result.get(1).size());
+        System.assertEquals(0, result.get(1).size());
     }
 
 //test null?
