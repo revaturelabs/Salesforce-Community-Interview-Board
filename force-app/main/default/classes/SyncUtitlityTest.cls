@@ -50,7 +50,10 @@ private class SyncUtitlityTest {
                 email='Someemail3@email.com'
             )
         };
-        listOfContactLists.add(contactList1, contactList1);
+        //Added twice to check for duplicate values
+        listOfContactLists.add(contactList1);
+        listOfContactLists.add(contactList1);
+
         Contact[] contactList2 = new Contact[]{
             new Contact(
                 lastName='Test1',
@@ -149,8 +152,8 @@ private class SyncUtitlityTest {
             SUC.matchAssociateToBatch(contactList);
         test.stopTest();
 
-        Account batch = [SELECT Name, (SELECT Count(ID) total FROM Contacts) FROM Account WHERE BatchId__c = 'TR-1231'];
-        System.assertEquals(2, batch.total);
+        Account batch = [SELECT Name, (SELECT Id FROM Contacts) FROM Account WHERE BatchId__c = 'TR-1231'];
+        System.assertEquals(2, batch.contacts.size());
     }
 
     //Method to test the updateDatabases() method

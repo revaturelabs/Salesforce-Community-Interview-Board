@@ -7,9 +7,9 @@ public with sharing class SyncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
     Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
-    List<Contact[]> externalAssociates = new List<Contact[]>();
+    @TestVisible List<Contact[]> externalAssociates = new List<Contact[]>();
     Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
-    Account[] externalBatches = new Account[]{};
+    @TestVisible Account[] externalBatches = new Account[]{};
         
     Http protocol = new Http();
     HttpRequest request = new HttpRequest();
@@ -155,6 +155,7 @@ public with sharing class SyncUtilityClass {
         return batchesToAdd;
     }
     
+    @testVisible
     private void matchAssociateToBatch(Contact[] associates) {
         Account[] batches = [SELECT Id, BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
         

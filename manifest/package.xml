@@ -121,21 +121,11 @@
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
-<<<<<<< HEAD
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
 	</types>
-=======
-
-	<!--<types>
-		<members>Admin</members>
-		<members>Associate</members>
-		<name>Profile</name>
-	</types>-->
-
->>>>>>> 9dfdd33fcfcf9f087059a2b48cfb47f6d7bea581
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
