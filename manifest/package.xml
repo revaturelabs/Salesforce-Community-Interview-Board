@@ -72,33 +72,25 @@
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
-<<<<<<< HEAD
 		<members>Harness</members>
-=======
 		<members>EmptyComponentEvent</members>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
 		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
-<<<<<<< HEAD
 		<members>MockInterviews</members>
 		<members>MockInterviewsList</members>
 		<members>MockInterviewsUI</members>
-=======
 		<members>MockInterviewQuestionPool</members>
 		<members>MockInterviewUI</members>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>MockInterviewWithFlowLaunch</members>
 		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
-<<<<<<< HEAD
-=======
 		<members>MockInterviewUI</members>
 		<members>MockInterviewPrepareWithFlowLaunch</members>
 		<members>FlowLaunch</members>
@@ -106,7 +98,6 @@
 		<members>FlowHost</members>
 		<members>MockInterviewFlowLaunchHost</members>
 		<members>CommunityHeader</members>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>header</members>
 		<members>throwMeeting</members>
 		<name>AuraDefinitionBundle</name>
@@ -139,35 +130,22 @@
 		<name>CustomSite</name>
 	</types>
 	<types>
-<<<<<<< HEAD
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
-=======
-		<members>*</members>
-		<name>CustomTab</name>
-	</types>
-	<types>
-		<members>Interview_Board_Administration_UtilityBar</members>
-		<members>Synchronization</members>
-		<name>FlexiPage</name>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 	</types>
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
 	<types>
-<<<<<<< HEAD
 		<members>Meeting__c-Meeting Associate View</members>
 		<members>Meeting__c-Meeting Layout</members>
 		<members>Meeting__c-Mock Interview Layout</members>
 		<name>Layout</name>
 	</types>
 	<types>
-=======
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
