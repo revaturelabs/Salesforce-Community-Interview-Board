@@ -6,11 +6,10 @@
         action.setCallback(this, function(response){
             var state = response.getState();
            if (state === "SUCCESS") {
-                var rows = response.getReturnValue();
-              	 
-               	
-               
-                component.set("v.data", rows);
+               var rows = response.getReturnValue();
+              	
+               component.set('v.isLoading', false);
+               component.set("v.data", rows);
             } else {
                 let errors = response.getError();
                 let message = 'Unknown error'; // Default error message
@@ -25,6 +24,7 @@
                     "type" : 'error'
                 });
                 toastEvent.fire();
+                component.set('v.isLoading', false);
             }
         });
         $A.enqueueAction(action);

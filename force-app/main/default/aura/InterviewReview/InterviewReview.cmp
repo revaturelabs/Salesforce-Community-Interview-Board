@@ -2,6 +2,7 @@
     <!-- attributes -->
     <aura:attribute name="data" type="Meeting__c[]"/>
     <aura:attribute name="addQuestionPopup" type="Boolean" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
     
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
@@ -39,7 +40,14 @@
             </section>
             <div class="slds-backdrop slds-backdrop_open"></div>
         </aura:if>
-        
+        <aura:if isTrue="{! v.isLoading }">
+			<div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading...</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+        	</div>
+        </aura:if>
     </lightning:card>
-    
 </aura:component>
