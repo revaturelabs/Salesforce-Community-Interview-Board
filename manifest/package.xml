@@ -46,7 +46,7 @@
 		<members>SyncController</members>
 		<members>SyncControllerTest</members>
 		<members>SyncScheduleTest</members>
-		<members>SyncUtilityClass</members>
+
 		<members>SyncUtitlityTest</members>
 		<members>SyncCalloutMock</members>
 		<members>Utilities</members>
