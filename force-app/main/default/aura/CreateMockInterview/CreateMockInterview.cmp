@@ -1,4 +1,4 @@
-<aura:component controller="CreateMockInterviewController">
+<aura:component controller="CreateMockInterviewController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
     <aura:attribute name="LeftSideTypes" type="List"/>
     <aura:attribute name="AllStacks" type="List"/>
     <aura:attribute name="RightSideTypes" type="List"/>
