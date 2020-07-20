@@ -15,5 +15,8 @@
         <lightning:tab label="INTERESTS" id="four">
             <c:BatchClientWrapper/>
         </lightning:tab>
+        <lightning:tab label="QUESTION POOL" id="five">
+            <c:QuestionPoolList/>
+        </lightning:tab>
     </lightning:tabset>
 </aura:component>
