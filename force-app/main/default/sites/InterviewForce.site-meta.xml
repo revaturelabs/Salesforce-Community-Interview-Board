@@ -23,9 +23,13 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>ajamesmiller35@playful-otter-lu67g0.com</siteAdmin>
     <siteGuestRecordDefaultOwner>ajamesmiller35@playful-otter-lu67g0.com</siteGuestRecordDefaultOwner>
+=======
+    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+>>>>>>> 0d4fd455c553d2d85499f5d975e191d7a16d2af4
     <siteType>ChatterNetwork</siteType>
-    <subdomain>etlt-developer-edition</subdomain>
-
+    <subdomain>interviewforcecom-developer-edition</subdomain>
 </CustomSite>
