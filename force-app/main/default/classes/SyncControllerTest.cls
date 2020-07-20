@@ -1,6 +1,6 @@
 @isTest
 private class SyncControllerTest {
-    /*@isTest
+    @isTest
     private static void testUpdateFromAura() {
         SyncCalloutMock scm = new SyncCalloutMock();
         Test.setMock(HttpCalloutMock.class, scm);
@@ -20,29 +20,36 @@ private class SyncControllerTest {
         Test.setMock(HttpCalloutMock.class, scm);
 
         Test.startTest();
-        SyncController.setCRONExpression('0 0 0 1 1 ? *');
+        SyncController.setCRONExpression('0 0 0 ? * SUN *');
         Test.stopTest();
 
-        Setting__c[] settings = [SELECT Name, Expression__c FROM Setting__c];
-
-        System.assertEquals(1, settings.size());
-        System.assertEquals('Current CRON', settings[0].Name);
-        System.assertEquals('0 0 0 1 1 ? *', settings[0].Expression__c);
+        CronTrigger existingJob = [SELECT Id, CronJobDetail.Name, CronExpression FROM CronTrigger WHERE CronJobDetail.JobType = '7' ORDER BY CreatedDate ASC LIMIT 1];
+		
+        System.assertEquals('Sync Caliber', existingJob.CronJobDetail.Name);
+        System.assertEquals('0 0 0 ? * SUN *', existingJob.CronExpression);
     }
 
     @isTest 
     private static void testGetCRONExpression(){
         Test.startTest();
-        String[] ex = SyncController.getCRONExpression();
-        Setting__c currentCron = new Setting__c(Name='Current CRON', Expression__c='0 0 0 1 1 ? *');
-        insert currentCron;
-        ex.addAll(SyncController.getCRONExpression());
+        SyncController.setCRONExpression('0 0 0 ? * SUN *');
         Test.stopTest();
 
-        System.assertEquals('-1', ex[0]);
-        System.assertEquals('0', ex[1]);
-        System.assertEquals('0', ex[2]);
-        System.assertEquals('?', ex[3]);
-        System.assertEquals(4, ex.size());
-    }*/
+        String[] expressionData = SyncController.getCRONExpression();
+        System.debug(expressionData);
+        System.assertEquals('24', expressionData[0]);
+        System.assertEquals('00', expressionData[1]);
+        System.assertEquals('SUN', expressionData[2]);
+        System.assertEquals(UserInfo.getTimezone().getDisplayName(), expressionData[3]);
+        System.assertEquals(4, expressionData.size());
+    }
+    
+    @isTest 
+    private static void testGetCRONExpressionNone(){
+
+        String[] expressionData = SyncController.getCRONExpression();
+        System.debug(expressionData);
+        System.assertEquals('-1', expressionData[0]);
+        System.assertEquals(1, expressionData.size());
+    }
 }
