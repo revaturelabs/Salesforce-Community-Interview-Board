@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>griffindonovan5@resilient-goat-7rz8qs.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>griffindonovan5@resilient-goat-7rz8qs.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>Project-3</subdomain>
+    <subdomain>gdproject3-developer-edition</subdomain>
 </CustomSite>
