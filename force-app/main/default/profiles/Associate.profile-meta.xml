@@ -54,6 +54,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateMockInterviewControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -82,6 +86,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockInterviewsListControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuestionCreationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -91,6 +99,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionPoolApexController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuestionPoolApexControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -114,10 +126,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SyncUtilityClass</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SyncUtitlityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -131,6 +139,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>completedInterviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>syncUtilityClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -485,16 +497,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Title</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.trainingStatus__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant__c.Scheduled_Meeting_Date__c</field>
         <readable>false</readable>
@@ -562,6 +564,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Interviewer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Subject__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
