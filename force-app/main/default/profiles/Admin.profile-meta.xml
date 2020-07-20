@@ -316,7 +316,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.YearStarted</field>
+        <field>Account.Tradestyle</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -326,7 +326,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.endDate__c</field>
+        <field>Account.UpsellOpportunity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -503,6 +503,26 @@
         <editable>true</editable>
         <field>Contact.trainingStatus__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Interview_Question__c.Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Interview_Question__c.Feedback__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Interview_Question__c.Meeting__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Interview_Question__c.Subject__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1162,6 +1182,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRecommendationStrategies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageReleaseUpdates</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
