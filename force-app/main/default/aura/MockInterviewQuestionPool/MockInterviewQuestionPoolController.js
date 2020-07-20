@@ -14,7 +14,7 @@
             var state = response.getState();
             if(state === "SUCCESS" ){
                 
-                
+                console.log(response.getReturnValue());
                  
                 var rows = response.getReturnValue();
                 //assign values to the rows in the 

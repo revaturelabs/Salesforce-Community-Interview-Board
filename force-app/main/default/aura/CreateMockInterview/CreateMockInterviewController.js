@@ -22,6 +22,7 @@
     },
 
     ChangeLeftSideTypes : function(component, event, helper){
+        component.set("v.DisplayList", false);
         var selectedStack = component.find("stack id").get("v.value");
         var stackTypeMap = component.get("v.TypeMap");
         var leftSideList = [];
@@ -35,6 +36,7 @@
             component.set("v.LeftSideTypes", leftSideList);
         }
         component.find("CreateButton").set("v.disabled", true);
+        component.set("v.DisplayList", true);
     },
 
     createMockInterviewJS : function(component,event,helper) {
@@ -77,6 +79,7 @@
     },
 
     SelectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
         var getAllLeftSide = component.get("v.LeftSideTypes");
         var tempoList = [];
         console.log(getAllLeftSide);
@@ -89,10 +92,14 @@
         component.set("v.default", tempoList);
         console.log(tempoList);
         component.find("CreateButton").set("v.disabled", false);
+        component.set("v.DisplayList", true);
+
     },
 
     DeselectAll : function (component, event, helper){
+        component.set("v.DisplayList", false);
         component.set("v.default", [""]);
         component.find("CreateButton").set("v.disabled", true);
+        component.set("v.DisplayList", true);
     }
 })

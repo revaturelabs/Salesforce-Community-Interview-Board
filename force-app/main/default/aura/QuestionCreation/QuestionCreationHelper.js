@@ -31,7 +31,6 @@
             if(response.getState() == "SUCCESS"){
                 //After the record is submitted, reset the component values to blank
                     //console.log('In the callback\nFiring event to remove the addQuestion popup');
-                component.set("v.subject", null);
                 component.set("v.question", null);
             	alert("You have successfuly entered a question");
                 let fireEvent = component.getEvent('questionSubmitted');

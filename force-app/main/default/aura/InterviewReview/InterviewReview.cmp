@@ -4,7 +4,7 @@
     <aura:attribute name="addQuestionPopup" type="Boolean" default="false"/>
     <aura:attribute name="isLoading" type="Boolean" default="true"/>
     
-    <!-- handlers-->
+    <!-- handlers  -->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <aura:handler name="questionSubmitted" event="c:EmptyComponentEvent" action="{!c.questionSubmitted}"/>
 
