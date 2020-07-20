@@ -26,13 +26,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
-=======
         <apexClass>BatchClientCreationController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
         <apexClass>BatchClientlistContoller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -281,6 +278,8 @@
         <field>Account.Tradestyle</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Type</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -432,9 +431,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
-        <field>Meeting__c.Participating_Client__c</field>
-=======
         <field>Interview_Question__c.Feedback__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -465,7 +461,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant__c.Scheduled_Meeting_Date__c</field>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -505,9 +500,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
-        <field>Question__c.Body__c</field>
-=======
         <field>Meeting__c.Scheduled__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -519,14 +511,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Interviewer__c</field>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -686,8 +670,6 @@
     <layoutAssignments>
         <layout>Meeting__c-Meeting Layout</layout>
         <recordType>Meeting__c.Mock_Interview</recordType>
-<<<<<<< HEAD
-=======
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Completion Metric Layout</layout>
@@ -807,7 +789,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>WorkThanks-Thanks Layout</layout>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -861,8 +842,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-<<<<<<< HEAD
-=======
         <object>Meeting_Participant__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -890,7 +869,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
         <object>Question__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -973,13 +951,10 @@
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-<<<<<<< HEAD
-=======
     <tabVisibilities>
         <tab>standard-Metric</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
->>>>>>> 17cb8ab619f7921cc677d89b93f4e11fc41471a1
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

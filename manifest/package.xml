@@ -74,7 +74,6 @@
 		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
-		<members>MockInterviews</members>
 		<members>MockInterviewsList</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewQuestionPool</members>
@@ -94,6 +93,7 @@
 		<members>CommunityHeader</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>ScheduleSync</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -124,6 +124,15 @@
 		<name>CustomSite</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Interview_Board_Administration_UtilityBar</members>
+		<members>Synchronization</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
@@ -133,12 +142,14 @@
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
+	<!--
 	<types>
 		<members>Meeting__c-Meeting Associate View</members>
 		<members>Meeting__c-Meeting Layout</members>
 		<members>Meeting__c-Mock Interview Layout</members>
 		<name>Layout</name>
 	</types>
+	-->
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
