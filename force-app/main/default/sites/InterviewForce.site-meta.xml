@@ -23,9 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>arturo.a.king.p@brave-narwhal-1507gi.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>arturo.a.king.p@brave-narwhal-1507gi.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>etlt-developer-edition</subdomain>
-
+    <subdomain>interviewforcecom-developer-edition</subdomain>
 </CustomSite>
