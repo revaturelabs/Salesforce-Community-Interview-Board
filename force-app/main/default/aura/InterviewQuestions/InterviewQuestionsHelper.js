@@ -1,5 +1,5 @@
 ({
-    createMap : function(component, meetings, questions)
+    createMap : function(component, meetings, interviewQuestions)
     {
         //take the list of questions (result1), put it in a map
         //Meeting ID is the key, question sObject is the value
@@ -9,21 +9,14 @@
             qMap[meetings[i].Id] = [];
         }
         var temp = [];
-        for (let i=0; i<questions.length;i++) {
-            let id = questions[i].Interview_Questions__r[0];
-            let question = questions[i];
-            question.Interview_Questions__r=id;
-            temp.push(question);
+        //Question__r.body__c,Question__r.type__c,Meeting_md__c
+        for (let i=0; i<interviewQuestions.length;i++) {
+            console.log(interviewQuestions[i].Question__r);
+            let question = interviewQuestions[i].Question__r;
+            if(qMap[interviewQuestions[i].Meeting_md__c]==null)
+                qMap[interviewQuestions[i].Meeting_md__c]=[];
+            qMap[interviewQuestions[i].Meeting_md__c].push(question);
         }
-        console.log(temp);
-
-        for(var i = 0; i < temp.length; i++)
-        {
-            if(qMap[temp[i].Interview_Questions__r.Meeting_md__c] == null)
-                qMap[temp[i].Interview_Questions__r.Meeting_md__c] = [];
-            qMap[temp[i].Interview_Questions__r.Meeting_md__c].push(temp[i]);
-        }
-        //set the qMap to questionMap on the component
         console.log(qMap);
         component.set("v.questionMap", qMap);
         

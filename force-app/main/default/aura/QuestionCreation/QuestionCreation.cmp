@@ -1,5 +1,5 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="QuestionCreationController">
-    <aura:attribute name="subject" type="String"/>
+    <!--Declare all attributes-->
     <aura:attribute name="question" type="String"/>
     <aura:attribute name="questionType" type="String"/>
     <aura:attribute name="questionStack" type="String"/>
@@ -12,17 +12,18 @@
     <aura:attribute name="allStacks" type="String[]"/>
     <aura:attribute name="availableTypes" type="String[]"/>
 
-    <!--The component below should populate meetings component with all meeting records-->
+    <!--The initialization method should populate meetings component with all meeting records-->
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <!--Register the event to fire when a question is submitted-->
+    <aura:registerEvent name="questionSubmitted" type="c:EmptyComponentEvent" />
 
     <div class="slds-p-horizontal_x-large">
         <lightning:card title="Question Creation">
             <div class="slds-p-horizontal_small">
-                <!--Inputs for subject and question-->
-                <lightning:input name="inputSubject" type="String" placeholder="Subject" value="{!v.subject}" maxlength="143"/>
+                <!-- Input for the Question -->
                 <br/>
                 <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
-                
                 <br/>
                 
                 <!--Dropdown list for selecting stack-->

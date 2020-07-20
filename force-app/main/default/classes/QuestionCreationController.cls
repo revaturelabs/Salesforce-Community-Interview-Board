@@ -21,14 +21,21 @@ public with sharing class QuestionCreationController {
     
     //Save a record that a user has created from corresponding QuestionCreation.cmp
     @AuraEnabled
-    public static void saveQuestion(String question, String meeting, String type, String stack){
+    public static void saveQuestion(String question, String meeting, String type, String stack, Boolean associate){
+        //Set the visibility field for the Question
+        String visibility;
+        if(associate){
+            visibility = 'Associate';
+        } else {
+            visibility = 'Admin';
+        }
         try{
             System.debug('id1 => ' + meeting);
             //evilValue is the value when None is selected. Thus, we want a null Meeting attached to the Interview Question record.
             if(meeting == 'evilValue') {
                 meeting = null;
             }
-            Question__c q = new Question__c(Body__c = question, Name=question,Type__c=type,Stack__c=stack);
+            Question__c q = new Question__c(Body__c = question, Name=question,Type__c=type,Stack__c=stack, Visibility__c=visibility);
             insert q;
             Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meeting, Question__c=q.Id);
             insert iq;

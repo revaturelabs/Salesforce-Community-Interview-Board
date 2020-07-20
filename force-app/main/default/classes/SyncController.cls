@@ -1,66 +1,38 @@
 public class SyncController {
-
+    
     @AuraEnabled
-    public static void updateFromAura(){
+    public static List<Integer> updateFromAura(){
+        List<Integer> updateCounts = new List<Integer>();
+        
         SyncUtilityClass util = new SyncUtilityClass();
-        util.updateDatabase();
+        updateCounts = util.updateDatabase();
+        
+        return updateCounts;
     }
-
-    @testVisible
-    private void createNewSchedule(String cronTime) {
+    
+    @AuraEnabled
+    public static void setCRONExpression(String newCRON){
         try {
             CronTrigger existingJob = [SELECT Id, CronJobDetail.Id, CronJobDetail.Name FROM CronTrigger WHERE CronJobDetail.JobType = '7' ORDER BY CreatedDate ASC LIMIT 1];
             System.abortJob(existingJob.Id);
         } catch (exception e) {
             System.debug('No existing job found');
         }
-
+        
         SyncSchedule schedule = new SyncSchedule();
-        String jobId = System.schedule('Sync Caliber', cronTime, schedule);
-        Setting__c defaultCRON;
-
-        try {
-            defaultCRON = [SELECT Id FROM Setting__c WHERE Name = 'Current CRON'];
-        } catch(exception e) {
-            defaultCRON = new Setting__c(Name='Current CRON',
-                                         Expression__c = '0 0 0 ? * SUN *' );
-            insert defaultCRON;
-        }
-
-        defaultCRON.JobId__c = jobId;
-        update defaultCRON;
+        String jobId = System.schedule('Sync Caliber', newCron, schedule);
     }
-
+    
     @AuraEnabled
-    public static void setCRONExpression(String newCRON){
+    public static String[] getCRONExpression(){
+        String tz = UserInfo.getTimeZone().getDisplayName();
         try{
-            Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-            currentCRON.Expression__c = newCRON;
-            update currentCRON;
-        }
-        catch(exception e){
-            Setting__c thisCron = new Setting__c(name='Current CRON', Expression__C=newCRON);
-            insert thisCron;
-        }
-        finally{
-            SyncController instance = new SyncController();
-            instance.createNewSchedule(newCRON);
-        }
-        
-    }
-
-    @AuraEnabled
-    public static String[] getCRONExpression(){ 
-        
-        try{
-            Setting__c currentCron = [SELECT Name, Expression__c FROM Setting__c WHERE Name = 'Current CRON'];
-            String[] getValues = currentCRON.Expression__c.split(' ');
-            getValues.remove(6);
-            getValues.remove(4);
-            getValues.remove(3);
-            getValues.remove(0);
+            CronTrigger cronInfoRecord = [SELECT NextFireTime FROM CronTrigger];
+            String cronInfo = cronInfoRecord.NextFireTime.format('kk-mm-EEE').toUpperCase();
+            String[] values = cronInfo.split('-');
+            values.add(tz);
             
-            return getValues;
+            return values;
         }
         catch(exception e){
             List<String> x = new List<String>();

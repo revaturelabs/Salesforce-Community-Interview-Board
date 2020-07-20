@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#F26925</headerColor>
+        <logo>IBCloud</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Manage Interview Board.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Interview Board Administration</label>
+    <navType>Standard</navType>
+    <tabs>Meeting__c</tabs>
+    <tabs>Question__c</tabs>
+    <tabs>Synchronization</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Interview_Board_Administration_UtilityBar</utilityBar>
+</CustomApplication>

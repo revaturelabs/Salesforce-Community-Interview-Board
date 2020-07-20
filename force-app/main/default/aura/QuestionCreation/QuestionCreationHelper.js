@@ -20,22 +20,26 @@
         $A.enqueueAction(getTypeMapAction);
     },
     
-    saveQuestionHelper : function(component, sub, quest, type, stack, meet) {
+    saveQuestionHelper : function(component, quest, type, stack, meet, associate) {
+            //console.log('In the helper method');
         //Initialize the apex controller and set it's paramaters
         var saveQuestionAction = component.get("c.saveQuestion");
-        saveQuestionAction.setParams({subject : sub, question : quest, meeting: meet,
-                                      type : type, stack : stack});
+        saveQuestionAction.setParams({question : quest, meeting: meet, type : type, stack : stack, associate: associate});
   
         //Set the callback and enqueue the apex controller
         saveQuestionAction.setCallback(this, function(response){
             if(response.getState() == "SUCCESS"){
                 //After the record is submitted, reset the component values to blank
+                    //console.log('In the callback\nFiring event to remove the addQuestion popup');
                 component.set("v.subject", null);
                 component.set("v.question", null);
             	alert("You have successfuly entered a question");
+                let fireEvent = component.getEvent('questionSubmitted');
+                fireEvent.fire();
             }
             //Display message to user of a successful transaction
         })
+            //console.log('Calling the Server side method asynchronously');
         $A.enqueueAction(saveQuestionAction); 
     },
     
