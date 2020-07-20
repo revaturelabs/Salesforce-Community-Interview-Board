@@ -1,7 +1,10 @@
 <aura:component controller="MockInterviewsListController">
+    <aura:registerEvent name="FlowLaunch" type="c:FlowLaunch"/>
     <aura:attribute name="interview" type="Object"/>
     <aura:attribute name="interviewList" type="List"/>
     <aura:attribute name="DisplayPage" type="Boolean" default="true"/>
+    <aura:attribute name="MockId" type="String"/>
+    
     
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <aura:handler event="c:UpdateMockInterviewList" action="{!c.refreshComponent}"/>
@@ -13,8 +16,10 @@
                                      columns="{!v.interviewList}"
                                      data="{!v.interview}"
                                      keyField="Id"
-                                     hideCheckboxColumn="true"/>
+                                     maxRowSelection="1"
+                                     onrowselection="{!c.HoldMockId}"/>
             </div>
+            <lightning:button label="Start Interview" onclick="{!c.startInterview}"/>
         </lightning:card>
     </aura:if>
     

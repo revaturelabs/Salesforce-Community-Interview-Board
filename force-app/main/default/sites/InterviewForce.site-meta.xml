@@ -23,13 +23,9 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD
     <siteAdmin>arturo.a.king.p@brave-narwhal-1507gi.com</siteAdmin>
     <siteGuestRecordDefaultOwner>arturo.a.king.p@brave-narwhal-1507gi.com</siteGuestRecordDefaultOwner>
-=======
-    <siteAdmin>gcohavy@resourceful-moose-lh9mmg.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>gcohavy@resourceful-moose-lh9mmg.com</siteGuestRecordDefaultOwner>
->>>>>>> ecca7c160cad358e75e491c39c3d01a3a52949a4
     <siteType>ChatterNetwork</siteType>
     <subdomain>etlt-developer-edition</subdomain>
+
 </CustomSite>

@@ -30,7 +30,7 @@
                                        onchange="{!c.holdRightSideTypes}"/>
             </aura:if>
             <lightning:slider label="Number of Questions" value="{!v.val}" max="40" step="5" onchange="{!c.HoldNumberOfQuestions}"/>
-            <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" />
+            <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" aura:Id="CreateButton" variant="brand" />
         </div>
     </lightning:card>
     
