@@ -8,9 +8,7 @@
     <aura:attribute name="selectedQuestions" type="List"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-    <lightning:card title="Interview Questions(lightning card)">
-
-        <h1>Interview Questions</h1>
+    <lightning:card title="Interview Questions">
 
         <div style="height: auto">
             <lightning:datatable columns="{!v.questionList}"
