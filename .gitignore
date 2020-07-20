@@ -50,6 +50,7 @@ README
 sfdx-project.json
 force-app/main/default/*
 InterviewForce1.site
+InterviewForce.site-meta.xml
 #except the things we wanna keep
 !force-app/main/default/classes
 !force-app/main/default/aura
