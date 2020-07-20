@@ -2,7 +2,9 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>AssociateController</members>
+		<members>AssociateControllerTest</members>
 		<members>AssociateInfoController</members>
+		<members>AssociateInfoControllerTest</members>
 		<members>AssociateMeetingController</members>
 		<members>AssociateMeetingsControllerTest</members>
 		<members>AssociateMockInterviewsController</members>
@@ -34,7 +36,7 @@
 		<members>SyncControllerTest</members>
 		<members>SyncSchedule</members>
 		<members>SyncScheduleTest</members>
-		<members>SyncUtilityClass</members>
+		<members>syncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
 		<members>associateInterviewController</members>

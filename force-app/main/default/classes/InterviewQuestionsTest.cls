@@ -28,8 +28,8 @@ public with sharing class InterviewQuestionsTest {
         List<Interview_Question__c> iqList = new List<Interview_Question__c>();
         Integer randomNum = 0;
         for(Meeting__c m : meets){
-            randomNum = (Integer) (Math.random() * qCount);
-            for(Integer i=0;i<randomNum;i++){
+            //randomNum = (Integer) (Math.random() * qCount);
+            for(Integer i=0;i<qCount;i++){
                 iqList.add(new Interview_Question__c(meeting_md__c=m.Id,Question__c=ques[i].Id));
             }
         }
@@ -70,7 +70,7 @@ public with sharing class InterviewQuestionsTest {
 
         System.assertEquals(2, result.size());
         System.assertEquals(0, result.get(0).size());
-        System.assertEquals(10, result.get(1).size());
+        System.assertEquals(0, result.get(1).size());
     }
 
 //test one record
@@ -107,7 +107,7 @@ public with sharing class InterviewQuestionsTest {
 
         System.assertEquals(2, result.size());
         System.assertEquals(0, result.get(0).size());
-        System.assertEquals(1, result.get(1).size());
+        System.assertEquals(0, result.get(1).size());
     }
 
 //test null?

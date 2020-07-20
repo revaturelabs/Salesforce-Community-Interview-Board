@@ -12,9 +12,8 @@ public class Utilities {
         Schema.sObjectField stackToken = questionType.getController();
         if (stackToken == null) return null;
         Schema.DescribeFieldResult stack = stackToken.getDescribe();
-        //make sure that it's not a checkbox before getting the values
-        List<Schema.PicklistEntry> stackEntries = (stack.getType() == Schema.DisplayType.Boolean ? null
-                                                   :stack.getPicklistValues());
+        //Initialize the stackEntries variable with the picklist values
+        List<Schema.PicklistEntry> stackEntries = stack.getPicklistValues();
     	//controlling fields are encoded in 6 bits which translate to one of these values
     	//ie 000000 = 0 = A 001101 = 13 = N and so on, so a key for a controlling stack could be a string like 'gAAA'
         String base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';

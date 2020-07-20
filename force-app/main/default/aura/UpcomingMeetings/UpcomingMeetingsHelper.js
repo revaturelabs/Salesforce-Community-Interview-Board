@@ -28,6 +28,7 @@
                     rows.linkName = '/'+rows.Id;
                 });
                 component.set("v.data", rows);
+               component.set('v.isLoading', false);
             } else {
                 let errors = response.getError();
                 let message = 'Unknown error'; // Default error message
@@ -42,6 +43,7 @@
                     "type" : 'error'
                 });
                 toastEvent.fire();
+                component.set('v.isLoading', false);
             }
         });
         $A.enqueueAction(action);

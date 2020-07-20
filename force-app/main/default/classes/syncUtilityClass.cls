@@ -3,7 +3,7 @@ This class synchronizes between the external API (Caliber) and the internal Data
 Items Synced are Associate Contacts and Batch Accounts
 */
 
-public with sharing class SyncUtilityClass {
+public with sharing class syncUtilityClass {
     //Declare reused Variables
     String baseUrl = 'http://34.82.182.44/mock/training';
     Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
@@ -112,7 +112,7 @@ public with sharing class SyncUtilityClass {
                 for(Contact first : currentlList) {
                     Boolean match = false;
                     for(Contact second : listInner) {
-                        if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
+                        if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email || associatesToAdd.contains(first)) {
                             match = true;
                         }
                     }

@@ -15,7 +15,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testGetData() {
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
         
         Test.startTest();
@@ -30,7 +30,7 @@ private class SyncUtitlityTest {
     //method to test compareContacts() in SyncUtilityClass
     @isTest
     private static void testCompareContacts(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         //Generate test data 
         List<Contact[]> listOfContactLists = new List<Contact[]>();
         Contact[] contactList1 = new Contact[]{
@@ -53,6 +53,7 @@ private class SyncUtitlityTest {
         //Added twice to check for duplicate values
         listOfContactLists.add(contactList1);
         listOfContactLists.add(contactList1);
+        //System.debug('List of lists: ' + ListOfContactLists);
 
         Contact[] contactList2 = new Contact[]{
             new Contact(
@@ -69,13 +70,15 @@ private class SyncUtitlityTest {
                 lastName='Test4',
                 SalesforceId__c='SF-4234',
                 email='Someemail4@email.com'
-            )
+            )  
         };
-
+		//System.debug(contactList2);
+        
         //Call the method
         List<Contact> result = SUC.compareContacts(listOfContactLists, contactList2);
 
-        //Check the result list
+        System.debug(result);
+        //Check the result list, should contain only 1 instance of Test3
         System.assertEquals(1, result.size());
         System.assertEquals('SF-3234', result[0].SalesforceId__c);
         System.assertEquals('Someemail3@email.com', result[0].email);
@@ -83,7 +86,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testCompareBatches(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         //Generate test data
         Account[] accountList1 = new Account[]{
             new Account(
@@ -125,7 +128,7 @@ private class SyncUtitlityTest {
 
     @isTest
     private static void testMatchAssociateToBatch(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
 
         //Generate test data
         Contact[] contactList = new Contact[]{
@@ -144,32 +147,40 @@ private class SyncUtitlityTest {
             new Contact(
                 lastName='Test4',
                 SalesforceId__c='SF-4234',
-                email='Someemail4@email.com'
+                email='Someemail4@email.com',
+                batchId__c='TR-1238'
             )
         };
-
+		insert contactList;
+        
+        System.debug('Contact List' + contactList);
         test.startTest();
             SUC.matchAssociateToBatch(contactList);
         test.stopTest();
-
-        Account batch = [SELECT Name, (SELECT Id FROM Contacts) FROM Account WHERE BatchId__c = 'TR-1231'];
-        System.assertEquals(2, batch.contacts.size());
+        
+        ID AccountId = [SELECT ID FROM Account WHERE BatchId__c = 'TR-1231'].id;
+        
+        System.assertEquals(AccountId, contactList[0].AccountId);
+        System.assertEquals(AccountId, contactList[1].AccountId);
+        System.assertEquals(null, contactList[2].AccountId);
     }
 
     //Method to test the updateDatabases() method
     @isTest 
     private static void testUpdateDatabase(){
-        syncUtilityClass SUC = new syncUtilityClass();
+        SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
         
         Test.startTest();
         SUC.updateDatabase();
         Test.stopTest();
 
-        Contact[] internalAssociates = [SELECT Id FROM Contact WHERE recordType.Name IN ('Associate')];
-        Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
+        Contact[] internalAssociates = [SELECT Id, Name FROM Contact WHERE recordType.Name IN ('Associate')];
+        Account[] internalBatches = [SELECT Name, BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
 
-        System.assertEquals(2, internalAssociates.size());
+        //System.debug('Internal Associates: ' + internalAssociates);
+        //System.debug('Internal Batches: ' + internalBatches);
+        System.assertEquals(4, internalAssociates.size());
         System.assertEquals(7, internalBatches.size());
     }
 }
