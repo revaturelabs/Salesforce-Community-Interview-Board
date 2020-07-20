@@ -1,4 +1,4 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="InterviewQuestions">
+<aura:component controller="InterviewQuestions" implements="flexipage:availableForAllPageTypes, forceCommunity:availableForAllPageTypes">
     <!-- COMPONENT ATTRIBUTES -->
     <aura:attribute name="questionMap" type="Map" default="{}"/>
     <aura:attribute name="questions" type="List" default="[]"/>
