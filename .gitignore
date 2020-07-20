@@ -57,7 +57,6 @@ InterviewForce1.site
 !force-app/main/default/staticresources
 !force-app/main/default/flows
 !force-app/main/default/profiles
-force-app/main/default/sites
 !force-app/main/default/siteDotComSites
 !force-app/main/default/networks
 !force-app/main/default/communities
