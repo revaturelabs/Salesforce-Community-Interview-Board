@@ -112,7 +112,7 @@ public with sharing class SyncUtilityClass {
                 for(Contact first : currentlList) {
                     Boolean match = false;
                     for(Contact second : listInner) {
-                        if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email) {
+                        if(first.SalesforceId__c == second.SalesforceId__c || first.email == second.email || associatesToAdd.contains(first)) {
                             match = true;
                         }
                     }
