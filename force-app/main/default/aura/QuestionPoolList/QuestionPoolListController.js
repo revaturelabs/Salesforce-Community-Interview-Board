@@ -1,10 +1,9 @@
 ({
     doinit : function(component, event, helper) {
         component.set("v.questionList", [
-            {label: "Name", fieldName:"Name", type:"String"},
-            {label: "Type", fieldName:"Type__c", type:"String"},
-            {label: "Stack", fieldName:"Stack__c", type:"String", wrapText: true},
-            {label: "Question", fieldName:"Body__c", type:"String", wrapText: true}
+            {label: "Question", fieldName:"Body__c", type:"String", wrapText: true},
+            {label: "Stack", fieldName:"Stack__c", type:"String"},
+            {label: "Type", fieldName:"Type__c", type:"String"}
         ]);
         var action = component.get("c.getQuestionPool");
         //action.setParams();
