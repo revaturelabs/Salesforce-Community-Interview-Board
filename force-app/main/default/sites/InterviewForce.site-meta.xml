@@ -23,8 +23,13 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>griffindonovan5@resilient-goat-7rz8qs.com</siteAdmin>
     <siteGuestRecordDefaultOwner>griffindonovan5@resilient-goat-7rz8qs.com</siteGuestRecordDefaultOwner>
+=======
+    <siteAdmin>gcohavy@resourceful-moose-lh9mmg.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>gcohavy@resourceful-moose-lh9mmg.com</siteGuestRecordDefaultOwner>
+>>>>>>> ecca7c160cad358e75e491c39c3d01a3a52949a4
     <siteType>ChatterNetwork</siteType>
     <subdomain>gdproject3-developer-edition</subdomain>
 </CustomSite>

@@ -12,6 +12,4 @@
             <c:InterviewQuestions/>
         </lightning:tab>
     </lightning:tabset>
-    <!--<c:MockInterviewUI/>
-    <c:InterviewQuestions/>-->
 </aura:application>
