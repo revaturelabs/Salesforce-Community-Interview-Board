@@ -9,11 +9,11 @@
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:card  title="Mock Interviews">
-        
+        <div class="slds-scrollable_y" >
         <!-- the container element determine the height of the datatable -->
         <div style="height: 300px">
             <fieldset class="slds-box slds-theme--default ">
-                <lightning:accordion activeSectionName="A">
+                <lightning:accordion activeSectionName="A" allowMultipleSectionsOpen="true">
                     <aura:iteration items="{!v.data}" var="item">
                         <lightning:accordionSection name="{!item.Name}" label="{!item.Name}">
                             Notes: {!item.Notes__c} <br/>  
@@ -26,6 +26,7 @@
                     
                 </lightning:accordion>
             </fieldset>
+        </div>
         </div>
         <aura:if isTrue="{!v.isModalOpen}">
        <c:FlowHost />

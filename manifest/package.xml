@@ -41,6 +41,14 @@
 		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
+		<members>Utilities</members>
+		<members>SyncSchedule</members>
+		<members>SyncController</members>
+		<members>SyncControllerTest</members>
+		<members>SyncScheduleTest</members>
+		<members>SyncUtitlityTest</members>
+		<members>SyncCalloutMock</members>
+		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -53,17 +61,22 @@
 		<members>AssociateUpcomingInterviews</members>
 		<members>AssociateWrapper</members>
 		<members>BatchClientCreation</members>
+		<members>BatchClientCreationApp</members>
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CompletedInterviews</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>Harness</members>
 		<members>EmptyComponentEvent</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
+		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
 		<members>MeetingTiles</members>
+		<members>MockInterviewsList</members>
+		<members>MockInterviewUI</members>
 		<members>MockInterviewQuestionPool</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewWithFlowLaunch</members>
@@ -81,6 +94,7 @@
 		<members>CommunityHeader</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>ScheduleSync</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -103,6 +117,7 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+		<members>Setting__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -119,9 +134,23 @@
 		<name>FlexiPage</name>
 	</types>
 	<types>
+		<members>unfiled$public/Client_Feedback</members>
+		<members>unfiled$public/Meeting_Notification_24h</members>
+		<members>unfiled$public/Meeting_Notification_72h</members>
+		<name>EmailTemplate</name>
+	</types>
+	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
+	<!--
+	<types>
+		<members>Meeting__c-Meeting Associate View</members>
+		<members>Meeting__c-Meeting Layout</members>
+		<members>Meeting__c-Mock Interview Layout</members>
+		<name>Layout</name>
+	</types>
+	-->
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
