@@ -129,8 +129,7 @@
 		<name>CustomTab</name>
 	</types>
 	<types>
-		<members>Interview_Board_Administration_UtilityBar</members>
-		<members>Synchronization</members>
+		<members>*</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
