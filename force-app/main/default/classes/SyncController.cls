@@ -27,7 +27,7 @@ public class SyncController {
     public static String[] getCRONExpression(){
         String tz = UserInfo.getTimeZone().getDisplayName();
         try{
-            CronTrigger cronInfoRecord = [SELECT NextFireTime FROM CronTrigger];
+            CronTrigger cronInfoRecord = [SELECT NextFireTime FROM CronTrigger WHERE CronJobDetail.Name='Sync Caliber' LIMIT 1];
             String cronInfo = cronInfoRecord.NextFireTime.format('kk-mm-EEE').toUpperCase();
             String[] values = cronInfo.split('-');
             values.add(tz);

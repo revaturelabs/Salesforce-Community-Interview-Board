@@ -62,7 +62,11 @@ public without sharing class CreateMockInterviewController {
         system.debug(userContactId);
         questionsToBeAdded = CreateMockInterviewController.getQuestionList(numQuestions,filter);
         Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
-        Meeting__c mockInterview = new Meeting__c(Name= 'Mock interview with '+numQuestions+' questions',
+
+        Integer x = [SELECT Count() FROM Meeting__c WHERE recordTypeId=:recordTypeId];
+        x+=1;
+
+        Meeting__c mockInterview = new Meeting__c(Name=  'Mock interview #' + x + ' with ' +numQuestions+' questions',
                                                     Meeting_Status__c='Mock',
                                                     RecordTypeId=recordTypeId);
         Database.SaveResult savedInterview = Database.insert(mockInterview);
