@@ -1,5 +1,5 @@
 ({
-    createMap : function(component, meetings, questions)
+    createMap : function(component, meetings, interviewQuestions)
     {
         //take the list of questions (result1), put it in a map
         //Meeting ID is the key, question sObject is the value
@@ -8,14 +8,16 @@
         {
             qMap[meetings[i].Id] = [];
         }
-
-        for(var i = 0; i < questions.length; i++)
-        {
-            if(qMap[questions[i].Meeting__c] == null)
-                qMap[questions[i].Meeting__c] = [];
-            qMap[questions[i].Meeting__c].push(questions[i]);
+        var temp = [];
+        //Question__r.body__c,Question__r.type__c,Meeting_md__c
+        for (let i=0; i<interviewQuestions.length;i++) {
+            console.log(interviewQuestions[i].Question__r);
+            let question = interviewQuestions[i].Question__r;
+            if(qMap[interviewQuestions[i].Meeting_md__c]==null)
+                qMap[interviewQuestions[i].Meeting_md__c]=[];
+            qMap[interviewQuestions[i].Meeting_md__c].push(question);
         }
-        //set the qMap to questionMap on the component
+        console.log(qMap);
         component.set("v.questionMap", qMap);
         
     },
@@ -42,16 +44,16 @@
     setPage : function(component)
     {
         var questions = component.get("v.questions");
-        var qSub = [];
+        var qType = [];
         var page = component.get("v.page") - 1;
         var perPage = component.get("v.perPage");
 
         for(var i = 0; i < perPage && i + page * perPage < questions.length; i++)
         {
-            qSub.push(questions[i + page * perPage]);
+            qType.push(questions[i + page * perPage]);
         }
 
-        component.set("v.qSub", qSub);
+        component.set("v.qType", qType);
     },
 
     //if you change the meeting you pick, it should go back to page 1

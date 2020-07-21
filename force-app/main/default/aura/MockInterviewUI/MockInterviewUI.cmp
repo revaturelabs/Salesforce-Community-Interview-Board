@@ -1,0 +1,28 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="listHeight" type="String"/>
+    <aura:attribute name="displayFlow" type="Boolean" default="false"/>
+    <aura:handler name="FlowClose" event="c:FlowClose" action="{!c.onClose}" />
+    <aura:Handler event="c:FlowLaunch" action="{!c.launchFlow}" />
+    <lightning:layout>
+        <!--
+
+        <lightning:layout verticalAlign="stretch" multipleRows="true" class="x-large">
+            <lightning:layoutItem flexibility="auto" padding="around-small" class="custom-box">
+-->
+        <lightning:layoutItem padding="around-medium" size="7">
+            <lightning:card class="slds">
+                <c:MockInterviewsList/>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="5">
+            <div class="slds-m-top--medium slds-m-right--medium" >
+                <lightning:card class="slds">
+                    <c:CreateMockInterview/>
+                </lightning:card>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <aura:if isTrue="{!v.displayFlow}">
+    	<c:FlowHost/>
+    </aura:if>
+</aura:component>

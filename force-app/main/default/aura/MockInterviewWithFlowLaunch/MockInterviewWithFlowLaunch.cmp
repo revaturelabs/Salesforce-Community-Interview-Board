@@ -1,0 +1,76 @@
+<aura:component controller="AssociateMeetingController" implements="lightning:actionOverride,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <!-- attributes -->
+    <aura:attribute name="data" type="Meeting__c[]"/>
+    <aura:attribute name="idlist" type="String[]" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:card  title="Mock Interviews">
+        
+        <!-- the container element determine the height of the datatable -->
+        <div style="height: 300px">
+            <fieldset class="slds-box slds-theme--default ">
+                <lightning:accordion activeSectionName="A">
+                    <aura:iteration items="{!v.data}" var="item">
+                        <lightning:accordionSection name="{!item.Name}" label="{!item.Name}">
+                            Notes: {!item.Notes__c} <br/>  
+                            	
+                            <p> <lightning:formattedUrl label="Details" value="{!'/s/detail/'+ item.Id}" tooltip="Go to detail page" target="_blank" />
+                            </p>
+                            	  <button type="button" class="slds-button slds-button_success" onclick="{!c.onmodalopen}" id="{!item.Id}">Begin Interview</button> 
+                        </lightning:accordionSection>
+                    </aura:iteration>
+                    
+                </lightning:accordion>
+            </fieldset>
+        </div>
+        <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Mock Interview</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                       <br></br>
+                        <br></br>
+                        <br></br>
+                                 <br></br>
+                                 <br></br>
+                                 <br></br>
+                                 <br></br> <p>
+                            <div class="slds-align_absolute-center" >
+                                
+                            <lightning:flow aura:id="MockInterviewFlow" onstatuschange="{!c.onstatuschange}"/>
+                            </div>
+                        </p>
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Close"
+                                          title="Close"
+                                          onclick="{! c.onmodalclose }"/>
+
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <aura:if isTrue="{! v.isLoading }">
+			<div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading...</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+        	</div>
+        </aura:if>
+    </lightning:card>
+    
+</aura:component>

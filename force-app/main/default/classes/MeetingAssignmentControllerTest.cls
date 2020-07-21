@@ -1,33 +1,38 @@
 @isTest
 public class MeetingAssignmentControllerTest {
 	/**Test Setup **********************************************************************************/
-  /*  @testSetup static void makeTestData() {
-        List <Meeting__c> testMeetings = new List <Meeting_c>();
+    @testSetup static void makeTestData() {
+        List <Meeting__c> testMeetings = new List <Meeting__c>();
         for (Integer i=0; i<5; i++){
-            testMeetings.add(new Meeting__c);
-            Name = ('Meeting' + i);
+            Meeting__c meeting = new Meeting__c(Name= 'Meeting'+i);
+            testMeetings.add(meeting);
         }
         insert testMeetings;
 
-        List<Contact> testAssociates = new List <Contact>();
-        for (Integer i=0; i<5; i++){
-            testAssociates.add(new Contact);
-            Name = ('Associate' + i);
-            RecordType = 'Associate'
-        }
-        insert testAssociates;
+        Id batchTypeId =
+            Schema.SObjectType.Account.getRecordTypeInfosByName().get('Batch').getRecordTypeId();
 
         List<Account> testBatches = new List <Account>();
         for(Integer i=0; i<5; i++){
-            testBatches.add(new Account);
-            Name = ('Batch'+ i );
-            RecordType = 'Batch'
+            Account acct = new Account(Name='Batch'+i, RecordTypeID=batchTypeId);
+            testBatches.add(acct);
         }
-        insert testBatches;*/
+        List<Database.SaveResult> savedBatches = Database.insert(testBatches);
+        Id batchId = savedBatches[0].getId();
+
+        Id associateTypeId =
+            Schema.SObjectType.Contact.getRecordTypeInfosByName().get('Associate').getRecordTypeId();
+
+        List<Contact> testAssociates = new List <Contact>();
+        for (Integer i=0; i<5; i++){
+            Contact con = new Contact(lastName='Assocaite'+i, RecordTypeID=associateTypeId, AccountId=batchId);
+            testAssociates.add(con);
+        }
+        insert testAssociates;}
     /**End Test Setup */
 	
     /**Test getMeetingTest**************************************************************************/
-    @isTest(seeAllData=true)
+    @isTest//(seeAllData=true)
     public static void getMeetingTest(){
         System.debug('Testing getMeetings without participant');
         Account testBatch = [SELECT Name FROM Account WHERE RecordType.Name ='Batch' LIMIT 1];
@@ -75,7 +80,7 @@ public class MeetingAssignmentControllerTest {
 
 
     /**Test getBatchTest ***************************************************************************/
-   @isTest(seeAllData=true)
+   @isTest//(seeAllData=true)
     public static void getBatchTest(){
         System.debug('Starting getBatchNames');
         List<String> names = MeetingAssignmentController.getBatchNames();
@@ -92,7 +97,7 @@ public class MeetingAssignmentControllerTest {
 
 
      /**Test Setup **********************************************************************************/
-   @isTest(seeAllData=true)
+   @isTest//(seeAllData=true)
      public static void getAssociateTest(){
         System.debug('Testing getAssociates');  
          List<Account> batches = new List<Account>([SELECT Name FROM Account WHERE RecordType.Name ='Batch']);
