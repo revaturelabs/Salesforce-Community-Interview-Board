@@ -150,7 +150,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>syncUtilityClass</apexClass>
+        <apexClass>SyncUtilityClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>

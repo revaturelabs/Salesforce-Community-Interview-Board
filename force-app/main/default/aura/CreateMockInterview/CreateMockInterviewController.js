@@ -50,8 +50,9 @@
                 UpdateList.fire();
                 console.log("Created Mock Interview");
                 console.log(response.getReturnValue());
+                location.reload();
             } else {
-                console.log("Successfully Failed");
+                console.log("An error has occured.");
             }
         });
         $A.enqueueAction(action);

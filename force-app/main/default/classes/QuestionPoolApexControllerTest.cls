@@ -5,7 +5,7 @@ public class QuestionPoolApexControllerTest {
         List<Question__c> allQuestions = new List<Question__c>();
         Question__c question;
         for (Integer i= 0; i<300; i++) {
-            allQuestions.add(new Question__c(Name= 'Test Question '+i,Stack__c='Salesforce',Type__c='Apex'));
+            allQuestions.add(new Question__c(Stack__c='Salesforce',Type__c='Apex'));
         }
         insert allQuestions;
     }

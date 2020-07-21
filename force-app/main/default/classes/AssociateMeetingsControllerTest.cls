@@ -50,7 +50,7 @@ public class AssociateMeetingsControllerTest {
             //Create Interview Questions for a Test Meeting
             Question__c[] quests = new Question__c[]{};
                 For(Integer i=0; i < x; i++){
-                    quests.add(new Question__c(Name = 'Test', Stack__c = 'Salesforce', Type__c = 'Apex'));
+                    quests.add(new Question__c(Stack__c = 'Salesforce', Type__c = 'Apex'));
                 }
             insert quests; 
             List<Interview_Question__c> questions = new List<Interview_Question__c>();
@@ -135,7 +135,7 @@ public class AssociateMeetingsControllerTest {
             //Create Interview Questions for a Test Meeting
             Question__c[] quests = new Question__c[]{};
                 For(Integer i=0; i < x; i++){
-                    quests.add(new Question__c(Name = 'Test', Stack__c = 'Salesforce', Type__c = 'Apex'));
+                    quests.add(new Question__c(Stack__c = 'Salesforce', Type__c = 'Apex'));
                 }
             insert quests; 
             List<Interview_Question__c> questions = new List<Interview_Question__c>();
