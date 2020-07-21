@@ -15,6 +15,7 @@
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
+		<members>CreateMockInterviewControllerTest</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>
@@ -28,8 +29,6 @@
 		<members>AssociateMockInterviewsController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
-		<members>CreateMockInterviewController</members>
-		<members>CreateMockInterviewControllerTest</members>
 		<members>QuestionPoolApexControllerTest</members>
 		<members>SyncCalloutMock</members>
 		<members>SyncController</members>
@@ -41,13 +40,6 @@
 		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
-		<members>Utilities</members>
-		<members>SyncSchedule</members>
-		<members>SyncController</members>
-		<members>SyncControllerTest</members>
-		<members>SyncScheduleTest</members>
-		<members>SyncUtitlityTest</members>
-		<members>SyncCalloutMock</members>
 		<members>Utilities</members>
 		<name>ApexClass</name>
 	</types>
