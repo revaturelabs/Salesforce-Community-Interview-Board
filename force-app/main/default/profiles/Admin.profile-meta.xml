@@ -134,6 +134,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SyncUtilityClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SyncUtitlityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -147,10 +151,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>completedInterviewController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>SyncUtilityClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -572,6 +572,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Interviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
