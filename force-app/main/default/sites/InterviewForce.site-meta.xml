@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>hughes.dillon1994@curious-shark-3rxind.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>hughes.dillon1994@curious-shark-3rxind.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>cabermudezr@resourceful-shark-bu20bu.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>cabermudezr@resourceful-shark-bu20bu.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>dh070820-developer-edition</subdomain>
 </CustomSite>

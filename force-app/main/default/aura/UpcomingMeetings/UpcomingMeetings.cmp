@@ -7,11 +7,13 @@
 
     <!-- handlers-->
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+   
  	<lightning:card  title="Upcoming Meetings">
       
         <p class="slds-p-horizontal_small">
-
+	<div class="slds-scrollable_y" >
     <!-- the container element determine the height of the datatable -->
+    
     <div style="height: 300px">
         <fieldset class="slds-box slds-theme--default ">
     <lightning:accordion activeSectionName="A" allowMultipleSectionsOpen="true">
@@ -37,7 +39,7 @@
                 </lightning:accordion>
          </fieldset>
     </div>
-    
+     </div>          
 	       </p>
         <aura:if isTrue="{! v.isLoading }">
 			<div aura:id="spinnerId" class="slds-spinner_container">
@@ -49,4 +51,5 @@
         	</div>
         </aura:if>
     </lightning:card>
+     
 </aura:component>
