@@ -13,9 +13,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Interview Board Administration</label>
     <navType>Standard</navType>
-    <tabs>Meeting__c</tabs>
-    <tabs>Question__c</tabs>
-    <tabs>Synchronization</tabs>
+    <tabs>Administration</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Interview_Board_Administration_UtilityBar</utilityBar>
 </CustomApplication>

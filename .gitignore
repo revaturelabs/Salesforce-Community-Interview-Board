@@ -53,3 +53,14 @@ InterviewForce1.site
 InterviewForce.site-meta.xml
 #except the things we wanna keep
 !force-app/main/default/aura
+<<<<<<< HEAD
+=======
+!force-app/main/default/objects
+!force-app/main/default/staticresources
+!force-app/main/default/flows
+!force-app/main/default/profiles
+!force-app/main/default/siteDotComSites
+!force-app/main/default/networks
+!force-app/main/default/communities
+!force-app/main/default/tabs
+>>>>>>> 504b920361f75dbd12b9d755bb287eec890e0e80
