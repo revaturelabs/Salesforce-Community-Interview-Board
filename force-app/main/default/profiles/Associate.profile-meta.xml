@@ -150,7 +150,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>syncUtilityClass</apexClass>
+        <apexClass>SyncUtilityClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -572,11 +572,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Interviewer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Question__c.Subject__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
