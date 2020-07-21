@@ -20,9 +20,11 @@
                     <option text="{!option}" value="{!option}"/>
                 </aura:iteration>
             </lightning:select>
+            <br/>
             <lightning:button label="Select All" onclick="{!c.SelectAll}" variant="brand"/>
             <lightning:button label="Deselect All" onclick="{!c.DeselectAll}" variant="brand"/>
-            
+            <br/>
+            <br/>
                 <lightning:dualListbox name="typeSelection"
                                        label="Select Types"
                                        value="{!v.default}"
