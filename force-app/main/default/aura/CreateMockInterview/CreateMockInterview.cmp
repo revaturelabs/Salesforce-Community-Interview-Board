@@ -31,7 +31,7 @@
                                        fieldLevelHelp="Select your interview question types."
                                        options="{!v.LeftSideTypes}"
                                        onchange="{!c.holdRightSideTypes}"/>
-            <lightning:slider label="Number of Questions" value="{!v.val}" max="40" step="5" onchange="{!c.HoldNumberOfQuestions}"/>
+            <lightning:slider label="Number of Questions" value="{!v.val}" min="5" max="40" step="5" onchange="{!c.HoldNumberOfQuestions}"/>
             <lightning:button label="Create Mock Interview" onclick="{!c.createMockInterviewJS}" variant="brand" aura:Id="CreateButton"/>
         </div>
     </lightning:card>

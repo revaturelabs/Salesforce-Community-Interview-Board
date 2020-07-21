@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ajamesmiller35@playful-otter-lu67g0.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>ajamesmiller35@playful-otter-lu67g0.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>hughes.dillon1994@curious-shark-3rxind.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>hughes.dillon1994@curious-shark-3rxind.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>p32-developer-edition</subdomain>
+    <subdomain>dh070820-developer-edition</subdomain>
 </CustomSite>

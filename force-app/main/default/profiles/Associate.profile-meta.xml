@@ -506,26 +506,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Interview_Question__c.Body__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Interview_Question__c.Feedback__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Interview_Question__c.Meeting__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Interview_Question__c.Subject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_Participant__c.Scheduled_Meeting_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -713,6 +693,14 @@
         <recordType>Metric.Progress</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Administration</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>InterviewForceSinglePageVersion</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Meeting_Participant__c</tab>
         <visibility>DefaultOn</visibility>
