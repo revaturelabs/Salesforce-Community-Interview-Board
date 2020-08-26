@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>jmills.lemaire@brave-koala-6sdcfh.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jmills.lemaire@brave-koala-6sdcfh.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>dh070820-developer-edition</subdomain>
 </CustomSite>
