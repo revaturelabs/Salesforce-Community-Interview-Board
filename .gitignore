@@ -62,3 +62,6 @@ InterviewForce.site-meta.xml
 !force-app/main/default/communities
 !force-app/main/default/tabs
 !force-app/main/default/flexipages
+!force-app/main/default/namedCredentials
+!force-app/main/default/remoteSiteSettings
+!force-app/main/default/authproviders
