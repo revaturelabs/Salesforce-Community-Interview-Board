@@ -53,6 +53,31 @@
             <stringValue>Salesforce</stringValue>
         </value>
     </constants>
+    <decisions>
+        <name>Add_Quiz_Question_Selected</name>
+        <label>Add Quiz Question Selected</label>
+        <locationX>479</locationX>
+        <locationY>171</locationY>
+        <defaultConnector>
+            <targetReference>Question_Created</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Create_Quiz</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Add_Quiz_Question</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Question</targetReference>
+            </connector>
+            <label>Create Quiz</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
         <name>Stack</name>
         <dataType>Picklist</dataType>
@@ -85,9 +110,38 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
+        <name>Create_Interview_Question</name>
+        <label>Create Interview Question</label>
+        <locationX>354</locationX>
+        <locationY>157</locationY>
+        <connector>
+            <targetReference>Add_Quiz_Question_Selected</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Body__c</field>
+            <value>
+                <elementReference>Interview_Question</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Stack__c</field>
+            <value>
+                <elementReference>textStack</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <elementReference>textType</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Question__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Quiz_Question</name>
         <label>Create Quiz Question</label>
-        <locationX>638</locationX>
+        <locationX>876</locationX>
         <locationY>69</locationY>
         <connector>
             <targetReference>Question_Completion</targetReference>
@@ -95,13 +149,13 @@
         <inputAssignments>
             <field>Stack__c</field>
             <value>
-                <elementReference>Stack</elementReference>
+                <elementReference>textStack</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Type__c</field>
             <value>
-                <elementReference>Type_Values</elementReference>
+                <elementReference>textType</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -146,8 +200,8 @@
     <screens>
         <name>Create_Question</name>
         <label>Create Quiz Question Screen</label>
-        <locationX>428</locationX>
-        <locationY>69</locationY>
+        <locationX>694</locationX>
+        <locationY>72</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -156,6 +210,9 @@
         </connector>
         <fields>
             <name>Quiz_Question</name>
+            <defaultValue>
+                <stringValue>{!Interview_Question}</stringValue>
+            </defaultValue>
             <fieldText>Quiz Question</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>true</isRequired>
@@ -233,8 +290,101 @@
                     <booleanValue>true</booleanValue>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>topValue</name>
+                <value>
+                    <elementReference>textStack</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>middleValue</name>
+                <value>
+                    <elementReference>textType</elementReference>
+                </value>
+            </inputParameters>
             <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <outputParameters>
+                <assignToReference>textStack</assignToReference>
+                <name>topValue</name>
+            </outputParameters>
+            <outputParameters>
+                <assignToReference>textType</assignToReference>
+                <name>middleValue</name>
+            </outputParameters>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Question</name>
+        <label>Question</label>
+        <locationX>199</locationX>
+        <locationY>172</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Interview_Question</targetReference>
+        </connector>
+        <fields>
+            <name>Interview_Question</name>
+            <fieldText>Interview Question</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Stack_val</name>
+            <extensionName>flowruntime:dependentPicklists</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>dependencyWrapperApiName</name>
+                <value>
+                    <stringValue>Question__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>topPicklistApiName</name>
+                <value>
+                    <stringValue>Stack__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>topRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>middleRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>middlePicklistApiName</name>
+                <value>
+                    <stringValue>Type__c</stringValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>textStack</assignToReference>
+                <name>topValue</name>
+            </outputParameters>
+            <outputParameters>
+                <assignToReference>textType</assignToReference>
+                <name>middleValue</name>
+            </outputParameters>
+        </fields>
+        <fields>
+            <name>Add_Quiz_Question</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>Add Quiz Question?</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -242,7 +392,7 @@
     <screens>
         <name>Question_Completion</name>
         <label>Question Completion</label>
-        <locationX>865</locationX>
+        <locationX>1017</locationX>
         <locationY>69</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -255,12 +405,42 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Question_Created</name>
+        <label>Question Created</label>
+        <locationX>485</locationX>
+        <locationY>344</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Question_Success</name>
+            <fieldText>&lt;p&gt;You have successfully created an interview question.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
         <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationY>14</locationY>
         <connector>
-            <targetReference>Create_Question</targetReference>
+            <targetReference>Question</targetReference>
         </connector>
     </start>
     <status>Draft</status>
+    <variables>
+        <name>textStack</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>textType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
 </Flow>
