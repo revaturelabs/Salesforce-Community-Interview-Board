@@ -574,7 +574,6 @@
         <field>Question__c.Interviewer__c</field>
         <readable>false</readable>
     </fieldPermissions>
-
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Visibility__c</field>
