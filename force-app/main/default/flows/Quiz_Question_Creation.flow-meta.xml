@@ -428,7 +428,7 @@
             <targetReference>Question</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>textStack</name>
         <dataType>String</dataType>
