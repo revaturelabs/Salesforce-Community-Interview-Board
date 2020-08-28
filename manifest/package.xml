@@ -109,6 +109,13 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+		<members>Challenge__c</members>
+		<members>Completion__c</members>
+		<members>Primary_Tech__c</members>
+		<members>Stack__c</members>
+		<members>Stack_Tech__c</members>
+		<members>Sub_Tech__c</members>
+		<members>User_Stack__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
