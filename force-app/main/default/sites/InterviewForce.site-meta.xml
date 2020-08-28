@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>joshlewis7390@empathetic-goat-299p3w.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>joshlewis7390@empathetic-goat-299p3w.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>dh070820-developer-edition</subdomain>
 </CustomSite>
