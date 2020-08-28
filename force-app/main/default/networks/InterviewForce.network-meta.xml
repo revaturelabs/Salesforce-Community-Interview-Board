@@ -38,7 +38,8 @@
         <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
     <picassoSite>InterviewForce1</picassoSite>
-    <selfRegistration>false</selfRegistration>
+    <selfRegProfile>associate</selfRegProfile>
+    <selfRegistration>true</selfRegistration>
     <sendWelcomeEmail>true</sendWelcomeEmail>
     <site>InterviewForce</site>
     <status>Live</status>
