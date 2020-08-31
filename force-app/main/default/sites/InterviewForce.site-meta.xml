@@ -23,8 +23,15 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>loganbrandt72@cunning-wolf-5ro4dl.com</siteAdmin>
     <siteGuestRecordDefaultOwner>loganbrandt72@cunning-wolf-5ro4dl.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>cunning-wolf-5ro4dl-dev-ed</subdomain>
+=======
+    <siteAdmin>adkells11@brave-narwhal-uzmdfe.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>adkells11@brave-narwhal-uzmdfe.com</siteGuestRecordDefaultOwner>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>alecforce-developer-edition</subdomain>
+>>>>>>> origin/2007-QA-Alec
 </CustomSite>
