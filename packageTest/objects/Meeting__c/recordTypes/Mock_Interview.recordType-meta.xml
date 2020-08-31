@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mock_Interview</fullName>
+    <active>true</active>
+    <label>Mock Interview</label>
+    <picklistValues>
+        <picklist>Meeting_Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Schedule</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>
