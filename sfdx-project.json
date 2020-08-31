@@ -3,9 +3,39 @@
     {
       "path": "force-app",
       "default": true
+    },       
+    {
+      "path": "package",
+      "package": "QuizAppPackage",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false
+    },
+    {
+      "path": "Gamification",
+      "package": "Gamification",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false
+    },
+    {
+      "path": "packageTest",
+      "package": "VideoConferencePackage",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
+  "sourceApiVersion": "48.0",
+  "packageAliases": {
+    "QuizAppPackage": "0Ho4W000000KyoCSAS",
+    "QuizAppPackage@0.1.0-1": "04t4W000000WZbAQAW",
+    "Gamification": "0Ho4W0000008ONGSA2",
+    "Gamification@0.1.0-2": "04t4W000001AlXIQA0",
+    "VideoConference": "0Ho4W000000wk75SAA",
+    "VideoConferencePackage": "0Ho4W000000wk7ASAQ",
+    "VideoConferencePackage@0.1.0-1": "04t4W000000rNpBQAU"
+  }
 }
