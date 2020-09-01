@@ -42,6 +42,7 @@
 		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
+		<members>FullCalendarController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -89,6 +90,7 @@
 		<members>UpdateMockInterviewList</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>FullCalendar</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

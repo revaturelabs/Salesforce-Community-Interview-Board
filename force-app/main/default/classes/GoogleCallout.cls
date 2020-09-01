@@ -75,4 +75,15 @@ public with sharing class GoogleCallout {
         system.debug(eMeet);
         return eMeet;
     }
+    
+    public static void updateEvent() {
+        
+        String eID = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
+        
+        request = new HTTPRequest();
+        request.setMethod('PATCH');
+        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + eID);
+        response = HTTP.send(request);
+        
+    }
 }
