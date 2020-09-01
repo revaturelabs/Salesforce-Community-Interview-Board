@@ -1,0 +1,33 @@
+<aura:component controller="MeetingController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	
+    <!-- Upon initialization of page, calls JS controller to execute 'doInit' function -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="AssociatePerm" type="Boolean" default="False"/>
+    <aura:attribute name="meetingId" type="String"/>
+    
+    <!-- Displays recordViewForm if user has associate Profile so that user cannot edit Meeting info -->
+    <aura:if isTrue="{!v.AssociatePerm}">
+    	<lightning:recordViewForm recordId="{!v.meetingId}" objectApiName="Meeting__c">
+        <div class="slds-col">
+                <lightning:outputField fieldName="Name"/>
+            	<lightning:outputField fieldName="Meeting_Status__c"/>
+                <lightning:outputField fieldName="StartDateTime__c"/>
+                <lightning:outputField fieldName="EndDateTime__c"/>
+            </div>
+        </lightning:recordViewForm>
+    </aura:if>
+    
+    <!-- Displays recordEditForm if user does not have associate Profile so that user can edit Meeting info aka they are an interviewer -->
+    <aura:if isTrue="{!!v.AssociatePerm}">
+    	<lightning:recordEditForm recordId="{!v.meetingId}" objectApiName="Meeting__c">
+        	<div class="slds-col">
+                <lightning:inputField fieldName="Name"/>
+                <lightning:inputField fieldName="Meeting_Status__c"/>
+                <lightning:inputField fieldName="StartDateTime__c"/>
+                <lightning:inputField fieldName="EndDateTime__c"/>
+            </div>
+            <lightning:button class="slds-m-top_small" label="Change Values!" type="submit"/>
+        </lightning:recordEditForm>
+    </aura:if>
+    
+</aura:component>
