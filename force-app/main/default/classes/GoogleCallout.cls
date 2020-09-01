@@ -52,6 +52,6 @@ public with sharing class GoogleCallout {
         String eMeet = results.get('hangoutLink').toString();
         
         system.debug(eMeet);
-        return eMeet;
+        return eMeet; 
     }
 }

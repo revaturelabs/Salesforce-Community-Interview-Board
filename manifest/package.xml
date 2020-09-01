@@ -88,7 +88,7 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
-		<members>CreateEvent</members>
+	    <members>CreateEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -166,6 +166,8 @@
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
 		<members>Meeting__c.Mock_Interview</members>
+		<members>Meeting__c.StartDateTime__c</members>
+		<members>Meeting__c.EndDateTime__c</members>
 		<members>Metric.Completion</members>
 		<members>Metric.Progress</members>
 		<name>RecordType</name>

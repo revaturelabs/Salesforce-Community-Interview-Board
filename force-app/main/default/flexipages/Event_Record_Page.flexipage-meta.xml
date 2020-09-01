@@ -91,9 +91,9 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
-       <!-- <componentInstances>
+        <componentInstances>
             <componentName>testCmp</componentName>
-        </componentInstances> -->
+        </componentInstances>
         <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
