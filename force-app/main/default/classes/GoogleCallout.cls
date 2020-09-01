@@ -15,6 +15,7 @@ public with sharing class GoogleCallout {
         
         request = new HttpRequest();
         request.setMethod('POST');
+
         request.setBody(Summary + endDateTime + startDateTime + attend + confData); 
         request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events?conferenceDataVersion=1');
  
@@ -25,6 +26,7 @@ public with sharing class GoogleCallout {
         results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         String eID = results.get('id').toString();
         
+
         System.debug(eID);
         
         Meeting__c m = new Meeting__c();
