@@ -114,6 +114,13 @@
 		<members>sfqz__Quiz_Question__c</members>
 		<members>sfqz__Quiz_Player__c</members>
 		<members>sfqz__Quiz_Answer__c</members>
+		<members>Challenge__c</members>
+		<members>Completion__c</members>
+		<members>Primary_Tech__c</members>
+		<members>Stack__c</members>
+		<members>Stack_Tech__c</members>
+		<members>Sub_Tech__c</members>
+		<members>User_Stack__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
