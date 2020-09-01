@@ -1,6 +1,7 @@
 <aura:component controller='GoogleCallout'>
 	 <div class='slds-p-left_xx-large '>
     	<div class="slds-float_right" style='border:2px solid black'>
+
     		<ui:button label='Go to Meeting' press='{!c.meet}' />
    		</div>
     </div>
