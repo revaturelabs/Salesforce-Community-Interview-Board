@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <assignments>
-        <name>curQuestionAssign</name>
-        <label>curQuestionAssign</label>
-        <locationX>713</locationX>
-        <locationY>267</locationY>
+        <name>GetQuestionIDs</name>
+        <label>GetQuestionIDs</label>
+        <locationX>597</locationX>
+        <locationY>268</locationY>
         <assignmentItems>
-            <assignToReference>curQuestion_Label</assignToReference>
+            <assignToReference>SelectedQuestionsCollection</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Loop_through_Questions.sfqz__Label__c</elementReference>
+                <elementReference>Get_Questions</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Display_Questions</targetReference>
-        </connector>
     </assignments>
     <dynamicChoiceSets>
         <name>Choose_Stack</name>
@@ -42,17 +39,6 @@
     </dynamicChoiceSets>
     <interviewLabel>Choose Question Type {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Choose Question Type</label>
-    <loops>
-        <name>Loop_through_Questions</name>
-        <label>Loop through Questions</label>
-        <locationX>518</locationX>
-        <locationY>272</locationY>
-        <collectionReference>Get_Questions</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>curQuestionAssign</targetReference>
-        </nextValueConnector>
-    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -69,11 +55,11 @@
     <recordLookups>
         <name>Get_Questions</name>
         <label>Get Questions</label>
-        <locationX>375</locationX>
-        <locationY>272</locationY>
+        <locationX>385</locationX>
+        <locationY>268</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Loop_through_Questions</targetReference>
+            <targetReference>GetQuestionIDs</targetReference>
         </connector>
         <filters>
             <field>Stack__c</field>
@@ -105,7 +91,7 @@
         <name>Choose_A_Stack</name>
         <label>Choose A Stack</label>
         <locationX>180</locationX>
-        <locationY>274</locationY>
+        <locationY>270</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -172,33 +158,14 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <screens>
-        <name>Display_Questions</name>
-        <label>Display Questions</label>
-        <locationX>707</locationX>
-        <locationY>437</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Loop_through_Questions</targetReference>
-        </connector>
-        <fields>
-            <name>Question_List</name>
-            <fieldText>&lt;p&gt;{!curQuestion_Label}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
     <start>
-        <locationX>53</locationX>
-        <locationY>41</locationY>
+        <locationX>54</locationX>
+        <locationY>45</locationY>
         <connector>
             <targetReference>Choose_A_Stack</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>curQuestion</name>
         <dataType>SObject</dataType>
@@ -213,6 +180,14 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SelectedQuestionsCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>sfqz__Quiz_Question__c</objectType>
     </variables>
     <variables>
         <name>stackChoice</name>
