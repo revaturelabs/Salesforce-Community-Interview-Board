@@ -1,0 +1,12 @@
+<aura:component controller="FullCalendarController" implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" >
+    <ltng:require styles="{!$Resource.FullCalendarJs + '/fullcalendar/fullcalendar.css'}"
+          scripts="{!join(',',
+                   $Resource.FullCalendarJs  + '/fullcalendar/lib/jquery.min.js',
+                   $Resource.FullCalendarJs  + '/fullcalendar/lib/moment.min.js',
+                   $Resource.FullCalendarJs  + '/fullcalendar/fullcalendar.js'
+                      )}"
+          afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    <ltng:require styles="/resource/FullCalendar/FullCalendar/fullcalendar.css"/>
+    <aura:attribute name="events" type="Object[]" />
+    <div aura:id="calendar"></div>
+</aura:component>

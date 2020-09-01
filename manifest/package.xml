@@ -42,6 +42,7 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>GoogleCallout</members>
+		<members>FullCalendarController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -89,6 +90,7 @@
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
 		<members>CreateEvent</members>
+		<members>fullCalendar</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
