@@ -202,16 +202,16 @@
 		<name>WorkflowRule</name>
 	</types>
 	<types>
-    	<members>Google</members>
-    	<name>RemoteSiteSetting</name>
-	</types>
-	<types>
-    	<members>GoogleAPI</members>
-    	<name>NamedCredential</name>
-	</types>
-	<types>
-    	<members>Google_Connect</members>
-    	<name>AuthProvider</name>
-	</types>
+        <members>Google</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    <types>
+        <members>GoogleAPI</members>
+        <name>NamedCredential</name>
+    </types>
+    <types>
+        <members>Google_Connect</members>
+        <name>AuthProvider</name>
+    </types>
 	<version>48.0</version>
 </Package>
