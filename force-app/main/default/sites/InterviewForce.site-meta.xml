@@ -23,8 +23,13 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>grant.t.hewlett@resilient-koala-bu5j5c.com</siteAdmin>
     <siteGuestRecordDefaultOwner>grant.t.hewlett@resilient-koala-bu5j5c.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>interviewboard-developer-edition.na139.force.com</subdomain>
+    <siteAdmin>loganbrandt72@cunning-wolf-5ro4dl.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>loganbrandt72@cunning-wolf-5ro4dl.com</siteGuestRecordDefaultOwner>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>cunning-wolf-5ro4dl-dev-ed</subdomain>
 </CustomSite>

@@ -109,6 +109,11 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+		<members>sfqz__Quiz_Session__c</members>
+		<members>sfqz__Quiz_Session_Question__c</members>
+		<members>sfqz__Quiz_Question__c</members>
+		<members>sfqz__Quiz_Player__c</members>
+		<members>sfqz__Quiz_Answer__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -131,6 +136,7 @@
 	</types>
 	<types>
 		<members>Mock_Interview_Flow</members>
+		<members>Quiz_Question_Creation</members>
 		<name>Flow</name>
 	</types>
 	<!--
