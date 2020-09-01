@@ -106,53 +106,19 @@
                 <default>false</default>
                 <label>Visualforce</label>
             </value>
+            <value>
+                <fullName>Declarative Salesforce</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Declarative Salesforce</label>
+            </value>
+            <value>
+                <fullName>Soft Skills</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Soft Skills</label>
+            </value>
         </valueSetDefinition>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <valueName>C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <valueName>C#</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <valueName>C++</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>HTML/CSS</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Javascript</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <valueName>Node.Js</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <valueName>React</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <valueName>Typescript</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <valueName>Java</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Java</controllingFieldValue>
-            <valueName>Spring</valueName>
-        </valueSettings>
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>
             <valueName>Apex</valueName>
@@ -175,6 +141,18 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>HTML/CSS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>Javascript</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
             <valueName>SOQL/SOSL</valueName>
         </valueSettings>
         <valueSettings>
@@ -184,6 +162,44 @@
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>
             <valueName>Visualforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <valueName>Java</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>Node.Js</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>React</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Java</controllingFieldValue>
+            <valueName>Spring</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>C#</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>C++</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>Python</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>.NET</controllingFieldValue>
+            <valueName>Typescript</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>
