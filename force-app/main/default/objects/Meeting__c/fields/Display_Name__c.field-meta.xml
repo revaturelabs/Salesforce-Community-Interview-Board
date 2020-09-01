@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Display_Name__c</fullName>
+    <deprecated>false</deprecated>
     <externalId>false</externalId>
     <formula>Client_Name__c +&quot; &quot; + TEXT(MONTH(DATEVALUE(Scheduled__c)))+&quot;/&quot; + TEXT(DAY(DATEVALUE(Scheduled__c)))+&quot;/&quot; + TEXT(YEAR(DATEVALUE(Scheduled__c))) + &quot; &quot; + TEXT(-7 + HOUR(TIMEVALUE(Scheduled__c)))+&quot;:&quot; + LPAD(TEXT(MINUTE(TIMEVALUE(Scheduled__c))), 2, &apos;0&apos; )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

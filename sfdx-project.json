@@ -1,12 +1,39 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true
+        },
+        {
+            "path": "package",
+            "package": "QuizAppPackage",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        },
+        {
+            "path": "packageTest",
+            "package": "VideoConference",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        },
+        {
+            "path": "Gamification",
+            "package": "Gamification",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "QuizAppPackage": "0Ho3t000000fxsoCAA",
+        "VideoConference": "0Ho3t000000fxstCAA",
+        "Gamification": "0Ho3t000000fxsyCAA",
+        "Gamification@0.1.0-1": "04t3t000002MyqEAAS",
+        "VideoConference@0.1.0-1": "04t3t000002MyqJAAS"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
-
 }

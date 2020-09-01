@@ -23,10 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+    <siteAdmin>christopherbrefo@cunning-panda-i0cxub.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>christopherbrefo@cunning-panda-i0cxub.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>interviewboard-developer-edition.na139.force.com</subdomain>
-    <siteAdmin>loganbrandt72@cunning-wolf-5ro4dl.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>loganbrandt72@cunning-wolf-5ro4dl.com</siteGuestRecordDefaultOwner>
-    <siteType>ChatterNetwork</siteType>
-    <subdomain>cunning-wolf-5ro4dl-dev-ed</subdomain>
+    <subdomain>dh070820-developer-edition</subdomain>
 </CustomSite>
