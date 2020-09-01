@@ -141,6 +141,7 @@
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<members>Quiz_Question_Creation</members>
+		<members>Choose_Question_Type</members>
 		<name>Flow</name>
 	</types>
 	<!--
