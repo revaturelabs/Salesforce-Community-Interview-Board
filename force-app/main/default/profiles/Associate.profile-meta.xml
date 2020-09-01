@@ -549,7 +549,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting__c.EndDateTime__c</field>
+        <field>Meeting__c.StartDateTime__c</field>
         <readable>true</readable>
         <editable>false</editable>
         <field>Meeting__c.EndDateTime__c</field>
