@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>janhnhi@brave-impala-4nig77.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>janhnhi@brave-impala-4nig77.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>mattdenman16@curious-moose-junno7.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>mattdenman16@curious-moose-junno7.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>interview-board-vc-developer-edition</subdomain>
 </CustomSite>
