@@ -6,7 +6,7 @@ public with sharing class GoogleCallout {
 
    @AuraEnabled 
     public static void createEvent() {
-        
+        /*
         String Summary ='{"summary": "Apex Test with ID2",';
         String endDateTime ='"end": {"dateTime": "2020-08-29T21:30:00-04:00"},';
         String startDateTime = '"start": {"dateTime": "2020-07-29T20:00:00-04:00"},';
@@ -31,13 +31,13 @@ public with sharing class GoogleCallout {
         m.Google_Event_Id__c = eID;
         m.Meeting_Status__c = 'On Schedule';
         insert m;
-        
+        */
     }
     
     
 	@AuraEnabled    
     public static String getEvent() {
-        
+        /*
         String eID = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
         system.debug(eID);
         request = new HTTPRequest();
@@ -52,6 +52,7 @@ public with sharing class GoogleCallout {
         String eMeet = results.get('hangoutLink').toString();
         
         system.debug(eMeet);
-        return eMeet;
+        return eMeet;*/
+        return '';
     }
 }
