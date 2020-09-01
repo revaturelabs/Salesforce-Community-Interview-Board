@@ -168,6 +168,7 @@
 		<members>Meeting__c.Mock_Interview</members>
 		<members>Meeting__c.StartDateTime__c</members>
 		<members>Meeting__c.EndDateTime__c</members>
+		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Metric.Completion</members>
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
