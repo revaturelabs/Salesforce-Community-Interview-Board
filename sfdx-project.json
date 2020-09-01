@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "packageDirectories": [
     {
       "path": "force-app",
@@ -38,4 +39,30 @@
     "VideoConferencePackage": "0Ho4W000000wk7ASAQ",
     "VideoConferencePackage@0.1.0-1": "04t4W000000rNpBQAU"
   }
+=======
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "VideoConference",
+            "versionName": "Version 0.2",
+            "versionNumber": "0.2.0.NEXT"
+        },
+        {
+            "path": "packageTest",
+            "package": "VideoConferencePackage",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "VideoConference": "0Ho4W000000wk75SAA",
+        "VideoConferencePackage": "0Ho4W000000wk7ASAQ",
+        "VideoConferencePackage@0.1.0-1": "04t4W000000rNpBQAU"
+    }
+>>>>>>> origin/2007-Video-Conference
 }
