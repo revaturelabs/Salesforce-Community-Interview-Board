@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>harrysandy1998@resourceful-bear-nrakik.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>harrysandy1998@resourceful-bear-nrakik.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>grant.t.hewlett@resilient-koala-bu5j5c.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>grant.t.hewlett@resilient-koala-bu5j5c.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>hsproject3-developer-edition</subdomain>
 </CustomSite>

@@ -174,11 +174,9 @@
 		<name>RecordType</name>
 	</types>
 	<types>
-		<members>Meeting__c.StartDateTime__c</members>
-		<name>CustomField</name>
-	</types>
-	<types>
+		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Meeting__c.EndDateTime__c</members>
+		<members>Meeting__c.StartDateTime__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>

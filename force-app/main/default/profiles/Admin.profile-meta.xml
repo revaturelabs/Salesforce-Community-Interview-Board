@@ -539,7 +539,7 @@
         <field>Meeting__c.Display_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+   <fieldPermissions>
         <editable>true</editable>
         <field>Meeting__c.EndDateTime__c</field>
         <readable>true</readable>
