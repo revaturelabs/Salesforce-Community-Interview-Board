@@ -66,6 +66,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FullCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GoogleCallout</apexClass>
         <enabled>false</enabled>
     </classAccesses>
