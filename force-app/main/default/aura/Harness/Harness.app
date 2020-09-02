@@ -12,4 +12,6 @@
             <c:InterviewQuestions/>
         </lightning:tab>
     </lightning:tabset>
+    
+    <c:MeetingCmp/>
 </aura:application>
