@@ -622,13 +622,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
         <field>User_Stack__c.User__c</field>
-=======
         <field>Question__c.Visibility__c</field>
-<<<<<<< HEAD
-=======
->>>>>>> origin/2007-Quiz-App
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -674,10 +669,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sfqz__Quiz_Session__c.sfqz__Current_Question__c</field>
-<<<<<<< HEAD
-=======
->>>>>>> origin/2007-QA-Alec
->>>>>>> origin/2007-Quiz-App
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>
