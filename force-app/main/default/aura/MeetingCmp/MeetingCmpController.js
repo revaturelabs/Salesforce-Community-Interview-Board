@@ -23,8 +23,8 @@
     
     // action to send start time and end time to meetingController to create new timeslots. 
     confirmTimeslot : function(component, event, helper){
-        let confirmStart = component.find("StartAvailability").get("v.value");
-        let confirmEnd = component.find("EndAvailability").get("v.value");
+        let confirmStart = component.find("StartAvail").get("v.value");
+        let confirmEnd = component.find("EndAvail").get("v.value");
         
         
         
@@ -45,8 +45,24 @@
     },
     
     createGoogleMeets : function(component, event, helper){
-        
-        
+        let createMeeting = component.get("c.createEvent");
+        let sumMeet = component.find("Name").get("v.value");
+        let startDateMeet = component.find("StartAvailability").get("v.value");
+        let endDateMeet = component.find("EndAvailability").get("v.value");	
+        console.log(sumMeet);
+        console.log(startDateMeet);
+        console.log(endDateMeet);
+        createMeeting.setParams({
+            "sum" : sumMeet,
+            "startDate" : startDateMeet,
+            "endDate" : endDateMeet
+        });
+        createMeeting.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS"){
+				console.log("success");                
+            }
+        });
+        $A.enqueueAction(createMeeting);
     }
     
 })

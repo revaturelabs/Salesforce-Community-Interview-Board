@@ -14,15 +14,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Mock</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Not Scheduled</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Scheduled</fullName>
+            <fullName>On Schedule</fullName>
             <default>true</default>
         </values>
     </picklistValues>

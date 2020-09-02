@@ -1,6 +1,9 @@
 public with sharing class MeetingController{
 
-    
+    public static Http http = new Http();
+    public static HTTPResponse response;
+    public static HttpRequest request;
+
     //Method that checks whether the user has the custom Permission assigned to their Profile -- Returns true if they do
     @AuraEnabled
     public static Boolean getProfilePerm(){
@@ -8,6 +11,73 @@ public with sharing class MeetingController{
         Boolean AdminPerm = FeatureManagement.checkPermission('AdminPermission');
         return AdminPerm;
     }
+    
+    
+    @AuraEnabled 
+    public static void createEvent(String sum, DateTime startDate, DateTime endDate) {
+        
+        DateTime EndDateTime = DateTime.newInstance(2020, 9, 4, 21, 30, 00);
+        DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);         
+        
+        String Summary ='{"summary": "' + sum + '",';
+        
+        String endform = endDate.formatGMT('yyyy-MM-dd hh:mm:ss');
+        String startform = startDate.formatGMT('yyyy-MM-dd hh:mm:ss');
+        endform = endform.replace(' ', 'T');
+        endform = endform.replace('.000Z', '');
+        startform = startform.replace(' ', 'T');
+        startform = startform.replace('.000Z', '');
+        
+        system.debug(sum);
+        system.debug(endDate);
+        system.debug(startDate);
+        
+        //system.debug(form);
+        String forendDateTime ='"end": {"dateTime": "' + endform + '-12:00"},';
+        String forstartDateTime = '"start": {"dateTime": "' + startform + '-12:00"},';
+        //String attend = '"attendees": [{"email": "example@gmail.com"}],';
+        String confData = '"conferenceData": {"createRequest": {"requestId": "7qxalsvy0e"}}}';
+        
+        request = new HttpRequest();
+        request.setMethod('POST');
+        request.setBody(Summary + forendDateTime + forstartDateTime + confData); 
+        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events?conferenceDataVersion=1');
+ 
+        response = http.send(request); 
+ 
+        System.debug(response.getBody());
+        Map<String, Object> results;
+        results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+        String eID = results.get('id').toString();
+        
+        Map<String, Object> startDT = (Map<String, Object>) results.get('start'); 
+        Map<String, Object> endDT = (Map<String, Object>) results.get('end');
+        
+		String endTime = endDT.get('dateTime').toString();
+		String startTime = startDT.get('dateTime').toString();
+       // system.debug(endTime);
+        //System.debug(eID);
+        
+        
+        
+        Meeting__c m = new Meeting__c();
+        m.name = Summary;
+        m.Google_Event_Id__c = eID;
+        m.Meeting_Status__c = 'Scheduled';
+        m.EndDateTime__c = EndDate;
+        m.StartDateTime__c = startDate;
+        
+        try {
+            insert m;
+        }
+        catch(Exception e) {
+            String error = e.getMessage();
+            system.debug(error);
+            m = null;
+        }
+       
+    }
+    
     
     @AuraEnabled
     public static String getMeeting(){
