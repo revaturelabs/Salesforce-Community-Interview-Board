@@ -41,6 +41,25 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
+		<members>QuizAbstractDataService</members>
+		<members>QuizAnswer</members>
+		<members>QuizAnswerRestResource</members>
+		<members>QuizAnswerService</members>
+		<members>QuizAnswerTriggerHelper</members>
+		<members>QuizController</members>
+		<members>QuizEditorController</members>
+		<members>QuizPlayer</members>
+		<members>QuizPlayerService</members>
+		<members>QuizPlayerStatsRestResource</members>
+		<members>QuizPostInstallScript</members>
+		<members>QuizQuestion</members>
+		<members>QuizAbstractDataService</members>
+		<members>QuizSessionHelper</members>
+		<members>QuizSessionService</members>
+		<members>QuizSessionTriggerHelper</members>
+		<members>QuizSettings</members>
+		<members>QuizSettingsService</members>
+		<members>QuizSession</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -109,11 +128,11 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
-		<members>sfqz__Quiz_Session__c</members>
-		<members>sfqz__Quiz_Session_Question__c</members>
-		<members>sfqz__Quiz_Question__c</members>
-		<members>sfqz__Quiz_Player__c</members>
-		<members>sfqz__Quiz_Answer__c</members>
+		<members>Quiz_Session__c</members>
+		<members>Quiz_Session_Question__c</members>
+		<members>Quiz_Question__c</members>
+		<members>Quiz_Player__c</members>
+		<members>Quiz_Answer__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -136,8 +155,6 @@
 	</types>
 	<types>
 		<members>Mock_Interview_Flow</members>
-		<members>Quiz_Question_Creation</members>
-		<members>Choose_Question_Type</members>
 		<name>Flow</name>
 	</types>
 	<!--
