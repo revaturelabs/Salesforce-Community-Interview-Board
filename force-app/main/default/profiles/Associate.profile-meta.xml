@@ -98,6 +98,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PlayerNameComponentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PlayerName_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QQDataFactory_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuestionCreationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -111,6 +123,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionPoolApexControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizQuestionDataFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -597,6 +613,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Visibility__c</field>
+<<<<<<< HEAD
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -607,6 +624,10 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User_Stack__c.User__c</field>
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/2007-Quiz-App
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -652,6 +673,10 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>sfqz__Quiz_Session__c.sfqz__Current_Question__c</field>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/2007-QA-Alec
+>>>>>>> origin/2007-Quiz-App
         <readable>false</readable>
     </fieldPermissions>
     <objectPermissions>

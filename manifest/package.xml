@@ -41,6 +41,10 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
+		<members>QuizQuestionDataFactory</members>
+		<members>QQDataFactory_Test</members>
+		<members>PlayerNameComponentController</members>
+		<members>PlayerName_Test</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -144,6 +148,7 @@
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<members>Quiz_Question_Creation</members>
+		<members>Choose_Question_Type</members>
 		<name>Flow</name>
 	</types>
 	<!--
