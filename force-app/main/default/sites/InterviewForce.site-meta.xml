@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@empathetic-badger-cuiv60.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>christopherbrefo@empathetic-badger-cuiv60.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>ianjworkman@resourceful-otter-f7w2o7.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>ianjworkman@resourceful-otter-f7w2o7.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>cb082520-developer-edition</subdomain>
 </CustomSite>
