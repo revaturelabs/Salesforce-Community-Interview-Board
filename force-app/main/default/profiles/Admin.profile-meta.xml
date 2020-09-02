@@ -623,7 +623,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User_Stack__c.User__c</field>
-        <field>Question__c.Visibility__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
