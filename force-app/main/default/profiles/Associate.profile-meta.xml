@@ -593,8 +593,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Visibility__c</field>
-<<<<<<< HEAD
-=======
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -640,7 +638,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>sfqz__Quiz_Session__c.sfqz__Current_Question__c</field>
->>>>>>> origin/2007-QA-Alec
         <readable>false</readable>
     </fieldPermissions>
     <objectPermissions>
