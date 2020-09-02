@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-card">
+        <template if:true={answerStats}>
+            <div class="chart" lwc:dom="manual"></div>
+        </template>
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+    </div>
+</template>
