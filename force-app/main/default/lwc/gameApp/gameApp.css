@@ -1,0 +1,40 @@
+.slds-card {
+    border: 0;
+}
+
+.slds-card__body_inner {
+    transition: background-color 1s ease;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border: 0;
+    padding: 2rem;
+    min-height: 600px;
+}
+
+.header-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.answer-label {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bg-Registration {
+    background-color: #ea7600;
+}
+.bg-PreQuestion {
+    background-color: #ebbc48;
+}
+.bg-Question {
+    background-color: #e3faf6;
+}
+.bg-QuestionResults {
+    background-color: #00ccc2;
+}
+.bg-GameResults {
+    background-color: #e7daf2;
+}
