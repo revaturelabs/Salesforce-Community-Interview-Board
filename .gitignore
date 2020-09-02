@@ -65,3 +65,4 @@ InterviewForce.site-meta.xml
 !force-app/main/default/lwc
 !force-app/main/default/globalValueSets
 !force-app/main/default/triggers
+!force-app/main/default/layouts
