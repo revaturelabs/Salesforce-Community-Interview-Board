@@ -116,7 +116,7 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>AssociatePermission</members>
+		<members>AdminPermission</members>
 		<name>CustomPermission</name>
 	</types>
 	<types>
@@ -172,9 +172,8 @@
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
 		<members>Meeting__c.Mock_Interview</members>
-		<members>Meeting__c.StartDateTime__c</members>
-		<members>Meeting__c.EndDateTime__c</members>
-		<members>Meeting__c.Google_Event_Id__c</members>
+		<members>Meeting__c.Create_Time_Slot</members>
+		<members>Meeting__c.Create_Meeting</members>
 		<members>Metric.Completion</members>
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
@@ -183,6 +182,7 @@
 		<members>Meeting__c.StartDateTime__c</members>
 		<members>Meeting__c.EndDateTime__c</members>
 		<members>Meeting__c.Google_Event_Id__c</members>
+		<members>Meeting__c.Meeting_Status__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
