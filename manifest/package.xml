@@ -91,6 +91,7 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>FullCalendar</members>
+		<members>TestComp</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
