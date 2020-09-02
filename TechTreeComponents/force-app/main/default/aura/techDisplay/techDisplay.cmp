@@ -1,0 +1,26 @@
+<aura:component controller="techDisplayController">
+    <aura:attribute name="primeTech" type="Primary_Tech__c[]"/>
+    <aura:attribute name="subTech" type="Sub_Tech__c[]"/>
+    <aura:attribute name="currentTech" type="String"/>
+    <aura:attribute name="clicked" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.loadTech}"/>
+    <aura:handler name="getSub" event="c:subTechEvent" action="{!c.loadSub}"/>
+    <aura:handler name="getCur" event="c:currentTechEvent" action="{!c.showCur}"/>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-3">
+            <aura:iteration items="{!v.primeTech}" var="item">
+                <c:primaryTechButton techPrime="{!item}"/>
+            </aura:iteration>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <aura:iteration items="{!v.subTech}" var="key">
+                <c:subTechButton sTech="{!key}"/>
+            </aura:iteration>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <aura:if isTrue="{!v.clicked}">
+                <p>This is Amar's {!v.currentTech} component</p>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>
