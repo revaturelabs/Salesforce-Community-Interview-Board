@@ -41,6 +41,25 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
+		<members>QuizAbstractDataService</members>
+		<members>QuizAnswer</members>
+		<members>QuizAnswerRestResource</members>
+		<members>QuizAnswerService</members>
+		<members>QuizAnswerTriggerHelper</members>
+		<members>QuizController</members>
+		<members>QuizEditorController</members>
+		<members>QuizPlayer</members>
+		<members>QuizPlayerService</members>
+		<members>QuizPlayerStatsRestResource</members>
+		<members>QuizPostInstallScript</members>
+		<members>QuizQuestion</members>
+		<members>QuizAbstractDataService</members>
+		<members>QuizSessionHelper</members>
+		<members>QuizSessionService</members>
+		<members>QuizSessionTriggerHelper</members>
+		<members>QuizSettings</members>
+		<members>QuizSettingsService</members>
+		<members>QuizSession</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
