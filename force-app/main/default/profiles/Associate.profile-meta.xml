@@ -66,6 +66,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GoogleCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -79,6 +83,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingAssignmentControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MeetingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -540,9 +548,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting__c.EndDateTime__c</field>
-        <readable>true</readable>
         <editable>false</editable>
         <field>Meeting__c.EndDateTime__c</field>
         <readable>false</readable>
@@ -554,7 +559,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting__c.Feedback__c</field>
+        <field>Meeting__c.Google_Event_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -576,11 +581,6 @@
         <editable>false</editable>
         <field>Meeting__c.Scheduled__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting__c.StartDateTime__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -674,6 +674,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Contact.Client</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting__c.Create_Meeting</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting__c.Create_Time_Slot</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
