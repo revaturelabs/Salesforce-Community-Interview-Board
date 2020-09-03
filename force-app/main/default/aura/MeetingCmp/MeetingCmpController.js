@@ -46,13 +46,23 @@
     
     createGoogleMeets : function(component, event, helper){
         let createMeeting = component.get("c.createEvent");
-        let sumMeet = component.find("Name").get("v.value");
-        let startDateMeet = component.find("StartAvailability").get("v.value");
-        let endDateMeet = component.find("EndAvailability").get("v.value");	
+        let meetId = component.get("v.meetingId");
+        
+        let sumMeet = component.find("Name");//.get("v.value");
+        sumMeet = Array.isArray(sumMeet) ? sumMeet[0].get("v.value") : sumMeet.get("v.value");
+        
+        let startDateMeet = component.find("StartAvailability");//.get("v.value");
+        startDateMeet = Array.isArray(startDateMeet) ? startDateMeet[0].get("v.value") : startDateMeet.get("v.value");
+        
+        let endDateMeet = component.find("EndAvailability");//.get("v.value");
+        endDateMeet = Array.isArray(endDateMeet) ? endDateMeet[0].get("v.value") : endDateMeet.get("v.value");
+        
+        console.log(meetId);
         console.log(sumMeet);
         console.log(startDateMeet);
         console.log(endDateMeet);
         createMeeting.setParams({
+            "meetId" : meetId,
             "sum" : sumMeet,
             "startDate" : startDateMeet,
             "endDate" : endDateMeet

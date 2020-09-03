@@ -18,7 +18,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>On Schedule</fullName>
+            <fullName>Not Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
             <default>true</default>
         </values>
     </picklistValues>
