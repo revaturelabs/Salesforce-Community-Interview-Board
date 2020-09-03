@@ -18,23 +18,21 @@ declare module 'lightning/uiListApi' {
     }
 
     /**
-     * Gets the records and metadata for a list view.
+     * Wire adapter for list view records and metadata.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_get_list_ui
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_list_views_records_md.htm
      *
      * @param objectApiName API name of the list view's object (must be specified along with listViewApiName).
      * @param listViewApiName API name of the list view (must be specified with objectApiName).
      * @param listViewId ID of the list view (may be specified without objectApiName or listViewApiName).
-     * @param pageToken A token that represents the page offset. To indicate where the page starts, use this value with the pageSize parameter.
-     *                The maximum offset is 2000 and the default is 0.
-     * @param pageSize The number of list records viewed at one time. The default value is 50. Value can be 1–2000.
-     * @param sortBy The API name of the field the list view is sorted by. If the name is preceded with `-`, the sort order is descending.
-     *                For example, Name sorts by name in ascending order. `-CreatedDate` sorts by created date in descending order.
-     *                Accepts only one value per request.
-     * @param fields Additional fields queried for the records returned. These fields don’t create visible columns.
-     *                If the field is not available to the user, an error occurs.
-     * @param optionalFields Additional fields queried for the records returned. These fields don’t create visible columns.
-     *                       If the field is not available to the user, no error occurs and the field isn’t included in the records.
+     * @param pageToken Page ID of records to retrieve.
+     * @param pageSize Number of records to retrieve at once. The default value is 50. Value can be 1–2000.
+     * @param sortBy Object-qualified field API name on which to sort.
+     * @param fields Object-qualified field API names to retrieve. These fields don’t create visible columns.
+     *               If a field isn’t accessible to the context user, it causes an error.
+     * @param optionalFields Object-qualified field API names to retrieve. These fields don’t create visible columns.
+     *                       If an optional field isn’t accessible to the context user, it isn’t included in the response, but it doesn’t cause an error.
+     * @param q Query string to filter list views (only for a list of lists).
      * @returns {Observable} See description.
      */
     export function getListUi(
@@ -46,6 +44,7 @@ declare module 'lightning/uiListApi' {
         sortBy?: string | FieldId,
         fields?: Array<string | FieldId>,
         optionalFields?: Array<string | FieldId>,
+        q?: string,
     ): void;
 }
 
@@ -69,9 +68,9 @@ declare module 'lightning/uiObjectInfoApi' {
     }
 
     /**
-     * Gets the metadata for a specific object.
+     * Wire adapter for object metadata.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_object_info
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_object_info.htm
      *
      * @param objectApiName The API name of the object to retrieve.
      */
@@ -80,7 +79,7 @@ declare module 'lightning/uiObjectInfoApi' {
     /**
      * Wire adapter for values for a picklist field.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_picklist_values
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_picklist_values.htm
      *
      * @param fieldApiName The picklist field's object-qualified API name.
      * @param recordTypeId The record type ID. Pass '012000000000000AAA' for the master record type.
@@ -90,7 +89,7 @@ declare module 'lightning/uiObjectInfoApi' {
     /**
      * Wire adapter for values for all picklist fields of a record type.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_picklist_values_record
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_picklist_values_collection.htm
      *
      * @param objectApiName API name of the object.
      * @param recordTypeId Record type ID. Pass '012000000000000AAA' for the master record type.
@@ -120,47 +119,24 @@ declare module 'lightning/uiRecordApi' {
         objectApiName: string;
     }
 
-    /**
-     * Contains both the raw and displayable field values for a field in a Record.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_field_value.htm
-     *
-     * Keys:
-     *    (none)
-     */
+    export type FieldValueRepresentationValue = null | boolean | number | string | RecordRepresentation;
     export interface FieldValueRepresentation {
         displayValue: string | null;
-        value: RecordRepresentation | boolean | number | string | null;
+        value: FieldValueRepresentationValue;
     }
-    export type FieldValueRepresentationValue = FieldValueRepresentation['value'];
 
-    /**
-     * Record Collection Representation.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_record_collection.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface RecordCollectionRepresentation {
+        eTag?: string;
         count: number;
-        currentPageToken: string | null;
+        currentPageToken: string;
         currentPageUrl: string;
-        nextPageToken: string | null;
-        nextPageUrl: string | null;
-        previousPageToken: string | null;
-        previousPageUrl: string | null;
-        records: Array<RecordRepresentation>;
+        nextPageToken: string;
+        nextPageUrl: string;
+        previousPageToken: string;
+        previousPageUrl: string;
+        records: RecordRepresentation[];
     }
 
-    /**
-     * Record type.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_record_type_info.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface RecordTypeInfoRepresentation {
         available: boolean;
         defaultRecordTypeMapping: boolean;
@@ -169,91 +145,45 @@ declare module 'lightning/uiRecordApi' {
         recordTypeId: string;
     }
 
-    /**
-     * Record.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_record.htm
-     *
-     * Keys:
-     *    recordId (string): id
-     */
     export interface RecordRepresentation {
         apiName: string;
-        childRelationships: {
-            [key: string]: RecordCollectionRepresentation;
-        };
-        eTag: string;
-        fields: {
-            [key: string]: FieldValueRepresentation;
-        };
+        childRelationships?: { [key: string]: RecordCollectionRepresentation };
+        fields: { [key: string]: FieldValueRepresentation };
         id: string;
-        lastModifiedById: string | null;
-        lastModifiedDate: string | null;
-        recordTypeId: string | null;
-        recordTypeInfo: RecordTypeInfoRepresentation | null;
-        systemModstamp: string | null;
-        weakEtag: number;
+        lastModifiedById: string;
+        lastModifiedDate: string;
+        recordTypeInfo?: RecordTypeInfoRepresentation;
+        systemModstamp: string;
     }
 
-    /**
-     * Description of a record input.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_requests_record_input.htm
-     *
-     * Keys:
-     *    (none)
-     */
-    export interface RecordInputRepresentation {
-        allowSaveOnDuplicate?: boolean;
+    export interface RecordInput {
         apiName?: string;
-        fields: {
-            [key: string]: string | number | null | boolean;
-        };
+        fields: { [key: string]: string | null };
+        allowSaveOnDuplicate?: boolean;
+        recordTypeInfo?: RecordTypeInfoRepresentation;
+        LastModifiedDate?: string;
     }
 
     export interface ClientOptions {
+        eTagToCheck?: string;
         ifUnmodifiedSince?: string;
     }
 
-    /**
-     * Child Relationship.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_child_relationship.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface ChildRelationshipRepresentation {
         childObjectApiName: string;
         fieldName: string;
-        junctionIdListNames: Array<string>;
-        junctionReferenceTo: Array<string>;
+        junctionIdListNames: string[];
+        junctionReferenceTo: string[];
         relationshipName: string;
     }
 
-    /**
-     * Information about a reference field's referenced types and the name field names of those types.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_reference_to_info.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface ReferenceToInfoRepresentation {
         apiName: string;
-        nameFields: Array<string>;
+        nameFields: string[];
     }
 
-    /**
-     * Filtered lookup info.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_filtered_lookup_info.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface FilteredLookupInfoRepresentation {
-        controllingFields: Array<string>;
+        controllingFields: string[];
         dependent: boolean;
         optionalFilter: boolean;
     }
@@ -293,40 +223,32 @@ declare module 'lightning/uiRecordApi' {
         Url = 'Url',
     }
 
-    /**
-     * Field metadata.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_field.htm
-     *
-     * Keys:
-     *    (none)
-     */
     export interface FieldRepresentation {
         apiName: string;
         calculated: boolean;
         compound: boolean;
-        compoundComponentName: string | null;
-        compoundFieldName: string | null;
-        controllerName: string | null;
-        controllingFields: Array<string>;
+        compoundComponentName: string;
+        compoundFieldName: string;
+        controllerName: string;
+        controllingFields: string[];
         createable: boolean;
         custom: boolean;
-        dataType: string;
-        extraTypeInfo: string | null;
+        dataType: RecordFieldDataType;
+        extraTypeInfo: ExtraTypeInfo;
         filterable: boolean;
-        filteredLookupInfo: FilteredLookupInfoRepresentation | null;
+        filteredLookupInfo: FilteredLookupInfoRepresentation;
         highScaleNumber: boolean;
         htmlFormatted: boolean;
-        inlineHelpText: string | null;
+        inlineHelpText: string;
         label: string;
         length: number;
         nameField: boolean;
         polymorphicForeignKey: boolean;
         precision: number;
         reference: boolean;
-        referenceTargetField: string | null;
-        referenceToInfos: Array<ReferenceToInfoRepresentation>;
-        relationshipName: string | null;
+        referenceTargetField: string;
+        referenceToInfos: ReferenceToInfoRepresentation[];
+        relationshipName: string;
         required: boolean;
         scale: number;
         searchPrefilterable: boolean;
@@ -335,63 +257,40 @@ declare module 'lightning/uiRecordApi' {
         updateable: boolean;
     }
 
-    /**
-     * Theme info.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_theme_info.htm
-     *
-     * Keys:
-     *    (none)
-     */
-    export interface ThemeInfoRepresentation {
+    interface ThemeInfoRepresentation {
         color: string;
-        iconUrl: string | null;
+        iconUrl: string;
     }
 
-    /**
-     * Object metadata.
-     *
-     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_responses_object_info.htm
-     *
-     * Keys:
-     *    apiName (string): apiName
-     */
     export interface ObjectInfoRepresentation {
         apiName: string;
-        associateEntityType: string | null;
-        associateParentEntity: string | null;
-        childRelationships: Array<ChildRelationshipRepresentation>;
+        childRelationships: ChildRelationshipRepresentation[];
         createable: boolean;
         custom: boolean;
-        defaultRecordTypeId: string | null;
+        defaultRecordTypeId: string;
         deletable: boolean;
-        dependentFields: {
-            [key: string]: {};
-        };
+        deleteable: boolean;
+        dependentFields: { [key: string]: any };
         eTag: string;
         feedEnabled: boolean;
-        fields: {
-            [key: string]: FieldRepresentation;
-        };
-        keyPrefix: string | null;
+        fields: { [key: string]: FieldRepresentation };
+        keyPrefix: string;
         label: string;
         labelPlural: string;
         layoutable: boolean;
         mruEnabled: boolean;
-        nameFields: Array<string>;
+        nameFields: string[];
         queryable: boolean;
-        recordTypeInfos: {
-            [key: string]: RecordTypeInfoRepresentation;
-        };
+        recordTypeInfos: { [key: string]: RecordTypeInfoRepresentation };
         searchable: boolean;
-        themeInfo: ThemeInfoRepresentation | null;
+        themeInfo: ThemeInfoRepresentation;
         updateable: boolean;
     }
 
     /**
      * Wire adapter for a record.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_record
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_record_get.htm
      *
      * @param recordId ID of the record to retrieve.
      * @param fields Object-qualified field API names to retrieve. If a field isn’t accessible to the context user, it causes an error.
@@ -413,7 +312,7 @@ declare module 'lightning/uiRecordApi' {
     /**
      * Wire adapter for default field values to create a record.
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_create_record_values
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_record_defaults_create.htm#ui_api_resources_record_defaults_create
      *
      * @param objectApiName API name of the object.
      * @param formFactor Form factor. Possible values are 'Small', 'Medium', 'Large'. Large is default.
@@ -431,7 +330,7 @@ declare module 'lightning/uiRecordApi' {
     /**
      * Wire adapter for record data, object metadata and layout metadata
      *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_wire_adapters_record_ui
+     * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_record_ui.htm
      *
      * @param recordIds ID of the records to retrieve.
      * @param layoutTypes Layouts defining the fields to retrieve.
@@ -448,30 +347,21 @@ declare module 'lightning/uiRecordApi' {
 
     /**
      * Updates a record using the properties in recordInput. recordInput.fields.Id must be specified.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_update_record
-     *
      * @param recordInput The record input representation to use to update the record.
      * @param clientOptions Controls the update behavior. Specify ifUnmodifiedSince to fail the save if the record has changed since the provided value.
      * @returns A promise that will resolve with the patched record.
      */
-    export function updateRecord(recordInput: RecordInputRepresentation, clientOptions?: ClientOptions): Promise<RecordRepresentation>;
+    export function updateRecord(recordInput: RecordInput, clientOptions?: ClientOptions): Promise<RecordRepresentation>;
 
     /**
      * Creates a new record using the properties in recordInput.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_create_record
-     *
      * @param recordInput The RecordInput object to use to create the record.
      * @returns A promise that will resolve with the newly created record.
      */
-    export function createRecord(recordInput: RecordInputRepresentation): Promise<RecordRepresentation>;
+    export function createRecord(recordInput: RecordInput): Promise<RecordRepresentation>;
 
     /**
      * Deletes a record with the specified recordId.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_delete_record
-     *
      * @param recordId ID of the record to delete.
      * @returns A promise that will resolve to undefined.
      */
@@ -480,49 +370,34 @@ declare module 'lightning/uiRecordApi' {
     /**
      * Returns an object with its data populated from the given record. All fields with values that aren't nested records will be assigned.
      * This object can be used to create a record with createRecord().
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_generate_record_input_create
-     *
      * @param record The record that contains the source data.
      * @param objectInfo The ObjectInfo corresponding to the apiName on the record. If provided, only fields that are createable=true
      *        (excluding Id) are assigned to the object return value.
      * @returns RecordInput
      */
-    export function generateRecordInputForCreate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInputRepresentation;
+    export function generateRecordInputForCreate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInput;
 
     /**
      * Returns an object with its data populated from the given record. All fields with values that aren't nested records will be assigned.
      * This object can be used to update a record.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_generate_record_input_update
-     *
      * @param record The record that contains the source data.
      * @param objectInfo The ObjectInfo corresponding to the apiName on the record.
      *        If provided, only fields that are updateable=true (excluding Id) are assigned to the object return value.
      * @returns RecordInput.
      */
-    export function generateRecordInputForUpdate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInputRepresentation;
+    export function generateRecordInputForUpdate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInput;
 
     /**
      * Returns a new RecordInput containing a list of fields that have been edited from their original values. (Also contains the Id
      * field, which is always copied over.)
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_create_record_input_update
-     *
      * @param recordInput The RecordInput object to filter.
      * @param originalRecord The Record object that contains the original field values.
      * @returns RecordInput.
      */
-    export function createRecordInputFilteredByEditedFields(
-        recordInput: RecordInputRepresentation,
-        originalRecord: RecordRepresentation,
-    ): RecordInputRepresentation;
+    export function createRecordInputFilteredByEditedFields(recordInput: RecordInput, originalRecord: RecordRepresentation): RecordInput;
 
     /**
      * Gets a field's value from a record.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_get_field_value
-     *
      * @param record The record.
      * @param field Object-qualified API name of the field to return.
      * @returns The field's value (which may be a record in the case of spanning fields), or undefined if the field isn't found.
@@ -531,9 +406,6 @@ declare module 'lightning/uiRecordApi' {
 
     /**
      * Gets a field's display value from a record.
-     *
-     * https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_get_field_display_value
-     *
      * @param record The record.
      * @param field Object-qualified API name of the field to return.
      * @returns The field's display value, or undefined if the field isn't found.
