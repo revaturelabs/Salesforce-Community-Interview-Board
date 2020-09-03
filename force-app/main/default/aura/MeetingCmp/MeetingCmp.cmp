@@ -6,12 +6,11 @@
     <aura:attribute name="confirmIsTrue" type="Boolean" default="False"/>
     <aura:attribute name="idExists" type="Boolean" default="False"/>
     <aura:attribute name="meetingId" type="String"/>
-    <aura:attribute name="CreateTimeSlot" type="Boolean" default="False"/>
+    <aura:attribute name="CreateTimeSlot" type="Boolean" default="True"/>
     <aura:attribute name="CreateNewMeeting" type="Boolean" default="False"/>
     <aura:attribute name="CreateUpdateMeeting" type="Boolean" default="False"/>
     <aura:attribute name="startTime" type="DateTime"/>
     <aura:attribute name="endTime" type="DateTime"/>
-    
     <!-- Displays recordViewForm if user does not have Admin Profile so that user cannot edit Meeting info -->
     <lightning:card>
      <aura:if isTrue="{!!v.AdminPerm}">

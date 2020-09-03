@@ -1,0 +1,111 @@
+<aura:component controller="VCCalendarController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" description="Calendar Tab Layout" access="global">
+    <aura:attribute name="AllStacks" type="List"/> <!--completed -->
+    <aura:attribute name="AllTimeSlots" type="List"/> <!--completed -->
+    <aura:attribute name="TimeSlotsAwaitingApproval" type="List"/>
+    <aura:attribute name="MeetingDetailsMap" type="Map"/> <!--completed -->
+    <aura:attribute name="ActiveStack" type="String"/> <!-- check auto assigned -->
+    <aura:attribute name="ActiveTimeSlot" type="String"/> <!-- check auto assigned -->
+    <aura:attribute name="CreateMeeting" type="Boolean" default="false"/>
+    <aura:attribute name="UpdateMeeting" type="Boolean" default="false"/>
+    <aura:attribute name="AdminPerm" type="Boolean" default="False"/> <!--completed -->
+    <aura:attribute name="isOpen" type="boolean" default="false"/> <!--completed -->
+    <aura:attribute name="TargetButtonId" type="String"/> <!--completed-->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    
+    <div class="slds-grid slds-gutters contentPanel">
+        <div class="slds-col slds-size_2-of-3 left">
+            <lightning:card class="card">
+                <c:FullCalendar/>
+            </lightning:card>
+        </div>
+        <div class="slds-col slds-size_1-of-3 right">
+            <lightning:card class="card">
+                <div class="slds-m-horizontal--medium">
+                    <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.filterTimeSlots}">
+                        <option value=" " >--Select--</option>
+                        <aura:iteration items="{!v.AllStacks}" var="option">
+                            <option text="{!option}" value="{!option}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                    <br/>
+                    <lightning:select name="chooseSlot" label="Choose Time Slot" aura:id="slot id" value="{!v.ActiveTimeSlot}" required="true" onchange="{!c.setNeedsApproval}"> <!-- update status to awaiting appoval, do we want a save button and a change selection button-->
+                        <option value=" " >--Select--</option>
+                        <aura:iteration items="{!AllTimeSlots}" var="slot">
+                            <option text="{!slot}" value="{!slot}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                    <br/>
+                    <aura:if isTrue="{!v.AdminPerm}">
+                        <p>
+                            <lightning:button label="Create Time Slots" onclick="{! c.openModel }" variant="neutral" aura:Id="CreateTimeSlotButton"/>
+                        </p>
+                        <br/>
+                        <aura:if isTrue="{!v.CreateMeeting}">
+                            <p>
+                                <lightning:button label="Create Meeting" onclick="{! c.openModel }" variant="neutral" aura:Id="CreateMeetingButton"/>
+                            </p>
+                            <br/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.UpdateMeeting}">
+                            <lightning:select name="chooseStack" label="Choose Event to Update" aura:id="event id" value="{!v.ActiveEvent}" required="true" onchange="{!c.filterTimeSlots}">
+                                <option value=" " >--Select--</option>
+                                <aura:iteration items="{!v.AllStacks}" var="option">
+                                    <option text="{!option}" value="{!option}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                            <br/>
+                            <lightning:button label="Update Meeting" onclick="{! c.openModel }" variant="neutral" aura:Id="UpdateMeetingButton"/>
+                            <br/>
+                        </aura:if>
+                        <aura:set attribute="else">
+                            <p>
+                                <lightning:button label="View Meetings" onclick="{! c.openModel }" variant="neutral" aura:Id="ViewMeetingButton"/>
+                            </p>
+                            <br/>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </lightning:card>
+        </div>
+    </div>
+    
+    <aura:if isTrue="{!v.isOpen}">
+        
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.TargetButtonId == 'CreateTimeSlotButton'}">
+                    <c:MeetingCmp CreateTimeSlot = "true" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.TargetButtonId == 'CreateMeetingButton'}">
+                    <c:MeetingCmp CreateNewMeeting = "true" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.TargetButtonId == 'UpdateMeetingButton'}">
+                    <c:MeetingCmp CreateUpdateMeeting = "true" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.TargetButtonId == 'ViewMeetingButton'}">
+                    <c:MeetingCmp/>
+                    </aura:if>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+        
+    </aura:if>
+</aura:component>
