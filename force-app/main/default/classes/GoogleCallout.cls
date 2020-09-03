@@ -72,7 +72,7 @@ public with sharing class GoogleCallout {
 	@AuraEnabled    
     public static String getEvent() {
         
-        String eID = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
+       String eID = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
         system.debug(eID);
         request = new HTTPRequest();
         request.setMethod('GET');
@@ -86,7 +86,7 @@ public with sharing class GoogleCallout {
         String eMeet = results.get('hangoutLink').toString();
         
         system.debug(eMeet);
-        return eMeet; 
+        return eMeet;
     }
     
     @AuraEnabled

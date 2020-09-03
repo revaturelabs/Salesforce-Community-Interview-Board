@@ -19,6 +19,21 @@
         </values>
         <values>
             <fullName>On Schedule</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stack__c</picklist>
+        <values>
+            <fullName>%2ENET</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Java</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salesforce</fullName>
             <default>false</default>
         </values>
     </picklistValues>

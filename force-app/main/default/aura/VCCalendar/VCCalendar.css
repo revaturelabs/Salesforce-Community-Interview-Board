@@ -1,0 +1,17 @@
+.THIS .contentPanel:before,
+.THIS .contentPanel:after {
+    content: " ";
+    display: table;
+}
+.THIS .contentPanel:after {
+    clear: both;
+}
+.THIS .left {
+    float: left;
+}
+.THIS .right {
+    float: right;
+}
+.THIS .card {
+    min-height: 100px;
+}
