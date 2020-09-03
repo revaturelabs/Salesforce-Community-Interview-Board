@@ -1,18 +1,20 @@
 <aura:component controller="techDisplayController">
     <aura:attribute name="primeTech" type="Primary_Tech__c[]"/>
     <aura:attribute name="subTech" type="Sub_Tech__c[]"/>
-    <aura:attribute name="currentTech" type="String"/>
+    <aura:attribute name="ChallengeItems" type="Challenge__c[]"/>
     <aura:attribute name="clicked" type="boolean" default="false"/>
     <aura:attribute name="clickedTwo" type="boolean" default="false"/>
     <aura:handler name="init" value="{!this}" action="{!c.loadTech}"/>
     <aura:handler name="getSub" event="c:subTechEvent" action="{!c.loadSub}"/>
     <aura:handler name="getCur" event="c:currentTechEvent" action="{!c.showCur}"/>
     <div class="slds-grid">
+        <!--This div is the primary tech involved-->
         <div class="slds-col slds-size_1-of-3">
             <aura:iteration items="{!v.primeTech}" var="item">
                 <c:primaryTechButton techPrime="{!item}"/>
             </aura:iteration>
         </div>
+        <!--This div is the related sub tech-->
         <div class="slds-col slds-size_1-of-3">
             <aura:if isTrue="{!v.clickedTwo}">
                 <aura:iteration items="{!v.subTech}" var="key">
@@ -20,9 +22,12 @@
                 </aura:iteration>
             </aura:if>
         </div>
+        <!--This div is the related challenges-->
         <div class="slds-col slds-size_1-of-3">
             <aura:if isTrue="{!v.clicked}">
-                <p>This is Amar's {!v.currentTech} component</p>
+                <aura:iteration items="{!v.ChallengeItems}" var="val">
+                    <c:displayChallenges ChallengeApexData="{!val}"/>
+                </aura:iteration>
             </aura:if>
         </div>
     </div>

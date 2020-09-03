@@ -8,7 +8,7 @@
     },
 
     showCur : function(component,event, helper) {
-        component.set("v.currentTech", event.getParam("cur"));
+        component.set("v.ChallengeItems", event.getParam("cur"));
         component.set("v.clicked", true);
     }
 })

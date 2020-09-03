@@ -14,8 +14,8 @@ coverage/
 
 # Logs
 logs
-*.log
-npm-debug.log*
+.log
+npm-debug.log
 yarn-debug.log*
 yarn-error.log*
 
@@ -53,6 +53,7 @@ InterviewForce1.site
 InterviewForce.site-meta.xml
 #except the things we wanna keep
 !force-app/main/default/aura
+!force-app/main/default/classes
 !force-app/main/default/objects
 !force-app/main/default/staticresources
 !force-app/main/default/flows
@@ -62,3 +63,10 @@ InterviewForce.site-meta.xml
 !force-app/main/default/communities
 !force-app/main/default/tabs
 !force-app/main/default/flexipages
+!force-app/main/default/namedCredentials
+!force-app/main/default/remoteSiteSettings
+!force-app/main/default/authproviders
+!force-app/main/default/lwc
+!force-app/main/default/globalValueSets
+!force-app/main/default/triggers
+!force-app/main/default/layouts
