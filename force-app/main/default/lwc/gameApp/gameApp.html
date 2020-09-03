@@ -1,0 +1,122 @@
+<template>
+    <template if:true={error}>
+        <div
+            class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error slds-m-bottom_small"
+            role="alert"
+        >
+            <span class="slds-assistive-text">error</span>
+            <h2>{error}</h2>
+        </div>
+    </template>
+
+    <div class="slds-card">
+        <template if:true={currentQuestion}>
+            <div class="slds-card__header slds-grid">
+                <div class="slds-col slds-size_2-of-12 slds-align-middle">
+                    <!-- Reset button -->
+                    <lightning-button
+                        label="Reset"
+                        onclick={handleResetClick}
+                    ></lightning-button>
+                </div>
+                <div
+                    class="slds-col slds-size_8-of-12 slds-align-middle header-title"
+                >
+                    {quizPhaseLabel}
+                </div>
+                <div
+                    class="slds-col slds-size_2-of-12 slds-align-middle slds-text-align_right"
+                >
+                    <!-- Next phase button -->
+                    <lightning-button
+                        disabled={isNextButtonDisabled}
+                        label={nextButtonText}
+                        variant="brand"
+                        onclick={handleNextPhaseClick}
+                    ></lightning-button>
+                </div>
+            </div>
+        </template>
+        <div class={cardBodyClasses}>
+            <template if:false={error}>
+                <!-- Session and questions are loading -->
+                <template if:false={currentQuestion}>
+                    <lightning-spinner
+                        alternative-text="Loading session data"
+                        variant="brand"
+                    ></lightning-spinner>
+                </template>
+
+                <!-- Session and questions are loaded -->
+                <template if:true={currentQuestion}>
+                    <!-- Registration -->
+                    <template if:true={isRegistrationPhase}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-registration
+                                    quiz-settings={quizSettings}
+                                ></c-registration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-player-list></c-player-list>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Pre-question -->
+                    <template if:true={isPreQuestionPhase}>
+                        <c-progress-bar
+                            duration="3"
+                            ontimeout={handleNextPhaseClick}
+                        ></c-progress-bar>
+                    </template>
+
+                    <!-- Question -->
+                    <template if:true={isQuestionPhase}>
+                        <c-progress-bar
+                            duration={quizSettings.questionTimer}
+                            ontimeout={handleNextPhaseClick}
+                        ></c-progress-bar>
+                        <c-question
+                            question-object={currentQuestion}
+                        ></c-question>
+                    </template>
+
+                    <!-- Question results -->
+                    <template if:true={isQuestionResultsPhase}>
+                        <h1 class="answer-label">{correctAnswerLabel}</h1>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-answer-bar-chart
+                                    correct-answer={currentQuestion.correctAnswer}
+                                ></c-answer-bar-chart>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-leader-board></c-leader-board>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Game results -->
+                    <template if:true={isGameResultsPhase}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-winner></c-winner>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-leader-board></c-leader-board>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </template>
+        </div>
+    </div>
+    <div class="slds-text-align_center slds-text-color_weak">
+        Quiz App by <a href="https://twitter.com/PhilippeOzil">@PhilippeOzil</a>
+        &nbsp;-&nbsp;Host app v{HOST_APP_VERSION}&nbsp;-&nbsp;
+        <a href="https://github.com/pozil/quiz-host-app"
+            >Help, issues and feedback</a
+        >
+    </div>
+</template>
