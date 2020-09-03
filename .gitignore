@@ -52,6 +52,7 @@ force-app/main/default/*
 InterviewForce1.site
 InterviewForce.site-meta.xml
 #except the things we wanna keep
+!force-app/main/default/classes
 !force-app/main/default/aura
 !force-app/main/default/objects
 !force-app/main/default/staticresources
@@ -65,4 +66,5 @@ InterviewForce.site-meta.xml
 !force-app/main/default/namedCredentials
 !force-app/main/default/remoteSiteSettings
 !force-app/main/default/authproviders
+!force-app/main/default/customPermissions
 !force-app/main/default/classes

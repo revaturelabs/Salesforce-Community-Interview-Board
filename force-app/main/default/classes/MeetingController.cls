@@ -1,16 +1,23 @@
-public with sharing class GoogleCallout {
-    
-	public static Http http = new Http();
+public with sharing class MeetingController{
+
+    public static Http http = new Http();
     public static HTTPResponse response;
     public static HttpRequest request;
 
-   @AuraEnabled 
+    //Method that checks whether the user has the custom Permission assigned to their Profile -- Returns true if they do
+    @AuraEnabled
+    public static Boolean getProfilePerm(){
+
+        Boolean AdminPerm = FeatureManagement.checkPermission('AdminPermission');
+        return AdminPerm;
+    }
+    
+    
+    @AuraEnabled 
     public static void createEvent(String sum, DateTime startDate, DateTime endDate) {
         
         DateTime EndDateTime = DateTime.newInstance(2020, 9, 4, 21, 30, 00);
-        DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);
-        
- 
+        DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);         
         
         String Summary ='{"summary": "' + sum + '",';
         
@@ -56,7 +63,7 @@ public with sharing class GoogleCallout {
         Meeting__c m = new Meeting__c();
         m.name = Summary;
         m.Google_Event_Id__c = eID;
-        m.Meeting_Status__c = 'On Schedule';
+        m.Meeting_Status__c = 'Scheduled';
         m.EndDateTime__c = EndDate;
         m.StartDateTime__c = startDate;
         
@@ -68,60 +75,44 @@ public with sharing class GoogleCallout {
             system.debug(error);
             m = null;
         }
-        
-        
-        
+       
     }
     
-    
-	@AuraEnabled    
-    public static String getEvent() {
-        
-        String eID = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
-        system.debug(eID);
-        request = new HTTPRequest();
-        request.setMethod('GET');
-        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + eID);
-        response = http.send(request);
-        
-        system.debug(response.getBody());
-        
-        Map<String, Object> results;
-        results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-        String eMeet = results.get('hangoutLink').toString();
-        
-        system.debug(eMeet);
-        return eMeet; 
-    }
     
     @AuraEnabled
-    public static void updateEvent() {
-        
-        String userInput;
-        String eID = [SELECT Google_Event_Id__c FROM Meeting__c Limit 1].Google_Event_Id__c;
-        
-        DateTime editEndDateTime = DateTime.newInstance(2020, 9, 3, 21, 30, 00);
-        DateTime editStartDateTime = DateTime.newInstance(2020, 9, 3, 20, 25, 00);
-        
-        String editSummary ='{"summary": "new name",';
-        
-        String editendform = editEndDateTime.formatGMT('yyyy-MM-dd hh:mm:ss');
-        String editstartform = editStartDateTime.formatGMT('yyyy-MM-dd hh:mm:ss');
-        editEndform = editEndform.replace(' ', 'T');
-        editStartform = editStartform.replace(' ', 'T');
-        
-        String editForEndDateTime ='"end": {"dateTime": "' + editEndform + '+03:00"},';
-        String editForStartDateTime = '"start": {"dateTime": "' + editStartform + '+03:00"}}';
-        
-        
-        request = new HTTPRequest();
-        request.setMethod('PUT');
-        request.setBody(editSummary + editForEndDateTime + editForStartDateTime);
-        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/ip9qdjo0al46quheq1ckuhs1fk');
-        response = HTTP.send(request);
-        
-        system.debug(response.getBody());
-
+    public static String getMeeting(){
+        Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c FROM Meeting__c Limit 1];
+        String meetingId = testMeeting.id;
+        return meetingId;
         
     }
+    
+    //Method assumes user will always pick the same day for both start time and end time
+      @AuraEnabled
+      public static Integer createTimeslots(DateTime startTime, DateTime endTime){
+      	
+        	Integer hourLength = endTime.hour() - startTime.hour();
+          	Integer minLength = (endTime.minute() - startTime.minute()) + (hourLength * 60);
+          	Integer numTimeslot = minLength/60;
+          	List<Meeting__c> timeslotList = new List<Meeting__c>();
+          
+          for(integer i = 0; i<numTimeslot; i++){
+              system.debug(i);
+              Meeting__c newMeeting = new Meeting__c();
+              newMeeting.Meeting_Status__c = 'Not Scheduled';
+              newMeeting.Name = 'Available Time Slot';
+              newMeeting.StartDateTime__c = startTime;
+ 			  newMeeting.EndDateTime__c = startTime.addHours(1);
+              startTime = startTime.addHours(1);
+              timeslotList.add(newMeeting);
+          }
+          system.debug(timeslotList);
+          insert timeslotList;
+          
+          return numTimeslot;
+          
+        
+        
+    }
+    
 }
