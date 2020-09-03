@@ -35,6 +35,11 @@
                 <default>false</default>
                 <label>Mock</label>
             </value>
+            <value>
+                <fullName>Awaiting Approval</fullName>
+                <default>false</default>
+                <label>Awaiting Approval</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

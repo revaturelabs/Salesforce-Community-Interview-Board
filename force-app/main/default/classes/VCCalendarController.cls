@@ -53,7 +53,7 @@ public without sharing class VCCalendarController {
     }
     
     
-     // Filters time slots and converts format for use in picklist
+    // Filters time slots and converts format for use in picklist
     
     @AuraEnabled
     public static List<String> getFilteredTimeSlots(String filter) {
@@ -72,30 +72,59 @@ public without sharing class VCCalendarController {
         return timeSlots;   
     }
     
+    // Converts start and end times associated with time slots awaiting approval to a String for use in a picklist
+    
+    @AuraEnabled
+    public static List<String> getNeedsApprovalTimeSlots() {
+        
+        List<String> timeSlots = new List<String>();
+        
+         List<Meeting__c> approvalTimeSlots = [SELECT StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Meeting_Status__c = 'Awaiting Approval' AND Google_Event_Id__c = null];
+        
+        if(approvalTimeSlots.size() > 0){
+            for(Meeting__c meeting : approvalTimeSlots){
+                
+                timeSlots.add(meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York'));
+            }
+        }
+        return timeSlots;   
+    }
+    
     // Change the meeting status for time slots not scheduled to awaiting approval
     
     @AuraEnabled
     public static List<String> setNeedsApprovalTimeSlots(String filter) {
         
-        List<String> timeSlots = new List<String>();
+        System.debug(filter);
         
-        List<Meeting__c> meetingTimeSlots = [SELECT StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Meeting_Status__c = 'Not Scheduled' AND Google_Event_Id__c = null AND Stack__c = :filter];
+        List<String> timeSlots = getNeedsApprovalTimeSlots();
+        
+        List<Meeting__c> meetingTimeSlots = [SELECT StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Meeting_Status__c = 'Not Scheduled' AND Google_Event_Id__c = null];
         
         if(meetingTimeSlots.size() > 0){
             
             for(Meeting__c meeting : meetingTimeSlots){
                 
                 if((meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York')) == filter){
-                   
+                    
+                    System.debug('Match found.');
                     meeting.Meeting_Status__c = 'Awaiting Approval';
                     
-                    timeSlots.add(meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York'));
+                    timeSlots.add(filter);
                 }
             }
         }
+        try{
+            update meetingTimeSlots;
+            System.debug('Match updated.');
+        }
+        catch(DMLException e){
+            System.debug('New time slots could not be updated: ' + e.getMessage());
+        }
+        System.debug(timeSlots);
         return timeSlots;   
     }
-
+    
     @AuraEnabled
     public static Boolean hasScheduledMeetings() {
         
@@ -116,7 +145,7 @@ public without sharing class VCCalendarController {
     
     @AuraEnabled
     public static Boolean getProfilePerm(){
-
+        
         Boolean AdminPerm = FeatureManagement.checkPermission('AdminPermission');
         return AdminPerm;
     }

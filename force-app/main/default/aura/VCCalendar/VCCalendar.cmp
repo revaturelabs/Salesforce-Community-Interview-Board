@@ -3,8 +3,9 @@
     <aura:attribute name="AllTimeSlots" type="List"/> <!--completed -->
     <aura:attribute name="TimeSlotsAwaitingApproval" type="List"/>
     <aura:attribute name="MeetingDetailsMap" type="Map"/> <!--completed -->
-    <aura:attribute name="ActiveStack" type="String"/> <!-- check auto assigned -->
-    <aura:attribute name="ActiveTimeSlot" type="String"/> <!-- check auto assigned -->
+    <aura:attribute name="ActiveStack" type="String"/> <!--completed -->
+    <aura:attribute name="ActiveTimeSlot" type="String"/> <!--completed -->
+    <aura:attribute name="ActiveApproval" type="String"/> <!--completed -->
     <aura:attribute name="CreateMeeting" type="Boolean" default="false"/>
     <aura:attribute name="UpdateMeeting" type="Boolean" default="false"/>
     <aura:attribute name="AdminPerm" type="Boolean" default="False"/> <!--completed -->
@@ -25,13 +26,13 @@
                     <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.filterTimeSlots}">
                         <option value=" " >--Select--</option>
                         <aura:iteration items="{!v.AllStacks}" var="option">
-                            <option text="{!option}" value="{!option}"/>
+                            <option aura:id="stack option" text="{!option}" value="{!option}"/>
                         </aura:iteration>
                     </lightning:select>
                     <br/>
                     <lightning:select name="chooseSlot" label="Choose Time Slot" aura:id="slot id" value="{!v.ActiveTimeSlot}" required="true" onchange="{!c.setNeedsApproval}"> <!-- update status to awaiting appoval, do we want a save button and a change selection button-->
                         <option value=" " >--Select--</option>
-                        <aura:iteration items="{!AllTimeSlots}" var="slot">
+                        <aura:iteration items="{!v.AllTimeSlots}" var="slot">
                             <option text="{!slot}" value="{!slot}"/>
                         </aura:iteration>
                     </lightning:select>
@@ -42,6 +43,13 @@
                         </p>
                         <br/>
                         <aura:if isTrue="{!v.CreateMeeting}">
+                            <lightning:select name="chooseApproval" label="Choose Meeting" aura:id="approval id" value="{!v.ActiveApproval}" required="true" onchange="{!c.setApprovalMeeting}">
+                                <option value=" " >--Select--</option>
+                                <aura:iteration items="{!v.TimeSlotsAwaitingApproval}" var="option">
+                                    <option text="{!option}" value="{!option}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                            <br/>
                             <p>
                                 <lightning:button label="Create Meeting" onclick="{! c.openModel }" variant="neutral" aura:Id="CreateMeetingButton"/>
                             </p>

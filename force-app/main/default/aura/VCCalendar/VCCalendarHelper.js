@@ -80,6 +80,21 @@
         $A.enqueueAction(meetingTimeSlots);
     },
     
+    getPendingApprovals : function(component, item, callback) {
+        
+        var approvalTimeSlots = component.get("c.getNeedsApprovalTimeSlots");
+        
+        console.log(approvalTimeSlots);
+        
+        approvalTimeSlots.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS") {
+                component.set("v.TimeSlotsAwaitingApproval", response.getReturnValue());
+                console.log('All  time slots awaiting approval: ' + response.getReturnValue());
+            }
+        });
+        $A.enqueueAction(approvalTimeSlots);
+    },
+    
     // Profile status used to determine what elements to display based on Sys Admin permissions
     
     getProfilePermStatus : function(component, item, callback) {

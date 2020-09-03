@@ -81,7 +81,7 @@ public with sharing class MeetingController{
     
     @AuraEnabled
     public static String getMeeting(){
-        Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c FROM Meeting__c Limit 1];
+        Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c, Stack__c FROM Meeting__c Limit 1];
         String meetingId = testMeeting.id;
         return meetingId;
         
@@ -89,7 +89,7 @@ public with sharing class MeetingController{
     
     //Method assumes user will always pick the same day for both start time and end time
       @AuraEnabled
-      public static Integer createTimeslots(DateTime startTime, DateTime endTime){
+      public static Integer createTimeslots(DateTime startTime, DateTime endTime, String tStack){
       	
         	Integer hourLength = endTime.hour() - startTime.hour();
           	Integer minLength = (endTime.minute() - startTime.minute()) + (hourLength * 60);
@@ -101,6 +101,7 @@ public with sharing class MeetingController{
               Meeting__c newMeeting = new Meeting__c();
               newMeeting.Meeting_Status__c = 'Not Scheduled';
               newMeeting.Name = 'Available Time Slot';
+              newMeeting.Stack__c = tStack;
               newMeeting.StartDateTime__c = startTime;
  			  newMeeting.EndDateTime__c = startTime.addHours(1);
               startTime = startTime.addHours(1);
@@ -110,9 +111,18 @@ public with sharing class MeetingController{
           insert timeslotList;
           
           return numTimeslot;
-          
-        
-        
+                  
+    }
+    
+    @AuraEnabled
+    public static String[] getActiveStacks() {
+        List<String> activeStacks = new List<String>();
+		Schema.DescribeFieldResult fieldResult = Meeting__c.Stack__c.getDescribe();
+		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+		for( Schema.PicklistEntry pickListVal : ple){
+			activeStacks.add(pickListVal.getLabel());
+		}     
+		return activeStacks;
     }
     
 }

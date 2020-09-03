@@ -2,6 +2,7 @@
     // Makes callout to apex controller 'MeetingController' to get boolean return value
 	doInit : function(component, event, helper) {
         helper.getMeetingId(component, event);
+        helper.getActiveStack(component, event);
         let confFalse = false;
         component.set("v.confirmIsTrue", confFalse);
 		let getPerm = component.get("c.getProfilePerm");  
@@ -25,13 +26,14 @@
     confirmTimeslot : function(component, event, helper){
         let confirmStart = component.find("StartAvail").get("v.value");
         let confirmEnd = component.find("EndAvail").get("v.value");
-        
-        
+        let stack = component.get("v.ActiveStack");        
+        console.log(stack);
         
         let setTime = component.get("c.createTimeslots");
         setTime.setParams({
             "startTime" : confirmStart,
-            "endTime" : confirmEnd
+            "endTime" : confirmEnd,
+            "tStack" : stack
         });
         setTime.setCallback(this, function(response){
              if(response.getState() === "SUCCESS") {
@@ -55,7 +57,7 @@
         createMeeting.setParams({
             "sum" : sumMeet,
             "startDate" : startDateMeet,
-            "endDate" : endDateMeet
+            "endDate" : endDateMeet,
         });
         createMeeting.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
@@ -63,6 +65,11 @@
             }
         });
         $A.enqueueAction(createMeeting);
-    }
+    },
     
+    setStack : function(component, event, helper) {
+    	let chosenStack = component.find("stack").get("v.value");
+        component.set("v.ActiveStack", chosenStack);
+        console.log(chosenStack);
+    }, 
 })
