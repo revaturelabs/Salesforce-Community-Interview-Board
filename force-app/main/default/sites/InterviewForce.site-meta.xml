@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>mattdenman16@curious-moose-junno7.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>mattdenman16@curious-moose-junno7.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>grant.t.hewlett@resilient-koala-bu5j5c.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>grant.t.hewlett@resilient-koala-bu5j5c.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>project-3-mattdenman-developer-edition</subdomain>
 </CustomSite>
