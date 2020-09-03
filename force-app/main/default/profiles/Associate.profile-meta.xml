@@ -66,6 +66,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FullCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GoogleCallout</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -679,16 +683,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Contact.Client</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Meeting__c.Create_Meeting</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Meeting__c.Create_Time_Slot</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

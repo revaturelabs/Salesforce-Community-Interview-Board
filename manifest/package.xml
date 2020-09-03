@@ -8,6 +8,7 @@
 		<members>AssociateMeetingController</members>
 		<members>AssociateMeetingsControllerTest</members>
 		<members>AssociateMockInterviewsController</members>
+		<members>AssociateMockInterviewsController</members>
 		<members>BatchClientCreationController</members>
 		<members>BatchClientCreationTest</members>
 		<members>BatchClientlistContoller</members>
@@ -16,6 +17,7 @@
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
+		<members>GoogleCallout</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>
@@ -24,12 +26,11 @@
 		<members>MeetingListController</members>
 		<members>MockInterviewQuestionPoolController</members>
 		<members>MockInterviewsListController</members>
+		<members>MockInterviewsListController</members>
+		<members>MockInterviewsListControllerTest</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>QuestionPoolApexController</members>
-		<members>AssociateMockInterviewsController</members>
-		<members>MockInterviewsListController</members>
-		<members>MockInterviewsListControllerTest</members>
 		<members>QuestionPoolApexControllerTest</members>
 		<members>SyncCalloutMock</members>
 		<members>SyncController</members>
@@ -39,10 +40,12 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
+		<members>Utilities</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>GoogleCallout</members>
+		<members>FullCalendarController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -58,11 +61,16 @@
 		<members>BatchClientCreationApp</members>
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
+		<members>CommunityHeader</members>
 		<members>CompletedInterviews</members>
+		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
-		<members>Harness</members>
 		<members>EmptyComponentEvent</members>
+		<members>FlowClose</members>
+		<members>FlowHost</members>
+		<members>FlowLaunch</members>
+		<members>Harness</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewReview</members>
@@ -70,28 +78,31 @@
 		<members>MeetingAssignment</members>
 		<members>MeetingCmp</members>
 		<members>MeetingTiles</members>
-		<members>MockInterviewsList</members>
-		<members>MockInterviewUI</members>
+		<members>MockInterviewFlowLaunchHost</members>
+		<members>MockInterviewPrepareWithFlowLaunch</members>
 		<members>MockInterviewQuestionPool</members>
+		<members>MockInterviewUI</members>
+		<members>MockInterviewUI</members>
 		<members>MockInterviewUI</members>
 		<members>MockInterviewWithFlowLaunch</members>
 		<members>MockInterviewsList</members>
+		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
+		<members>ScheduleSync</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
-		<members>MockInterviewUI</members>
-		<members>MockInterviewPrepareWithFlowLaunch</members>
-		<members>FlowLaunch</members>
-		<members>FlowClose</members>
-		<members>FlowHost</members>
-		<members>MockInterviewFlowLaunchHost</members>
-		<members>CommunityHeader</members>
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
 	    <members>CreateEvent</members>
+		<members>FullCalendar</members>
+		<members>TestComp</members>
 		<name>AuraDefinitionBundle</name>
+	</types>
+	<types>
+		<members>Google_Connect</members>
+		<name>AuthProvider</name>
 	</types>
 	<types>
 		<members>Internal Zone</members>
@@ -104,6 +115,10 @@
 	<types>
 		<members>Interview_Board_Administration</members>
 		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>Meeting__c.Google_Event_Id__c</members>
+		<name>CustomField</name>
 	</types>
 	<types>
 		<members>Account</members>
@@ -128,30 +143,26 @@
 		<name>CustomTab</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>FlexiPage</name>
-	</types>
-	<types>
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
 		<members>Mock_Interview_Flow</members>
 		<name>Flow</name>
 	</types>
-	<!--
-	<types>
-		<members>Meeting__c-Meeting Associate View</members>
-		<members>Meeting__c-Meeting Layout</members>
-		<members>Meeting__c-Mock Interview Layout</members>
-		<name>Layout</name>
-	</types>
-	-->
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>GoogleAPI</members>
+		<name>NamedCredential</name>
 	</types>
 	<types>
 		<members>InterviewForce</members>
@@ -172,18 +183,13 @@
 		<members>Meeting__c.Interview_1_1</members>
 		<members>Meeting__c.Interview_Batch</members>
 		<members>Meeting__c.Mock_Interview</members>
-		<members>Meeting__c.Create_Time_Slot</members>
-		<members>Meeting__c.Create_Meeting</members>
 		<members>Metric.Completion</members>
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
 	<types>
-		<members>Meeting__c.StartDateTime__c</members>
-		<members>Meeting__c.EndDateTime__c</members>
-		<members>Meeting__c.Google_Event_Id__c</members>
-		<members>Meeting__c.Meeting_Status__c</members>
-		<name>CustomField</name>
+		<members>Google</members>
+		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
 		<members>InterviewForce1</members>
@@ -216,17 +222,5 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
-	<types>
-        <members>Google</members>
-        <name>RemoteSiteSetting</name>
-    </types>
-    <types>
-        <members>GoogleAPI</members>
-        <name>NamedCredential</name>
-    </types>
-    <types>
-        <members>Google_Connect</members>
-        <name>AuthProvider</name>
-    </types>
 	<version>48.0</version>
 </Package>
