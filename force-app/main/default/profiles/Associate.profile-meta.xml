@@ -66,6 +66,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FullCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GoogleCallout</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -83,6 +87,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingAssignmentControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MeetingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -147,6 +155,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Utilities</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VCCalendarController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -545,6 +557,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting__c.EndDateTime__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting__c.Feedback__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -571,6 +588,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.Scheduled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting__c.Stack__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.StartDateTime__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Upcoming__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
