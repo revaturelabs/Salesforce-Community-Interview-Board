@@ -88,8 +88,8 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
-		<members>HarnessApp</members>
-		<members>ChallangeComponent</members>
+		<!--members>HarnessApp</members>
+		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

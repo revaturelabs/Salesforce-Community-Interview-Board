@@ -1,5 +1,6 @@
 ({
     myAction : function(component, event, helper) {
-        helper.challengeCompleteButton(component);
+        var chalId = component.get("v.ChallengeApexData.Id");
+        helper.challengeCompleteButton(component, chalId);
     }
 })

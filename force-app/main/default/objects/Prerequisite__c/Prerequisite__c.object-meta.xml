@@ -143,6 +143,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <description>Used for determining Prerequisites for having access to the challenges of a subtech.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>

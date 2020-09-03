@@ -1,17 +1,19 @@
-<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:component controller="ChallengeController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
    
    <!-- The code in this component is used to display options in dropdown that is received from database base on the SUBTECH button clicked in HarnessApp.app-->
    
     <!-- This attribute is storing options in dropdown-->
     <aura:attribute name="ChallengeItem" type="String"/>
     <aura:attribute name="ChallengeApexData" type="Challenge__c"/>
+    <aura:attribute name="ChallangeCompleteStatus" type="String"/>
     <lightning:card>
         <p>Name:-----------> {!v.ChallengeApexData.Name}</p>
         <p>Details:-------->
         <ui:outputRichText aura:id="outputRT" value="{!v.ChallengeApexData.Details__c}" /></p>
         <p>Sub Tech ID:------>{!v.ChallengeApexData.Sub_Tech__c}</p>
         <p>Score:-------->{!v.ChallengeApexData.Score__c} </p>
-        <lightning:button class="slds-m-top_small" variant="brand"  onclick="{!c.myAction}" name="Completed" label="Completed"/>
+        <p>{!v.ChallangeCompleteStatus}</p>
+        <lightning:button  variant="brand"  onclick="{!c.myAction}" name="Completed" label="Completed"/>
     </lightning:card>
     <!-- This attribute is storing detail of Challenge__c object based on option selected in dropdown -->
     
@@ -19,8 +21,8 @@
     <!-- boolean attributes are used to hide and show values it will hide everything when page is loaded-->
     <!--aura:attribute name="DisplayPicklist" type="Boolean" default="false"/>
     <aura:attribute name="DisplayDetail" type="Boolean" default="false"/>
-    <aura:attribute name="DisplayResult" type="Boolean" default="false"/>
-   <aura:attribute name="ChallangeCompleteStatus" type="String"/-->
+    <aura:attribute name="DisplayResult" type="Boolean" default="false"/-->
+   
    
     <!-- storing value from event attribute to local attribute -->
     <!--aura:attribute name="Get_Result" type="string" /-->

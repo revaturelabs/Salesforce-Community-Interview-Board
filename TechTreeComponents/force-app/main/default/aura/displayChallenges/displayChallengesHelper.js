@@ -1,22 +1,20 @@
 ({
-    challengeCompleteButton : function(component) {
+    challengeCompleteButton : function(component,chalId) {
 	
         //var selectCmp = component.find("InputSelectSingle").get("v.value");
         //console.log(selectCmp);
        
         //console.log('inside complete button');
   
-        var action1=component.get('c.challengecompleted');
-        action1.setParams({challangeName:selectCmp});
+        var action1=component.get('c.chalComp');
+        action1.setParams({chalId:JSON.stringify(chalId)});
         action1.setCallback(this,function(response){
             console.log(response.getState());
-            if(response.getState()==='SUCCESS') {   
-                console.log(response.getReturnValue());
-                component.set("v.ChallangeCompleteStatus",response.getReturnValue());
+            if(response.getState()==='SUCCESS') {
+                component.set("v.ChallangeCompleteStatus","Successful");
             }
             
-       })
-         
+       });
         $A.enqueueAction(action1);
     }
 })
