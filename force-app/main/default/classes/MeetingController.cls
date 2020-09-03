@@ -14,7 +14,7 @@ public with sharing class MeetingController{
     
     
     @AuraEnabled 
-    public static void createEvent(String sum, DateTime startDate, DateTime endDate) {
+    public static void createEvent(String meetId, String sum, DateTime startDate, DateTime endDate) {
         
         DateTime EndDateTime = DateTime.newInstance(2020, 9, 4, 21, 30, 00);
         DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);         
@@ -60,20 +60,26 @@ public with sharing class MeetingController{
         
         
         
-        Meeting__c m = new Meeting__c();
-        m.name = Summary;
-        m.Google_Event_Id__c = eID;
-        m.Meeting_Status__c = 'Scheduled';
-        m.EndDateTime__c = EndDate;
-        m.StartDateTime__c = startDate;
+        //Meeting__c m = new Meeting__c();
+       // m.name = Summary;
+        //m.Google_Event_Id__c = eID;
+        //m.Meeting_Status__c = 'Scheduled';
+        //m.EndDateTime__c = EndDate;
+        //m.StartDateTime__c = startDate;
         
         try {
-            insert m;
+            
+            Meeting__c meet = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name FROM Meeting__c WHERE id = :meetId];
+            
+            meet.Google_Event_Id__c = eID;
+            meet.Meeting_Status__c = 'Scheduled';
+            meet.EndDateTime__c = EndDate;
+            meet.StartDateTime__c = startDate;
+            meet.name= Summary;
         }
         catch(Exception e) {
             String error = e.getMessage();
             system.debug(error);
-            m = null;
         }
        
     }

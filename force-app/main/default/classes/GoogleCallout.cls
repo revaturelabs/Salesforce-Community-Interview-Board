@@ -49,25 +49,20 @@ public with sharing class GoogleCallout {
 		String endTime = endDT.get('dateTime').toString();
 		String startTime = startDT.get('dateTime').toString();
        // system.debug(endTime);
-        //System.debug(eID);
+        System.debug(eID);
         
         
         
         Meeting__c m = new Meeting__c();
         m.name = Summary;
         m.Google_Event_Id__c = eID;
-        m.Meeting_Status__c = 'On Schedule';
+        m.Meeting_Status__c = 'Scheduled';
         m.EndDateTime__c = EndDate;
         m.StartDateTime__c = startDate;
         
-        try {
+    
             insert m;
-        }
-        catch(Exception e) {
-            String error = e.getMessage();
-            system.debug(error);
-            m = null;
-        }
+    
         
         
         
@@ -95,29 +90,37 @@ public with sharing class GoogleCallout {
     }
     
     @AuraEnabled
-    public static void updateEvent() {
+    public static void updateEvent(String editEID, String editSum, DateTime editStartDate, DateTime editEndDate) {
         
         String userInput;
-        String eID = [SELECT Google_Event_Id__c FROM Meeting__c Limit 1].Google_Event_Id__c;
         
-        DateTime editEndDateTime = DateTime.newInstance(2020, 9, 3, 21, 30, 00);
-        DateTime editStartDateTime = DateTime.newInstance(2020, 9, 3, 20, 25, 00);
+        String editSummary ='{"summary": "' + editSum + '",';
         
-        String editSummary ='{"summary": "new name",';
+        String editEndform = editEndDate.formatGMT('yyyy-MM-dd hh:mm:ss');
+        String editStartform = editStartDate.formatGMT('yyyy-MM-dd hh:mm:ss');
         
-        String editendform = editEndDateTime.formatGMT('yyyy-MM-dd hh:mm:ss');
-        String editstartform = editStartDateTime.formatGMT('yyyy-MM-dd hh:mm:ss');
         editEndform = editEndform.replace(' ', 'T');
-        editStartform = editStartform.replace(' ', 'T');
+        editEndform = editEndform.replace('.000Z', '');
         
-        String editForEndDateTime ='"end": {"dateTime": "' + editEndform + '+03:00"},';
-        String editForStartDateTime = '"start": {"dateTime": "' + editStartform + '+03:00"}}';
+        editStartform = editStartform.replace(' ', 'T');
+        editStartform = editStartform.replace('.000Z', '');
+        
+        system.debug(editEID);
+        system.debug(editSum);
+        system.debug(editStartform);
+        system.debug(editEndform);
+        
+        
+        String editForEndDateTime ='"end": {"dateTime": "' + editEndform + '-12:00"},';
+        String editForStartDateTime = '"start": {"dateTime": "' + editStartform + '-12:00"}}';
+     
+        
         
         
         request = new HTTPRequest();
         request.setMethod('PUT');
         request.setBody(editSummary + editForEndDateTime + editForStartDateTime);
-        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/ip9qdjo0al46quheq1ckuhs1fk');
+        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + editEID);
         response = HTTP.send(request);
         
         system.debug(response.getBody());
