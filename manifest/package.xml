@@ -22,6 +22,7 @@
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
+		<members>MeetingController</members>
 		<members>MeetingListController</members>
 		<members>MockInterviewQuestionPoolController</members>
 		<members>MockInterviewsListController</members>
@@ -73,6 +74,7 @@
 		<members>InterviewReview</members>
 		<members>ManualSync</members>
 		<members>MeetingAssignment</members>
+		<members>MeetingCmp</members>
 		<members>MeetingTiles</members>
 		<members>MockInterviewFlowLaunchHost</members>
 		<members>MockInterviewPrepareWithFlowLaunch</members>
@@ -90,7 +92,10 @@
 		<members>UpdateMockInterviewList</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>ScheduleSync</members>
+	    <members>CreateEvent</members>
 		<members>FullCalendar</members>
+		<members>TestComp</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -122,6 +127,10 @@
 		<members>Meeting__c</members>
 		<members>Question__c</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>AdminPermission</members>
+		<name>CustomPermission</name>
 	</types>
 	<types>
 		<members>InterviewForce</members>

@@ -30,6 +30,18 @@
                 <default>false</default>
                 <label>Mock</label>
             </value>
+            <value>
+                <fullName>Not Scheduled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not Scheduled</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Scheduled</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

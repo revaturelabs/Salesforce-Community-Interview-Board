@@ -9,4 +9,5 @@
     		<ui:button label='Create Event' press='{!c.event}' />
    		</div>
     </div>
+    
 </aura:component>
