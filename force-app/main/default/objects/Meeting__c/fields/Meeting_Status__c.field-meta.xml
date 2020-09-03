@@ -16,11 +16,6 @@
                 <label>Not Scheduled</label>
             </value>
             <value>
-                <fullName>Scheduled</fullName>
-                <default>false</default>
-                <label>Scheduled</label>
-            </value>
-            <value>
                 <fullName>Completed</fullName>
                 <default>false</default>
                 <label>Completed</label>
@@ -34,6 +29,11 @@
                 <fullName>Mock</fullName>
                 <default>false</default>
                 <label>Mock</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <label>Scheduled</label>
             </value>
         </valueSetDefinition>
     </valueSet>
