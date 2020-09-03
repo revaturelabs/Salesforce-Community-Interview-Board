@@ -41,12 +41,6 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
-<<<<<<< HEAD
-		<members>QuizQuestionDataFactory</members>
-		<members>QQDataFactory_Test</members>
-		<members>PlayerNameComponentController</members>
-		<members>PlayerName_Test</members>
-=======
 		<members>QuizAbstractDataService</members>
 		<members>QuizAnswer</members>
 		<members>QuizAnswerRestResource</members>
@@ -66,7 +60,6 @@
 		<members>QuizSettings</members>
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
->>>>>>> origin/2007-QA-StephenPartial
 		<name>ApexClass</name>
 	</types>
 	<types>
