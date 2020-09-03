@@ -23,10 +23,10 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@empathetic-badger-cuiv60.com</siteAdmin>
+    <!--<siteAdmin>christopherbrefo@empathetic-badger-cuiv60.com</siteAdmin>
     <siteGuestRecordDefaultOwner>christopherbrefo@empathetic-badger-cuiv60.com</siteGuestRecordDefaultOwner>
-    <siteType>ChatterNetwork</siteType>
-    <subdomain>cb082520-developer-edition</subdomain>
+    <siteType>ChatterNetwork</siteType>-
+    <subdomain>cb082520-developer-edition</subdomain>-->
     <siteAdmin>loganbrandt72@cunning-wolf-5ro4dl.com</siteAdmin>
     <siteGuestRecordDefaultOwner>loganbrandt72@cunning-wolf-5ro4dl.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
