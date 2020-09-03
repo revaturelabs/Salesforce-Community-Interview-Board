@@ -158,6 +158,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VCCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>associateInterviewController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
