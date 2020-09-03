@@ -6,7 +6,6 @@
                    $Resource.FullCalendar  + '/fullcalendar/fullcalendar.js'
                       )}"
           afterScriptsLoaded="{!c.afterScriptsLoaded}" />
-    <ltng:require styles="/resource/FullCalendar/FullCalendar/fullcalendar.css"/>
     <aura:attribute name="events" type="Object[]" />
     <div aura:id="calendar"></div>
 </aura:component>

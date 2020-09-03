@@ -4,13 +4,6 @@
     <active>true</active>
     <label>Create Time Slot</label>
     <picklistValues>
-        <picklist>Meeting_Status__c</picklist>
-        <values>
-            <fullName>Not Scheduled</fullName>
-            <default>true</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Stack__c</picklist>
         <values>
             <fullName>%2ENET</fullName>
