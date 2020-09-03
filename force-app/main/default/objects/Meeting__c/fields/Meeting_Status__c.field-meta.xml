@@ -12,7 +12,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>On Schedule</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>On Schedule</label>
             </value>
             <value>
@@ -32,7 +32,7 @@
             </value>
             <value>
                 <fullName>Not Scheduled</fullName>
-                <default>true</default>
+                <default>false</default>
                 <label>Not Scheduled</label>
             </value>
         </valueSetDefinition>

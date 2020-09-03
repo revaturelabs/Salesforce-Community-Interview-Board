@@ -9,7 +9,7 @@
     <aura:attribute name="CreateTimeSlot" type="Boolean"/>
     <aura:attribute name="CreateNewMeeting" type="Boolean"/>
     <aura:attribute name="CreateUpdateMeeting" type="Boolean"/>
-    <aura:registerEvent name="CreateTimeSlotEvent" type="c:CreateTimeSlotEvent"/>
+    <!--<aura:registerEvent name="CreateTimeSlotEvent" type="c:CreateTimeSlotEvent"/>-->
    
     <!-- Displays recordViewForm if user does not have Admin Profile so that user cannot edit Meeting info -->
     <lightning:card>
