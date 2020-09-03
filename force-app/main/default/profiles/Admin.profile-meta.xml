@@ -661,8 +661,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Visibility__c</field>
-<<<<<<< HEAD
-=======
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -697,6 +695,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Quiz_Player__c.User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Quiz_Question__c.Label__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -706,22 +709,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <editable>true</editable>
-        <field>sfqz__Quiz_Session__c.sfqz__Current_Question__c</field>
->>>>>>> origin/2007-QA-Alec
-        <readable>true</readable>
-=======
-        <editable>false</editable>
-        <field>Quiz_Session__c.Current_Question__c</field>
-        <readable>false</readable>
->>>>>>> origin/2007-QA-StephenPartial
-=======
         <editable>true</editable>
         <field>Quiz_Session__c.Current_Question__c</field>
         <readable>true</readable>
->>>>>>> origin/2007-QA-StephenPartial
     </fieldPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
