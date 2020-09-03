@@ -681,24 +681,24 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quiz_Player__c.Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quiz_Player__c.Ranking__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quiz_Player__c.Score__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quiz_Question__c.Label__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -706,6 +706,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>false</editable>
 <<<<<<< HEAD
         <field>sfqz__Quiz_Session__c.sfqz__Current_Question__c</field>
@@ -714,6 +715,11 @@
         <field>Quiz_Session__c.Current_Question__c</field>
 >>>>>>> origin/2007-QA-StephenPartial
         <readable>false</readable>
+=======
+        <editable>true</editable>
+        <field>Quiz_Session__c.Current_Question__c</field>
+        <readable>true</readable>
+>>>>>>> origin/2007-QA-StephenPartial
     </fieldPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
