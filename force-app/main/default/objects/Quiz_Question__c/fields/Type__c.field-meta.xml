@@ -154,34 +154,6 @@
             <valueName>Spring</valueName>
         </valueSettings>
         <valueSettings>
-<<<<<<< HEAD:force-app/main/default/objects/sfqz__Quiz_Question__c/fields/Type__c.field-meta.xml
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Apex</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Apex Testing</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Apex Trigger</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Aura/Lightning Components</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Declarative</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>SOQL/SOSL</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>SQL</valueName>
-=======
             <controllingFieldValue>Java</controllingFieldValue>
             <valueName>SQL</valueName>
         </valueSettings>
@@ -208,7 +180,6 @@
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>
             <valueName>SOQL/SOSL</valueName>
->>>>>>> origin/2007-QA-StephenPartial:force-app/main/default/objects/Quiz_Question__c/fields/Type__c.field-meta.xml
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>

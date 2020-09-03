@@ -41,7 +41,7 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
-		<members>QuizAbstractDataService</members>
+		<!--<members>QuizAbstractDataService</members>-
 		<members>QuizAnswer</members>
 		<members>QuizAnswerRestResource</members>
 		<members>QuizAnswerService</members>
@@ -53,13 +53,12 @@
 		<members>QuizPlayerStatsRestResource</members>
 		<members>QuizPostInstallScript</members>
 		<members>QuizQuestion</members>
-		<members>QuizAbstractDataService</members>
 		<members>QuizSessionHelper</members>
 		<members>QuizSessionService</members>
 		<members>QuizSessionTriggerHelper</members>
 		<members>QuizSettings</members>
 		<members>QuizSettingsService</members>
-		<members>QuizSession</members>
+		<members>QuizSession</members>-->
 		<name>ApexClass</name>
 	</types>
 	<types>
