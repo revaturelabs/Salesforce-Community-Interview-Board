@@ -17,5 +17,6 @@
     setSub : function(component, event) {
         let subTech = event.getParam("sub");
         component.set("v.subTech", subTech);
+        component.set("v.clickedTwo", true);
     }
 })

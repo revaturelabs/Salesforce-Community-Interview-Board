@@ -3,6 +3,7 @@
     <aura:attribute name="subTech" type="Sub_Tech__c[]"/>
     <aura:attribute name="currentTech" type="String"/>
     <aura:attribute name="clicked" type="boolean" default="false"/>
+    <aura:attribute name="clickedTwo" type="boolean" default="false"/>
     <aura:handler name="init" value="{!this}" action="{!c.loadTech}"/>
     <aura:handler name="getSub" event="c:subTechEvent" action="{!c.loadSub}"/>
     <aura:handler name="getCur" event="c:currentTechEvent" action="{!c.showCur}"/>
@@ -13,9 +14,11 @@
             </aura:iteration>
         </div>
         <div class="slds-col slds-size_1-of-3">
-            <aura:iteration items="{!v.subTech}" var="key">
-                <c:subTechButton sTech="{!key}"/>
-            </aura:iteration>
+            <aura:if isTrue="{!v.clickedTwo}">
+                <aura:iteration items="{!v.subTech}" var="key">
+                    <c:subTechButton sTech="{!key}"/>
+                </aura:iteration>
+            </aura:if>
         </div>
         <div class="slds-col slds-size_1-of-3">
             <aura:if isTrue="{!v.clicked}">
