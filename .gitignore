@@ -68,12 +68,9 @@ InterviewForce.site-meta.xml
 !force-app/main/default/namedCredentials
 !force-app/main/default/remoteSiteSettings
 !force-app/main/default/authproviders
-<<<<<<< HEAD
 !force-app/main/default/lwc
 !force-app/main/default/globalValueSets
 !force-app/main/default/triggers
 !force-app/main/default/layouts
-=======
 !force-app/main/default/customPermissions
 !force-app/main/default/classes
->>>>>>> origin/2007-Video-Conference

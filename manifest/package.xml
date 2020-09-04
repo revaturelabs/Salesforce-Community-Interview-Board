@@ -64,7 +64,6 @@
 		<members>QuizPlayerStatsRestResource</members>
 		<members>QuizPostInstallScript</members>
 		<members>QuizQuestion</members>
-		<members>QuizAbstractDataService</members>
 		<members>QuizSessionHelper</members>
 		<members>QuizSessionService</members>
 		<members>QuizSessionTriggerHelper</members>
