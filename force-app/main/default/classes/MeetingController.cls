@@ -15,77 +15,87 @@ public with sharing class MeetingController{
     
     @AuraEnabled 
     public static void createEvent(String meetId, String sum, DateTime startDate, DateTime endDate) {
-        
-        DateTime EndDateTime = DateTime.newInstance(2020, 9, 4, 21, 30, 00);
-        DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);         
-        
-        String Summary ='{"summary": "' + sum + '",';
-        
-        String endform = endDate.formatGMT('yyyy-MM-dd hh:mm:ss');
-        String startform = startDate.formatGMT('yyyy-MM-dd hh:mm:ss');
-        endform = endform.replace(' ', 'T');
-        endform = endform.replace('.000Z', '');
-        startform = startform.replace(' ', 'T');
-        startform = startform.replace('.000Z', '');
-        
+        //Debug
         system.debug(sum);
         system.debug(endDate);
         system.debug(startDate);
         
-        //system.debug(form);
-        String forendDateTime ='"end": {"dateTime": "' + endform + '-12:00"},';
-        String forstartDateTime = '"start": {"dateTime": "' + startform + '-12:00"},';
-        //String attend = '"attendees": [{"email": "example@gmail.com"}],';
-        String confData = '"conferenceData": {"createRequest": {"requestId": "7qxalsvy0e"}}}';
+        //Assign the meeting name
+        String Summary = '"summary": "' + sum + '"';
+        system.debug(Summary);
         
+        //Format the Start DateTime
+        String startEdit = startDate.formatGMT('yyyy-MM-dd hh:mm:ss');
+        startEdit = startEdit.replace(' ', 'T');
+        startEdit = startEdit.replace('.000Z', '');
+        String startForm = '"start": {"dateTime": "' + startEdit + '-12:00"}';
+        system.debug(startForm);
+        
+        //Format the End DateTime
+        String endEdit = endDate.formatGMT('yyyy-MM-dd hh:mm:ss');
+        endEdit = endEdit.replace(' ', 'T');
+        endEdit = endEdit.replace('.000Z', '');
+        String endForm ='"end": {"dateTime": "' + endEdit + '-12:00"}';
+        system.debug(endForm);
+        
+        //Conference Data for requesting a Google Meet
+        String confData = '"conferenceData": {"createRequest": {"requestId": "7qxalsvy0e"}}';
+        system.debug(confData);
+        
+        //Put Body together
+        String body = '{'+summary+','+startForm+','+endForm+','+confData+'}';
+        system.debug(body);
+        
+        //HTTP Request
         request = new HttpRequest();
         request.setMethod('POST');
-        request.setBody(Summary + forendDateTime + forstartDateTime + confData); 
+        request.setBody(body); 
         request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events?conferenceDataVersion=1');
  
+        //HTTP Response
         response = http.send(request); 
- 
         System.debug(response.getBody());
-        Map<String, Object> results;
-        results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-        String eID = results.get('id').toString();
+ 		
+        //Format Response
+        Map<String, Object> results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+        System.debug(results);
         
+        //Get Google Event ID
+        String eID = results.get('id').toString();
         System.debug(eID);
         
-        Map<String, Object> startDT = (Map<String, Object>) results.get('start'); 
-        Map<String, Object> endDT = (Map<String, Object>) results.get('end');
+        //Get Start DateTime for verification
+        Map<String, Object> startMap = (Map<String, Object>) results.get('start'); 
+        String startString = startMap.get('dateTime').toString();
+        System.debug(startString);
         
-		String endTime = endDT.get('dateTime').toString();
-		String startTime = startDT.get('dateTime').toString();
-       // system.debug(endTime);
-        //System.debug(eID);
+        //Get End DateTime for verification
+        Map<String, Object> endMap = (Map<String, Object>) results.get('end');
+		String endString = endMap.get('dateTime').toString();
+        System.debug(endString);
         
-        
-        
-        //Meeting__c m = new Meeting__c();
-       // m.name = Summary;
-        //m.Google_Event_Id__c = eID;
-        //m.Meeting_Status__c = 'Scheduled';
-        //m.EndDateTime__c = EndDate;
-        //m.StartDateTime__c = startDate;
-        
-        try {
+        //Create Meeting
+           try {
             
-            Meeting__c meet = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name, Meeting_Status__c FROM Meeting__c WHERE id = :meetId];
+            Meeting__c m = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name, Meeting_Status__c FROM Meeting__c WHERE id = :meetId];
             
-            meet.Google_Event_Id__c = eID;
-            meet.Meeting_Status__c = 'Scheduled';
-            meet.EndDateTime__c = EndDate;
-            meet.StartDateTime__c = startDate;
-            meet.name= Summary;
-            update meet;
+            m.Google_Event_Id__c = eID;
+            m.Meeting_Status__c = 'Scheduled';
+            m.EndDateTime__c = EndDate;
+            m.StartDateTime__c = startDate;
+            m.name= sum;
+            update m;
         }
         catch(Exception e) {
             String error = e.getMessage();
             system.debug(error);
         }
        
+        
+       
     }
+    
+
     
     /*
     @AuraEnabled
@@ -132,6 +142,33 @@ public with sharing class MeetingController{
 			activeStacks.add(pickListVal.getLabel());
 		}     
 		return activeStacks;
+    }
+    
+    @AuraEnabled    
+    public static String getEvent(String meetingId) {
+        //Get Google Event ID with Query
+      //  String eId = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
+        //system.debug(eID);
+        
+        //HTTP Request
+        request = new HTTPRequest();
+        request.setMethod('GET');
+        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + meetingId);
+        
+        //HTTP Response
+        response = http.send(request);
+        system.debug(response.getBody());
+        
+        //Format Response
+        Map<String, Object> results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+        System.debug(results);
+        
+        //Get Google Event Hangout Link
+        String meetLink = results.get('hangoutLink').toString();
+        system.debug(meetLink);
+        
+        //Return Link
+        return meetLink;
     }
     
 }

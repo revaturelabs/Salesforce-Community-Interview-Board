@@ -82,4 +82,18 @@
         component.set("v.ActiveStack", chosenStack);
         console.log(chosenStack);
     }, 
+    
+    
+    goToMeeting : function(component, event, helper) {
+		let goMeeting = component.get("c.getEvent");
+        let meetId = component.find("MeetsId").get("v.value");
+        goMeeting.setParams({
+            "meetingId" : meetId
+        });
+        goMeeting.setCallback(this, function(response){
+            let meetsLink = response.getReturnValue();
+            window.open(meetsLink);
+        })
+        $A.enqueueAction(goMeeting);
+	}
 })
