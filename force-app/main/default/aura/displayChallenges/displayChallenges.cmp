@@ -1,0 +1,19 @@
+<aura:component controller="ChallengeController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+ 
+    <aura:attribute name="ChallengeApexData" type="Challenge__c"/>
+    <aura:attribute name="ChallangeCompleteStatus" type="String"/>
+    <lightning:card>
+        <h1>Name: {!v.ChallengeApexData.Name}</h1>
+        <p>Details:<ui:outputRichText aura:id="outputRT" value="{!v.ChallengeApexData.Details__c}" /></p>
+        <p>Score:{!v.ChallengeApexData.Score__c} </p>
+        <p>Completed?: {!v.ChallengeApexData.Completed__c}</p>
+        <p >{!v.ChallangeCompleteStatus}</p>
+        <aura:if isTrue="{!!v.ChallengeApexData.Completed__c}">
+            <lightning:button variant="Success" onclick="{!c.myAction}" name="Completed" label="Complete Challenge"/>
+            <aura:set attribute="else">
+                <div style="height:2em"/>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+   
+</aura:component>

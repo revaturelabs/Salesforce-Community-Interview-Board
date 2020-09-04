@@ -42,6 +42,9 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>ChallengeController</members>
+		<members>primaryTechButtonContoller</members>
+		<members>subTechButtonContoller</members>
+		<members>techDisplayContoller</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -88,6 +91,12 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
+		<members>techDisplay</members>
+		<members>primaryTechButton</members>
+		<members>subTechButton</members>
+		<members>displayChallenges</members>
+		<members>currentTechEvent</members>
+		<members>subTechEvent</members>
 		<!--members>HarnessApp</members>
 		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
