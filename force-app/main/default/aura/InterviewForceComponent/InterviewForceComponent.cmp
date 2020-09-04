@@ -23,7 +23,7 @@
             <c:ManualSync/>
         </lightning:tab>
 		<lightning:tab label = "ASSIGN STACK" id="seven">
-            <c:AssignStacksPage/>
+            <!--c:AssignStacksPage/-->
         </lightning:tab>   
     </lightning:tabset>
 </aura:component>
