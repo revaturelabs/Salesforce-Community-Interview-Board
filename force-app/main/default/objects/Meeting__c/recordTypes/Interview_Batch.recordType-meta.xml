@@ -22,6 +22,10 @@
             <default>true</default>
         </values>
         <values>
+            <fullName>Mock</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Scheduled</fullName>
             <default>false</default>
         </values>
