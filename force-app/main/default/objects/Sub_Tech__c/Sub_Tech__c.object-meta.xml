@@ -161,7 +161,9 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Sub Techs</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Primary_Tech__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
