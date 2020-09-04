@@ -61,6 +61,7 @@
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
 		<members>QuizQuestionService</members>
+		<members>QuizQuestionDataFactory</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -119,6 +120,7 @@
 	</types>
 	<types>
 		<members>Interview_Board_Administration</members>
+		<members>Quiz_App</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>
@@ -157,6 +159,8 @@
 	</types>
 	<types>
 		<members>Mock_Interview_Flow</members>
+		<members>Link_User_to_Players</members>
+		<members>Associate_Player_with_User</members>
 		<name>Flow</name>
 	</types>
 	<!--
