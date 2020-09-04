@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jt13smt@creative-fox-3kxy01.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jt13smt@creative-fox-3kxy01.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>jt13smt@brave-unicorn-e3jrm6.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jt13smt@brave-unicorn-e3jrm6.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>smt-p3-2020-developer-edition</subdomain>
+    <subdomain>st-ps3-2020-developer-edition</subdomain>
 </CustomSite>

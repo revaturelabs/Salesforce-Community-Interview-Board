@@ -60,6 +60,7 @@
 		<members>QuizSettings</members>
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
+		<members>QuizQuestionService</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -133,6 +134,7 @@
 		<members>Quiz_Question__c</members>
 		<members>Quiz_Player__c</members>
 		<members>Quiz_Answer__c</members>
+		<members>Quiz_Settings__mdt</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -222,6 +224,11 @@
 		<members>Meeting_Participant__c.Initial Meeting Notification</members>
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
+	</types>
+	<types>
+		<members>Quiz_Answer</members>
+		<members>Quiz_Phase</members>
+		<name>GlobalValueSet</name>
 	</types>
 	<version>48.0</version>
 </Package>
