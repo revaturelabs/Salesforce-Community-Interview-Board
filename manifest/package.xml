@@ -99,6 +99,7 @@
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
 		<members>ChallengeController</members>
+		<members>QuizQuestionService</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -273,6 +274,11 @@
 		<members>Meeting_Participant__c.Initial Meeting Notification</members>
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
+	</types>
+	<types>
+		<members>Quiz_Answer</members>
+		<members>Quiz_Phase</members>
+		<name>GlobalValueSet</name>
 	</types>-->
 	<version>48.0</version>
 </Package>
