@@ -1,5 +1,5 @@
 ({
-    getMeetingId : function(component,event) {
+    /*getMeetingId : function(component,event) {
         let meetId = component.get("c.getMeeting");
 
         meetId.setCallback(this, function(response){
@@ -9,7 +9,7 @@
 
         });
         $A.enqueueAction(meetId);
-    },
+    },*/
 
     getActiveStack : function(component, event) {
          let stackCall = component.get("c.getActiveStacks");
@@ -20,5 +20,5 @@
             } 
         });
         $A.enqueueAction(stackCall);
-    },
+    }
 })
