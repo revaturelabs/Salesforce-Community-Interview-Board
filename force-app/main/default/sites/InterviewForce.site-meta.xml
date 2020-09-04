@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jmills.lemaire@brave-koala-6sdcfh.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jmills.lemaire@brave-koala-6sdcfh.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>grant.t.hewlett@resilient-koala-bu5j5c.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>grant.t.hewlett@resilient-koala-bu5j5c.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>revproj3-developer-edition</subdomain>
 </CustomSite>
