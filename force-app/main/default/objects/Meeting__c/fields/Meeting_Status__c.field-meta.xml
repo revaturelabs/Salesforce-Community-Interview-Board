@@ -11,9 +11,9 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>On Schedule</fullName>
+                <fullName>Scheduled</fullName>
                 <default>true</default>
-                <label>On Schedule</label>
+                <label>Scheduled</label>
             </value>
             <value>
                 <fullName>Completed</fullName>
@@ -36,9 +36,10 @@
                 <label>Not Scheduled</label>
             </value>
             <value>
-                <fullName>Scheduled</fullName>
+                <fullName>On Schedule</fullName>
                 <default>false</default>
-                <label>Scheduled</label>
+                <isActive>false</isActive>
+                <label>On Schedule</label>
             </value>
         </valueSetDefinition>
     </valueSet>
