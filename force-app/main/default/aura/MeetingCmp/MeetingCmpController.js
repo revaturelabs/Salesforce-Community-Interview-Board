@@ -1,7 +1,6 @@
 ({
     // Makes callout to apex controller 'MeetingController' to get boolean return value
 	doInit : function(component, event, helper) {
-        helper.getMeetingId(component, event);
         helper.getActiveStack(component, event);
         let confFalse = false;
         component.set("v.confirmIsTrue", confFalse);
@@ -39,6 +38,7 @@
              if(response.getState() === "SUCCESS") {
                 let numTimeslots = response.getReturnValue();
 				alert('You successfully created ' + numTimeslots + ' timeslots!');
+                window.location.reload(false);
             }
         });
            $A.enqueueAction(setTime); 

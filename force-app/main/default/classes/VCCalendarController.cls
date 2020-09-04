@@ -16,20 +16,21 @@ public without sharing class VCCalendarController {
     // Gets the Id, Client Name, Start Time, and End Time of scheduled meetings
     
     @AuraEnabled
-    public static Map<String, Meeting__c> getMeetings() {
+    public static List<String> getMeetings() {
         
-        Map<String, Meeting__c> meetingDetails = new Map<String, Meeting__c>();
+        List<String> meetingTimes = new List<String>();
         
-        List<Meeting__c> meetings = [SELECT Google_Event_Id__c, Client_Name__c, StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Google_Event_Id__c != null];
+        List<Meeting__c> meetings = [SELECT StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Meeting_Status__c = 'Scheduled' AND Google_Event_Id__c != null];
         
         if(meetings.size() > 0){
             
             for(Meeting__c meeting : meetings){
                 
-                meetingDetails.put(meeting.Google_Event_Id__c, meeting);
+                meetingTimes.add(meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York'));
             }
         }
-        return meetingDetails;   
+        System.debug(meetingTimes);
+        return meetingTimes;   
     }
     
     // Converts start and end times associated with available time slots to a String for use in a picklist
@@ -109,6 +110,7 @@ public without sharing class VCCalendarController {
                     
                     System.debug('Match found.');
                     meeting.Meeting_Status__c = 'Awaiting Approval';
+                    meeting.Name = 'Awaiting Approval';
                     
                     timeSlots.add(filter);
                 }
@@ -123,6 +125,74 @@ public without sharing class VCCalendarController {
         }
         System.debug(timeSlots);
         return timeSlots;   
+    }
+    
+    // Get meeting id for meetings awaiting approval
+    
+    @AuraEnabled
+    public static Id getApprovalId(String filter) {
+        
+        System.debug(filter);
+        
+        Id eventId;
+        
+        List<Meeting__c> meetingsAwaitingApproval = [SELECT Id, StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Meeting_Status__c = 'Awaiting Approval' AND Google_Event_Id__c = null];
+        
+        if(meetingsAwaitingApproval.size() > 0){
+            
+            for(Meeting__c meeting : meetingsAwaitingApproval){
+                
+                if((meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York')) == filter){
+                    
+                    System.debug('Match found.');
+                    meeting.Name = 'Scheduled';
+                    
+                    eventId = meeting.Id;
+                }
+            }
+        }
+        try{
+            update meetingsAwaitingApproval;
+            System.debug('Match updated.');
+        }
+        catch(DMLException e){
+            System.debug('New meetings could not be approved: ' + e.getMessage());
+        }
+        System.debug(eventId);
+        return eventId;   
+    }
+    
+    // Get meeting id for meetings already created in Google Calendar
+    
+    @AuraEnabled
+    public static Id getId(String filter) {
+        
+        System.debug(filter);
+        
+        Id eventId;
+        
+        List<Meeting__c> meetingsToUpdate = [SELECT Id, StartDateTime__c, EndDateTime__c FROM Meeting__c WHERE Google_Event_Id__c != null];
+        
+        if(meetingsToUpdate.size() > 0){
+            
+            for(Meeting__c meeting : meetingsToUpdate){
+                
+                if((meeting.StartDateTime__c.format('MM/dd/yyyy HH:mm','America/New_York') + ' - ' + meeting.EndDateTime__c.format('HH:mm','America/New_York')) == filter){
+                    
+                    System.debug('Match found.');
+                    eventId = meeting.Id;
+                }
+            }
+        }
+        try{
+            update meetingsToUpdate;
+            System.debug('Match updated.');
+        }
+        catch(DMLException e){
+            System.debug('New meetings could not be updated: ' + e.getMessage());
+        }
+        System.debug(eventId);
+        return eventId;   
     }
     
     @AuraEnabled

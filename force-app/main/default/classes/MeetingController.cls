@@ -50,6 +50,8 @@ public with sharing class MeetingController{
         results = ( Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         String eID = results.get('id').toString();
         
+        System.debug(eID);
+        
         Map<String, Object> startDT = (Map<String, Object>) results.get('start'); 
         Map<String, Object> endDT = (Map<String, Object>) results.get('end');
         
@@ -69,13 +71,14 @@ public with sharing class MeetingController{
         
         try {
             
-            Meeting__c meet = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name FROM Meeting__c WHERE id = :meetId];
+            Meeting__c meet = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name, Meeting_Status__c FROM Meeting__c WHERE id = :meetId];
             
             meet.Google_Event_Id__c = eID;
             meet.Meeting_Status__c = 'Scheduled';
             meet.EndDateTime__c = EndDate;
             meet.StartDateTime__c = startDate;
             meet.name= Summary;
+            update meet;
         }
         catch(Exception e) {
             String error = e.getMessage();
@@ -84,14 +87,14 @@ public with sharing class MeetingController{
        
     }
     
-    
+    /*
     @AuraEnabled
     public static String getMeeting(){
         Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c, Stack__c FROM Meeting__c Limit 1];
         String meetingId = testMeeting.id;
         return meetingId;
         
-    }
+    }*/
     
     //Method assumes user will always pick the same day for both start time and end time
       @AuraEnabled

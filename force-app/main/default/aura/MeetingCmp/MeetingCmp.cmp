@@ -7,8 +7,8 @@
     <aura:attribute name="idExists" type="Boolean" default="False"/>
     <aura:attribute name="meetingId" type="String"/>
     <aura:attribute name="CreateTimeSlot" type="Boolean" default="False"/>
-    <aura:attribute name="CreateNewMeeting" type="Boolean" default="True"/>
-    <aura:attribute name="CreateUpdateMeeting" type="Boolean" default="True"/>
+    <aura:attribute name="CreateNewMeeting" type="Boolean" default="False"/>
+    <aura:attribute name="CreateUpdateMeeting" type="Boolean" default="False"/>
     <aura:attribute name="startTime" type="DateTime"/>
     <aura:attribute name="endTime" type="DateTime"/>
     <aura:attribute name="AllStacks" type="String[]"/>
@@ -16,7 +16,7 @@
     
     <!-- Displays recordViewForm if user does not have Admin Profile so that user cannot edit Meeting info -->
     <lightning:card>
-        <aura:if isTrue="{!!v.AdminPerm}">
+        <aura:if isTrue="{!v.AdminPerm || !v.AdminPerm}">
             <lightning:recordViewForm recordId="{!v.meetingId}" objectApiName="Meeting__c">
                 <div class="slds-col">
                     <lightning:outputField fieldName="Name"/>
@@ -31,7 +31,7 @@
         <!-- Displays recordEditForm if user has the admin Profile and CreateNewMeeting is true so that user can edit Meeting info aka they are an interviewer -->
         <aura:if isTrue="{!v.CreateNewMeeting}">
             <aura:if isTrue="{!v.AdminPerm}">
-                <lightning:recordEditForm objectApiName="Meeting__c">
+                <lightning:recordEditForm objectApiName="Meeting__c" recordId="{!v.meetingId}">
                     <div class="slds-col">
                         <lightning:inputField fieldName="Name" aura:id="Name"/>
                         <lightning:outputField fieldName="Meeting_Status__c"/>
