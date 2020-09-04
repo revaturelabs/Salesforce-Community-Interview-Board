@@ -1,0 +1,8 @@
+<aura:component>
+    <ltng:require styles="{!$Resource.treeChartsJS +'/treant-js-master/Treant.css'}" scripts="{!join(',', $Resource.raph, $Resource.treant)}" afterScriptsLoaded="{!c.chartLoad}"/>
+    <!--aura:handler name="Init" value="{!this}" action="{!c.chartLoad}"/-->
+    <lightning:button label="press" onclick="{!c.chartLoad}"/>
+    <div id="tree-simple" style="width:335px; height: 160px">
+    </div>
+    <p>Hello World</p>
+</aura:component>
