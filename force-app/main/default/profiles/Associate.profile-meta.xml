@@ -785,6 +785,9 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Quiz_Question__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Sub_Tech__c.Primary_Tech__c</field>
         <readable>true</readable>
@@ -950,6 +953,8 @@
     <tabVisibilities>
         <tab>Quiz_Session__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Stack_Tech__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

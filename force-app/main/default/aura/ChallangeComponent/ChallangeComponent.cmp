@@ -18,7 +18,7 @@
     <aura:attribute name="Get_Result" type="string" />
     
     <!-- below line of code will handle the event and set/change value of Get_Result Attribute on button clicked in HarnessApp.app -->
-    <aura:handler event="c:Harnessevent" action="{!c.onChange}"/>
+    <!--<aura:handler event="c:Harnessevent" action="{!c.onChange}"/>-->
     The result is {!v.Get_Result}
    
     <!--this Div is used to display all the values in dropdown list -->

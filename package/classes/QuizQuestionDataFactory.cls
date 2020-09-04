@@ -1,5 +1,5 @@
 public class QuizQuestionDataFactory {
-    
+   /* 
     public static void CreateAllQuestions(){
         
         SalesforceQuestion();
@@ -98,6 +98,6 @@ public class QuizQuestionDataFactory {
         insert questionList;        
     }
     
-    
+    */
     
 }

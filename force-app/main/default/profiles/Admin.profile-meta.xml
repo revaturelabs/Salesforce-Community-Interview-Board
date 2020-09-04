@@ -749,7 +749,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Question__c.Body__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
