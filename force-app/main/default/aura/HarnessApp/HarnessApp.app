@@ -12,4 +12,7 @@
     <lightning:button variant="brand" label="Workflow" title="Brand action" onclick="{!c.changeStatusWorkflow}" />
     <lightning:button variant="brand" label="ProcessBuilder" title="Brand action" onclick="{!c.changeStatusProcessBuilder}" />
     <c:ChallangeComponent/>
+    
+    <c:ProfileComponent/>
+    
 </aura:application>

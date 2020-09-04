@@ -1,0 +1,36 @@
+<aura:component controller="ProfileApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="UserName" type="String"/>
+    <aura:attribute name="AssignedStack" type="Stack__c"/>
+    <aura:attribute name="HigestScore" type="Integer" default=""/>
+    <aura:attribute name="HigestQuiz" type="Integer"/>
+    <aura:attribute name="SubTech_Score" type="object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+     <aura:attribute name="keyList" type="List"/>
+    <aura:attribute name="companyMap" type="map"/>
+     
+    
+   
+   
+    
+    <lightning:card title="Profile Info" iconName="action:user">
+        <p> UserName:{!v.UserName}</p>
+        <p>Assigned Stack:-{!v.AssignedStack.Name}
+        <aura:iteration aura:id="iteration" items="{!v.AssignedStack}" var="value">
+            <p>{!value.Name}</p>
+                   			
+            </aura:iteration>  </p>
+        <!--aura:iteration items="{!v.SubTech_Score}"  var="mapKey" indexVar="key">  
+                <strong><p>{!mapKey.key}</p></strong>
+             <aura:iteration items="{!mapKey.Value}" var="mapValue">
+                    <p>{!mapValue}</p>
+                </aura:iteration>
+        </aura:iteration-->
+        
+         <aura:iteration items="{!v.keyList}" var="key" >
+        <c:ChildComponent map="{!v.companyMap}" key="{!key}"/>
+    </aura:iteration>
+        
+    </lightning:card>
+    
+</aura:component>

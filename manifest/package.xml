@@ -42,6 +42,7 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>ChallengeController</members>
+		<members>ProfileApex</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -90,6 +91,8 @@
 		<members>ScheduleSync</members>
 		<members>HarnessApp</members>
 		<members>ChallangeComponent</members>
+		<members>ProfileComponent</members>
+		<members>ChildComponent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
