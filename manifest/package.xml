@@ -42,10 +42,10 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>ChallengeController</members>
+		<members>primaryTechButtonController</members>
+		<members>subTechButtonController</members>
+		<members>techDisplayController</members>
 		<members>UserStackTriggerHelper</members>
-		<members>primaryTechButtonContoller</members>
-		<members>subTechButtonContoller</members>
-		<members>techDisplayContoller</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -170,11 +170,11 @@
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
-	<!--types>
+	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
-	</types-->
+	</types>
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
