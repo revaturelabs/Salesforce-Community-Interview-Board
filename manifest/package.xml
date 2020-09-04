@@ -70,6 +70,7 @@
 		<members>QuizSettings</members>
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
+		<members>ChallengeController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -123,6 +124,9 @@
 		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
+		<members>ScheduleSync</members>
+		<members>HarnessApp</members>
+		<members>ChallangeComponent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -165,6 +169,7 @@
 		<members>Quiz_Question__c</members>
 		<members>Quiz_Player__c</members>
 		<members>Quiz_Answer__c</members>
+		<members>Prerequisite__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
