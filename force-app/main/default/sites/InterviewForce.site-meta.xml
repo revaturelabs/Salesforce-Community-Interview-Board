@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ianjworkman@resourceful-otter-f7w2o7.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>ianjworkman@resourceful-otter-f7w2o7.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>jonbarreto43@wise-fox-nifn1t.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jonbarreto43@wise-fox-nifn1t.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>proj3test082520-developer-edition</subdomain>
+    <subdomain>project3chart-developer-edition</subdomain>
 </CustomSite>

@@ -43,6 +43,9 @@
 		<members>Utilities</members>
 		<members>ChallengeController</members>
 		<members>UserStackTriggerHelper</members>
+		<members>primaryTechButtonContoller</members>
+		<members>subTechButtonContoller</members>
+		<members>techDisplayContoller</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -89,8 +92,14 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
-		<members>HarnessApp</members>
-		<members>ChallangeComponent</members>
+		<members>techDisplay</members>
+		<members>primaryTechButton</members>
+		<members>subTechButton</members>
+		<members>displayChallenges</members>
+		<members>currentTechEvent</members>
+		<members>subTechEvent</members>
+		<!--members>HarnessApp</members>
+		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -161,11 +170,11 @@
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
-	<types>
+	<!--types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
-	</types>
+	</types-->
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
@@ -180,10 +189,10 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
-	<types>
+	<!--types>
 		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>
-	</types>
+	</types-->
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>

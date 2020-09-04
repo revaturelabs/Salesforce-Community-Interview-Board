@@ -88,4 +88,13 @@ public with sharing class ChallengeController {
             return 'There is Some Error in Updating Status';
         }
     }
+
+    @AuraEnabled
+    public static void chalComp(String chalId){
+        chalId = (String)JSON.deserializeUntyped(chalId);
+        List<Challenge__c> ch = [SELECT Completed__c FROM Challenge__c WHERE id=:chalId];
+        ch[0].completed__c = true;
+        update ch;
+        
+    }
 }
