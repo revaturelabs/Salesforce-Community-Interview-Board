@@ -5,53 +5,61 @@
     <aura:attribute name="ChallengeDisplay" type="Challenge__c[]"/>
     <aura:attribute name="clicked" type="boolean" default="false"/>
     <aura:attribute name="clickedTwo" type="boolean" default="false"/>
+    <aura:attribute name="Err" type="String" default="There are no challenges"/>
+    <aura:attribute name="ErrBool" type="Boolean" default="false"/>
     <aura:handler name="init" value="{!this}" action="{!c.loadTech}"/>
     <aura:handler name="getSub" event="c:subTechEvent" action="{!c.loadSub}"/>
     <aura:handler name="getCur" event="c:currentTechEvent" action="{!c.showCur}"/>
     <div>
         <!--This div is the primary tech involved-->
-        <div style="border-style:solid;width:106.5em;height:18em">
-            <div style="border-style:solid;width:20em;height:100%;display:inline-block">
-                <p style="font-size:40px;right:10em;top:9em;color:RGB(242,105,38)">Primary Tech: </p>
+        <div style="border-style:solid;width:106.5em;height:18em;border-color:RGB(72,76,86);border-width:medium">
+            <div style="border-style:solid;width:20em;height:100%;display:inline-block;border-color:RGB(72,76,86)">
+                <p style="color:RGB(242,105,38);font-size:40px;;top:2em;position:relative">Primary Tech </p>
             </div>
-            <div style="width:75%;height:100%;display:inline-block">
+            <div style="width:75%;height:100%;display:inline-block;top:5em;position:relative">
             <aura:iteration items="{!v.primeTech}" var="item">
                 <c:primaryTechButton techPrime="{!item}"/>
             </aura:iteration>
             </div>
         </div>
         <!--This div is the related sub tech-->
-        <div style="border-style:solid;width:106.5em;height:18em">
-            <div style="border-style:solid;width:20em;height:18em;display:inline-block;position:absolute">
-                <p style="font-size:40px;right:10em;top:9em;color:RGB(242,105,38)">Related Sub Tech: </p>
+        <div style="border-style:solid;width:106.5em;height:18em;border-color:RGB(72,76,86);top:18em;border-width:medium">
+            <div style="border-style:solid;width:20em;height:18em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
+                <p style="color:RGB(242,105,38);font-size:40px;top:1em;position:relative">Related Sub Tech </p>
             </div>
-            <div style="width:75%;display:inline-block;position:absolute;left:20.2em">
+            <div style="width:75%;display:inline-block;left:20.2em;top:6.5em;position:relative;">
                 <aura:if isTrue="{!v.clickedTwo}">
                     <aura:iteration items="{!v.subTech}" var="key">
                         <c:subTechButton sTech="{!key}"/>
                     </aura:iteration>
+                    
                 </aura:if>
             </div>
         </div>
         <!--This div is the related challenges-->
-        <div style="border-style:solid;width:106.5em;height:18em">
-            <div style="border-style:solid;width:20em;height:18em;display:inline-block;position:absolute">
-                <p style="font-size:40px;right:10em;top:9em;color:RGB(242,105,38)">Related Challenges: </p>
+        <div style="border-style:solid;width:106.5em;height:25em;border-color:RGB(72,76,86);border-width:medium">
+            <div style="border-style:solid;width:20em;height:25em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
+                <p style="color:RGB(242,105,38);font-size:40px;top:2em;position:relative">Related Challenges </p>
             </div>
             <div style="width:75%;position:absolute;left:20.2em">
                 <aura:if isTrue="{!v.clicked}">
                     <div style="height:3em">
-                        <lightning:button label="Show All" onclick="{!c.fillAll}"/>
+                        <lightning:button class="slds-button_neutral" label="Show All" onclick="{!c.fillAll}"/>
                         <lightning:button label="Show In Progress" onclick="{!c.fillCont}"/>
                         <lightning:button label="Show Completed" onclick="{!c.fillComp}"/>
                         
                     </div>
                     <div style="height:15em;width:106.5em">
                         <aura:iteration items="{!v.ChallengeDisplay}" var="val">
-                            <div style="height:14em;width:20em;display:inline-block;padding:10px">
+                            <div style="height:14em;width:20em;display:inline-block;padding-right:10px;">
                                 <c:displayChallenges ChallengeApexData="{!val}"/>
                             </div>
                         </aura:iteration>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.ErrBool}">
+                                <p>{!v.Err}</p>
+                            </aura:if>
+                        </aura:set>
                     </div>
                     
                 </aura:if>

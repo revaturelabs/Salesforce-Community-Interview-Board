@@ -1,3 +1,30 @@
 .THIS {
     background-color:RGB(255,255,255);
 }
+.THIS .slds-button_brand {
+    color:RGB(242,105,38);
+    font-weight:bold;
+    font-size:18px;
+    background-color:RGB(72,76,86);
+    border-width:medium;
+    border-color:RGB(242,105,38);
+    padding: 12px 25px;
+}
+
+.THIS .slds-button_neutral {
+    color:RGB(242,105,38);
+    font-weight:bold;
+    border-width:medium;
+    background-color:RGB(72,76,86);
+    border-color:RGB(242,105,38);
+}
+
+.THIS .slds-card {
+    border-color:RGB(242,105,38);
+    border-width:medium;
+    padding: 0px 5px;
+    color:RGB(242,105,38);
+    font-weight:bolder;
+    font-size:15px;
+    background-color:RGB(255,255,255);
+}
