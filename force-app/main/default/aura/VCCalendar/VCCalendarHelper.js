@@ -1,6 +1,6 @@
 ({
     
-    // Checks if any ed meetings have been created and displays update meeting button if meetings exist.
+    // Checks if any meetings have been created and displays update meeting button if meetings exist.
    
     getMeetingStatus : function(component, item, callback) {
         
@@ -20,7 +20,7 @@
         $A.enqueueAction(meetingStatus);
     },
     
-       // Checks if any meetings have been created and displays update meeting button if meetings exist.
+       // Checks if any meetings are awaiting approval and displays update meeting button if meetings exist.
    
     getTimeSlotStatus : function(component, item, callback) {
         
@@ -41,25 +41,83 @@
     },
     
     
-    
-    // Get details from existing meetings that can be updated.
+    // Get Id from existing meetings that can be updated.
    
-    getMeetingDetails : function(component, item, callback) {
+    getMeetingApprovalId : function(component, item, callback) {
         
-        var meetingDetails = component.get("c.getMeetings");
+        var activeApproval = component.get('v.ActiveApproval');
         
-        meetingDetails.setCallback(this, function(response){
+        var approvalId = component.get("c.getApprovalId");
+        
+        console.log(activeApproval);
+        
+        approvalId.setParams({  filter :  activeApproval});
+        approvalId.setCallback(this, function(response){
             
             if(response.getState() === "SUCCESS") {
                 
-                var meetingDetailsResponse = response.getReturnValue();
+                var approvalIdResponse = response.getReturnValue();
                 
-                component.set('v.MeetingDetailsMap', meetingDetailsResponse);
+                component.set('v.MeetingId', approvalIdResponse);
                 
-                console.log('Meeting details response: ' + meetingDetailsResponse);
+                console.log('Approval Meeting Id response: ' + approvalIdResponse);
             }
         });
-        $A.enqueueAction(meetingDetails);
+        $A.enqueueAction(approvalId);
+    },
+    
+    // Get Id from existing meetings that should be updated.
+   
+    getMeetingUpdateId : function(component, item, callback) {
+        
+        
+        var activeEvent = component.get('v.ActiveEvent');
+        
+        var updateId = component.get("c.getId");
+        
+        console.log(activeEvent);
+        
+        updateId.setParams({  filter :  activeEvent});
+        
+        updateId.setCallback(this, function(response){
+            
+            if(response.getState() === "SUCCESS") {
+                
+                var updateIdResponse = response.getReturnValue();
+                
+                component.set('v.MeetingId', updateIdResponse);
+                
+                console.log('Update Meeting Id response: ' + updateIdResponse);
+            }
+        });
+        $A.enqueueAction(updateId);
+    },
+    
+     // Get Id from existing meetings that should be viewed.
+   
+    getMeetingUpdateId : function(component, item, callback) {
+        
+        
+        var activeEvent = component.get('v.ActiveMeeting');
+        
+        var viewId = component.get("c.getId");
+        
+        console.log(activeEvent);
+        
+        viewId.setParams({  filter :  activeEvent});
+        
+        viewId.setCallback(this, function(response){
+            
+            if(response.getState() === "SUCCESS") {
+                
+                var viewIdResponse = response.getReturnValue();
+                
+                component.set('v.MeetingId', viewIdResponse);
+                
+                console.log('View Meeting Id response: ' + viewIdResponse);
+            }
+        });
+        $A.enqueueAction(viewId);
     },
     
     
@@ -78,6 +136,21 @@
             }
         });
         $A.enqueueAction(meetingTimeSlots);
+    },
+    
+    // Gets all meetings that have been created and adds them to the view
+   
+    getAllMeetings : function(component, item, callback) {
+        
+        var meetings = component.get("c.getMeetings");
+        
+        meetings.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS") {
+                component.set("v.AllMeetings", response.getReturnValue());
+                console.log('All meetings available: ' + response.getReturnValue());
+            }
+        });
+        $A.enqueueAction(meetings);
     },
     
     getPendingApprovals : function(component, item, callback) {
@@ -109,6 +182,5 @@
         });
         
         $A.enqueueAction(getPerm); 
-    }  
-    
+    }
 })
