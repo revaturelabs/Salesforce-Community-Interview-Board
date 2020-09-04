@@ -45,6 +45,7 @@
 		<members>primaryTechButtonController</members>
 		<members>subTechButtonController</members>
 		<members>techDisplayController</members>
+		<members>UserStackTriggerHelper</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
