@@ -143,6 +143,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <description>The specific tech in which the challenges would be made to cover.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>

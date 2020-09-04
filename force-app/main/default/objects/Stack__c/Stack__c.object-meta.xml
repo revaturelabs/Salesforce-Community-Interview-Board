@@ -143,6 +143,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <description>Stacks are objects that can be assigned to users to connect them with challenges to be completed based on the subject.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
