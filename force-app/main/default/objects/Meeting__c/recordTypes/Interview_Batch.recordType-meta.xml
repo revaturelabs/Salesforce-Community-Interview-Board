@@ -13,10 +13,6 @@
             <fullName>Completed</fullName>
             <default>false</default>
         </values>
-        <values>
-            <fullName>On Schedule</fullName>
-            <default>true</default>
-        </values>
     </picklistValues>
     <picklistValues>
         <picklist>Stack__c</picklist>

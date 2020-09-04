@@ -602,6 +602,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting__c.Upcoming__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Question__c.Body__c</field>
         <readable>false</readable>
     </fieldPermissions>

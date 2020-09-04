@@ -17,6 +17,8 @@
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
+		<members>FullCalendarController</members>
+		<members>GoogleCallout</members>
 		<members>GoogleCallout</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
@@ -41,12 +43,10 @@
 		<members>SyncUtitlityTest</members>
 		<members>Utilities</members>
 		<members>Utilities</members>
+		<members>Utilities</members>
+		<members>VCCalendarController</members>
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
-		<members>Utilities</members>
-		<members>GoogleCallout</members>
-		<members>FullCalendarController</members>
-		<members>VCCalendarController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -65,12 +65,14 @@
 		<members>CommunityHeader</members>
 		<members>CompletedInterviews</members>
 		<members>CreateEvent</members>
+		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
 		<members>EmptyComponentEvent</members>
 		<members>FlowClose</members>
 		<members>FlowHost</members>
 		<members>FlowLaunch</members>
+		<members>FullCalendar</members>
 		<members>Harness</members>
 		<members>InterviewForceComponent</members>
 		<members>InterviewQuestions</members>
@@ -91,15 +93,13 @@
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
 		<members>ScheduleSync</members>
+		<members>ScheduleSync</members>
+		<members>TestComp</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
-		<members>ScheduleSync</members>
-	    <members>CreateEvent</members>
-		<members>FullCalendar</members>
-		<members>VCCalendar</members>
-		<members>TestComp</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -192,6 +192,11 @@
 	<types>
 		<members>Google</members>
 		<name>RemoteSiteSetting</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<members>Associate</members>
+		<name>Role</name>
 	</types>
 	<types>
 		<members>InterviewForce1</members>

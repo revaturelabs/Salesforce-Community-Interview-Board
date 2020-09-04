@@ -14,4 +14,21 @@
     	<button class="slds-button slds-button_neutral" onclick="{! c.handleOnSubmit }">Submit</button>
 
     </form>
+    
+    <lightning:recordEditForm recordId='a034W00000VMiwTQAT' objectApiName='Meeting__c'>
+        <lightning:outputfield fieldName='Name'/>
+        <lightning:inputfield fieldName='Google_Event_Id__c' aura:id='EID'/>
+        <lightning:inputfield fieldName='Name' aura:id='editName'/>
+        <lightning:inputfield fieldName='StartDateTime__c' aura:id='editStartAvailability'/>
+        <lightning:inputfield fieldName='EndDateTime__c' aura:id='editEndAvailability'/>
+        
+         <lightning:button
+            class="slds-m-top_small"
+            variant="brand"
+            type="submit"
+            name="update"
+            label="Update">
+        </lightning:button>
+        <button class="slds-button slds-button_neutral" onclick="{! c.handleUpdate }">Submit</button>
+    </lightning:recordEditForm>
 </aura:component>

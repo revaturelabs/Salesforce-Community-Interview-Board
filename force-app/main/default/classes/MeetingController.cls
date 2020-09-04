@@ -14,7 +14,7 @@ public with sharing class MeetingController{
     
     
     @AuraEnabled 
-    public static void createEvent(String sum, DateTime startDate, DateTime endDate) {
+    public static void createEvent(String meetId, String sum, DateTime startDate, DateTime endDate) {
         
         DateTime EndDateTime = DateTime.newInstance(2020, 9, 4, 21, 30, 00);
         DateTime StartDateTime = DateTime.newInstance(2020, 9, 4, 20, 25, 00);         
@@ -60,20 +60,26 @@ public with sharing class MeetingController{
         
         
         
-        Meeting__c m = new Meeting__c();
-        m.name = Summary;
-        m.Google_Event_Id__c = eID;
-        m.Meeting_Status__c = 'Scheduled';
-        m.EndDateTime__c = EndDate;
-        m.StartDateTime__c = startDate;
+        //Meeting__c m = new Meeting__c();
+       // m.name = Summary;
+        //m.Google_Event_Id__c = eID;
+        //m.Meeting_Status__c = 'Scheduled';
+        //m.EndDateTime__c = EndDate;
+        //m.StartDateTime__c = startDate;
         
         try {
-            insert m;
+            
+            Meeting__c meet = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name FROM Meeting__c WHERE id = :meetId];
+            
+            meet.Google_Event_Id__c = eID;
+            meet.Meeting_Status__c = 'Scheduled';
+            meet.EndDateTime__c = EndDate;
+            meet.StartDateTime__c = startDate;
+            meet.name= Summary;
         }
         catch(Exception e) {
             String error = e.getMessage();
             system.debug(error);
-            m = null;
         }
        
     }
@@ -81,7 +87,7 @@ public with sharing class MeetingController{
     
     @AuraEnabled
     public static String getMeeting(){
-        Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c FROM Meeting__c Limit 1];
+        Meeting__c testMeeting = [SELECT id, name, StartDateTime__c, EndDateTime__c, Meeting_Status__c, Stack__c FROM Meeting__c Limit 1];
         String meetingId = testMeeting.id;
         return meetingId;
         
@@ -89,7 +95,7 @@ public with sharing class MeetingController{
     
     //Method assumes user will always pick the same day for both start time and end time
       @AuraEnabled
-      public static Integer createTimeslots(DateTime startTime, DateTime endTime){
+      public static Integer createTimeslots(DateTime startTime, DateTime endTime, String tStack){
       	
         	Integer hourLength = endTime.hour() - startTime.hour();
           	Integer minLength = (endTime.minute() - startTime.minute()) + (hourLength * 60);
@@ -101,6 +107,7 @@ public with sharing class MeetingController{
               Meeting__c newMeeting = new Meeting__c();
               newMeeting.Meeting_Status__c = 'Not Scheduled';
               newMeeting.Name = 'Available Time Slot';
+              newMeeting.Stack__c = tStack;
               newMeeting.StartDateTime__c = startTime;
  			  newMeeting.EndDateTime__c = startTime.addHours(1);
               startTime = startTime.addHours(1);
@@ -110,9 +117,18 @@ public with sharing class MeetingController{
           insert timeslotList;
           
           return numTimeslot;
-          
-        
-        
+                  
+    }
+    
+    @AuraEnabled
+    public static String[] getActiveStacks() {
+        List<String> activeStacks = new List<String>();
+		Schema.DescribeFieldResult fieldResult = Meeting__c.Stack__c.getDescribe();
+		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+		for( Schema.PicklistEntry pickListVal : ple){
+			activeStacks.add(pickListVal.getLabel());
+		}     
+		return activeStacks;
     }
     
 }
