@@ -42,9 +42,9 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>ChallengeController</members>
-		<members>primaryTechButtonContoller</members>
-		<members>subTechButtonContoller</members>
-		<members>techDisplayContoller</members>
+		<members>primaryTechButtonController</members>
+		<members>subTechButtonController</members>
+		<members>techDisplayController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

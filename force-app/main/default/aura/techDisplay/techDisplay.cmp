@@ -1,4 +1,4 @@
-<aura:component controller="techDisplayController">
+<aura:component controller="techDisplayController" implements="forceCommunity:availableForAllPageTypes" access="global">
     <aura:attribute name="primeTech" type="Primary_Tech__c[]"/>
     <aura:attribute name="subTech" type="Sub_Tech__c[]"/>
     <aura:attribute name="ChallengeItems" type="Challenge__c[]"/>
