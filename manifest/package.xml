@@ -42,6 +42,7 @@
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
 		<members>ChallengeController</members>
+		<members>UserStackTriggerHelper</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
