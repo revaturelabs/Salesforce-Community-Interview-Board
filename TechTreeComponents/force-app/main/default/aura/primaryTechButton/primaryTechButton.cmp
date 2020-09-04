@@ -1,0 +1,7 @@
+<aura:component controller="primaryTechButtonController">
+    <aura:attribute name="techPrime" type="Primary_Tech__c"/>
+    <aura:registerEvent name="getSub" type="c:subTechEvent"/>
+    <lightning:button label="{!v.techPrime.Name}" onclick="{!c.getSubTech}"/>
+    <br/>
+    <br/>
+</aura:component>	

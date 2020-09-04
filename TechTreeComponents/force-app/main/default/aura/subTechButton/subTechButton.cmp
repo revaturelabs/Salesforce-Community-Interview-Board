@@ -1,0 +1,7 @@
+<aura:component controller="subTechButtonController">
+    <aura:attribute name="sTech" type="Sub_Tech__c"/>
+    <aura:registerEvent name="getCur" type="c:currentTechEvent"/>
+    <lightning:button label="{!v.sTech.Name}" onclick="{!c.sendCur}"/>
+    <br/>
+    <br/>
+</aura:component>	
