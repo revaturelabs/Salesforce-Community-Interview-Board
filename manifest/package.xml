@@ -120,6 +120,7 @@
 	</types>
 	<types>
 		<members>Meeting__c.Google_Event_Id__c</members>
+		<members>Meeting__c.Stack__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
