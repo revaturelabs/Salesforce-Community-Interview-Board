@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <formula>IF(StartDateTime__c - NOW() &lt;= 1, True, False)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Upcoming?</label>
+    <label>Upcoming</label>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>
