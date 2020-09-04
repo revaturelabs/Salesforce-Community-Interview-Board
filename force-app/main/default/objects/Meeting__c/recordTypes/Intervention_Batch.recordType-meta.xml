@@ -6,11 +6,23 @@
     <picklistValues>
         <picklist>Meeting_Status__c</picklist>
         <values>
+            <fullName>Awaiting Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Cancelled</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Scheduled</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
             <default>false</default>
         </values>
     </picklistValues>
