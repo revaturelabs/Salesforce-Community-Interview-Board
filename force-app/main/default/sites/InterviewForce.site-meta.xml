@@ -23,8 +23,15 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>christopherbrefo@cunning-panda-i0cxub.com</siteAdmin>
     <siteGuestRecordDefaultOwner>christopherbrefo@cunning-panda-i0cxub.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>08192020b-developer-edition</subdomain>
+=======
+    <siteAdmin>jt13smt@creative-fox-3kxy01.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jt13smt@creative-fox-3kxy01.com</siteGuestRecordDefaultOwner>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>smt-p3-2020-developer-edition</subdomain>
+>>>>>>> origin/2007-QA-StephenPartial
 </CustomSite>
