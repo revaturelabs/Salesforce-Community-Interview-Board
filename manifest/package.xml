@@ -169,73 +169,86 @@
 		<members>displayChallenges</members>
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
-		<!--members>HarnessApp</members>
-		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
+
 	<types>
 		<members>Google_Connect</members>
 		<name>AuthProvider</name>
 	</types>
+
 	<types>
 		<members>Internal Zone</members>
 		<name>Community</name>
 	</types>
+
 	<types>
 		<members>IBCloud</members>
 		<name>ContentAsset</name>
 	</types>
+
 	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
 		<name>CustomApplication</name>
 	</types>
+
 	<types>
 		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Meeting__c.Stack__c</members>
 		<name>CustomField</name>
 	</types>
+
 	<types>
 		<members>AdminPermission</members>
 		<name>CustomPermission</name>
 	</types>
+
 	<types>
 		<members>InterviewForce</members>
 		<name>CustomSite</name>
 	</types>
+
 	<types>
 		<members>*</members>
 		<name>CustomTab</name>
 	</types>
+
 	<types>
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
 	</types>
+
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<members>Link_User_to_Players</members>
 		<members>Associate_Player_with_User</members>
 		<name>Flow</name>
 	</types>
+
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
+
 	<types>
 		<members>GoogleAPI</members>
 		<name>NamedCredential</name>
 	</types>
+
 	<types>
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
+
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
 	</types>
+
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
@@ -250,29 +263,29 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
+
 	<types>
 		<members>Google</members>
 		<name>RemoteSiteSetting</name>
 	</types>
+
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Role</name>
 	</types>
-	<types>
-	<!--types>
-		<members>InterviewForce1</members>
-		<name>SiteDotCom</name>
-	</types-->
+	
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<name>Workflow</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate</members>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
@@ -280,10 +293,12 @@
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
 		<name>WorkflowAlert</name>
 	</types>
+
 	<types>
 		<members>Meeting__c.Finalize_Meeting_Completion</members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
+
 	<types>
 		<members>Meeting_Participant__c.Associate Feedback</members>
 		<members>Meeting_Participant__c.Client interview notification</members>
@@ -291,5 +306,6 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
+
 	<version>48.0</version>
 </Package>

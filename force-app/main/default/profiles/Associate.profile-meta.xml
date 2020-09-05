@@ -471,16 +471,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-<<<<<<< HEAD
         <field>Challenge__c.Details__c</field>
-=======
-        <field>Challenge__c.Completed__c</field>
->>>>>>> origin/2007-Charts-Testing
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-<<<<<<< HEAD
+        <field>Challenge__c.Completed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Completion__c.Completed__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -491,10 +491,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-=======
->>>>>>> origin/2007-Charts-Testing
         <field>Challenge__c.Details__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -758,7 +756,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-<<<<<<< HEAD
         <field>Sub_Tech__c.Primary_Tech__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -814,21 +811,13 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-=======
->>>>>>> origin/2007-Charts-Testing
         <field>Sub_Tech__c.Primary_Tech__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
         <editable>true</editable>
         <field>Quiz_Session__c.Current_Question__c</field>
         <readable>true</readable>
-=======
-        <editable>false</editable>
-        <field>User_Stack__c.User__c</field>
-        <readable>false</readable>
->>>>>>> origin/2007-Charts-Testing
     </fieldPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
