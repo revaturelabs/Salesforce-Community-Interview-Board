@@ -105,6 +105,10 @@
 		<members>ChallengeController</members>
 		<members>QuizQuestionService</members>
 		<members>QuizQuestionDataFactory</members>
+		<members>primaryTechButtonController</members>
+		<members>subTechButtonController</members>
+		<members>techDisplayController</members>
+		<members>UserStackTriggerHelper</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -159,8 +163,14 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
-		<members>HarnessApp</members>
-		<members>ChallangeComponent</members>
+		<members>techDisplay</members>
+		<members>primaryTechButton</members>
+		<members>subTechButton</members>
+		<members>displayChallenges</members>
+		<members>currentTechEvent</members>
+		<members>subTechEvent</members>
+		<!--members>HarnessApp</members>
+		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -250,9 +260,10 @@
 		<name>Role</name>
 	</types>
 	<types>
+	<!--types>
 		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>
-	</types>
+	</types-->
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
