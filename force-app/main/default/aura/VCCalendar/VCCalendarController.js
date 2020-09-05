@@ -1,5 +1,8 @@
 ({
     doinit : function(component, event, helper) {
+        
+        component.set("v.isOpen", false);
+        
         var pickListStackValues;
         var outputList = [];
         var action = component.get("c.getTypePicklistValues");
@@ -9,6 +12,7 @@
         helper.getTimeSlotStatus(component);
         helper.getAllTimeSlots(component);
         helper.getPendingApprovals(component);
+        helper.getAllMeetings(component);
         
         action.setCallback(this,function(response){
             var state = response.getState();
@@ -73,7 +77,7 @@
             });
             $A.enqueueAction(timeSlotsNeedingApproval);
             if(confirm("Your time slot has been selected. Check back to see when it is approved.")){
-                //window.location.reload();
+                window.location.reload(false);
             }
             else{
                 alert("Your time slot was not selected.");
@@ -89,29 +93,79 @@
         
     },
     
-    openModel: function(component, event, helper) {
-        // for Display Model,set the "isOpen" attribute to "true"
-        // 
+    setUpdateEvents: function(component, event, helper) {
         
+        var selectedEvent = component.find("event id").get("v.value");
+        
+        component.set("v.ActiveEvent", selectedEvent);
+        
+    },
+    
+    setMeetings: function(component, event, helper) {
+        
+        var selectedMeeting = component.find("meeting id").get("v.value");
+        
+        component.set("v.ActiveMeeting", selectedMeeting);
+        
+    },
+    
+    openModal: function(component, event, helper) {
+       
+      
         var target = event.getSource();
-        var buttonId = target.getLocalId(); 
+        var buttonId = target.getLocalId();
         
-        var activeApproval;
+        console.log(buttonId == 'CreateMeetingButton')
         
-        if(buttonId == 'CreateMeetingButton'){
+        var activeApproval = component.get("v.ActiveApproval");
+        
+    	var activeEvent = component.get("v.ActiveEvent");
+        
+        var activeMeeting = component.get("v.ActiveMeeting");
+        
+        console.log(activeEvent);
+      
+        if(buttonId == 'CreateMeetingButton' && activeApproval != ''){
             
-            activeApproval = component.get('v.ActiveTimeSlotApproval');
-            component.set()
+
+            helper.getMeetingApprovalId(component);
+            
+        }
+        else if (buttonId == 'CreateMeetingButton' && activeApproval == ''){
+            
+            alert("Please select a meeting to approve.");
+            return;
+        }
+        if(buttonId == 'UpdateMeetingButton' && activeEvent != ''){
+          
+            helper.getMeetingUpdateId(component);
+        }
+        else if (buttonId == 'UpdateMeetingButton' && activeEvent == ''){
+            
+            alert("Please select a meeting to update.");
+            return;
+        }
+        
+        // New Meeting
+        
+        if(buttonId == 'ViewMeetingButton' && activeMeeting != ''){
+          
+            helper.getMeetingUpdateId(component);
+        }
+        else if (buttonId == 'ViewMeetingButton' && activeMeeting == ''){
+            
+            alert("Please select a meeting to view.");
+            return;
         }
         
         console.log('The target button id: ' + buttonId);
         
         component.set('v.TargetButtonId', buttonId);
         
-        component.set("v.isOpen", true);
+        component.set('v.isOpen', true);
     },
     
-    closeModel: function(component, event, helper) {
+    closeModal: function(component, event, helper) {
         // for Hide/Close Model,set the "isOpen" attribute to "Fasle"  
         component.set("v.isOpen", false);
     },

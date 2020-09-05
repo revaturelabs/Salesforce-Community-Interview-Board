@@ -1,7 +1,6 @@
 ({
     // Makes callout to apex controller 'MeetingController' to get boolean return value
 	doInit : function(component, event, helper) {
-        helper.getMeetingId(component, event);
         helper.getActiveStack(component, event);
         let confFalse = false;
         component.set("v.confirmIsTrue", confFalse);
@@ -39,6 +38,7 @@
              if(response.getState() === "SUCCESS") {
                 let numTimeslots = response.getReturnValue();
 				alert('You successfully created ' + numTimeslots + ' timeslots!');
+                window.location.reload(false);
             }
         });
            $A.enqueueAction(setTime); 
@@ -82,4 +82,18 @@
         component.set("v.ActiveStack", chosenStack);
         console.log(chosenStack);
     }, 
+    
+    
+    goToMeeting : function(component, event, helper) {
+		let goMeeting = component.get("c.getEvent");
+        let meetId = component.find("MeetsId").get("v.value");
+        goMeeting.setParams({
+            "meetingId" : meetId
+        });
+        goMeeting.setCallback(this, function(response){
+            let meetsLink = response.getReturnValue();
+            window.open(meetsLink);
+        })
+        $A.enqueueAction(goMeeting);
+	}
 })
