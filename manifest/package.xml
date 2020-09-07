@@ -41,6 +41,16 @@
 		<members>associateInterviewController</members>
 		<members>completedInterviewController</members>
 		<members>Utilities</members>
+		<members>ChallengeController</members>
+		<members>ProfileApex</members>
+		<members>primaryTechButtonController</members>
+		<members>subTechButtonController</members>
+		<members>techDisplayController</members>
+		<members>UserStackTriggerHelper</members>
+		<members>primaryTechButtonContoller</members>
+		<members>subTechButtonContoller</members>
+		<members>techDisplayContoller</members>
+		<members>AssignStacksPageController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -87,6 +97,19 @@
 		<members>header</members>
 		<members>throwMeeting</members>
 		<members>ScheduleSync</members>
+		<!--members>HarnessApp</members>
+		<members>ChallangeComponent</members-->
+		<members>ProfileComponent</members>
+		<members>ChildComponent</members>
+		<members>techDisplay</members>
+		<members>primaryTechButton</members>
+		<members>subTechButton</members>
+		<members>displayChallenges</members>
+		<members>currentTechEvent</members>
+		<members>subTechEvent</members>
+		<members>AssignStacksPage</members>
+		<!--members>HarnessApp</members>
+		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -116,6 +139,7 @@
 		<members>Stack_Tech__c</members>
 		<members>Sub_Tech__c</members>
 		<members>User_Stack__c</members>
+		<members>Prerequisite__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -175,10 +199,10 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
-	<types>
+	<!--types>
 		<members>InterviewForce1</members>
 		<name>SiteDotCom</name>
-	</types>
+	</types-->
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
