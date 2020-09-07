@@ -150,7 +150,7 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -161,11 +161,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Completions</pluralLabel>
-    <searchLayouts>
-        <searchResultsAdditionalFields>Challenge__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Completed__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

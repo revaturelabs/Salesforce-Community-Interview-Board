@@ -25,8 +25,6 @@
         try {
             var items = component.get("v.ChallengeItems");
             var newItems = [];
-            console.log(items.length);
-            console.log(items[0].Completed__c);
             for(let i = 0; i < items.length; i++){
                 if(items[i].Completed__c==false){
                     newItems.push(items[i]);
@@ -38,12 +36,10 @@
         }
 
     },
-    setComp : function(component){
+    /*setComp : function(component){
         try {
             var items = component.get("v.ChallengeItems");
             var newItems = [];
-            console.log(items.length);
-            console.log(items[0].Completed__c);
             for(let i = 0; i < items.length; i++){
                 if(items[i].Completed__c==true){
                     newItems.push(items[i]);
@@ -54,5 +50,5 @@
             component.set("v.ErrBool", true);
         }
 
-    }
+    }*/
 })

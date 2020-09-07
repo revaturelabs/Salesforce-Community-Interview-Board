@@ -15,4 +15,21 @@
         $A.enqueueAction(action);
         
     }
+    
+    /*setComp :function(component){
+        let challs = curEve.getParam("cur");
+        let action = component.get("c.completions");
+        action.setParams({challs:challs});
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            console.log(response.getState());
+            if(state === "SUCCESS"){
+                var curEve = component.getEvent("getCur");
+                curEve.setParams({"comp":response.getReturnValue()});
+                console.log(response.getReturnValue());
+                curEve.fire();
+            }
+        });
+        $A.enqueueAction(action);
+    }*/
 })

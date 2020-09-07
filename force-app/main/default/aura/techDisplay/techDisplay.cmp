@@ -2,6 +2,7 @@
     <aura:attribute name="primeTech" type="Primary_Tech__c[]"/>
     <aura:attribute name="subTech" type="Sub_Tech__c[]"/>
     <aura:attribute name="ChallengeItems" type="Challenge__c[]"/>
+    <aura:attribute name="CompletionItems" type="Completion__c[]"/>
     <aura:attribute name="ChallengeDisplay" type="Challenge__c[]"/>
     <aura:attribute name="clicked" type="boolean" default="false"/>
     <aura:attribute name="clickedTwo" type="boolean" default="false"/>
@@ -43,12 +44,12 @@
             </div>
             <div style="width:75%;position:absolute;left:20.2em">
                 <aura:if isTrue="{!v.clicked}">
-                    <div style="height:3em">
+                    <!--div style="height:3em">
                         <lightning:button class="slds-button_neutral" label="Show All" onclick="{!c.fillAll}"/>
                         <lightning:button label="Show In Progress" onclick="{!c.fillCont}"/>
                         <lightning:button label="Show Completed" onclick="{!c.fillComp}"/>
                         
-                    </div>
+                    </div-->
                     <div style="height:15em;width:106.5em">
                         <aura:iteration items="{!v.ChallengeDisplay}" var="val">
                             <div style="height:14em;width:20em;display:inline-block;padding-right:10px;">

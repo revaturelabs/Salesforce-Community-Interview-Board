@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ianjworkman@resourceful-otter-f7w2o7.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>ianjworkman@resourceful-otter-f7w2o7.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>ianjworkman@brave-wolf-9lkn73.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>ianjworkman@brave-wolf-9lkn73.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>proj3test082520-developer-edition</subdomain>
+    <subdomain>interviewme09072020-developer-edition</subdomain>
 </CustomSite>
