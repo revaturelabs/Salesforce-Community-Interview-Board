@@ -46,6 +46,7 @@
 		<members>primaryTechButtonContoller</members>
 		<members>subTechButtonContoller</members>
 		<members>techDisplayContoller</members>
+		<members>AssignStacksPageController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -98,6 +99,7 @@
 		<members>displayChallenges</members>
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
+		<members>AssignStacksPage</members>
 		<!--members>HarnessApp</members>
 		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
