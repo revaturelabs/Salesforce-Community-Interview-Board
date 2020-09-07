@@ -1,19 +1,82 @@
 public with sharing class ProfileApex {
 
-    public static list<Challenge__c> chalistscore=new list<Challenge__c>();
+    
     public static id userid;
-    @AuraEnabled
-    public static void FindHigestScore()
+   
+    public static map<id,integer> highestscore=new map<id,integer>();
+    public static list<completion__c> complitionlistcheck=new list<completion__c>();
+    public static list<Challenge__c> challengelist=new list<Challenge__c>();
+    public static list<Challenge__c> chalistscore=new list<Challenge__c>();
+    //public static map<string,map<id,integer>> techscoreinfo=new map<string,map<id,integer>>();
+    
+    public static map<id,integer> primarytechlowestscore=new map<id,integer>();
+    public static map<id,integer> stacklowestscore=new map<id,integer>();
+    
+     public static list<id> AssignedStackuserid=new list<id>();
+     public static list<id> AssignedPrimarytechid=new list<id>();
+     public static list<id> AssignedSubTechid=new list<id>();
+    public static list<id> AssignedChallengeid=new list<id>();
+     public static list<id> AssignedCompletionid=new list<id>();
+    
+    // this method is created for testing code in Apex Class
+    /*public static void callAllMethods()
     {
+       
+        
+        ProfileApex.getSubTech();
+        profileApex.getPrimaryTech();
+        ProfileApex.getstackTech();
+    }*/
+    //this is setup method to set base value for all Assignedid list to user in other functions
+    @AuraEnabled
+    public static void setupAssignment()
+    {
+        //system.debug('inside setupAssignment');
+       
+        /*What-------------> Where
+         PrimaryTechIDs-------->Stack_Tech__c using stackid
+		SubTechIDs-------->Sub_Tech__c using primarytechids
+		ChallengeIDs----->Challenge__c using Subtechids
+		CompletionIDs -------> Completion__c using ChallangeIDs and UserID*/
+        
         userid=UserInfo.getUserId();
-        Boolean challangecompleted=True;
-        string soqlQuery1 ='select Challenge__c from completion__c where Completed__c= '+ challangecompleted+ ' and user__c= '+'\''+ Userid +'\'';
-        list<completion__c> complitionlistcheck=database.query(soqlQuery1);
+       list<user_stack__c> userstackinfo=[select stack__c from user_stack__c where user__c=:userid];
+        for(user_stack__c us:userstackinfo)
+        {
+        Assignedstackuserid.add(us.stack__c);
+        }
         
-         string soqlQuery2 ='select id,Name,Score__c,Sub_Tech__c from Challenge__c order by Score__c desc';
-        list<Challenge__c> challengelist=database.query(soqlQuery2);
+         list<stack_tech__c> PrimaryTechinfo=[select Primary_tech__c from stack_tech__c where Stack__c in:(Assignedstackuserid)];
+        for(stack_tech__c st:PrimaryTechinfo)
+        {
+        AssignedPrimarytechid.add(st.Primary_tech__c);
+        }
         
-        system.debug(complitionlistcheck);
+        list<sub_tech__c> SubTechInfo=[select id from Sub_Tech__c where Primary_Tech__c in :(AssignedPrimarytechid)];
+        for(sub_tech__c st:SubTechInfo)
+        {
+        AssignedSubTechid.add(st.id);
+        }
+        
+        list<Challenge__c> challengeinfo=[select id from Challenge__c where Sub_Tech__c in :(AssignedSubTechid)];
+        for(Challenge__c c:challengeinfo)
+        {
+        AssignedChallengeid.add(c.id);
+        }
+        list<Completion__c> completioninfo=[select id from Completion__c where Challenge__c in:(AssignedChallengeid) and User__c =: userid];
+         for(Completion__c c:completioninfo)
+        {
+        AssignedCompletionid.add(c.id);
+        }
+        
+        
+       
+       complitionlistcheck=[select Challenge__c from completion__c where id in:(AssignedCompletionid) and user__c=:userid and Completed__c=:true];
+        
+        
+        challengelist=[select id,Name,Score__c,Sub_Tech__c from Challenge__c where id in :(AssignedChallengeid)];
+        
+       // system.debug('complitionlistcheck'+complitionlistcheck);
               
         //This is implementation of getting score and related subTech from Completed Challenge
    
@@ -29,22 +92,25 @@ public with sharing class ProfileApex {
                         }		
         			}
     		}
-        
-        system.debug(chalistscore);
+         profileApex.findcompletedChallengeScore();
+        //system.debug(chalistscore);
        
     }
+    
+    //this method is for finding score for completed challenges
     @AuraEnabled
-    public static map<sub_tech__c,integer> getSubTech()
+     public static void findcompletedChallengeScore()
     {
-       ProfileApex.FindHigestScore();
-        
-        string soqlQuery1 ='select id,Name,Primary_Tech__c from Sub_Tech__c';
-        list<sub_tech__c> subTechList=database.query(soqlQuery1);
-        
-        set<sub_tech__c> subTechSet=new set<sub_tech__c>();
-        
-         map<id,integer> highestscore=new map<id,integer>();
       
+         //system.debug('inside findcompletedChallengeScore');
+       list<id> subtechidinfo=new list<id>();
+        for(challenge__c chell:challengelist)
+        {
+            subtechidinfo.add(chell.Sub_Tech__c);
+        }
+        
+        list<sub_tech__c> subTechList=[select id,name,Primary_Tech__c from sub_tech__c where id in :(AssignedSubTechid)];
+   
         for(sub_tech__c stech:subtechlist)
         {
             
@@ -58,54 +124,19 @@ public with sharing class ProfileApex {
                 {
                     if(chell1.Score__c>highestscore.get(subtechid))
                     {
+                    
                       highestscore.put(subtechid,(integer)chell1.score__c);  
                     }
                 }
             }
-          
         }
-        
-         //set<id> getsubtechid=new set<id>();
-        list<id> getsubtechid=new list<id>(highestscore.keySet());
-       system.debug(getsubtechid);
-        /*for(map<id,integer> mapid:highestscore)
-        {
-            //getsubtechid.add(mapid.key());
-        }*/
-        list<sub_tech__c> l1=[select name,id from sub_tech__c where id in :(getsubtechid)];
-      
-        list<integer> score=new list<integer>();
-        list<sub_tech__c> st1=new list<sub_tech__c>();
-        for(id id1:getsubtechid)
-        {
-            for(sub_tech__c st:l1)
-            {
-                if(st.id==id1)
-                {
-                    st1.add(st);
-                }
-            }
-         score.add(highestscore.get(id1));       
-         }
-        
-        system.debug(score);
-           
-        system.debug(l1);
-        system.debug(highestscore);
-        
-        map<sub_tech__c,integer> highestsubtech=new map<sub_tech__c,integer>();
-        for(integer i=0;i<score.size();i++)
-        {
-            highestsubtech.put(st1[i],score[i]);
-        }
-        system.debug(highestsubtech);
-        return highestsubtech;
     }
-    
-    //this method is created to find the current user information and display that on aura component
+    //this method will return current username
     @AuraEnabled
     public static string Username()
     {
+        //system.debug('inside Username');
+         //ProfileApex.setupAssignment();
         string username;
         userid=UserInfo.getUserId();
         id ustackid,stackid;
@@ -117,42 +148,148 @@ public with sharing class ProfileApex {
         {
             username=user1.Name;
         }
-        system.debug(username);
+      
         return username;
     }
-    //this method contains all the stacks assigned to the user who is using component
-    @AuraEnabled
-    public static list<stack__c> AssignedStack()
+     //this method is for finding highest score of the of sub_tech based on completed Assigned challenges 
+     @AuraEnabled
+    public static map<string,integer> getSubTech()
     {
-       userid=UserInfo.getUserId();
-        id ustackid,stackid;
-        /*string soqlQuery ='select id,name,Username from user where id='+'\''+ Userid +'\'';
-        list<user> userList= database.query(soqlQuery);
-         system.debug(userlist);
-        */
-        string soqlQuery1 ='select id,Name,Stack__c,User__c from User_Stack__C where User__c= '+'\''+ Userid +'\'';
-        list<user_stack__c> userStackList= database.query(soqlQuery1);
-        system.debug(userstacklist);
-        set<stack__c> Assignedstacknamelist=new set<stack__c>();
+             ProfileApex.setupAssignment();
+              //system.debug('inside getSubTech');
+        //system.debug(' getSubTech'+AssignedSubTechid);
+        list<sub_tech__c> completedSubTech=[select name from sub_tech__c where id in :(AssignedSubTechid)];
+      
+        list<integer> score=new list<integer>();
+        list<sub_tech__c> subtech1=new list<sub_tech__c>();
         
-        list<stack__c> StackList=[select id,name from stack__c];
-        
-        system.debug(stacklist);
-        for(user_stack__c ustack:userStackList)
+        for(id id1:AssignedSubTechid)
         {
-            for(stack__c stack:StackList)
+            for(sub_tech__c st:completedSubTech)
             {
-                stackid=stack.Id;
-                ustackid=ustack.stack__c;
-                if(stackid==ustackid)
+                if(st.id==id1)
                 {
-                    Assignedstacknamelist.add(stack);
+                    subtech1.add(st);
                 }
             }
+         score.add(highestscore.get(id1));       
+         }
+ 
+        list<string> SubTechNameString=new list<string>();
+        
+        for(sub_tech__c s:subtech1)
+        {
+            SubTechNameString.add(s.Name);
+        	
         }
-        //because i am not able to return set<stack__c> i am converting set into list and return list
-        system.debug('Assigned Stack List:-'+Assignedstacknamelist);
-        List<stack__c> convertsettolist = new List<stack__c>(Assignedstacknamelist);
-        return convertsettolist;
+      
+        //this map contains the value that is returned to helper
+        map<string,integer> highestsubtech=new map<string,integer>();
+       
+        for(integer i=0;i<score.size();i++)
+        {
+            highestsubtech.put(SubTechNameString[i],score[i]);
+            
+        }
+       system.debug(highestsubtech);
+        return highestsubtech;
     }
+    //this method is for finding lowest score of the primary tech based on sub_tech
+     @AuraEnabled
+    Public Static map<string,integer> getPrimaryTech()
+    {
+          ProfileApex.setupAssignment();
+           //system.debug('inside getPrimaryTech');
+        list<sub_tech__c> subTechList=[select name,Primary_Tech__c from sub_tech__c where id in :(AssignedSubTechid)];
+   	//this for loop will find primary tech id that has low score and store that id and score in map which is declared on top as public static 
+        for(sub_tech__c stech:subtechlist)
+        {
+            id primarytechid=stech.Primary_Tech__c;
+            
+            if(primarytechlowestscore.get(primarytechid)==null)
+            {
+            primarytechlowestscore.put(primarytechid,highestscore.get(stech.Id));    
+            }
+            if(highestscore.get(stech.Id)<primarytechlowestscore.get(primarytechid))
+            {
+                primarytechlowestscore.put(primarytechid,highestscore.get(stech.Id));    
+            }
+        }   
+            //system.debug('primarytechlowestscore---'+primarytechlowestscore);
+            //this section of code will find name related to id and send that to helper
+            map<string,integer> lowestprimarytech=new map<string,integer>();
+            set<id> primarytechname=primarytechlowestscore.keySet();
+        
+        	list<id> primarytechnamelist1=new list<id>(primarytechname);
+            list<primary_tech__c> primarytechnamelist=[select name,id from primary_tech__c where id in:(primarytechnamelist1)];
+            
+        	list<string> primarytechnamestring=new list<string>();
+            list<integer> primaryscore=new list<integer>();
+            for(primary_tech__c pt:primarytechnamelist)
+            {
+                lowestprimarytech.put(pt.Name,primarytechlowestscore.get(pt.Id));
+            }
+          
+            system.debug(lowestprimarytech);
+            return lowestprimarytech;
+          
+ 	}
+   
+    //this method is for finding lowest score of the assigned Stack based on stack_Tech
+     @AuraEnabled
+    Public Static map<string,integer> getstackTech()
+    {
+         ProfileApex.setupAssignment();
+         //system.debug('inside getstackTech');
+        list<stack_tech__c> stackTechList=[select name,Stack__c,Primary_Tech__c from stack_tech__c where Primary_Tech__c in :(AssignedPrimarytechid)];
+   		 list<sub_tech__c> subTechList=[select name,Primary_Tech__c from sub_tech__c where id in :(AssignedSubTechid)];
+        //this for loop will find stack tech id that has low score and store that id and score in map which is declared on top as public static 
+        for(stack_tech__c stech:stackTechList)
+        {
+            id stacktechid=stech.Stack__c;
+            id pt=stech.Primary_Tech__c;
+            for(sub_tech__c st:subTechList)
+            {
+            id primerytechid=st.Primary_Tech__c;
+             
+                if(primerytechid==pt)
+                {
+            		if(stacklowestscore.get(stacktechid)==null)
+            		{
+            		stacklowestscore.put(stacktechid,highestscore.get(st.Id));    
+            		}
+            		if(highestscore.get(stech.Id)<stacklowestscore.get(stacktechid))
+            		{
+                	stacklowestscore.put(stacktechid,highestscore.get(st.Id));    
+            		}
+            	}
+        	}  
+        }
+             //system.debug('stacklowestscore---'+stacklowestscore);
+             
+        //this section of code will find name related to id and send that to helper 
+            map<string,integer> loweststacktech=new map<string,integer>();
+            set<id> stacktechname=stacklowestscore.keySet();
+        
+        	list<id> stacktechnamelist1=new list<id>(stacktechname);
+            list<stack_tech__c> stacktechnamelist=[select name,id from stack_tech__c where stack__c in:(stacktechnamelist1)];
+           
+        	list<id> stackid=new list<id>();
+        	for(stack_tech__c st_c:stacktechnamelist)
+            {
+                stackid.add(st_c.Id);
+            }
+        	list<stack__c> stacklist=[select name,id from stack__c where id in:(stacktechname)];
+        
+        	list<string> stacknamestring=new list<string>();
+            list<integer> stackscore=new list<integer>();
+            for(stack__c pt:stacklist)
+            {
+                loweststacktech.put(pt.Name,stacklowestscore.get(pt.Id));
+            }
+          
+            system.debug(loweststacktech);
+        return loweststacktech;
+     
+ 	}
 }

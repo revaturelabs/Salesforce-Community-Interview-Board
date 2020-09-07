@@ -6,38 +6,19 @@
             if(response.getState()==='SUCCESS')
             {
                 component.set("v.UserName",response.getReturnValue());
-            } 
-            
+            }  
        })
         $A.enqueueAction(action1);
         
 	},
-    
-    AssignedStack : function(component,event){
-        var action1=component.get('c.AssignedStack');
+    //this function is geting stack name and Score from getstackTech method in Apex Controller
+    StackScore : function(component,event){
+         var action1=component.get('c.getstackTech');
         action1.setCallback(this,function(response){
             console.log(response.getState());
             if(response.getState()==='SUCCESS')
             {
-         
-                component.set("v.AssignedStack",response.getReturnValue());
-            } 
-            
-       })
-        $A.enqueueAction(action1);
-    },
-    getSubTechScore : function(component,event){
-        var action1=component.get('c.getSubTech');
-        action1.setCallback(this,function(response){
-            console.log(response.getState());
-            if(response.getState()==='SUCCESS')
-            {
-         
-               
-                //console.log(response.getReturnValue());
-                
-               var result = response.getReturnValue();
-                
+              //console.log(response.getReturnValue());
                 var arrayMapKeys = [];
                 //Store the response of apex controller (return map)     
                 var result = response.getReturnValue();
@@ -49,15 +30,55 @@
                 }
                 //Set the list of keys.     
                 component.set('v.keyList', arrayMapKeys);
-                
-                
-               /* var arrayMapKeys = [];
-                for(var key in result){
-                    arrayMapKeys.push({key: key, value: result[key]});
+            } 
+            
+       })
+        $A.enqueueAction(action1);
+    },
+    //this function is geting Primary Tech name and Score from getPrimaryTech method in Apex Controller
+    PrimaryTechscore : function(component,event){
+         var action1=component.get('c.getPrimaryTech');
+        action1.setCallback(this,function(response){
+            console.log(response.getState());
+            if(response.getState()==='SUCCESS')
+            {
+              //console.log(response.getReturnValue());
+                var arrayMapKeys = [];
+                //Store the response of apex controller (return map)     
+                var result = response.getReturnValue();
+                //Set the store response[map] to component attribute, which name is map and type is map.   
+                component.set('v.companyMap2', result);
+                 
+                for (var key in result) {
+                    arrayMapKeys.push(key);
                 }
-                 component.set("v.SubTech_Score",arrayMapKeys);
-                console.log(arrayMapKeys);
-               */
+                //Set the list of keys.     
+                component.set('v.keyList2', arrayMapKeys);
+            } 
+            
+       })
+        $A.enqueueAction(action1);
+    },
+     //this function is geting Sub Tech name and Score from getSubTech method in Apex Controller
+    getSubTechScore : function(component,event){
+        var action1=component.get('c.getSubTech');
+        action1.setCallback(this,function(response){
+            console.log(response.getState());
+            if(response.getState()==='SUCCESS')
+            {
+              // console.log(response.getReturnValue());
+                var arrayMapKeys = [];
+                //Store the response of apex controller (return map)     
+                var result = response.getReturnValue();
+                //Set the store response[map] to component attribute, which name is map and type is map.   
+                component.set('v.companyMap3', result);
+                 
+                for (var key in result) {
+                    arrayMapKeys.push(key);
+                }
+                //Set the list of keys.     
+                component.set('v.keyList3', arrayMapKeys);
+               
             } 
             
        })
