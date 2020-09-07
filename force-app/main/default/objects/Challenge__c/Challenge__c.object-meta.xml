@@ -143,7 +143,6 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <description>The specific task that a User would need to complete to get credit to be used for their overall score.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -154,14 +153,17 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <label>Challenge</label>
     <nameField>
         <label>Challenge Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Challenges</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Sub_Tech__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Score__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

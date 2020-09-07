@@ -143,7 +143,6 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <description>The Junction object for Challenges and User that is used to keep a record of completed challenges. Records of this object should be created when User is assigned a Stack.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -162,7 +161,11 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Completions</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Challenge__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Completed__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

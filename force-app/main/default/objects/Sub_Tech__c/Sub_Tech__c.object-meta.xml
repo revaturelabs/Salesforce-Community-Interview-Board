@@ -143,7 +143,6 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <description>The specific tech in which the challenges would be made to cover.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -161,7 +160,9 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Sub Techs</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Primary_Tech__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

@@ -143,7 +143,6 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <description>The Primary Tech to Stack assignment junction object.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -162,7 +161,10 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Stack Techs</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Stack__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Tech__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
