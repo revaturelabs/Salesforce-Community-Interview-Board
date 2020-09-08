@@ -72,6 +72,16 @@ public with sharing class QuizController {
     }
 
     @AuraEnabled
+    public static List<QuizPlayer> getPlayersSortedByAllTimeScore(
+        Integer maxFetchCount
+    ) {
+        List<User> players = playerService.getPlayersSortedByAllTimeScore(
+            maxFetchCount
+        );
+        return QuizPlayer.fromRecordListallTime(players);     
+    }
+
+    @AuraEnabled
     public static QuizSession getQuizSession() {
         Quiz_Session__c session = sessionService.getQuizSession();
         return new QuizSession(session);

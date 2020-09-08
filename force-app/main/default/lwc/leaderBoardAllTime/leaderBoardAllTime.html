@@ -1,0 +1,18 @@
+<template>
+    <h1>Leaderboard</h1>
+
+    <template if:true={error}>
+        {error}
+    </template>
+
+    <template if:false={error}>
+        <div class="leaderboard">
+            <template for:each={playerarray} for:item="user">
+                <div key={user.ID} class="slds-grid">          
+                    <span class="slds-col slds-size_2-of-3 name">{user.name}</span>
+                    <span class="slds-col slds-size_1-of-3 score">{user.TotalQuizPoints}</span>                    
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

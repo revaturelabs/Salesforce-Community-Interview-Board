@@ -2,6 +2,10 @@
     border: 0;
 }
 
+.middle {
+    margin-left: 290px;
+}
+
 .slds-card__body_inner {
     transition: background-color 1s ease;
     color: black;

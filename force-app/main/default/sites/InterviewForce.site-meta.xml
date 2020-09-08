@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>adkells11@brave-narwhal-uzmdfe.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>adkells11@brave-narwhal-uzmdfe.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>adkells11@mindful-otter-dw4v4r.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>adkells11@mindful-otter-dw4v4r.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>alecforce-developer-edition</subdomain>
+    <subdomain>ak9420-developer-edition</subdomain>
 </CustomSite>

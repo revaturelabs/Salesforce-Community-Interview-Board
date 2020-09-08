@@ -5,6 +5,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Quiz_App</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>AssociateController</apexClass>
         <enabled>false</enabled>
@@ -98,18 +103,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PlayerNameComponentController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PlayerName_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>QQDataFactory_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>QuestionCreationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -171,6 +164,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizQuestion</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizQuestionDataFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizQuestionService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -691,6 +692,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Quiz_Player__c.Score__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Quiz_Player__c.Total_Quiz_Points__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
