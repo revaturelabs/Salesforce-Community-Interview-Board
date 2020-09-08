@@ -8,7 +8,8 @@ public class FullCalendarController {
         newMeeting.Name = 'Test';
         insert newMeeting; */
         
-        return [SELECT EndDateTime__c, StartDateTime__c, Name, Google_Event_Id__c FROM Meeting__c];
+        return [SELECT EndDateTime__c, StartDateTime__c, Name, Google_Event_Id__c, Meeting_Status__c FROM Meeting__c];
+        
     }
        
 }

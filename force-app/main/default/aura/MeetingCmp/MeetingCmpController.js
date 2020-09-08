@@ -1,18 +1,18 @@
 ({
     // Makes callout to apex controller 'MeetingController' to get boolean return value
-	doInit : function(component, event, helper) {
+    doInit : function(component, event, helper) {
         helper.getActiveStack(component, event);
         let confFalse = false;
         component.set("v.confirmIsTrue", confFalse);
-		let getPerm = component.get("c.getProfilePerm");  
+        let getPerm = component.get("c.getProfilePerm");  
         getPerm.setCallback(this, function(response){
             if(response.getState() === "SUCCESS") {
-            component.set("v.AdminPerm", response.getReturnValue());
+                component.set("v.AdminPerm", response.getReturnValue());
             }
-            });
+        });
         
-       $A.enqueueAction(getPerm); 
-	},
+        $A.enqueueAction(getPerm); 
+    },
     
     // action to change update recordEditForm to a recordViewForm after the user clicks the confirm button
     confirmTrue : function(component){
@@ -35,13 +35,18 @@
             "tStack" : stack
         });
         setTime.setCallback(this, function(response){
-             if(response.getState() === "SUCCESS") {
+            if(response.getState() === "SUCCESS") {
                 let numTimeslots = response.getReturnValue();
-				alert('You successfully created ' + numTimeslots + ' timeslots!');
+                if(numTimeslots <= 0) {
+                    alert('No time slots created.');
+                }
+                else {
+                    alert('You successfully created ' + numTimeslots + ' time slots!');
+                }
                 window.location.reload(false);
             }
         });
-           $A.enqueueAction(setTime); 
+        $A.enqueueAction(setTime); 
         
         
     },
@@ -71,29 +76,33 @@
         });
         createMeeting.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
-				console.log("success");                
+                console.log("success");   
+                alert("Meeting successfully updated!");
+                window.location.reload(false);
             }
         });
         $A.enqueueAction(createMeeting);
     },
     
     setStack : function(component, event, helper) {
-    	let chosenStack = component.find("stack").get("v.value");
+        let chosenStack = component.find("stack").get("v.value");
         component.set("v.ActiveStack", chosenStack);
         console.log(chosenStack);
     }, 
     
     
     goToMeeting : function(component, event, helper) {
-		let goMeeting = component.get("c.getEvent");
-        let meetId = component.find("MeetsId").get("v.value");
+        let goMeeting = component.get("c.getEvent");
+        let meetId = component.get("v.meetingId");
+        //console.log(meetId);
         goMeeting.setParams({
             "meetingId" : meetId
         });
         goMeeting.setCallback(this, function(response){
             let meetsLink = response.getReturnValue();
+            console.log(meetsLink);
             window.open(meetsLink);
         })
         $A.enqueueAction(goMeeting);
-	}
+    }
 })

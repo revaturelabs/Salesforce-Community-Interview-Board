@@ -1,3 +1,15 @@
 .THIS .past-event {
-    background-color: gray;
+    background-color: #474C55;
+}
+
+.THIS .not-scheduled {
+    background-color: #B9B9BA;
+}
+
+.THIS .awaiting-approval {
+    background-color: #72A4C2;
+}
+
+.THIS .scheduled {
+    background-color: #F26925;
 }

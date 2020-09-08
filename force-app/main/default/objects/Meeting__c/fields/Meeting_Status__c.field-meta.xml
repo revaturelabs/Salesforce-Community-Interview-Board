@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Meeting_Status__c</fullName>
+    <deprecated>false</deprecated>
     <externalId>false</externalId>
     <label>Meeting Status</label>
     <required>true</required>
@@ -10,21 +11,6 @@
         <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
-            <value>
-                <fullName>Not Scheduled</fullName>
-                <default>true</default>
-                <label>Not Scheduled</label>
-            </value>
-            <value>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-                <label>Awaiting Approval</label>
-            </value>
-            <value>
-                <fullName>Scheduled</fullName>
-                <default>false</default>
-                <label>Scheduled</label>
-            </value>
             <value>
                 <fullName>Completed</fullName>
                 <default>false</default>
@@ -39,6 +25,27 @@
                 <fullName>Mock</fullName>
                 <default>false</default>
                 <label>Mock</label>
+            </value>
+            <value>
+                <fullName>Not Scheduled</fullName>
+                <default>false</default>
+                <label>Not Scheduled</label>
+            </value>
+            <value>
+                <fullName>Awaiting Approval</fullName>
+                <default>false</default>
+                <label>Awaiting Approval</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <label>Scheduled</label>
+            </value>
+            <value>
+                <fullName>On Schedule</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>On Schedule</label>
             </value>
         </valueSetDefinition>
     </valueSet>

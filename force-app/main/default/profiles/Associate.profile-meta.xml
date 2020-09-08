@@ -119,6 +119,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PlayerNameComponentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PlayerName_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuestionCreationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -243,6 +251,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UserStackTriggerHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Utilities</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -256,6 +268,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>completedInterviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>primaryTechButtonController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>subTechButtonController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>techDisplayController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -471,22 +495,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Challenge__c.Details__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Challenge__c.Completed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Completion__c.Completed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Completion__c.User__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -662,12 +671,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.AddQuestionVisibility__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Batch__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -675,12 +684,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Completed_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Completed__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -690,19 +699,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.EndDateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Feedback__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Google_Event_Id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -715,14 +724,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Participating_Client__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.Scheduled__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -730,14 +739,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting__c.StartDateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.Upcoming__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -753,16 +762,6 @@
         <editable>false</editable>
         <field>Question__c.Visibility__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Sub_Tech__c.Primary_Tech__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>User_Stack__c.User__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -811,12 +810,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Quiz_Session__c.Current_Question__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Sub_Tech__c.Primary_Tech__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Quiz_Session__c.Current_Question__c</field>
+        <field>User_Stack__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>
@@ -915,6 +919,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Meeting__c.Mock_Interview</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

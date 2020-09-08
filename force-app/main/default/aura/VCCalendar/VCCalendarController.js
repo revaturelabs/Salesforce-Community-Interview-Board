@@ -106,6 +106,7 @@
         var selectedMeeting = component.find("meeting id").get("v.value");
         
         component.set("v.ActiveMeeting", selectedMeeting);
+        component.set("v.MeetingId", selectedMeeting);
         
     },
     

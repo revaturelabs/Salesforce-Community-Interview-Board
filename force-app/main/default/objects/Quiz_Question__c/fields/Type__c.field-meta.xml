@@ -128,12 +128,6 @@
         <valueSettings>
             <controllingFieldValue>.NET</controllingFieldValue>
             <controllingFieldValue>Java</controllingFieldValue>
-            <controllingFieldValue>Salesforce</controllingFieldValue>
-            <valueName>Javascript</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>.NET</controllingFieldValue>
-            <controllingFieldValue>Java</controllingFieldValue>
             <valueName>Node.Js</valueName>
         </valueSettings>
         <valueSettings>

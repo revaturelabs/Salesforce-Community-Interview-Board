@@ -110,6 +110,10 @@ public with sharing class MeetingController{
       @AuraEnabled
       public static Integer createTimeslots(DateTime startTime, DateTime endTime, String tStack){
       	
+          if(startTime > endTime) {
+              return 0;
+          }
+          	
         	Integer hourLength = endTime.hour() - startTime.hour();
           	Integer minLength = (endTime.minute() - startTime.minute()) + (hourLength * 60);
           	Integer numTimeslot = minLength/60;
@@ -147,13 +151,13 @@ public with sharing class MeetingController{
     @AuraEnabled    
     public static String getEvent(String meetingId) {
         //Get Google Event ID with Query
-      //  String eId = [SELECT Google_Event_Id__c FROM Meeting__c LIMIT 1].Google_Event_Id__c;
+        String eId = [SELECT Google_Event_Id__c FROM Meeting__c WHERE Id = :meetingId].Google_Event_Id__c;
         //system.debug(eID);
         
         //HTTP Request
         request = new HTTPRequest();
         request.setMethod('GET');
-        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + meetingId);
+        request.setEndpoint('callout:GoogleAPI/calendar/v3/calendars/salesforceibvc@gmail.com/events/' + eID);
         
         //HTTP Response
         response = http.send(request);

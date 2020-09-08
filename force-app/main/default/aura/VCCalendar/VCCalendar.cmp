@@ -25,6 +25,35 @@
             </lightning:card>
         </div>
         <div class="slds-col slds-size_1-of-3 right">
+            <div class="slds-m-around_medium">
+                <div class="slds-col">
+                    <lightning:card title="Calendar Legend">
+                        <div class="slds-grid slds-grid_vertical slds-p-left_xx-large slds-m-left_xx-large">
+                            <div class="slds-size_1-of-1 slds-col ">
+                                <lightning:icon iconName="utility:custom7" alternativeText="Past" size="x-small"
+                                                title="x-small size" style="background-color:#474C55"/>
+                                <span style="margin-left:4px">Past Meetings</span><br/>
+                            </div>
+                            <div class="slds-size_1-of-1 slds-col">
+                                <lightning:icon iconName="utility:custom7" alternativeText="Not Scheduled" size="x-small"
+                                                title="x-small size" style="background-color:#B9B9BA"/>
+                                <span style="margin-left:4px">Not Scheduled</span><br/>
+                            </div>
+                            <div class="slds-size_1-of-1 slds-col">
+                                <lightning:icon iconName="utility:custom7" alternativeText="Awaiting Approval" size="x-small"
+                                                title="x-small size" style="background-color:#72A4C2"/>
+                                <span style="margin-left:4px">Awaiting Approval</span><br/>
+                            </div>
+                            <div class="slds-size_1-of-1 slds-col">
+                                <lightning:icon iconName="utility:custom7" alternativeText="Scheduled" size="x-small"
+                                                title="x-small size" style="background-color:#F26925"/>
+                                <span style="margin-left:4px">Scheduled</span><br/>
+                            </div>
+                        </div>
+                    </lightning:card>
+                </div>
+            </div>
+            
             <lightning:card class="card">
                 <div class="slds-m-horizontal--medium">
                     
@@ -34,12 +63,15 @@
                         </p>
                         <br/>
                         <aura:if isTrue="{!v.CreateMeeting}">
-                            <lightning:select name="chooseApproval" label="Choose Meeting to Approve" aura:id="approval id" value="{!v.ActiveApproval}" required="true" onchange="{!c.setApprovalMeeting}">
-                                <option value=" " >--Select--</option>
-                                <aura:iteration items="{!v.TimeSlotsAwaitingApproval}" var="option">
-                                    <option text="{!option}" value="{!option}"/>
-                                </aura:iteration>
-                            </lightning:select>
+                            <div class="slds-border_top">
+                                <br />
+                                <lightning:select name="chooseApproval" label="Choose Meeting to Approve" aura:id="approval id" value="{!v.ActiveApproval}" required="true" onchange="{!c.setApprovalMeeting}">
+                                    <option value=" " >--Select--</option>
+                                    <aura:iteration items="{!v.TimeSlotsAwaitingApproval}" var="option">
+                                        <option text="{!option}" value="{!option}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
                             <br/>
                             <p>
                                 <lightning:button label="Approve Meeting" onclick="{! c.openModal }" variant="neutral" aura:Id="CreateMeetingButton"/>
@@ -47,15 +79,19 @@
                             <br/>
                         </aura:if>
                         <aura:if isTrue="{!v.UpdateMeeting}">
-                            <lightning:select name="chooseEvent" label="Choose Event to Update" aura:id="event id" value="{!v.ActiveEvent}" required="true" onchange="{!c.setUpdateEvents}">
-                                <option value=" " >--Select--</option>
-                                <aura:iteration items="{!v.AllMeetings}" var="option">
-                                    <option text="{!option}" value="{!option}"/>
-                                </aura:iteration>
-                            </lightning:select>
+                            <div class="slds-border_top">
+                                <br />
+                                <lightning:select name="chooseEvent" label="Choose Event to Update" aura:id="event id" value="{!v.ActiveEvent}" required="true" onchange="{!c.setUpdateEvents}">
+                                    <option value=" " >--Select--</option>
+                                    <aura:iteration items="{!v.AllMeetings}" var="option">
+                                        <option text="{!option}" value="{!option}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
                             <br/>
                             <lightning:button label="Update Meeting" onclick="{! c.openModal }" variant="neutral" aura:Id="UpdateMeetingButton"/>
                             <br/>
+                            <br />
                         </aura:if>
                         <aura:set attribute="else">
                             <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.filterTimeSlots}">
@@ -74,12 +110,15 @@
                             <br/>
                         </aura:set>
                     </aura:if>
-                    <lightning:select name="chooseMeeting" label="Choose Meeting to View" aura:id="meeting id" value="{!v.ActiveMeeting}" required="true" onchange="{!c.setMeetings}">
-                        <option value=" " >--Select--</option>
-                        <aura:iteration items="{!v.AllMeetings}" var="option">
-                            <option text="{!option}" value="{!option}"/>
-                        </aura:iteration>
-                    </lightning:select>
+                    <div class="slds-border_top">
+                        <br />
+                        <lightning:select name="chooseMeeting" label="Choose Meeting to View" aura:id="meeting id" value="{!v.ActiveMeeting}" required="true" onchange="{!c.setMeetings}">
+                            <option value=" " >--Select--</option>
+                            <aura:iteration items="{!v.AllMeetings}" var="option">
+                                <option text="{!option}" value="{!option}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
                     <br/>
                     <p>
                         <lightning:button label="View Meetings" onclick="{! c.openModal }" variant="neutral" aura:Id="ViewMeetingButton"/>
@@ -115,7 +154,7 @@
                         <c:MeetingCmp CreateUpdateMeeting = "true" meetingId="{!v.MeetingId}" />
                     </aura:if>
                     <aura:if isTrue="{!v.TargetButtonId == 'ViewMeetingButton'}">
-                        <c:MeetingCmp meetingId="{!v.MeetingId}"/>
+                        <c:MeetingCmp ViewMeeting="true" meetingId="{!v.MeetingId}"/>
                     </aura:if>
                 </div>
                 <!--###### MODAL BOX FOOTER Part Start ######-->
