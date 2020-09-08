@@ -10,10 +10,22 @@ h1 {
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 1rem;
+    margin-left: 40px;
 }
 .name {
     font-size: 1rem;
     text-align: left;
     text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     animation: fadeIn 0.2s;
+
+}
+
+.namewidth{
+    width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
 }
