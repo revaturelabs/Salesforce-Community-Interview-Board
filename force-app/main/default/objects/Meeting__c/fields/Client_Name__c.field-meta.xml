@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Client_Name__c</fullName>
-    <deprecated>false</deprecated>
     <externalId>false</externalId>
     <formula>Participating_Client__r.Participant__r.FirstName + &quot; &quot; + Participating_Client__r.Participant__r.LastName+ &quot;, &quot; + &quot;Company: &quot; + Participating_Client__r.Participant__r.Account.Name</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

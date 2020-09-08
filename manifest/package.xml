@@ -174,8 +174,6 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
-		<!--members>HarnessApp</members>
-		<members>ChallangeComponent</members-->
 		<name>AuraDefinitionBundle</name>
 	</types>
 

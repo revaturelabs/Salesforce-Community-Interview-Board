@@ -507,6 +507,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Challenge__c.Completed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Challenge__c.Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1095,6 +1100,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Prerequisite__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Primary_Tech__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -1108,10 +1117,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Quiz_Player__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Prerequisite__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -1132,6 +1137,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Sub_Tech__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Synchronization</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -1662,6 +1671,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>Packaging2</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>Packaging2PromoteVersion</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
