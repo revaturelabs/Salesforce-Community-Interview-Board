@@ -83,6 +83,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FullCalendarControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GoogleCallout</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -104,6 +108,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MeetingControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MeetingControllerTestUtility</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -228,6 +240,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSettingsService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SessionController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -839,6 +855,11 @@
         <editable>true</editable>
         <field>Quiz_Session__c.Current_Question__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Quiz_Session__c.Date_and_Time__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
