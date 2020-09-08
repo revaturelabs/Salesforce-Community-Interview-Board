@@ -1,0 +1,29 @@
+.leaderboard {
+    color: black;
+    font-size: 1rem;
+    width: 300px;
+    margin: auto;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 40px;
+}
+
+.name {
+    text-align: left;
+
+
+}
+
+.score {
+    text-align: right;
+}
