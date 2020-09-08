@@ -113,10 +113,11 @@
 		<members>UserStackTriggerHelper</members>
 		<members>AssignStacksPageController</members>
 		<members>SessionController</members>
-		<!--<members></members>
-		<members></members>
-		<members></members>
-		<members></members>-->
+		<members>FullCalendarControllerTest</members>
+		<members>MeetingControllerTest</members>
+		<members>createEventsMock</members>
+		<members>getEventsMock</members>
+		<members>MeetingControllerTestUtility</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
