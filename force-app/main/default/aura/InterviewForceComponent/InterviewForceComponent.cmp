@@ -22,8 +22,8 @@
             <c:ScheduleSync/>
             <c:ManualSync/>
         </lightning:tab>
-		<!--<lightning:tab label = "ASSIGN STACK" id="seven">
+		<lightning:tab label = "ASSIGN STACK" id="seven">
             <c:AssignStacksPage/>
-        </lightning:tab>-->
+        </lightning:tab>   
     </lightning:tabset>
 </aura:component>

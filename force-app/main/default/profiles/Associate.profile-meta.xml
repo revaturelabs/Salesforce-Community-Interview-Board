@@ -11,6 +11,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AssignStacksPageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AssociateController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -124,6 +128,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PlayerName_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>    
+        <apexClass>ProfileApex</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -614,6 +622,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Location__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.MailingAddress</field>
         <readable>true</readable>
@@ -958,6 +971,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Prerequisite__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Primary_Tech__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -1000,6 +1017,10 @@
     <tabVisibilities>
         <tab>User_Stack__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Words</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>

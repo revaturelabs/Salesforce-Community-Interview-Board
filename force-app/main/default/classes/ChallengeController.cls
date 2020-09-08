@@ -91,8 +91,9 @@ public with sharing class ChallengeController {
 
     @AuraEnabled
     public static void chalComp(String chalId){
+        id userid=UserInfo.getUserId();
         chalId = (String)JSON.deserializeUntyped(chalId);
-        List<Challenge__c> ch = [SELECT Completed__c FROM Challenge__c WHERE id=:chalId];
+        List<Completion__c> ch = [SELECT Completed__c FROM Completion__c WHERE Challenge__c=:chalId AND User__c=:userid];
         ch[0].completed__c = true;
         update ch;
         
