@@ -136,6 +136,7 @@
 		<members>Quiz_Player__c</members>
 		<members>Quiz_Answer__c</members>
 		<members>Quiz_Settings__mdt</members>
+		<members>User</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
