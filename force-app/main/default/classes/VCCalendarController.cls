@@ -110,7 +110,7 @@ public without sharing class VCCalendarController {
                     
                     System.debug('Match found.');
                     meeting.Meeting_Status__c = 'Awaiting Approval';
-                    meeting.Name = 'Awaiting Approval';
+                    meeting.Name = 'Awaiting Approval' ;
                     
                     timeSlots.add(filter);
                 }

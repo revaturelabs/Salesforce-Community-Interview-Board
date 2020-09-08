@@ -13,22 +13,22 @@
     <aura:handler name="getCur" event="c:currentTechEvent" action="{!c.showCur}"/>
     <div>
         <!--This div is the primary tech involved-->
-        <div style="border-style:solid;width:106.5em;height:18em;border-color:RGB(72,76,86);border-width:medium">
+        <div style="border-style:solid;width:106.5em;height:12em;border-color:RGB(72,76,86);border-width:medium">
             <div style="border-style:solid;width:20em;height:100%;display:inline-block;border-color:RGB(72,76,86)">
-                <p style="color:RGB(242,105,38);font-size:40px;;top:2em;position:relative">Primary Tech </p>
+                <p style="color:RGB(242,105,38);font-size:30px;top:1.5em;position:relative">Primary Tech </p>
             </div>
-            <div style="width:75%;height:100%;display:inline-block;top:5em;position:relative">
+            <div style="width:75%;height:100%;display:inline-block;top:3em;position:relative">
             <aura:iteration items="{!v.primeTech}" var="item">
                 <c:primaryTechButton techPrime="{!item}"/>
             </aura:iteration>
             </div>
         </div>
         <!--This div is the related sub tech-->
-        <div style="border-style:solid;width:106.5em;height:18em;border-color:RGB(72,76,86);top:18em;border-width:medium">
-            <div style="border-style:solid;width:20em;height:18em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
-                <p style="color:RGB(242,105,38);font-size:40px;top:1em;position:relative">Related Sub Tech </p>
+        <div style="border-style:solid;width:106.5em;height:12em;border-color:RGB(72,76,86);top:18em;border-width:medium">
+            <div style="border-style:solid;width:20em;height:12em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
+                <p style="color:RGB(242,105,38);font-size:30px;top:1.5em;position:relative">Related Sub Tech </p>
             </div>
-            <div style="width:75%;display:inline-block;left:20.2em;top:6.5em;position:relative;">
+            <div style="width:75%;display:inline-block;left:20.2em;top:3em;position:relative;">
                 <aura:if isTrue="{!v.clickedTwo}">
                     <aura:iteration items="{!v.subTech}" var="key">
                         <c:subTechButton sTech="{!key}"/>
@@ -38,9 +38,9 @@
             </div>
         </div>
         <!--This div is the related challenges-->
-        <div style="border-style:solid;width:106.5em;height:25em;border-color:RGB(72,76,86);border-width:medium">
-            <div style="border-style:solid;width:20em;height:25em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
-                <p style="color:RGB(242,105,38);font-size:40px;top:2em;position:relative">Related Challenges </p>
+        <div style="border-style:solid;width:106.5em;height:18em;border-color:RGB(72,76,86);border-width:medium">
+            <div style="border-style:solid;width:20em;height:18em;display:inline-block;position:absolute;border-color:RGB(72,76,86)">
+                <p style="color:RGB(242,105,38);font-size:30px;top:3em;position:absolute">Related Challenges </p>
             </div>
             <div style="width:75%;position:absolute;left:20.2em">
                 <aura:if isTrue="{!v.clicked}">

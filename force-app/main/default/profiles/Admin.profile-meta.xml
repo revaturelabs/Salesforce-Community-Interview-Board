@@ -3,7 +3,7 @@
     <applicationVisibilities>
         <application>Interview_Board_Administration</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Quiz_App</application>
@@ -732,6 +732,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting__c.Interviewer_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting__c.Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -842,12 +847,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>User_Stack__c.User__c</field>
+        <field>User.Total_Quiz_Points__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>    
-        <field>User.Total_Quiz_Points__c</field>
+        <editable>true</editable>
+        <field>User_Stack__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>
@@ -1087,7 +1092,7 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Administration</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Challenge__c</tab>

@@ -12,6 +12,7 @@
     <aura:attribute name="CreateUpdateMeeting" type="Boolean" default="False"/>
     <aura:attribute name="startTime" type="DateTime"/>
     <aura:attribute name="endTime" type="DateTime"/>
+    <aura:attribute name="intName" type="String"/>
     <aura:attribute name="AllStacks" type="String[]"/>
     <aura:attribute name="ActiveStack" type="String"/>
     
@@ -25,6 +26,7 @@
                     <lightning:outputField fieldName="Meeting_Status__c"/>
                     <lightning:outputField fieldName="StartDateTime__c"/>
                     <lightning:outputField fieldName="EndDateTime__c"/>
+                    <lightning:outputField fieldName="Interviewer_Name__c"/>
                     <lightning:outputField fieldName="Google_Event_Id__c"/>
                     <lightning:button name="GoToMeeting" label="Go to Google Meets Room" onclick="{!c.goToMeeting}"/>
                 </div>
@@ -41,6 +43,7 @@
                         <lightning:inputField filedName="Stack__c"/>
                         <lightning:inputField fieldName="StartDateTime__c" aura:id="StartAvailability"/>
                         <lightning:inputField fieldName="EndDateTime__c" aura:id="EndAvailability"/> 
+                        <lightning:inputField fieldName="Interviewer_Name__c" aura:id="InterviewerName"/>
                         <lightning:inputField fieldName="Notes__c"/>
                     </div>
                     <lightning:button class="slds-m-top_small" label="Create Meeting" type="submit" onclick="{!c.createGoogleMeets}"/>
@@ -61,7 +64,8 @@
                     <br/>
                     <p>Please enter in the Start Time and End Time in one hour intervals. </p> 
                     <lightning:input type="datetime" name="StartAvailability" aura:id="StartAvail" label="Set Start Availability" value="{!v.startTime}"/>
-                    <lightning:input type="datetime" name="EndAvailability" aura:id="EndAvail" label="Set End Availability" value="{!v.endTime}"/>           
+                    <lightning:input type="datetime" name="EndAvailability" aura:id="EndAvail" label="Set End Availability" value="{!v.endTime}"/> 
+                    <lightning:input type="string" name="InterviewerName" aura:id="intName" label="Interviewer Name" value="{!v.intName}"/>
                 </div>
                 <lightning:button class="slds-m-top_small" label="Confirm Time" onclick="{!c.confirmTimeslot}"/>
             </aura:if>
@@ -77,6 +81,7 @@
                             <lightning:inputField fieldName="Stack__c"/>
                             <lightning:inputField fieldName="StartDateTime__c" aura:id="StartAvailability"/>
                             <lightning:inputField fieldName="EndDateTime__c" aura:id="EndAvailability"/>
+                            <lightning:inputField fieldName="Interviewer_Name__c" aura:id="InterviewerName"/>
                             <lightning:inputField fieldName="Notes__c"/>
                         </div>
                         <lightning:button class="slds-m-top_small" label="Confirm Interview" type="submit" onclick="{!c.createGoogleMeets}"/>

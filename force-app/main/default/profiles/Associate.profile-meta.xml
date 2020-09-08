@@ -130,7 +130,7 @@
         <apexClass>PlayerName_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>    
+    <classAccesses>
         <apexClass>ProfileApex</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -727,6 +727,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting__c.Interviewer_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting__c.Location__c</field>
         <readable>true</readable>
@@ -838,12 +843,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>User_Stack__c.User__c</field>
+        <field>User.Total_Quiz_Points__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>User.Total_Quiz_Points__c</field>
+        <field>User_Stack__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>

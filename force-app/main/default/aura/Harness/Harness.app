@@ -2,7 +2,7 @@
     <!--<c:FullCalendar/>
     <c:MeetingCmp/>
     <c:VCCalendar/>-->
-    <!-- <c:VCCalendar /> -->
+     <c:VCCalendar /> 
     <!-- <c:MeetingCmp /> -->
-    <c:FullCalendar />
+   <!-- <c:FullCalendar />-->
 </aura:application>

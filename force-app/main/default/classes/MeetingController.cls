@@ -14,14 +14,14 @@ public with sharing class MeetingController{
     
     
     @AuraEnabled 
-    public static void createEvent(String meetId, String sum, DateTime startDate, DateTime endDate) {
+    public static void createEvent(String intName, String meetId, String sum, DateTime startDate, DateTime endDate) {
         //Debug
         system.debug(sum);
         system.debug(endDate);
         system.debug(startDate);
         
         //Assign the meeting name
-        String Summary = '"summary": "' + sum + '"';
+        String Summary = '"summary": "' + sum + ' | ' + intName + '"';
         system.debug(Summary);
         
         //Format the Start DateTime
@@ -80,7 +80,7 @@ public with sharing class MeetingController{
             Meeting__c m = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name, Meeting_Status__c FROM Meeting__c WHERE id = :meetId];
             
             m.Google_Event_Id__c = eID;
-            m.Meeting_Status__c = 'Scheduled';
+            m.Meeting_Status__c = 'Scheduled'  + ' | ' + intName;
             m.EndDateTime__c = EndDate;
             m.StartDateTime__c = startDate;
             m.name= sum;
@@ -108,7 +108,7 @@ public with sharing class MeetingController{
     
     //Method assumes user will always pick the same day for both start time and end time
       @AuraEnabled
-      public static Integer createTimeslots(DateTime startTime, DateTime endTime, String tStack){
+      public static Integer createTimeslots( String intName, DateTime startTime, DateTime endTime, String tStack){
       	
           if(startTime > endTime) {
               return 0;
@@ -123,10 +123,11 @@ public with sharing class MeetingController{
               system.debug(i);
               Meeting__c newMeeting = new Meeting__c();
               newMeeting.Meeting_Status__c = 'Not Scheduled';
-              newMeeting.Name = 'Available Time Slot';
+              newMeeting.Name = 'Available Time Slot' + ' | ' + intName;
               newMeeting.Stack__c = tStack;
               newMeeting.StartDateTime__c = startTime;
  			  newMeeting.EndDateTime__c = startTime.addHours(1);
+              newMeeting.Interviewer_Name__c = intName;
               startTime = startTime.addHours(1);
               timeslotList.add(newMeeting);
           }

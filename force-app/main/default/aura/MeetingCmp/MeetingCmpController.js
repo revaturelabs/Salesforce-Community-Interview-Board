@@ -25,6 +25,7 @@
     confirmTimeslot : function(component, event, helper){
         let confirmStart = component.find("StartAvail").get("v.value");
         let confirmEnd = component.find("EndAvail").get("v.value");
+        let confirmIntName = component.find("intName").get("v.value");
         let stack = component.get("v.ActiveStack");        
         console.log(stack);
         
@@ -32,7 +33,8 @@
         setTime.setParams({
             "startTime" : confirmStart,
             "endTime" : confirmEnd,
-            "tStack" : stack
+            "tStack" : stack,
+            "intName" : confirmIntName
         });
         setTime.setCallback(this, function(response){
             if(response.getState() === "SUCCESS") {
@@ -58,6 +60,9 @@
         let sumMeet = component.find("Name");//.get("v.value");
         sumMeet = Array.isArray(sumMeet) ? sumMeet[0].get("v.value") : sumMeet.get("v.value");
         
+        let interviewerName = component.find("InterviewerName");//.get("v.value");
+        interviewerName = Array.isArray(interviewerName) ? interviewerName[0].get("v.value") : interviewerName.get("v.value");
+        
         let startDateMeet = component.find("StartAvailability");//.get("v.value");
         startDateMeet = Array.isArray(startDateMeet) ? startDateMeet[0].get("v.value") : startDateMeet.get("v.value");
         
@@ -68,11 +73,13 @@
         console.log(sumMeet);
         console.log(startDateMeet);
         console.log(endDateMeet);
+        console.log(interviewerName);
         createMeeting.setParams({
             "meetId" : meetId,
             "sum" : sumMeet,
             "startDate" : startDateMeet,
             "endDate" : endDateMeet,
+            "intName" : interviewerName,
         });
         createMeeting.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
