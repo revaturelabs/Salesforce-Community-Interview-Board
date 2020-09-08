@@ -24,9 +24,6 @@
                 <fullName>Scheduled</fullName>
                 <default>false</default>
                 <label>Scheduled</label>
-                <fullName>On Schedule</fullName>
-                <default>true</default>
-                <label>On Schedule</label>
             </value>
             <value>
                 <fullName>Completed</fullName>
@@ -42,24 +39,6 @@
                 <fullName>Mock</fullName>
                 <default>false</default>
                 <label>Mock</label>
-            </value>
-            <value>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Awaiting Approval</label>
-            </value>
-            <value>
-                <fullName>Not Scheduled</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Not Scheduled</label>
-            </value>
-            <value>
-                <fullName>Scheduled</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Scheduled</label>
             </value>
         </valueSetDefinition>
     </valueSet>
