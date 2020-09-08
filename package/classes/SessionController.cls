@@ -5,7 +5,7 @@ public with sharing class SessionController {
     public static List<Quiz_Session__c> getSessions(String searchKey) {
         if (String.isBlank(searchKey)) {
          
-            return [SELECT Id,Date_and_Time__c, sfqz__Phase__c, Current_Question__r.Id, Current_Question__r.Stack__c  FROM Quiz_Session__c WHERE Date_and_Time__c = TODAY ORDER BY Date_and_Time__c];
+            return [SELECT Id,Date_and_Time__c, Phase__c, Current_Question__r.Id, Current_Question__r.Stack__c  FROM Quiz_Session__c WHERE Date_and_Time__c = TODAY ORDER BY Date_and_Time__c];
 
     }
     else {

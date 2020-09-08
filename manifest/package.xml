@@ -61,6 +61,7 @@
 		<members>QuizSession</members>
 		<members>QuizQuestionService</members>
 		<members>QuizQuestionDataFactory</members>
+		<members>SessionController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

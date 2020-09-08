@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>sfqz__Current_Question__c</fullName>
+    <fullName>Current_Question__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <deprecated>false</deprecated>
     <externalId>false</externalId>
     <label>Current Question</label>
-    <referenceTo>sfqz__Quiz_Question__c</referenceTo>
+    <referenceTo>Quiz_Question__c</referenceTo>
     <relationshipLabel>Sessions</relationshipLabel>
     <relationshipName>Quiz_Sessions</relationshipName>
     <required>false</required>
