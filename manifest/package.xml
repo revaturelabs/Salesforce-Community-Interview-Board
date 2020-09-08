@@ -112,6 +112,11 @@
 		<members>techDisplayController</members>
 		<members>UserStackTriggerHelper</members>
 		<members>AssignStacksPageController</members>
+		<members>SessionController</members>
+		<!--<members></members>
+		<members></members>
+		<members></members>
+		<members></members>-->
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -231,6 +236,7 @@
 		<members>Mock_Interview_Flow</members>
 		<members>Link_User_to_Players</members>
 		<members>Associate_Player_with_User</members>
+		<members>Question_Creation</members>
 		<name>Flow</name>
 	</types>
 
@@ -312,11 +318,11 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
-	<types>
+	<!--<types>
   		<members>Challenge_Layout</members>
   		<members>User_Stack_Layout</members>
   		<members>Sub_Tech_Layout</members>
  		<name>PageLayouts</name>
-	</types>
+	</types>-->
 	<version>48.0</version>
 </Package>
