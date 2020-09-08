@@ -123,7 +123,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>PlayerNameComponentController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -136,8 +135,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-=======
->>>>>>> origin/2007--Quiz-App-Testing
         <apexClass>QuestionCreationController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -840,16 +837,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
         <field>Sub_Tech__c.Primary_Tech__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User_Stack__c.User__c</field>
-=======
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>    
         <field>User.Total_Quiz_Points__c</field>
->>>>>>> origin/2007--Quiz-App-Testing
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>

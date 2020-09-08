@@ -128,15 +128,12 @@
         <valueSettings>
             <controllingFieldValue>.NET</controllingFieldValue>
             <controllingFieldValue>Java</controllingFieldValue>
-<<<<<<< HEAD
-=======
             <controllingFieldValue>Salesforce</controllingFieldValue>
             <valueName>JavaScript</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>.NET</controllingFieldValue>
             <controllingFieldValue>Java</controllingFieldValue>
->>>>>>> origin/2007--Quiz-App-Testing
             <valueName>Node.Js</valueName>
         </valueSettings>
         <valueSettings>
