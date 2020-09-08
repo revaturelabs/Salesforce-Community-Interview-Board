@@ -3,8 +3,8 @@ public with sharing class QuizEditorController {
     private static final QuizSessionService sessionService = new QuizSessionService();
 
     @AuraEnabled(cacheable=true)
-    public static List<QuizQuestion> getAllQuestions() {
-        List<Quiz_Question__c> questions = questionService.getQuestions();
+    public static List<QuizQuestion> getAllQuestions(String stack) {
+        List<Quiz_Question__c> questions = questionService.getQuestions(stack);
         return QuizQuestion.fromRecordList(questions);
     }
 

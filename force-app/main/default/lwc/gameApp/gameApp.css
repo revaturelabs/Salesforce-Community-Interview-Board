@@ -2,6 +2,10 @@
     border: 0;
 }
 
+.middle {
+    margin-left: 290px;
+}
+
 .slds-card__body_inner {
     transition: background-color 1s ease;
     color: black;
@@ -24,7 +28,7 @@
 }
 
 .bg-Registration {
-    background-color: #ea7600;
+    background-color: #F26925;
 }
 .bg-PreQuestion {
     background-color: #ebbc48;

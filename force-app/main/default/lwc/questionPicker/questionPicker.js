@@ -1,18 +1,57 @@
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api, wire, track } from 'lwc';
+import { getPicklistValues, getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import setSessionQuestions from '@salesforce/apex/QuizEditorController.setSessionQuestions';
 import getSessionQuestionIds from '@salesforce/apex/QuizEditorController.getSessionQuestionIds';
 import getAllQuestions from '@salesforce/apex/QuizEditorController.getAllQuestions';
+import QUESTION_OBJECT from '@salesforce/schema/Quiz_Question__c';
+import QUESTION_STACK from '@salesforce/schema/Quiz_Question__c.Stack__c';
 
 export default class QuestionPicker extends LightningElement {
     @api recordId;
+    @track pickListvalues;
+    @track values;
+    @track error;
+    @track recordtypeidqstn;
+    @track stackChoice;
 
     allQuestions = [];
     selectedQuestionIds = [];
     isSaving = false;
     isDirty = false;
 
-    @wire(getAllQuestions)
+    @wire(getObjectInfo, {
+        objectApiName : QUESTION_OBJECT
+    })
+    getObjectdata({ data, error }){
+        if(data){
+            this.recordtypeidqstn = data.defaultRecordTypeId;
+        }
+        else if(error) {
+            this.error =  error;
+        }
+    }
+
+    @wire(getPicklistValues, {
+        recordTypeId : '$recordtypeidqstn',
+        fieldApiName : QUESTION_STACK
+    })
+    wiredPickListValue({ data, error }){
+        if(data){
+            this.pickListvalues = data.values;
+            this.error = undefined;
+        }
+        if(error){
+            console.log(` Error while fetching Picklist values  ${error}`);
+            this.error = error;
+            this.pickListvalues = undefined;
+        }
+    }
+
+
+    @wire(getAllQuestions, {
+        stack : '$stackChoice'
+    })
     getAllQuestions({ data, error }) {
         if (data) {
             this.allQuestions = data.map((question) => ({
@@ -113,6 +152,11 @@ export default class QuestionPicker extends LightningElement {
                 variant
             })
         );
+    }
+
+    handleChange(event) {
+        this.stackChoice = event.detail.value;
+        console.log(this.stackChoice);
     }
 
     get isLoading() {
