@@ -1,0 +1,34 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+:host {
+    font-size: 1.5rem;
+}
+.winner-stats {
+    animation: fadeIn 0.5s;
+}
+h1 {
+    margin-bottom: 1rem;
+}
+h1,
+.winner-name,
+.large {
+    font-size: 2rem;
+}
+.winner-name {
+    margin: 1rem;
+}
+.winner-name span {
+    color: #ffffff;
+    background: #ea7600;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
+.slds-icon {
+    fill: black;
+}
