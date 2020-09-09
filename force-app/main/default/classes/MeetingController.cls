@@ -80,10 +80,11 @@ public with sharing class MeetingController{
             Meeting__c m = [SELECT id, Google_Event_Id__c, EndDateTime__c, StartDateTime__c, Name, Meeting_Status__c FROM Meeting__c WHERE id = :meetId];
             
             m.Google_Event_Id__c = eID;
-            m.Meeting_Status__c = 'Scheduled'  + ' | ' + intName;
+            //m.Meeting_Status__c = 'Scheduled'  + ' | ' + intName;
+            m.Meeting_Status__c = 'Scheduled';
             m.EndDateTime__c = EndDate;
             m.StartDateTime__c = startDate;
-            m.name= sum;
+            m.name= sum + '|' + intName;
             update m;
         }
         catch(Exception e) {

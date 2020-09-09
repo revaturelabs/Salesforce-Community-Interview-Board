@@ -28,26 +28,28 @@
             <div class="slds-m-around_medium">
                 <div class="slds-col">
                     <lightning:card title="Calendar Legend">
-                        <div class="slds-grid slds-grid_vertical slds-p-left_xx-large slds-m-left_xx-large">
-                            <div class="slds-size_1-of-1 slds-col ">
-                                <lightning:icon iconName="utility:custom7" alternativeText="Past" size="x-small"
-                                                title="x-small size" style="background-color:#474C55"/>
-                                <span style="margin-left:4px">Past Meetings</span><br/>
-                            </div>
-                            <div class="slds-size_1-of-1 slds-col">
-                                <lightning:icon iconName="utility:custom7" alternativeText="Not Scheduled" size="x-small"
-                                                title="x-small size" style="background-color:#B9B9BA"/>
-                                <span style="margin-left:4px">Not Scheduled</span><br/>
-                            </div>
-                            <div class="slds-size_1-of-1 slds-col">
-                                <lightning:icon iconName="utility:custom7" alternativeText="Awaiting Approval" size="x-small"
-                                                title="x-small size" style="background-color:#72A4C2"/>
-                                <span style="margin-left:4px">Awaiting Approval</span><br/>
-                            </div>
-                            <div class="slds-size_1-of-1 slds-col">
-                                <lightning:icon iconName="utility:custom7" alternativeText="Scheduled" size="x-small"
-                                                title="x-small size" style="background-color:#F26925"/>
-                                <span style="margin-left:4px">Scheduled</span><br/>
+                        <div class="slds-align_absolute-center">
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-size_1-of-1 slds-col ">
+                                    <lightning:icon iconName="utility:custom7" alternativeText="Past" size="x-small"
+                                                    title="x-small size" style="background-color:#474C55"/>
+                                    <span style="margin-left:4px">Past Meetings</span><br/>
+                                </div>
+                                <div class="slds-size_1-of-1 slds-col">
+                                    <lightning:icon iconName="utility:custom7" alternativeText="Not Scheduled" size="x-small"
+                                                    title="x-small size" style="background-color:#B9B9BA"/>
+                                    <span style="margin-left:4px">Not Scheduled</span><br/>
+                                </div>
+                                <div class="slds-size_1-of-1 slds-col">
+                                    <lightning:icon iconName="utility:custom7" alternativeText="Awaiting Approval" size="x-small"
+                                                    title="x-small size" style="background-color:#72A4C2"/>
+                                    <span style="margin-left:4px">Awaiting Approval</span><br/>
+                                </div>
+                                <div class="slds-size_1-of-1 slds-col">
+                                    <lightning:icon iconName="utility:custom7" alternativeText="Scheduled" size="x-small"
+                                                    title="x-small size" style="background-color:#F26925"/>
+                                    <span style="margin-left:4px">Scheduled</span><br/>
+                                </div>
                             </div>
                         </div>
                     </lightning:card>
