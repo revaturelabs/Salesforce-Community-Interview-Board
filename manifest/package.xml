@@ -50,14 +50,15 @@
 		<members>BatchListControllerTest</members>
 		<members>ChallengeController</members>
 		<members>completedInterviewController</members>
-		<members>createEventsMock</members>
+		<members>createEventMock</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
 		<members>FullCalendarController</members>
 		<members>FullCalendarControllerTest</members>
-		<members>getEventsMock</members>
+		<members>GoogleCallout</members>
+		<members>getEventMock</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>

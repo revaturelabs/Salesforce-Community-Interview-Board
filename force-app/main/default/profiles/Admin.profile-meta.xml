@@ -87,6 +87,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GoogleCallout</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -292,6 +296,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>completedInterviewController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>createEventMock</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>getEventMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
