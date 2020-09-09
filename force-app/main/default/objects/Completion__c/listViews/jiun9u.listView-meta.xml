@@ -2,6 +2,9 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>jiun9u</fullName>
     <columns>NAME</columns>
+    <columns>Completed__c</columns>
+    <columns>Challenge__c</columns>
+    <columns>User__c</columns>
     <filterScope>Everything</filterScope>
     <label>j</label>
 </ListView>

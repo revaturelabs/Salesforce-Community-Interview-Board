@@ -23,6 +23,7 @@
     <tabs>Quiz_Player__c</tabs>
     <tabs>Quiz_Question__c</tabs>
     <tabs>Quiz_Session__c</tabs>
+    <tabs>Agenda</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Quiz_UtilityBar1</utilityBar>
 </CustomApplication>

@@ -55,6 +55,8 @@
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
+		<members>DataFactorySessions</members>
+		<members>SessionController</members>
 		<members>FullCalendarController</members>
 		<members>FullCalendarControllerTest</members>
 		<members>GoogleCallout</members>
@@ -100,6 +102,26 @@
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
 		<members>QuizQuestionService</members>
+		<members>QuizAbstractDataServiceTest</members>
+		<members>QuizAnswerRestResourceTest</members>
+		<members>QuizAnswerServiceTest</members>
+		<members>QuizAnswerTriggerHelperTest</members>
+		<members>QuizControllerTest</members>
+		<members>QuizEditorControllerTest</members>
+		<members>QuizPlayerServiceTest</members>
+		<members>QuizPlayerStatsRestResourceTest</members>
+		<members>QuizPlayerTest</members>
+		<members>QuizPostInstallScriptTest</members>
+		<members>QuizQuestionServiceTest</members>
+		<members>QuizQuestionTest</members>
+		<members>QuizSessionHelperScoreTest</members>
+		<members>QuizSessionHelperTest</members>
+		<members>QuizSessionTest</members>
+		<members>QuizSessionTestFactory</members>
+		<members>QuizSessionTriggerHelperTest</members>
+		<members>QuizSettingsServiceTest</members>
+		<members>QuizSettingsTest</members>
+		<members>QuizTestUtils</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
