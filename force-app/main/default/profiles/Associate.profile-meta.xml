@@ -87,10 +87,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GoogleCallout</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -144,6 +140,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ProfileApex</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QQDataFactory_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

@@ -35,6 +35,7 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
+		<members>AssignStacksPageController</members>
 		<members>AssociateController</members>
 		<members>AssociateControllerTest</members>
 		<members>AssociateInfoController</members>
@@ -42,50 +43,44 @@
 		<members>AssociateMeetingController</members>
 		<members>AssociateMeetingsControllerTest</members>
 		<members>AssociateMockInterviewsController</members>
-		<members>AssociateMockInterviewsController</members>
+		<members>associateInterviewController</members>
 		<members>BatchClientCreationController</members>
 		<members>BatchClientCreationTest</members>
 		<members>BatchClientlistContoller</members>
 		<members>BatchListControllerTest</members>
+		<members>ChallengeController</members>
+		<members>completedInterviewController</members>
+		<members>createEventsMock</members>
 		<members>CreateMeetingApexCont</members>
 		<members>CreateMeetingApexContTest</members>
 		<members>CreateMockInterviewController</members>
 		<members>CreateMockInterviewControllerTest</members>
 		<members>FullCalendarController</members>
-		<members>GoogleCallout</members>
-		<members>GoogleCallout</members>
+		<members>FullCalendarControllerTest</members>
+		<members>getEventsMock</members>
 		<members>InterviewQuestions</members>
 		<members>InterviewQuestionsTest</members>
 		<members>MeetingAssignmentController</members>
 		<members>MeetingAssignmentControllerTest</members>
 		<members>MeetingController</members>
 		<members>MeetingListController</members>
+		<members>MeetingControllerTest</members>
+		<members>MeetingControllerTestUtility</members>
 		<members>MockInterviewQuestionPoolController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
+		<members>ProfileApex</members>
+		<members>primaryTechButtonController</members>
+		<members>PlayerNameComponentController</members>
+		<members>PlayerName_Test</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>QuestionPoolApexController</members>
 		<members>QuestionPoolApexControllerTest</members>
-		<members>SyncCalloutMock</members>
-		<members>SyncController</members>
-		<members>SyncControllerTest</members>
-		<members>SyncSchedule</members>
-		<members>SyncScheduleTest</members>
-		<members>SyncUtilityClass</members>
-		<members>SyncUtitlityTest</members>
-		<members>Utilities</members>
-		<members>Utilities</members>
-		<members>Utilities</members>
-		<members>VCCalendarController</members>
-		<members>associateInterviewController</members>
-		<members>completedInterviewController</members>
-		<members>Utilities</members>
 		<members>QuizQuestionDataFactory</members>
-		<members>PlayerNameComponentController</members>
-		<members>PlayerName_Test</members>
 		<members>QuizAbstractDataService</members>
+		<members>QQDataFactory_Test</members>
 		<members>QuizAnswer</members>
 		<members>QuizAnswerRestResource</members>
 		<members>QuizAnswerService</members>
@@ -103,21 +98,22 @@
 		<members>QuizSettings</members>
 		<members>QuizSettingsService</members>
 		<members>QuizSession</members>
-		<members>ChallengeController</members>
 		<members>QuizQuestionService</members>
-		<members>QuizQuestionDataFactory</members>
-		<members>ProfileApex</members>
-		<members>primaryTechButtonController</members>
-		<members>subTechButtonController</members>
-		<members>techDisplayController</members>
-		<members>UserStackTriggerHelper</members>
-		<members>AssignStacksPageController</members>
 		<members>SessionController</members>
-		<members>FullCalendarControllerTest</members>
-		<members>MeetingControllerTest</members>
-		<members>createEventsMock</members>
-		<members>getEventsMock</members>
-		<members>MeetingControllerTestUtility</members>
+		<members>subTechButtonController</members>
+		<members>SyncCalloutMock</members>
+		<members>SyncController</members>
+		<members>SyncControllerTest</members>
+		<members>SyncSchedule</members>
+		<members>SyncScheduleTest</members>
+		<members>SyncUtilityClass</members>
+		<members>SyncUtitlityTest</members>
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
+		<members>techDisplayController</members>
+		<members>Utilities</members>
+		<members>UserStackTriggerHelper</members>
+		<members>VCCalendarController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -183,56 +179,46 @@
 		<members>AssignStacksPage</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
-
 	<types>
 		<members>Google_Connect</members>
 		<name>AuthProvider</name>
 	</types>
-
 	<types>
 		<members>Internal Zone</members>
 		<name>Community</name>
 	</types>
-
 	<types>
 		<members>IBCloud</members>
 		<name>ContentAsset</name>
 	</types>
-
 	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
 		<name>CustomApplication</name>
 	</types>
-
 	<types>
 		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Meeting__c.Stack__c</members>
 		<name>CustomField</name>
 	</types>
-
 	<types>
 		<members>AdminPermission</members>
 		<name>CustomPermission</name>
 	</types>
-
 	<types>
 		<members>InterviewForce</members>
 		<name>CustomSite</name>
 	</types>
-
 	<types>
 		<members>*</members>
 		<name>CustomTab</name>
 	</types>
-
 	<types>
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
 		<name>EmailTemplate</name>
 	</types>
-
 	<types>
 		<members>Mock_Interview_Flow</members>
 		<members>Link_User_to_Players</members>
@@ -240,28 +226,23 @@
 		<members>Question_Creation</members>
 		<name>Flow</name>
 	</types>
-
 	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
-
 	<types>
 		<members>GoogleAPI</members>
 		<name>NamedCredential</name>
 	</types>
-
 	<types>
 		<members>InterviewForce</members>
 		<name>Network</name>
 	</types>
-
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Profile</name>
 	</types>
-
 	<types>
 		<members>Account.Batch</members>
 		<members>Account.Client</members>
@@ -276,29 +257,24 @@
 		<members>Metric.Progress</members>
 		<name>RecordType</name>
 	</types>
-
 	<types>
 		<members>Google</members>
 		<name>RemoteSiteSetting</name>
 	</types>
-
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Role</name>
 	</types>
-	
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-
 	<types>
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<name>Workflow</name>
 	</types>
-
 	<types>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate</members>
 		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
@@ -306,12 +282,10 @@
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
 		<name>WorkflowAlert</name>
 	</types>
-
 	<types>
 		<members>Meeting__c.Finalize_Meeting_Completion</members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
-
 	<types>
 		<members>Meeting_Participant__c.Associate Feedback</members>
 		<members>Meeting_Participant__c.Client interview notification</members>
