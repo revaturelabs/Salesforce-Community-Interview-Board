@@ -317,11 +317,5 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
-	<!--<types>
-  		<members>Challenge_Layout</members>
-  		<members>User_Stack_Layout</members>
-  		<members>Sub_Tech_Layout</members>
- 		<name>PageLayouts</name>
-	</types>-->
 	<version>48.0</version>
 </Package>
