@@ -127,6 +127,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MeetingUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewQuestionPoolController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -196,6 +200,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizAnswerTriggerHelpTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -356,6 +364,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SyncUtitlityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataCreation</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataCreationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

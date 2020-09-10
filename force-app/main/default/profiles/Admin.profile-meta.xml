@@ -127,6 +127,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MeetingUtility</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewQuestionPoolController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -196,6 +200,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerServiceTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizAnswerTriggerHelpTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -356,6 +364,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SyncUtitlityTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataCreation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataCreationTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -949,9 +965,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quiz_Session__c.Date_and_Time__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

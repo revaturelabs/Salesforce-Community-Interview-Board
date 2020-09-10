@@ -105,7 +105,7 @@
 		<members>QuizAbstractDataServiceTest</members>
 		<members>QuizAnswerRestResourceTest</members>
 		<members>QuizAnswerServiceTest</members>
-		<members>QuizAnswerTriggerHelperTest</members>
+		<members>QuizAnswerTriggerHelpTest</members>
 		<members>QuizControllerTest</members>
 		<members>QuizEditorControllerTest</members>
 		<members>QuizPlayerServiceTest</members>
@@ -131,8 +131,9 @@
 		<members>SyncScheduleTest</members>
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>
+		<!--<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>-->
+		<members>MeetingUtility</members>
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
