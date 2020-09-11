@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@cunning-panda-i0cxub.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>christopherbrefo@cunning-panda-i0cxub.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>christopherbrefo@wise-impala-u9sz32.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>christopherbrefo@wise-impala-u9sz32.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>08192020b-developer-edition</subdomain>
 </CustomSite>
