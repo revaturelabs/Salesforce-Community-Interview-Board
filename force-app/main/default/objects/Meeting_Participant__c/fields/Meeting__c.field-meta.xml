@@ -6,7 +6,7 @@
     <referenceTo>Meeting__c</referenceTo>
     <relationshipLabel>Meeting Participants</relationshipLabel>
     <relationshipName>Meeting_Participants</relationshipName>
-    <relationshipOrder>0</relationshipOrder>
+    <relationshipOrder>1</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>

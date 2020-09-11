@@ -27,8 +27,8 @@ public class AssociateMeetingsControllerTest {
             Meeting__c[] meets = new Meeting__c[]{};
                 Integer x = 3;
             For(Integer i=0; i < x; i++){
-                meets.add(new Meeting__c(Name = 'Test Non-Mock Interview ' + (i+1), RecordTypeId = nonMock,Scheduled__c = System.today()+ 3));
-                meets.add(new Meeting__c(Name = 'Test Mock Interview ' + (i+1), RecordTypeId =mock));
+                meets.add(new Meeting__c(Name = 'Test Non-Mock Interview ' + (i+1), RecordTypeId = nonMock,Scheduled__c = System.today()+ 3, Meeting_Status__c = 'Completed'));
+                meets.add(new Meeting__c(Name = 'Test Mock Interview ' + (i+1), RecordTypeId =mock, Meeting_Status__c = 'Completed'));
                 meets.add(new Meeting__c(Name = 'Test Past Interview Batch ' + (i+1), RecordTypeId = pastIntBatch, Scheduled__c = System.today() -3,Meeting_Status__c = 'Completed'));
                 meets.add(new Meeting__c(Name = 'Test Past Interview 1-1 ' + (i+1), RecordTypeId =pastInt11, Scheduled__c = System.today() -3,Meeting_Status__c = 'Completed'));
             }
@@ -112,8 +112,8 @@ public class AssociateMeetingsControllerTest {
             Meeting__c[] meets = new Meeting__c[]{};
                 Integer x = 3;
             For(Integer i=0; i < x; i++){
-                meets.add(new Meeting__c(Name = 'Test Non-Mock Interview ' + (i+1), RecordTypeId = nonMock,Scheduled__c = System.today()+ 3));
-                meets.add(new Meeting__c(Name = 'Test Mock Interview ' + (i+1), RecordTypeId =mock));
+                meets.add(new Meeting__c(Name = 'Test Non-Mock Interview ' + (i+1), RecordTypeId = nonMock,Scheduled__c = System.today()+ 3, Meeting_Status__c = 'Completed'));
+                meets.add(new Meeting__c(Name = 'Test Mock Interview ' + (i+1), RecordTypeId =mock, Meeting_Status__c = 'Completed'));
                 meets.add(new Meeting__c(Name = 'Test Past Interview Batch ' + (i+1), RecordTypeId = pastIntBatch, Scheduled__c = System.today() -3,Meeting_Status__c = 'Completed'));
                 meets.add(new Meeting__c(Name = 'Test Past Interview 1-1 ' + (i+1), RecordTypeId =pastInt11, Scheduled__c = System.today() -3,Meeting_Status__c = 'Completed'));
             }
@@ -166,6 +166,6 @@ public class AssociateMeetingsControllerTest {
         
         Test.stopTest();
         //Check If the Controller Performs As Expected
-        System.assertEquals(7, pastInterviews.size());
+        System.assertEquals(13, pastInterviews.size());
     }
 }

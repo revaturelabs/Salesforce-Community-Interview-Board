@@ -1,0 +1,56 @@
+<aura:component controller="ProfileApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="UserName" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- first 2 attributes are used to store and display stack,next 2 for primary tech and last 2 is for sub tech -->
+     <aura:attribute name="keyList" type="List"/>
+    <aura:attribute name="companyMap" type="map"/>
+    
+     <aura:attribute name="keyList2" type="List"/>
+    <aura:attribute name="companyMap2" type="map"/>
+    
+     <aura:attribute name="keyList3" type="List"/>
+    <aura:attribute name="companyMap3" type="map"/>
+   
+   
+    
+    <lightning:card title="{!v.UserName}" iconName="action:user">
+         <!--div class="slds-grid slds-theme-default slds-container-small slds-container-center">
+             <span>UserName:{!v.UserName}</span>
+        </div-->
+    <div class="slds-grid slds-gutters">
+  		<div class="slds-col">
+            <span class="header">Stack</span>
+             <p>------------------</p>
+    			 <aura:iteration items="{!v.keyList}" var="key" >
+       				 <c:ChildComponent map="{!v.companyMap}" key="{!key}"/>
+    			</aura:iteration>
+  		</div>
+  		<div class="slds-col">
+             <span class="header">Primary Tech</span>
+            <p>---------------------------</p>
+    			<aura:iteration items="{!v.keyList2}" var="key" >
+        				<c:ChildComponent map="{!v.companyMap2}" key="{!key}"/>
+    			</aura:iteration>
+  		</div>
+  		<div class="slds-col">
+             <span class="header">Sub Tech</span>
+             <p>-----------------------</p>
+    			<aura:iteration items="{!v.keyList3}" var="key" >
+        			<c:ChildComponent map="{!v.companyMap3}" key="{!key}"/>
+    			</aura:iteration>
+  		</div>
+         <div class="slds-col">
+    		<span></span>
+ 		 </div>
+         <div class="slds-col">
+    		<span></span>
+ 		 </div>
+	</div>
+        
+        
+         
+         
+    </lightning:card>
+    
+</aura:component>

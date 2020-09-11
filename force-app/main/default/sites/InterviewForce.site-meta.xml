@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>jonathan.stew.hooper@creative-shark-jx0azy.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>jonathan.stew.hooper@creative-shark-jx0azy.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>christopherbrefo@cunning-panda-i0cxub.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>christopherbrefo@cunning-panda-i0cxub.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>dh070820-developer-edition</subdomain>
+    <subdomain>08192020b-developer-edition</subdomain>
 </CustomSite>

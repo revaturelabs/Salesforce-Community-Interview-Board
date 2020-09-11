@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="cur" type="Challenge__c[]"/>
+    <aura:attribute name="comp" type="Completion__c[]"/>
+</aura:event>
