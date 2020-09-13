@@ -17,9 +17,20 @@
             <fullName>Mock</fullName>
             <default>false</default>
         </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stack__c</picklist>
         <values>
-            <fullName>On Schedule</fullName>
-            <default>true</default>
+            <fullName>%2ENET</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Java</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salesforce</fullName>
+            <default>false</default>
         </values>
     </picklistValues>
 </RecordType>

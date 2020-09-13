@@ -1,0 +1,34 @@
+<aura:component controller='GoogleCallout'>
+    
+    <aura:attribute name='G_Event_Id' type='String'/>
+    <aura:attribute name='fields' type='String[]' default="['Name', 'EndDateTime__c', 'StartDateTime__c']"/>
+    <aura:attribute name='recordId' type='String'/>
+    <aura:attribute name='EndDateTime' type='DateTime'/>
+    <aura:attribute name='StartDateTime' type='DateTime'/>
+    <aura:attribute name='Name' type='String'/>
+    <ui:button label='Go to Meeting' press='{!c.onClick}' />
+    <form class = 'slds-firn--stacked'>
+        <lightning:input type="String" name="Name" aura:id="Name" label="Name" />
+        <lightning:input type="DateTime" name="startAvailability" aura:id="StartAvailability" label="Set Start Availability" />
+        <lightning:input type="DateTime" name="endAvailability" aura:id="EndAvailability" label="Set End Availability"/>
+    	<button class="slds-button slds-button_neutral" onclick="{! c.handleOnSubmit }">Submit</button>
+
+    </form>
+    
+    <lightning:recordEditForm recordId='a034W00000VMiwTQAT' objectApiName='Meeting__c'>
+        <lightning:outputfield fieldName='Name'/>
+        <lightning:inputfield fieldName='Google_Event_Id__c' aura:id='EID'/>
+        <lightning:inputfield fieldName='Name' aura:id='editName'/>
+        <lightning:inputfield fieldName='StartDateTime__c' aura:id='editStartAvailability'/>
+        <lightning:inputfield fieldName='EndDateTime__c' aura:id='editEndAvailability'/>
+        
+         <lightning:button
+            class="slds-m-top_small"
+            variant="brand"
+            type="submit"
+            name="update"
+            label="Update">
+        </lightning:button>
+        <button class="slds-button slds-button_neutral" onclick="{! c.handleUpdate }">Submit</button>
+    </lightning:recordEditForm>
+</aura:component>

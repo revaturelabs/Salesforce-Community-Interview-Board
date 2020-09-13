@@ -25,6 +25,11 @@
                 <default>false</default>
                 <label>.NET</label>
             </value>
+            <value>
+                <fullName>Pop Culture</fullName>
+                <default>false</default>
+                <label>Pop Culture</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

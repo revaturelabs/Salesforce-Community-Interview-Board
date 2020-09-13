@@ -1,0 +1,92 @@
+<aura:component controller="MeetingController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <!-- Upon initialization of page, calls JS controller to execute 'doInit' function -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="AdminPerm" type="Boolean" default="False"/>
+    <aura:attribute name="confirmIsTrue" type="Boolean" default="False"/>
+    <aura:attribute name="idExists" type="Boolean" default="False"/>
+    <aura:attribute name="meetingId" type="String"/>
+    <aura:attribute name="ViewMeeting" type="Boolean" default="False" />
+    <aura:attribute name="CreateTimeSlot" type="Boolean" default="False"/>
+    <aura:attribute name="CreateNewMeeting" type="Boolean" default="False"/>
+    <aura:attribute name="CreateUpdateMeeting" type="Boolean" default="False"/>
+    <aura:attribute name="startTime" type="DateTime"/>
+    <aura:attribute name="endTime" type="DateTime"/>
+    <aura:attribute name="intName" type="String"/>
+    <aura:attribute name="AllStacks" type="String[]"/>
+    <aura:attribute name="ActiveStack" type="String"/>
+    
+    <!-- Displays recordViewForm if user does not have Admin Profile so that user cannot edit Meeting info -->
+    <lightning:card>
+        <aura:if isTrue="{!and(and(or(v.AdminPerm, !v.AdminPerm), v.meetingId!=null), v.ViewMeeting)}">
+            <lightning:recordViewForm recordId="{!v.meetingId}" objectApiName="Meeting__c">
+                <div class="slds-col">
+                    <lightning:outputField fieldName="Name"/>
+                    <lightning:outputField fieldName="Stack__c"/>
+                    <lightning:outputField fieldName="Meeting_Status__c"/>
+                    <lightning:outputField fieldName="StartDateTime__c"/>
+                    <lightning:outputField fieldName="EndDateTime__c"/>
+                    <lightning:outputField fieldName="Interviewer_Name__c"/>
+                    <lightning:outputField fieldName="Google_Event_Id__c"/>
+                    <lightning:button name="GoToMeeting" label="Go to Google Meets Room" onclick="{!c.goToMeeting}"/>
+                </div>
+            </lightning:recordViewForm>
+        </aura:if>
+        
+        <!-- Displays recordEditForm if user has the admin Profile and CreateNewMeeting is true so that user can edit Meeting info aka they are an interviewer -->
+        <aura:if isTrue="{!v.CreateNewMeeting}">
+            <aura:if isTrue="{!v.AdminPerm}">
+                <lightning:recordEditForm objectApiName="Meeting__c" recordId="{!v.meetingId}">
+                    <div class="slds-col">
+                        <lightning:inputField fieldName="Name" aura:id="Name"/>
+                        <lightning:outputField fieldName="Meeting_Status__c"/>
+                        <lightning:inputField filedName="Stack__c"/>
+                        <lightning:inputField fieldName="StartDateTime__c" aura:id="StartAvailability"/>
+                        <lightning:inputField fieldName="EndDateTime__c" aura:id="EndAvailability"/> 
+                        <lightning:inputField fieldName="Interviewer_Name__c" aura:id="InterviewerName"/>
+                        <lightning:inputField fieldName="Notes__c"/>
+                    </div>
+                    <lightning:button class="slds-m-top_small" label="Create Meeting" type="submit" onclick="{!c.createGoogleMeets}"/>
+                </lightning:recordEditForm>
+            </aura:if>
+        </aura:if> 
+        
+        <!-- Displays recordEditForm if user has the admin Profile and CreateTimeslot is true so that a user can create new timeslots for interviews -->
+        <aura:if isTrue="{!v.CreateTimeSlot}">
+            <aura:if isTrue="{!v.AdminPerm}">
+                <div class="row">
+                    <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack" value="{!v.ActiveStack}" required="true" onchange="{!c.setStack}">
+                        <option value=" " >--Select--</option>
+                        <aura:iteration items="{!v.AllStacks}" var="option">
+                            <option text="{!option}" value="{!option}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                    <br/>
+                    <p>Please enter in the Start Time and End Time in one hour intervals. </p> 
+                    <lightning:input type="datetime" name="StartAvailability" aura:id="StartAvail" label="Set Start Availability" value="{!v.startTime}"/>
+                    <lightning:input type="datetime" name="EndAvailability" aura:id="EndAvail" label="Set End Availability" value="{!v.endTime}"/> 
+                    <lightning:input type="string" name="InterviewerName" aura:id="intName" label="Interviewer Name" value="{!v.intName}"/>
+                </div>
+                <lightning:button class="slds-m-top_small" label="Confirm Time" onclick="{!c.confirmTimeslot}"/>
+            </aura:if>
+        </aura:if>
+        
+        <!-- Displays recordEditForm if user has the admin Profile so that user can edit Meeting info aka they are an interviewer -->
+        <aura:if isTrue="{!v.CreateUpdateMeeting}">
+                <aura:if isTrue="{!v.AdminPerm}">
+                    <lightning:recordEditForm recordId="{!v.meetingId}" objectApiName="Meeting__c">
+                        <div class="slds-col">
+                            <lightning:inputField fieldName="Name" aura:id="Name"/>
+                            <lightning:inputField fieldName="Meeting_Status__c"/>
+                            <lightning:inputField fieldName="Stack__c"/>
+                            <lightning:inputField fieldName="StartDateTime__c" aura:id="StartAvailability"/>
+                            <lightning:inputField fieldName="EndDateTime__c" aura:id="EndAvailability"/>
+                            <lightning:inputField fieldName="Interviewer_Name__c" aura:id="InterviewerName"/>
+                            <lightning:inputField fieldName="Notes__c"/>
+                        </div>
+                        <lightning:button class="slds-m-top_small" label="Confirm Interview" type="submit" onclick="{!c.createGoogleMeets}"/>
+                    </lightning:recordEditForm>
+                </aura:if>
+            </aura:if>
+    </lightning:card>
+</aura:component>

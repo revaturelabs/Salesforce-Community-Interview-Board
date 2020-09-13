@@ -1,0 +1,17 @@
+<template>
+    <h1>Players{playerCount}</h1>
+
+    <template if:true={error}>
+        {error}
+    </template>
+
+    <template if:false={error}>
+        <div class="namewidth">
+            <template for:each={playerNames} for:item="playerName">
+                <div key={playerName} class="name">
+                    {playerName}
+                </div>
+            </template>
+        </div>
+    </template>
+</template>
