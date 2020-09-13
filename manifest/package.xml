@@ -291,6 +291,10 @@
 		<name>Role</name>
 	</types>
 	<types>
+		<members>InterviewForce1</members>
+		<name>SiteDotCom</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>

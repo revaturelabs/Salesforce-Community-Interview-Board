@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@wise-impala-u9sz32.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>christopherbrefo@wise-impala-u9sz32.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>christopherbrefo@curious-bear-guxb1p.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>christopherbrefo@curious-bear-guxb1p.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>08192020b-developer-edition</subdomain>
 </CustomSite>
