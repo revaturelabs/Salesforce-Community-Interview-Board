@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@curious-bear-guxb1p.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>christopherbrefo@curious-bear-guxb1p.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>08192020b-developer-edition</subdomain>
 </CustomSite>
