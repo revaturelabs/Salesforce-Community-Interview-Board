@@ -32,6 +32,7 @@
 		<members>Quiz_Answer__c</members>
 		<members>Prerequisite__c</members>
 		<members>User</members>
+		<members>Question_Response__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
