@@ -21,10 +21,9 @@
     <masterLabel>InterviewForce</masterLabel>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
-    <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
     <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>08192020b-developer-edition</subdomain>
+    <subdomain>8th-2020y-project-3-developer-edition</subdomain>
 </CustomSite>

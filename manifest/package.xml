@@ -159,6 +159,7 @@
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>CreateMockPanel</members>
 		<members>EmptyComponentEvent</members>
 		<members>FlowClose</members>
 		<members>FlowHost</members>
