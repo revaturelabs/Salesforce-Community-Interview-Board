@@ -57,6 +57,29 @@ public class CreateMockInterviewControllerTest {
                           alias= 'Test', TimeZoneSidKey='America/New_York', LocaleSidKey='en_US',
                           EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
         insert u;*/
+        
+        //For test created by Paul on 10/30/2020
+        List<Question__c> getQuestions = new List<Question__c>();
+        for(Integer i=0; i < 100; i++) {
+            Integer mod = Math.mod(i, 3);
+        	Question__c quest = new Question__c();
+            switch on mod {
+                when 0 {
+                	quest.Stack__c='Salesforce';
+                	quest.Type__c='Apex';
+                }
+                when 1 {
+                    quest.Stack__c='Salesforce';
+                    quest.type__c='Visualforce';
+                }
+                when 2 {
+                    quest.Stack__c='Salesforce';
+                    quest.type__c='JavaScript';
+                }
+            }
+            getQuestions.add(quest);
+        }
+        insert getQuestions;
     }
 
     @isTest
@@ -113,5 +136,38 @@ public class CreateMockInterviewControllerTest {
         System.assertEquals(testResult[0], results[0]);
         System.assertEquals(testResult[1], results[1]);
         System.assertEquals(testResult[2], results[2]);
+    }
+
+    //Test created by Paul Robertson to test method getNumQuestionListByTopic was successful on 10/30/2020
+    @isTest
+    public static void getNumQuestionListByTopicTest(){
+        User testUser = [SELECT Id FROM User WHERE Username = 'p.kirk.robert@creative-koala-g803bo.com'];
+        System.runAs(testUser) {
+        	Map<String, Integer> testNumQuestByTop = new Map<String, Integer>();
+        	testNumQuestByTop.put('Visualforce', 5);
+        	testNumQuestByTop.put('JavaScript', 3);
+        	testNumQuestByTop.put('Apex', 4);
+            List<Question__c> testPanelQuest = CreateMockInterviewController.getNumQuestionListByTopic(testNumQuestByTop);
+            Integer aCount = 0;
+            Integer vCount = 0;
+            Integer jCount = 0;
+            Integer totCount = 0;
+            for (Question__c tQ : testPanelQuest) {
+                if(tQ.type__c=='Apex') {
+                    aCount++;
+                }
+                if(tQ.type__c=='Visualforce') {
+                    vCount++;
+                }
+                if(tQ.type__c=='JavaScript') {
+                    jCount++;
+                }
+                totCount++;
+            }
+            System.assertEquals(5, vCount);
+            System.assertEquals(4, aCount);
+            System.assertEquals(3, jCount);
+            System.assertEquals(12, totCount);
+        } 
     }
 }

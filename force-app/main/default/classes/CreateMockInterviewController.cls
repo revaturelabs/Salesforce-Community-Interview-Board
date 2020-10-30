@@ -91,7 +91,6 @@ public without sharing class CreateMockInterviewController {
     public static Map<String,List<String>> getTypePicklistValues() {
         return Utilities.getTypePicklistValues();
     }
-<<<<<<< HEAD
 
         
     //added by Paul on 10/29/2020
@@ -120,16 +119,6 @@ public without sharing class CreateMockInterviewController {
             questionTopics.add(s);
         }
         
-        /*Ignore this section of commented out code for now
-        
-        for(String questionTopics : filterPanel.keyset()) {
-            Integer numPanelQuestions = filterPanel.get(questionTopics);
-        }
-            Integer panelRemainder = Math.mod(numQuestions, filter.size()); filter.size doesn't apply
-            System.debug(remainder);
-            Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
-            System.debug(dividend);
-            */
 
             //Creates a map of the selected topics and related questions
             Map<String, List<Question__c>> panel_QListMap = new Map<String, List<Question__c>>();
@@ -141,7 +130,7 @@ public without sharing class CreateMockInterviewController {
             }
 
             //The outer for loop iterates through a list of questions where the type is a string in the set<> question topics 
-            //previous gen code for getting list of questions by topics but fuck themand their methods something about
+            //previous gen code for getting list of questions by topics but fuck them and their methods something about
             //this seems like it won't work for our situation
             /*
             for (Question__c q : [SELECT Body__c,Name, Type__c FROM Question__c WHERE type__c IN :questionTopics]) {
@@ -151,6 +140,7 @@ public without sharing class CreateMockInterviewController {
                     }
                 }
             }
+            
             */
 
             //This for loop should iterate through our set of questionTopics and grabs all the questions from that topic
@@ -195,54 +185,12 @@ public without sharing class CreateMockInterviewController {
                     
                 
             }
-            /*
-            Is used for the remainder when you are dividing the questions equally which does not apply to this panel code    
-                for(Integer i=0; i<remainder; i++){
-                    questionLocation=Math.floor(Math.random() * qListMap.get(filter[i]).size()).intValue();
-                    outputList.add(qListMap.get(filter[i])[questionLocation]);
-                    qListMap.get(filter[i]).remove(questionLocation);
-                }
-            */
+
         //Returns our question bank sorted by topic with a specific number of questions
         return panelOutputList;
     }
 
-    //Since we don't currently plan to use panel_session objects to create a panel session this 
-    //doesn't seem to be necessary
-    /*
-    @AuraEnabled
-    public static void CreateMockPanelSession(Map<String, Integer> filterPanel) {
-        List<Question__c> panelQuestionsToBeAdded = new List<Question__c>();
-        ID userId = System.UserInfo.getUserId();
-        System.debug(userId);
-        //return userId;
-       // Id userId = '0053h000003gNSiAAM' contact id = 0033h000009tdoyAAA;
-       User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
-       system.debug(userContactId);
-       panelQuestionsToBeAdded = CreateMockInterviewController.getNumQuestionListByTopic(filterPanel);
-       Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
 
-       Integer x = [SELECT Count() FROM Meeting__c WHERE recordTypeId=:recordTypeId];
-       x+=1;
-
-       Meeting__c mockInterview = new Meeting__c(Name=  'Mock interview #' + x + ' with ' +numQuestions+' questions',
-                                                   Meeting_Status__c='Mock',
-                                                   RecordTypeId=recordTypeId);
-       Database.SaveResult savedInterview = Database.insert(mockInterview);
-       Id interviewId = savedInterview.getId();
-       Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
-                                                                    Participant__c = userContactId.ContactId);
-       insert meetParti;
-           List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
-           for (Question__c q : questionsToBeAdded) {
-               Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
-                                                                               Question__c=q.Id);
-               interviewQuestions.add(addedQuestion);
-       }
-       insert interviewQuestions;              
-   }
-   */
-=======
     
     @AuraEnabled
     public static List<Integer> getNumberOfQuestionType(List<String> filter) {
@@ -262,5 +210,4 @@ public without sharing class CreateMockInterviewController {
         }
         return result;
     }
->>>>>>> 354902e1367f19d28ba22babd157cab8c7f10968
 }
