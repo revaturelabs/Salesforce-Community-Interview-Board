@@ -91,6 +91,7 @@ public without sharing class CreateMockInterviewController {
     public static Map<String,List<String>> getTypePicklistValues() {
         return Utilities.getTypePicklistValues();
     }
+<<<<<<< HEAD
 
         
     //added by Paul on 10/29/2020
@@ -241,4 +242,25 @@ public without sharing class CreateMockInterviewController {
        insert interviewQuestions;              
    }
    */
+=======
+    
+    @AuraEnabled
+    public static List<Integer> getNumberOfQuestionType(List<String> filter) {
+        List<Integer> result = new List<Integer>();
+        for(Integer i = 0; i < filter.size(); i++) {
+            result.add(0);
+        }
+        for(Question__c a : [SELECT Id, type__c FROM Question__c WHERE type__c=:filter]) {
+            for(Integer i = 0; i < filter.size(); i++) {
+                if(a.type__c == filter[i]) {
+                    result[i] += 1;
+                }
+            }
+        }
+        for(Integer i = 0 ; i < result.size(); i++) {
+            System.debug(filter[i] + ' : ' +result[i]);
+        }
+        return result;
+    }
+>>>>>>> 354902e1367f19d28ba22babd157cab8c7f10968
 }
