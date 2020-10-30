@@ -5,12 +5,10 @@
     <aura:attribute name="TypeMap" type="Map"/>
     <aura:attribute name="ActiveStack" type="String"/>
     <aura:attribute name="val" type="integer" default="20" />
-    <aura:attribute name="numberOfQuestions" type="List"/>
     <aura:attribute name="default" type="List"/>
     <aura:attribute name="display" type="List"/>
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-    <aura:registerEvent name="UpdateList" type="c:UpdateMockInterviewList"/>
-    
+    <aura:registerEvent name="UpdateList" type="c:UpdateMockPanelList"/>
     
     <lightning:card>
         
@@ -43,8 +41,8 @@
                     <div class="slds-scrollable" style="height: 245px">
                         <aura:iteration items="{!v.display}" var="data" indexVar="index">
                             <div class="slds-list_horizontal">
-                                <lightning:input type="number" class="slds-size_small" label="{!data.name}" min="1" name="{!index}" value="{!data.number}" onchange="{!c.setValue}" step="1"/>
-                                <h1>{!data.max}</h1>
+                                <lightning:input type="number" class="slds-size_small" label="{!data.name}" name="{!index}" value="{!data.number}" onblur="{!c.setValue}" step="1"/>
+                                <h1 class="slds-text-heading_medium" style="margin-top: 28px">MAX: {!data.max}</h1>
                             </div>
                         </aura:iteration>
                     </div>

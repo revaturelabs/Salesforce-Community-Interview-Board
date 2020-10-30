@@ -1,66 +1,56 @@
 ({
-	transformData : function(component){
-        let reportIdsList = component.get("v.default");
-        let reportNamesList = component.get("v.numberOfQuestions");
-        let result = [];
-        
-         for(let i = 0; i< reportIdsList.length; i=i+1){
-             result.push({
-                 name : reportIdsList[i],
-                 number : reportNamesList[i],
-                 max : 0
-             });
-         }
-        console.log(result);
-        component.set("v.display", result);
-        this.grabLimit(component);
-    },
     setNewValue : function(component, event) {
-    	// Retrieve Name, Index, and Value from the input
+    	// Retrieve Name, Index, and Value from the event input
         let name = event.getSource().get("v.label");
         let index = parseInt(event.getSource().get("v.name"));
         let newValue = parseInt(event.getSource().get("v.value"));
         
-        // Retrieve the Map<String, Integer> and List<Integer>
+        // Retrieve the Map<String, Integer>, List<Integer>, and List<Object>
         let result = component.get("v.RightSideTypes");
-        let numberOfQuestions = component.get("v.numberOfQuestions");
         let displayValue = component.get("v.display");
         
-        // If number is lower than 1, set it to 1.
-        if(newValue < 1) {
-            numberOfQuestions[index] = 1;
-        }else if(newValue < displayValue[index]["max"]){
-            numberOfQuestions[index] = newValue;
+        // If value is higher than max then set to max. If value is less than 1, set to 1.
+        // Otherwise set to value.
+        if(newValue > displayValue[index]["max"]) {
+            result.set(name, parseInt(displayValue[index]["max"]));
+            displayValue[index]["number"] = parseInt(displayValue[index]["max"]);
+        }else if(newValue < 1) {
+            result.set(name, 1);
+            displayValue[index]["number"] = 1;
         }else {
-            numberOfQuestions[index] = displayValue[index]["max"];
+            result.set(name, newValue);
+            displayValue[index]["number"] = newValue;
         }
-        
+       
         // Store results
-        result.set(name, parseInt(numberOfQuestions[index]));
-        component.set("v.numberOfQuestions", numberOfQuestions);
-        component.set("v.RightSideTypes", result);
-        
-        // Refresh display
-        this.transformData(component);
+        component.set("v.RightSideTypes", result);   
+        component.set("v.display", displayValue);
 	},
     setListValues : function (component, listValues) {
+        // Grab the Map<String, Integer> mapping and create new Map and Integer.
         let result = component.get("v.RightSideTypes");
         let newMap = new Map();
         let newInteger = [];
-        // Iterate through value from selection and add changes based on value.
-        // If old value from map remains, save their number to new map or set to 0.
+        
+        // Iterate through List<String> listValues
         for(let i = 0; i < listValues.length; i++) {
+            // If it exist in old Map, then add the value store in old Map to new Map.
+            // Otherwise create a new (key, value) pair and store in new Map.
             if(result.get(listValues[i])) {
                 newMap.set(listValues[i], result.get(listValues[i]));
             }else {
                 newMap.set(listValues[i], 1);
             }
-            newInteger.push(newMap.get(listValues[i]));
+            newInteger.push({
+                 name : listValues[i],
+                 number : newMap.get(listValues[i]),
+                 max : 0
+             });
         }
         component.set("v.RightSideTypes", newMap);
-		component.set("v.numberOfQuestions", newInteger);
+		component.set("v.display", newInteger);
         // Refresh display
-        this.transformData(component);
+        this.grabLimit(component);
     },
     grabLimit : function(component) {
         let action = component.get("c.getNumberOfQuestionType");
