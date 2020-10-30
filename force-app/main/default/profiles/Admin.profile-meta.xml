@@ -6,6 +6,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Panel_Administration</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Quiz_App</application>
         <default>false</default>
         <visible>true</visible>
@@ -140,6 +145,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MockInterviewsListControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PanelQuestionController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1259,6 +1268,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>PanelAdministration</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Prerequisite__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -1846,6 +1859,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>Packaging2Delete</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>Packaging2PromoteVersion</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
