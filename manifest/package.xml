@@ -75,6 +75,8 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
+		<members>PanelQuestionCreation</members>
+		<members>PanelQuestionController</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -202,6 +204,7 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
+		<members>PanelForceComponent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -219,6 +222,7 @@
 	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
+		<members>Panel_Administration</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>

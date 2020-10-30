@@ -22,8 +22,13 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>qwilliamsv@resourceful-bear-n234xe.com</siteAdmin>
     <siteGuestRecordDefaultOwner>qwilliamsv@resourceful-bear-n234xe.com</siteGuestRecordDefaultOwner>
+=======
+    <siteAdmin>james.conry@empathetic-raccoon-bv8qnj.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>james.conry@empathetic-raccoon-bv8qnj.com</siteGuestRecordDefaultOwner>
+>>>>>>> 015ece6b43567ba45b4713bb79dfe895022405cd
     <siteType>ChatterNetwork</siteType>
     <subdomain>henryproject3-developer-edition</subdomain>
 </CustomSite>
