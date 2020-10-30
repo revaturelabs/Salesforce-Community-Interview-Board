@@ -93,7 +93,7 @@ public without sharing class CreateMockInterviewController {
     }
 
         
-//added by Paul on 10/29/2020
+    //added by Paul on 10/29/2020
 
     //Method specific to the CreateMockPanel aura component for selecting a specified number of questions
     //at random from each selected topic.
@@ -112,7 +112,12 @@ public without sharing class CreateMockInterviewController {
 
         //method for iterating through maps 
         //filterPanel.keyset creates a set of the keys in our map<key,value> pair that we can iterate through to grab the number of panel questions
-        Set<String> questionTopics = filterPanel.keyset();  
+        Set<String> questionTop = filterPanel.keyset(); 
+        List<String> questionTopics = new List<String>();
+        
+        for(String s : questionTop) {
+            questionTopics.add(s);
+        }
         
         /*Ignore this section of commented out code for now
         
@@ -174,11 +179,12 @@ public without sharing class CreateMockInterviewController {
                 while(counter<numPanelQuestions){          //While the counter is less than numPanelQuestions
                 //if (listItemCounter<dividend) {        this line counts until the number of questions is not applicable to us 
                     //Choose a random number for the question location 
-                    questionLocation=Math.floor(Math.random() * panel_QListMap.get(filterPanel[whichList]).size()).intValue();
+                    //for panel_QListMap.get the filter panel must be type list
+                    questionLocation=Math.floor(Math.random() * panel_QListMap.get(questionTopics[whichList]).size()).intValue();
                     //Adds the random question to the output list 
-                    panelOutputList.add(panel_QListMap.get(filterPanel[whichList])[questionLocation]);
+                    panelOutputList.add(panel_QListMap.get(questionTopics[whichList])[questionLocation]);
                     //Removes the question so it is no repeats are added
-                    panel_QListMap.get(filter[whichList]).remove(questionLocation);
+                    panel_QListMap.get(questionTopics[whichList]).remove(questionLocation);
                     //listItemCounter++;
                     counter++;
                 }
