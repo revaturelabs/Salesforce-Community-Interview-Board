@@ -3,6 +3,7 @@
         let reportIdsList = component.get("v.default");
         let reportNamesList = component.get("v.numberOfQuestions");
         let result = [];
+        
          for(let i = 0; i< reportIdsList.length; i=i+1){
              result.push({
                  name : reportIdsList[i],
