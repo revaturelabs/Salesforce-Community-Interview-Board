@@ -102,8 +102,7 @@ public without sharing class CreateMockInterviewController {
     //key-value pairs
 
     @AuraEnabled
-    public static List<Question__c> getNumQuestionListByTopic(Map<String, Integer> filterPanel){
-        
+    public static List<Question__c> getNumQuestionListByTopic(List<Map<String, Object>> filterPanel){
         //Exits the function if the there are no key value pairs and returns no questions
         if(filterPanel.isEmpty()== true) {
             List<Question__c> emptyPanelList= new List<Question__c>();
@@ -112,13 +111,31 @@ public without sharing class CreateMockInterviewController {
 
         //method for iterating through maps 
         //filterPanel.keyset creates a set of the keys in our map<key,value> pair that we can iterate through to grab the number of panel questions
-        Set<String> questionTop = filterPanel.keyset(); 
+        //Set<String> questionTop = filterPanel.keyset(); 
         List<String> questionTopics = new List<String>();
+        List<Integer> topicNumber = new List<Integer>();
         
-        for(String s : questionTop) {
-            questionTopics.add(s);
+        //for(String s : questionTop) {
+        //    questionTopics.add(s);
+        //}
+        for(Map<String, Object> a : filterPanel) {
+            questionTopics.add(String.valueOf(a.get('name')));
+            topicNumber.add(Integer.valueOf(a.get('number')));
         }
+<<<<<<< HEAD
         
+=======
+        /*Ignore this section of commented out code for now
+        
+        for(String questionTopics : filterPanel.keyset()) {
+            Integer numPanelQuestions = filterPanel.get(questionTopics);
+        }
+            Integer panelRemainder = Math.mod(numQuestions, filter.size()); filter.size doesn't apply
+            System.debug(remainder);
+            Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
+            System.debug(dividend);
+            */
+>>>>>>> c37883c0285387c7ba2fa63a38adaea2dd08fde9
 
             //Creates a map of the selected topics and related questions
             Map<String, List<Question__c>> panel_QListMap = new Map<String, List<Question__c>>();
@@ -163,10 +180,9 @@ public without sharing class CreateMockInterviewController {
             Integer questionLocation;
             
             
-            for(String qT : filterPanel.keyset()) {
-                //grabs the integer value of the number of questions for a specific topic
-                Integer numPanelQuestions = filterPanel.get(qT); 
-                
+            for(Integer numPanelQuestions : topicNumber) {
+                counter = 0;
+                //grabs the integer value of the number of questions for a specific topic                
                 while(counter<numPanelQuestions){          //While the counter is less than numPanelQuestions
                 //if (listItemCounter<dividend) {        this line counts until the number of questions is not applicable to us 
                     //Choose a random number for the question location 
@@ -191,9 +207,30 @@ public without sharing class CreateMockInterviewController {
     }
 
 
+<<<<<<< HEAD
+=======
+       Meeting__c mockInterview = new Meeting__c(Name=  'Mock interview #' + x + ' with ' +numQuestions+' questions',
+                                                   Meeting_Status__c='Mock',
+                                                   RecordTypeId=recordTypeId);
+       Database.SaveResult savedInterview = Database.insert(mockInterview);
+       Id interviewId = savedInterview.getId();
+       Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
+                                                                    Participant__c = userContactId.ContactId);
+       insert meetParti;
+           List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
+           for (Question__c q : questionsToBeAdded) {
+               Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
+                                                                               Question__c=q.Id);
+               interviewQuestions.add(addedQuestion);
+       }
+       insert interviewQuestions;              
+   }
+   */
+>>>>>>> c37883c0285387c7ba2fa63a38adaea2dd08fde9
     
     @AuraEnabled
     public static List<Integer> getNumberOfQuestionType(List<String> filter) {
+        System.debug(filter);
         List<Integer> result = new List<Integer>();
         for(Integer i = 0; i < filter.size(); i++) {
             result.add(0);
@@ -205,9 +242,7 @@ public without sharing class CreateMockInterviewController {
                 }
             }
         }
-        for(Integer i = 0 ; i < result.size(); i++) {
-            System.debug(filter[i] + ' : ' +result[i]);
-        }
+
         return result;
     }
 }

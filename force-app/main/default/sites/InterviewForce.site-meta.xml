@@ -22,15 +22,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD
-    <siteAdmin>	p.kirk.robert@creative-koala-g803bo.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>p.kirk.robert@creative-koala-g803bo.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>henrytakizawa10014@cunning-fox-8nxt8p.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>henrytakizawa10014@cunning-fox-8nxt8p.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>creative-koala-g803bo-dev-ed</subdomain>
-=======
-    <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
-    <siteType>ChatterNetwork</siteType>
-    <subdomain>8th-2020y-project-3-developer-edition</subdomain>
->>>>>>> 354902e1367f19d28ba22babd157cab8c7f10968
+    <subdomain>henryproject3-developer-edition</subdomain>
 </CustomSite>

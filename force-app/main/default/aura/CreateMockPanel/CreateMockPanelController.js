@@ -41,18 +41,18 @@
     },
 
     createMockPanelJS : function(component, event, helper) {
-        var action = component.get("c.getNumQuestionListByTopic");
-        var rightTypes = component.get("v.RightSideTypes");
-        
-        action.setParams({"filterPanel" : rightTypes});
+        let action = component.get("c.getNumQuestionListByTopic");
+        let rightTypes = component.get("v.display");
+        let listResult = [];
+        for(let i = 0; i < rightTypes.length; i++) {
+            listResult.push({ "name" : rightTypes[i]['name'], "number" : rightTypes[i]['number'] });
+        }
+        action.setParams({"filterPanel" : listResult});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
-                var UpdateList = $A.get("e.c:UpdateMockInterviewList");
-                console.log(UpdateList);
+                var UpdateList = $A.get("e.c:UpdateMockPanelList");
+                UpdateList.setParams({"questions" : response.getReturnValue()});
                 UpdateList.fire();
-                console.log("Created Mock Panel");
-                console.log(response.getReturnValue());
-                location.reload();
             } else {
                 console.log("An error has occured.");
             }
