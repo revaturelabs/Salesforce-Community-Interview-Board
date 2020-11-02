@@ -203,6 +203,7 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
+		<members>UpdateMockPanelList</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
