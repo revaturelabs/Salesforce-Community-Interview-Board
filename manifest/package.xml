@@ -190,6 +190,7 @@
 		<members>TestComp</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>UpdateMockPanelList</members>
 		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
