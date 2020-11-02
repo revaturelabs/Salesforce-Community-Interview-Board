@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global">
+
+    <!--Attribute which determines if create mock panel component or create mock interview component renders-->
+    <aura:attribute name="panelInterviewSwitch" type="boolean" default="false"/>
+
+    <!--toggle to switch from mock interview to mock panel mode-->
+    <lightning:input type="toggle" label="Switch Mode" messageToggleActive="Mock Panel Mode" messageToggleInactive="Mock Interview Mode" 
+                     checked="{!v.panelInterviewSwitch}"/>
+	
+    
+    <!--Aura if component to conditionally render the component based on the toggle value-->
+    <aura:if isTrue="{!!v.panelInterviewSwitch}">
+        <c:CreateMockInterview/>
+        <c:MockInterviewPrepareWithFlowLaunch/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.panelInterviewSwitch}">
+        <c:CreateMockPanel/>
+    </aura:if>
+
+</aura:component>
