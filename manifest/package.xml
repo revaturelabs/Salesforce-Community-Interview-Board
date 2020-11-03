@@ -17,6 +17,8 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+	    <members>Question_Response__c</members>
+		<members>Question_Response_Rating__c</members>
 		<members>Challenge__c</members>
 		<members>Completion__c</members>
 		<members>Primary_Tech__c</members>
