@@ -122,9 +122,6 @@ public without sharing class CreateMockInterviewController {
             questionTopics.add(String.valueOf(a.get('name')));
             topicNumber.add(Integer.valueOf(a.get('number')));
         }
-<<<<<<< HEAD
-        
-=======
         /*Ignore this section of commented out code for now
         
         for(String questionTopics : filterPanel.keyset()) {
@@ -135,7 +132,6 @@ public without sharing class CreateMockInterviewController {
             Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
             System.debug(dividend);
             */
->>>>>>> c37883c0285387c7ba2fa63a38adaea2dd08fde9
 
             //Creates a map of the selected topics and related questions
             Map<String, List<Question__c>> panel_QListMap = new Map<String, List<Question__c>>();
@@ -207,26 +203,6 @@ public without sharing class CreateMockInterviewController {
     }
 
 
-<<<<<<< HEAD
-=======
-       Meeting__c mockInterview = new Meeting__c(Name=  'Mock interview #' + x + ' with ' +numQuestions+' questions',
-                                                   Meeting_Status__c='Mock',
-                                                   RecordTypeId=recordTypeId);
-       Database.SaveResult savedInterview = Database.insert(mockInterview);
-       Id interviewId = savedInterview.getId();
-       Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
-                                                                    Participant__c = userContactId.ContactId);
-       insert meetParti;
-           List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
-           for (Question__c q : questionsToBeAdded) {
-               Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
-                                                                               Question__c=q.Id);
-               interviewQuestions.add(addedQuestion);
-       }
-       insert interviewQuestions;              
-   }
-   */
->>>>>>> c37883c0285387c7ba2fa63a38adaea2dd08fde9
     
     @AuraEnabled
     public static List<Integer> getNumberOfQuestionType(List<String> filter) {
