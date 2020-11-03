@@ -91,4 +91,82 @@ public without sharing class CreateMockInterviewController {
     public static Map<String,List<String>> getTypePicklistValues() {
         return Utilities.getTypePicklistValues();
     }
+
+    //Twinword API Callout for answer comparison
+    @AuraEnabled
+    public static String textSimilarity(String mockInterviewResponse, String bestCommunityAnswer) {
+        System.debug('Accessed vesselSearch in Apex Controller');
+        
+        //pass in inputed description for translation
+        //Build PARAMETERS:
+        
+        String rapidApiHost = 'twinword-text-similarity-v1.p.rapidapi.com';
+        String rapidApiKey = 'SIGN-UP-FOR-KEY'; //must subscribe for key
+        String rapidApiContentType = 'application/x-www-form-urlencoded';
+
+        /*	body sent must look like this: "text1=
+                            The%20hippocampus%20is%20a%20major%20component%20of%20the%20brains%20of%20humans%20and%20other%20vertebrates.%20
+                            It%20belongs%20to%20the%20limbic%20system%20and%20plays%20important%20roles%20in%20the%20consolidation%20of%20
+                            information%20from%20short-term%20memory%20to%20long-term%20memory%20and%20spatial%20navigation.%20Humans%20
+                            and%20other%20mammals%20have%20two%20hippocampi%2C%20one%20in%20each%20side%20of%20the%20brain.%20The%20hippocampus%20
+                            is%20a%20part%20of%20the%20cerebral%20cortex%3B%20and%20in%20primates%20it%20is%20located%20in%20the%20medial%20
+                            temporal%20lobe%2C%20underneath%20the%20cortical%20surface.%20It%20contains%20two%20main%20interlocking%20parts%3A%20
+                            Ammon's%20horn%20and%20the%20dentate%20gyrus.
+                        &text2=
+                            An%20important%20part%20of%20the%20brains%20of%20humans%20and%20other%20vertebrates%20is%20the%20hippocampus.%20
+                            It's%20part%20of%20the%20limbic%20system%20and%20moves%20information%20from%20short-term%20to%20long-term%20
+                            memory.%20It%20also%20helps%20us%20move%20around.%20Humans%20and%20other%20mammals%20have%20two%20hippocampi%2C%20
+                            one%20on%20each%20side.%20The%20hippocampus%20is%20a%20part%20of%20the%20cerebral%20cortex%3B%20and%20in%20
+                            primates%20it%20is%20found%20in%20the%20medial%20temporal%20lobe%2C%20beneathe%20the%20cortical%20surface.%20
+                            It%20has%20two%20main%20interlocking%20parts%3A%20Ammon's%20horn%20and%20the%20dentate%20gyrus."
+        */        
+        mockInterviewResponse = mockInterviewResponse.replaceAll(' ', '%20');
+            //System.debug(mockInterviewResponse);
+        bestCommunityAnswer = bestCommunityAnswer.replaceAll(' ', '%20');
+            //System.debug(bestCommunityAnswer);
+        String rapidApiBody = 'text1=' + mockInterviewResponse + '&text2=' + bestCommunityAnswer;
+        //System.debug(rapidApiBody);
+        
+        //Callout to the API
+        Http h = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setHeader('x-rapidapi-host', rapidApiHost);
+        request.setHeader('x-rapidapi-key', rapidApiKey);
+	    request.setHeader('content-type', rapidApiContentType);         
+        request.setBody(rapidApiBody);
+        request.setMethod('POST');
+        HttpResponse response = h.send(request);
+        //System.debug(response);
+
+        /*	Response will look like:
+                {7 items
+                "author":"twinword inc."
+                "email":"help@twinword.com"
+                "result_code":"200"
+                "result_msg":"Success"
+                "similarity":0.86882813106215
+                "value":2463079.7207981
+                "version":"4.0.0"
+                }
+        */
+
+        //Change parsing once we are connected to Org and testing.       
+        //Parsing/Translating the JSON return
+        String klingonOutput;
+        Map<String,Object> translation = new Map<String,Object>();
+        
+        if(response.getStatus() == 'OK'){
+            translation = (Map<String,Object>)JSON.deserializeUntyped(response.getBody());
+            System.debug(translation);
+            Map<String, Object> contentsMap = (Map<String, Object>)translation.get('contents');
+            klingonOutput = String.valueOf(contentsMap.get('translated'));
+            System.debug(klingonOutput); //this worked as of 154PM 10/26/2020
+        } else {
+            System.debug('could not retrieve transalation');
+        }
+        
+        //write translation to the Attribute via return:
+    	return klingonOutput;
+	}    
+    
 }
