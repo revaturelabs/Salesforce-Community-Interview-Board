@@ -162,6 +162,7 @@
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>CreateMockPanel</members>
 		<members>EmptyComponentEvent</members>
 		<members>FlowClose</members>
 		<members>FlowHost</members>
@@ -191,6 +192,7 @@
 		<members>TestComp</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>UpdateMockPanelList</members>
 		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
@@ -204,8 +206,13 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
+<<<<<<< HEAD
 		<members>PanelForceComponent</members>
 		<members>PanelQuestionCreation</members>
+=======
+		<members>UpdateMockPanelList</members>
+		<members>PrepareTabComponent</members>
+>>>>>>> b9c65316874fedcfd320e128bcc3261abdc0dae0
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

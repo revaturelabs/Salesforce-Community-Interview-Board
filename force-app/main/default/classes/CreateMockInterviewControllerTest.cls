@@ -40,7 +40,7 @@ public class CreateMockInterviewControllerTest {
         }
         insert allQuestions;
 
-        Account testAcc = new Account();
+        /*Account testAcc = new Account();
         testAcc.name = 'test company';
         Database.SaveResult savedAccount = Database.insert(testAcc);
         Id accID = savedAccount.getId();
@@ -56,7 +56,7 @@ public class CreateMockInterviewControllerTest {
                           username = 'test@test.com', email = 'test@test.com', ContactId = contId,
                           alias= 'Test', TimeZoneSidKey='America/New_York', LocaleSidKey='en_US',
                           EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
-        insert u;
+        insert u;*/
     }
     /* public HttpResponse respond(HttpRequest request){
         String rapidApiHost = 'twinword-text-similarity-v1.p.rapidapi.com';
@@ -130,4 +130,23 @@ public class CreateMockInterviewControllerTest {
         Decimal expectedValueFixed = (expectedValueRaw*100).setScale(2);
         System.assertEquals(response, expectedValueFixed);
     } 
+
+    @isTest
+    public static void createMockPanelPositiveTest() {
+        List<String> testObject = new List<String>{'Java', 'Apex', 'Visualforce'};
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        List<Integer> testResult = new List<Integer>{0, 0, 0};
+            for(Question__c a : [SELECT Id, type__c FROM Question__c]) {
+                if(a.type__c == 'Java') {
+                    testResult[0]++;
+                }else if(a.type__c == 'Apex') {
+                    testResult[1]++;
+                }else if(a.type__c == 'Visualforce') {
+                    testResult[2]++;
+                }
+            }
+        System.assertEquals(testResult[0], results[0]);
+        System.assertEquals(testResult[1], results[1]);
+        System.assertEquals(testResult[2], results[2]);
+    }
 }
