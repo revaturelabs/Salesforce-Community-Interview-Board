@@ -901,6 +901,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Panel_Question__c.Response_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Question_Response__c.Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
