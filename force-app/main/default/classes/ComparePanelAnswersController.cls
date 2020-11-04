@@ -85,5 +85,17 @@ public with sharing class ComparePanelAnswersController {
         
         //write translation to the Attribute via return:
     	return rapidApiScore;
-	} 
+    }
+    
+    @AuraEnabled
+    public static string getBestResponse(Id questionId){
+        //Get current question
+        Question__c question = [SELECT Id, Body__c FROM Question__c WHERE Id = :questionId];
+
+        //Match this questionId to related ratings and picked the highest one
+        Question_Response__c questionResponse = [SELECT Id, Body__c, Upvotes__c FROM Question_Response__c WHERE Question__c = :questionId LIMIT 1];
+
+        Return questionResponse.Body__c;
+
+    }
 }

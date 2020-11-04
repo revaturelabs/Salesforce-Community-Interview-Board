@@ -145,6 +145,7 @@
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
 		<members>responseControllerTest</members>
+		<members>ComparePanelAnswersController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
