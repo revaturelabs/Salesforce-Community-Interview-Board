@@ -33,6 +33,8 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -206,13 +208,10 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
-<<<<<<< HEAD
 		<members>PanelForceComponent</members>
 		<members>PanelQuestionCreation</members>
-=======
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
->>>>>>> b9c65316874fedcfd320e128bcc3261abdc0dae0
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
