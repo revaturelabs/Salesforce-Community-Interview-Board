@@ -6,6 +6,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Panel_Administration</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Quiz_App</application>
         <default>false</default>
         <visible>false</visible>
@@ -140,6 +145,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MockInterviewsListControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PanelQuestionController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -380,6 +389,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>associateInterviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>comparePanelAnswersControllerMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -884,6 +897,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Panel_Question__c.Response_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Question_Response__c.Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1181,6 +1199,10 @@
     <tabVisibilities>
         <tab>Meeting__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>PanelAdministration</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Prerequisite__c</tab>

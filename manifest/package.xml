@@ -33,6 +33,8 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -141,6 +143,7 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>comparePanelAnswersControllerMock</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -162,6 +165,7 @@
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>CreateMockPanel</members>
 		<members>EmptyComponentEvent</members>
 		<members>FlowClose</members>
 		<members>FlowHost</members>
@@ -191,6 +195,7 @@
 		<members>TestComp</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>UpdateMockPanelList</members>
 		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
@@ -206,6 +211,8 @@
 		<members>AssignStacksPage</members>
 		<members>PanelForceComponent</members>
 		<members>PanelQuestionCreation</members>
+		<members>UpdateMockPanelList</members>
+		<members>PrepareTabComponent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
