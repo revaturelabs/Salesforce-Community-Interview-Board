@@ -93,19 +93,17 @@ public without sharing class CreateMockInterviewController {
     }
 
 
-    //Added by Red Team. Might have to move this to a different controller
     //Twinword API Callout for answer comparison
     @AuraEnabled
-    public static Decimal textSimilarity(String mockInterviewResponse, String bestCommunityAnswer) {
+    public static String textSimilarity(String mockInterviewResponse, String bestCommunityAnswer) {
         System.debug('Accessed vesselSearch in Apex Controller');
         
         //pass in inputed description for translation
         //Build PARAMETERS:
         
         String rapidApiHost = 'twinword-text-similarity-v1.p.rapidapi.com';
-        String rapidApiKey = '5057c9cd5cmsh4cb024048d6b1d1p174225jsn95e2c534eed4'; //must subscribe for key
+        String rapidApiKey = 'SIGN-UP-FOR-KEY'; //must subscribe for key
         String rapidApiContentType = 'application/x-www-form-urlencoded';
-        String rapidApiEndpoint = 'https://rapidapi.p.rapidapi.com/similarity/';
 
         /*	body sent must look like this: "text1=
                             The%20hippocampus%20is%20a%20major%20component%20of%20the%20brains%20of%20humans%20and%20other%20vertebrates.%20
@@ -133,7 +131,6 @@ public without sharing class CreateMockInterviewController {
         //Callout to the API
         Http h = new Http();
         HttpRequest request = new HttpRequest();
-        request.setEndpoint(rapidApiEndpoint);
         request.setHeader('x-rapidapi-host', rapidApiHost);
         request.setHeader('x-rapidapi-key', rapidApiKey);
 	    request.setHeader('content-type', rapidApiContentType);         
@@ -156,26 +153,21 @@ public without sharing class CreateMockInterviewController {
 
         //Change parsing once we are connected to Org and testing.       
         //Parsing/Translating the JSON return
-        // String klingonOutput;
-        // Map<String,Object> translation = new Map<String,Object>();
-
-        Decimal rapidApiScore;
+        String klingonOutput;
+        Map<String,Object> translation = new Map<String,Object>();
         
         if(response.getStatus() == 'OK'){
-            // translation = (Map<String,Object>)JSON.deserializeUntyped(response.getBody());
-            Map<String, Object> rapidApiParsed = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-            rapidApiScore = ((Decimal)rapidApiParsed.get('similarity') * 100).setScale(2);
-            System.debug(rapidApiParsed);
-            System.debug(rapidApiScore);
-            // Map<String, Object> contentsMap = (Map<String, Object>)translation.get('contents');
-            // klingonOutput = String.valueOf(contentsMap.get('translated'));
-            // System.debug(klingonOutput); //this worked as of 154PM 10/26/2020
+            translation = (Map<String,Object>)JSON.deserializeUntyped(response.getBody());
+            System.debug(translation);
+            Map<String, Object> contentsMap = (Map<String, Object>)translation.get('contents');
+            klingonOutput = String.valueOf(contentsMap.get('translated'));
+            System.debug(klingonOutput); //this worked as of 154PM 10/26/2020
         } else {
             System.debug('could not retrieve transalation');
         }
         
         //write translation to the Attribute via return:
-    	return rapidApiScore;
+    	return klingonOutput;
 	}    
    
         
