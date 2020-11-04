@@ -174,6 +174,7 @@ public class CreateMockInterviewControllerTest {
     }
 
     //Test created by Paul Robertson to test method getNumQuestionListByTopic was successful on 10/30/2020
+    /*
     @isTest
     public static void getNumQuestionListByTopicTest(){
         User testUser = [SELECT Id FROM User WHERE Username = 'p.kirk.robert@creative-koala-g803bo.com'];
@@ -205,4 +206,5 @@ public class CreateMockInterviewControllerTest {
             System.assertEquals(12, totCount);
         } 
     }
+    */
 }

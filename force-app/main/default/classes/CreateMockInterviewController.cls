@@ -288,6 +288,37 @@ public without sharing class CreateMockInterviewController {
         return panelOutputList;
     }
 
+    //Additional feature added on 11/4/2020 by Paul
+
+    //Adding an enhanced for loop to save the list of questions stored in panelOutputList to the
+    //Panel_Question__c object the implementation should be fairly straight forward
+    @AuraEnabled
+    public static void CreateMockPanel(List<Map<String,Object>> filterPanel){
+        //Creates list of questions to be added to Panel_Question__c junction object
+        List<Question__c> panelQuestionsToBeAdded = new List<Question__c>();
+        
+        //Might need to assign owner id to newly created Mock_Panel__c later on
+        ID userId = System.UserInfo.getUserId();
+
+        //Returns the list of questions to be included in the Mock Panel
+        panelQuestionsToBeAdded = CreateMockInterviewController.getNumQuestionListByTopic(filterPanel);
+
+        //creates new mock panel to relate to panel questions added
+        Mock_Panel__c mockPanel = new Mock_Panel__c(OwnerId = userId);
+        insert mockPanel;
+
+        //List of junction object panel questions
+        List<Panel_Question__c> panelQuestions = new List<Panel_Question__c>();
+        //Iterates through questions list created earlier and creates the junction object between them and the 
+        //new Mock_Panel__c
+        for(Question__c q : panelQuestionsToBeAdded) {
+            Panel_Question__c addedPanelQuestion = new Panel_Question__c(Mock_Panel__c = mockPanel.Id,
+                                                                         Question__c = q.Id);
+            panelQuestions.add(addedPanelQuestion);
+        }
+        //Creates new panel questions associated with a Mock_Panel__c
+        insert panelQuestions;
+    }
 
     
     @AuraEnabled
