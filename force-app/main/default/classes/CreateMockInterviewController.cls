@@ -208,16 +208,6 @@ public without sharing class CreateMockInterviewController {
             questionTopics.add(String.valueOf(a.get('name')));
             topicNumber.add(Integer.valueOf(a.get('number')));
         }
-        /*Ignore this section of commented out code for now
-        
-        for(String questionTopics : filterPanel.keyset()) {
-            Integer numPanelQuestions = filterPanel.get(questionTopics);
-        }
-            Integer panelRemainder = Math.mod(numQuestions, filter.size()); filter.size doesn't apply
-            System.debug(remainder);
-            Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
-            System.debug(dividend);
-            */
 
             //Creates a map of the selected topics and related questions
             Map<String, List<Question__c>> panel_QListMap = new Map<String, List<Question__c>>();
@@ -227,20 +217,6 @@ public without sharing class CreateMockInterviewController {
                 //outputListConstructor.put(s, tempList);
                 panel_QListMap.put(s,tempList);
             }
-
-            //The outer for loop iterates through a list of questions where the type is a string in the set<> question topics 
-            //previous gen code for getting list of questions by topics but fuck them and their methods something about
-            //this seems like it won't work for our situation
-            /*
-            for (Question__c q : [SELECT Body__c,Name, Type__c FROM Question__c WHERE type__c IN :questionTopics]) {
-                for (String s : questionTopics) {
-                    if (s==q.Type__c) {
-                        qListMap.get(s).add(q);
-                    }
-                }
-            }
-            
-            */
 
             //This for loop should iterate through our set of questionTopics and grabs all the questions from that topic
             for (String s : questionTopics) {
@@ -266,7 +242,6 @@ public without sharing class CreateMockInterviewController {
                 counter = 0;
                 //grabs the integer value of the number of questions for a specific topic                
                 while(counter<numPanelQuestions){          //While the counter is less than numPanelQuestions
-                //if (listItemCounter<dividend) {        this line counts until the number of questions is not applicable to us 
                     //Choose a random number for the question location 
                     //for panel_QListMap.get the filter panel must be type list
                     questionLocation=Math.floor(Math.random() * panel_QListMap.get(questionTopics[whichList]).size()).intValue();
