@@ -392,6 +392,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>comparePanelAnswersControllerMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>completedInterviewController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -897,6 +901,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.Upcoming__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Panel_Question__c.Response_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

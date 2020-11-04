@@ -58,19 +58,6 @@ public class CreateMockInterviewControllerTest {
                           EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
         insert u;*/
     }
-    /* public HttpResponse respond(HttpRequest request){
-        String rapidApiHost = 'twinword-text-similarity-v1.p.rapidapi.com';
-        String rapidApiKey = '5057c9cd5cmsh4cb024048d6b1d1p174225jsn95e2c534eed4'; //must subscribe for key
-        String rapidApiContentType = 'application/x-www-form-urlencoded';
-        //Fake Response
-        HttpResponse response = new HttpResponse();
-        response.setHeader('x-rapidapi-host', rapidApiHost);
-        response.setHeader('x-rapidapi-key', rapidApiKey);
-        response.setHeader('content-type', rapidApiContentType);
-        response.setBody('{"author":"twinword inc.","email":"help@twinword.com","result_code":"200","result_msg":"Success","similarity":0.86882813106215,"value":2463079.7207981,"version":"4.0.0"}');
-        response.setStatusCode(200);
-        Return response;
-    } */
 
     @isTest
     public static void createMockInterviewPositiveTest() {

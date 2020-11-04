@@ -35,6 +35,8 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -77,8 +79,8 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
-		<members>PanelQuestionCreation</members>
 		<members>PanelQuestionController</members>
+		<members>PanelQuestionControllerTest</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -146,6 +148,7 @@
 		<members>VCCalendarController</members>
 		<members>responseControllerTest</members>
 		<members>ComparePanelAnswersController</members>
+		<members>comparePanelAnswersControllerMock</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
