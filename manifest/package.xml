@@ -141,6 +141,7 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>responseControllerTest</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

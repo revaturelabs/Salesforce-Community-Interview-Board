@@ -22,12 +22,11 @@ public class responseController {
     }
     
     @AuraEnabled
-    public static List<Question_Response__c> getResponse (String questionBody){
+    public static List<Question_Response__c> getResponse(String questionBody){
          id question = [SELECT id FROM Question__c WHERE Body__c =: questionBody LIMIT 1 ].id;
         
         List<Question_Response__c> responseList = [SELECT Body__c, CreatedBy.Name, CreatedDate FROM Question_Response__c WHERE Question__c=:question];
         System.debug(responseList);
-        System.debug(responseList[0].CreatedBy.Name);
         return responseList;
         
     }
