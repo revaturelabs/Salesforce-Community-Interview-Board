@@ -33,6 +33,8 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -75,6 +77,8 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
+		<members>PanelQuestionCreation</members>
+		<members>PanelQuestionController</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -204,6 +208,8 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
+		<members>PanelForceComponent</members>
+		<members>PanelQuestionCreation</members>
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
 		<name>AuraDefinitionBundle</name>
@@ -223,6 +229,7 @@
 	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
+		<members>Panel_Administration</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>
