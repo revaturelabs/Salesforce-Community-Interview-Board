@@ -23,7 +23,9 @@
 
         $A.enqueueAction(action);
     },
-
+    changeView : function(component, event, helper) {
+        component.set("v.viewState", event.getParam("viewState"));
+    },
     ChangeLeftSideTypes : function(component, event, helper){
         var selectedStack = component.find("stack id").get("v.value");
         var stackTypeMap = component.get("v.TypeMap");
@@ -51,7 +53,7 @@
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
                 var UpdateList = $A.get("e.c:UpdateMockPanelList");
-                UpdateList.setParams({"questions" : response.getReturnValue(), "display" : false});
+                UpdateList.setParams({"questions" : response.getReturnValue(), "viewState" : false});
                 UpdateList.fire();
                 console.log(response.getReturnValue());
             } else {

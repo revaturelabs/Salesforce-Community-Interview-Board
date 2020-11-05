@@ -161,6 +161,7 @@
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
 		<members>CompletedInterviews</members>
+		<members>ComparePanelAnswers</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
