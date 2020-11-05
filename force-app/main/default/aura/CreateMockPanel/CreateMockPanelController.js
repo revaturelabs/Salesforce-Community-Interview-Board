@@ -26,6 +26,11 @@
     changeView : function(component, event, helper) {
         component.set("v.viewState", event.getParam("viewState"));
     },
+
+    handleFinishEvent : function(cmp, evt, help){
+        cmp.set("v.viewState", evt.getParam("viewState"));
+    },
+
     ChangeLeftSideTypes : function(component, event, helper){
         var selectedStack = component.find("stack id").get("v.value");
         var stackTypeMap = component.get("v.TypeMap");

@@ -25,16 +25,26 @@
         cmp.set("v.submitted", true);
     },
     
-    //initializes the current question on the page;
-    doinit : function(cmp, evt, help) {
-        console.log("intializing");
-        help.loadQuestion(cmp, evt);
-    },
-    
     //increments the value of the index attribute.
     nextQuestion : function(cmp, evt, help){
+        if(cmp.get("v.QListIndex") + 1 == qList.length - 1){
+            cmp.set("v.finalQuestion", true);
+        }
+        else{
         cmp.set("v.QListIndex", cmp.get("v.QListIndex") + 1);
         help.loadQuestion(cmp, evt);
         cmp.set("v.submitted", false);
+        }
+    },
+
+    //button to reset panel and return to create mock panel component
+    finishButton : function(cmp, evt, help){
+        let finishEvent = $A.get("e.c:finishPanelEvent");
+        finishEvent.setParams({"viewState": true});
+        finishEvent.fire();
+    },
+
+    handleFinishEvent : function(cmp, evt, help){
+        cmp.set("v.viewState", evt.getParam("viewState"));
     }
 })
