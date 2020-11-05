@@ -212,6 +212,7 @@
 		<members>PanelQuestionCreation</members>
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
+		<members>MockPanelLauncher</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
