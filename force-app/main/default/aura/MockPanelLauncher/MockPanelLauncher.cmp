@@ -16,19 +16,21 @@
     <lightning:card>
         <div class="slds-m-horizontal--medium">
         
-            <h1>Question #{!v.QListIndex}</h1>
+            <h1>Question #{!v.QListIndex + 1}</h1>
             <br/>
             <p>{!v.QuestionText}</p>
             <br/>
-            <br/>
-            <lightning:textarea name="Response" 
-                                label="Answer" 
-                                placeholder="Type your response here..." 
-                                required="true"
-                                aura:id="responseBody"
-                                value="{!v.ResponseBody}"/>
-            
+            <aura:if isTrue="{!!v.submitted}">
+                <lightning:textarea name="Response" 
+                                    label="Answer" 
+                                    placeholder="Type your response here..." 
+                                    required="true"
+                                    aura:id="responseBody"
+                                    value="{!v.ResponseBody}"/>
+            </aura:if>
             <aura:if isTrue="{!v.submitted}">
+                <p>{!v.ResponseBody}</p>
+                <br/>
                 <lightning:button label="Compare Answer" onclick=""/>
             	<lightning:button label="Next" onclick="{!c.nextQuestion}"/>
                 <aura:set attribute="else">
