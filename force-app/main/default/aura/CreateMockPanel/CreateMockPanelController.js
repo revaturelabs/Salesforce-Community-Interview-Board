@@ -51,8 +51,9 @@
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
                 var UpdateList = $A.get("e.c:UpdateMockPanelList");
-                UpdateList.setParams({"questions" : response.getReturnValue()});
+                UpdateList.setParams({"questions" : response.getReturnValue(), "display" : false});
                 UpdateList.fire();
+                console.log(response.getReturnValue());
             } else {
                 console.log("An error has occured.");
             }

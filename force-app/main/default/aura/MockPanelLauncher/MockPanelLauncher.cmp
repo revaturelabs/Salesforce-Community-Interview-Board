@@ -1,0 +1,41 @@
+<aura:component controller="CreateMockInterviewController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable" access="global">
+	
+    <!--Attributes for the mock panel simulator component-->
+    <aura:attribute name="QuestionList" type="List"/>
+    <aura:attribute name="QListIndex" type="Integer" default="0"/>
+    <aura:attribute name="QuestionId" type="Id"/>
+    <aura:attribute name="QuestionText" type="String"/>
+    <aura:attribute name="ResponseBody" type="String"/>
+    <aura:attribute name="ResponseComparison" type="Boolean"/>
+    <aura:attribute name="submitted" type="Boolean" default="false"/>
+    
+    <!--Handler for the event that returns the list of retrieved questions for the panel-->
+    <aura:handler event="c:UpdateMockPanelList" action="{!c.retrievePanelQuestions}"/>
+    <!--aura:handler name="init" value="{!this}" action="{!c.doinit}"/-->
+    
+    <lightning:card>
+        <div class="slds-m-horizontal--medium">
+        
+            <h1>Question #{!v.QListIndex}</h1>
+            <br/>
+            <p>{!v.QuestionText}</p>
+            <br/>
+            <br/>
+            <lightning:textarea name="Response" 
+                                label="Answer" 
+                                placeholder="Type your response here..." 
+                                required="true"
+                                aura:id="responseBody"
+                                value="{!v.ResponseBody}"/>
+            
+            <aura:if isTrue="{!v.submitted}">
+                <lightning:button label="Compare Answer" onclick=""/>
+            	<lightning:button label="Next" onclick="{!c.nextQuestion}"/>
+                <aura:set attribute="else">
+                <lightning:button label="Submit" onclick="{!c.submitResponse}"/>
+                </aura:set>
+            </aura:if>
+        </div>        
+    </lightning:card>
+    
+</aura:component>
