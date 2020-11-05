@@ -34,6 +34,8 @@
 		<members>User</members>
 		<members>Question_Response__c</members>
 		<members>Question_Response_Rating__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
