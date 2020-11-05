@@ -1,4 +1,4 @@
 <aura:event type="APPLICATION" description="Event template">
     <aura:attribute name="questions" type="Question__c[]"/>
-    <!--aura:attribute name="display" type="Boolean"/-->
+    <aura:attribute name="viewState" type="Boolean"/>
 </aura:event>

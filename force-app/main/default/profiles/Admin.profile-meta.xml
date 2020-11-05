@@ -906,12 +906,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Question_Response__c.Total_Votes__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Question_Response__c.Upvotes__c</field>
         <readable>true</readable>
     </fieldPermissions>
