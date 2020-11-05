@@ -16,22 +16,9 @@
         <c:MockInterviewPrepareWithFlowLaunch/>
     </aura:if>
     
-     <!--Attribute for boolean that shows the panel launcher component once the create mock panel button is clicked-->
-    <!--aura:attribute name="hidePanel" type="boolean" default="true"/-->
-    <!--Attribute to hold the list of panel questions from the event-->
-    <!--aura:attribute name="QuestionList" type="List"/-->
-    
-    <!--receives the boolean that determines if the panel launcher component shows from the create mock panel event-->
-    <!--aura:handler event="c:UpdateMockPanelList" action="{!c.launchPanel}"/-->
-    
-    <!--Aura if to conditionally render mock panel launcher when create mock panel button is clicked-->
     <aura:if isTrue="{!v.panelInterviewSwitch}">
-        <!--aura:if isTrue="{!v.hidePanel}"-->
         	<c:CreateMockPanel/>
-            <!--aura:set attribute="else"-->
-                <c:MockPanelLauncher/>
-            <!--/aura:set-->
-        <!--/aura:if-->
+            <c:MockPanelLauncher/>
     </aura:if>
 
 </aura:component>

@@ -5,16 +5,6 @@
         var qList = event.getParam("questions");
         component.set("v.QuestionList", qList);
         helper.loadQuestion(component, event);
-        /*var qList = event.getParam("questions");
-        console.log(qList);
-        component.set("v.QuestionList", qList);
-        var index = component.get("v.QListIndex");
-        console.log(index);
-        var currentQ = qList[index];
-        console.log(currentQ);
-        var questionBody = currentQ["Body__c"];
-        console.log(currentQ["Body__c"]);
-        component.set("v.QuestionText", currentQ["Body__c"]);*/
 	},
     
     //saves text input into the response and presents buttons for Next question and 
@@ -25,16 +15,40 @@
         cmp.set("v.submitted", true);
     },
     
-    //initializes the current question on the page;
-    doinit : function(cmp, evt, help) {
-        console.log("intializing");
-        help.loadQuestion(cmp, evt);
-    },
-    
     //increments the value of the index attribute.
     nextQuestion : function(cmp, evt, help){
+        let qList = cmp.get("v.QuestionList");
+        console.log(qList);
+        console.log(qList.length);
+        if(cmp.get("v.QListIndex") + 1 == qList.length - 1){
+            cmp.set("v.finalQuestion", true);
+        }
+        
         cmp.set("v.QListIndex", cmp.get("v.QListIndex") + 1);
         help.loadQuestion(cmp, evt);
         cmp.set("v.submitted", false);
+    },
+
+    //button to reset panel and return to create mock panel component
+    finishButton : function(cmp, evt, help){
+        cmp.set("v.QuestionList", []);
+        cmp.set("v.QListIndex", 0);
+        cmp.set("v.QuestionId", "");
+        cmp.set("v.QuestionText", "");
+        cmp.set("v.ResponseBody", "");
+        let finishEvent = $A.get("e.c:finishPanelEvent");
+        finishEvent.setParams({"viewState": true});
+        finishEvent.fire();
+    },
+
+    //handles finish event and returns view state to mock panel component
+    handleFinishEvent : function(cmp, evt, help){
+        cmp.set("v.viewState", evt.getParam("viewState"));
+    },
+
+    fireCompareEvent : function(cmp, evt, help){
+        let appEvent = $A.get("e.c:CompareAppEvent");
+        appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
+        appEvent.fire();
     }
 })

@@ -1,10 +1,10 @@
-<aura:component controller="CreateMockInterviewController">
+<aura:component controller="ComparePanelAnswersController">
 
     <!--Attributes-->
-    <aura:attribute name="id" type="String"/>
+    <aura:attribute name="id" type="Id"/>
     <aura:attribute name="userAnswer" type="String"/>
-    <aura:attribute name="similarityScore" type="Number"/>
-    <aura:attribute name="communityBestAnswer" type="String"/>
+    <aura:attribute name="similarityScore" type="Decimal"/>
+    <aura:attribute name="communityBestAnswer" type="String" default=""/>
 
     <!--Display Comparison-->
     <lightning:card title="Answer Comparison">    
@@ -30,6 +30,6 @@
         <!-- <aura:registerEvent name="CompareEvent"/> -->
     <!--Handlers-->
     <!--Change name and event once we know what they are-->
-    <aura:handler name="CompareEvent" event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/>
+    <!-- <aura:handler name="CompareEvent" event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/> -->
     <!-- <aura:handler name="GetBestAnswerEvent" event="c:CompareAppEvent" action="{!c.getBestAnswer}"/>  -->
-</aura:component>	
+</aura:component>

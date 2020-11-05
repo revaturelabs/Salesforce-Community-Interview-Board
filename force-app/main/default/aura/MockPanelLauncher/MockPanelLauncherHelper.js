@@ -1,4 +1,5 @@
 ({
+    //helper function that loads question data into the component
 	loadQuestion : function(component, event) {
         let qList = component.get("v.QuestionList");
         var index = component.get("v.QListIndex");
