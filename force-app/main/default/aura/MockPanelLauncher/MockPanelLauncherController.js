@@ -1,6 +1,7 @@
 ({
 	//method for retreiving the list of panel questions from the UpdateMockPanelList event and storing them in the component
     retrievePanelQuestions : function(component, event, helper) {
+        component.set("v.viewState", event.getParam("viewState"));
         var qList = event.getParam("questions");
         component.set("v.QuestionList", qList);
         helper.loadQuestion(component, event);
