@@ -1,10 +1,11 @@
 ({
-    handleCompareEvent : function(component, event, communityBestAnswer, userAnswer, questionId){
+    handleCompareEvent : function(component, event, userAnswer, questionId){
         let getBestAnswer = component.get("c.getBestResponse");
         getBestAnswer.setParam("questionId" , questionId);
         getBestAnswer.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
                 component.set("communityBestAnswer", response.getReturnValue());
+                let communityBestAnswer = component.get('v.communityBestAnswer');
                 this.getSimilarityScore(component, event, communityBestAnswer, userAnswer);
             }
         });
