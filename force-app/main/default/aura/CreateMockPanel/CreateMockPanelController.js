@@ -29,6 +29,7 @@
 
     handleFinishEvent : function(cmp, evt, help){
         cmp.set("v.viewState", evt.getParam("viewState"));
+        console.log("finishing");
     },
 
     ChangeLeftSideTypes : function(component, event, helper){

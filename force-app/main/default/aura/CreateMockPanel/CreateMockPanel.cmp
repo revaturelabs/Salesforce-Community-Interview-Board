@@ -10,6 +10,7 @@
     <aura:attribute name="viewState" type="Boolean" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <aura:handler event="c:UpdateMockPanelList" action="{!c.changeView}"/>
+    <aura:handler event="c:finishPanelEvent" action="{!c.handleFinishEvent}"/>
     <aura:registerEvent name="UpdateList" type="c:UpdateMockPanelList"/>
   
     <aura:if isTrue="{!v.viewState}">

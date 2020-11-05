@@ -32,4 +32,4 @@
     <!--Change name and event once we know what they are-->
     <!-- <aura:handler name="CompareEvent" event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/> -->
     <!-- <aura:handler name="GetBestAnswerEvent" event="c:CompareAppEvent" action="{!c.getBestAnswer}"/>  -->
-</aura:component>	
+</aura:component>

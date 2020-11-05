@@ -15,7 +15,11 @@
     <!--Handler for the event that returns the list of retrieved questions for the panel-->
     <aura:handler event="c:UpdateMockPanelList" action="{!c.retrievePanelQuestions}"/>
     <aura:handler event="c:finishPanelEvent" action="{!c.handleFinishEvent}"/>
-    
+
+	<!--register the event that returns the view state back when the panel is finished-->
+    <aura:registerEvent name="finishPanel" type="c:finishPanelEvent"/>
+	    
+    <!--the mock panel question displayer component-->
     <aura:if isTrue="{!!v.viewState}">
         <lightning:card>
             <div class="slds-m-horizontal--medium">
