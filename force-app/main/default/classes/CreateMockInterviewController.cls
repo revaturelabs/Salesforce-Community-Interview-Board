@@ -92,7 +92,6 @@ public without sharing class CreateMockInterviewController {
         return Utilities.getTypePicklistValues();
     }
 
-        
     //added by Paul on 10/29/2020
 
     //Method specific to the CreateMockPanel aura component for selecting a specified number of questions
