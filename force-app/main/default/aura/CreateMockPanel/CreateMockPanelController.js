@@ -36,7 +36,7 @@
         if (selectedStack) {
             for(let type of tempList) {
                 leftSideList.push({label : type,value : type});
-                 }
+            }
             component.set("v.LeftSideTypes", leftSideList);
         }
         component.find("CreateButton").set("v.disabled", true);
@@ -47,7 +47,9 @@
         let rightTypes = component.get("v.display");
         let listResult = [];
         for(let i = 0; i < rightTypes.length; i++) {
-            listResult.push({ "name" : rightTypes[i]['name'], "number" : rightTypes[i]['number'] });
+            if(rightTypes[i]['number'] > 0){
+                listResult.push({ "name" : rightTypes[i]['name'], "number" : rightTypes[i]['number'] });
+            }
         }
         action.setParams({"filterPanel" : listResult});
         action.setCallback(this,function(response){
