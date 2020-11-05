@@ -1,10 +1,10 @@
-<aura:component controller="CreateMockInterviewController">
+<aura:component controller="ComparePanelAnswersController">
 
     <!--Attributes-->
-    <aura:attribute name="id" type="String"/>
+    <aura:attribute name="id" type="Id"/>
     <aura:attribute name="userAnswer" type="String"/>
     <aura:attribute name="similarityScore" type="Decimal"/>
-    <aura:attribute name="communityBestAnswer" type="String"/>
+    <aura:attribute name="communityBestAnswer" type="String" default=""/>
 
     <!--Display Comparison-->
     <lightning:card title="Answer Comparison">    

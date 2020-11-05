@@ -19,7 +19,11 @@
 	<!--register the event that returns the view state back when the panel is finished-->
     <aura:registerEvent name="finishPanel" type="c:finishPanelEvent"/>
 	    
-    <!--the mock panel question displayer component-->
+    <!--Notifiers-->
+    <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/>
+
+    <!--aura:handler name="init" value="{!this}" action="{!c.doinit}"/-->
+    
     <aura:if isTrue="{!!v.viewState}">
         <lightning:card>
             <div class="slds-m-horizontal--medium">
@@ -39,7 +43,7 @@
                 <aura:if isTrue="{!v.submitted}">
                     <p>{!v.ResponseBody}</p>
                     <br/>
-                    <lightning:button label="Compare Answer" onclick=""/>
+                    <lightning:button label="Compare Answer" onclick="{!c.fireCompareEvent}"/>
                     <aura:if isTrue="{!v.finalQuestion}">
                         <lightning:button label="Finish" onclick="{!c.finishButton}"/>
                         <aura:set attribute="else">

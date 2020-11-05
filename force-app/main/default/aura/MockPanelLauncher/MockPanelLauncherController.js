@@ -44,5 +44,11 @@
     //handles finish event and returns view state to mock panel component
     handleFinishEvent : function(cmp, evt, help){
         cmp.set("v.viewState", evt.getParam("viewState"));
+    },
+
+    fireCompareEvent : function(cmp, evt, help){
+        let appEvent = $A.get("e.c:CompareAppEvent");
+        appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
+        appEvent.fire();
     }
 })
