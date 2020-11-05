@@ -17,8 +17,6 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
-	    <members>Question_Response__c</members>
-		<members>Question_Response_Rating__c</members>
 		<members>Challenge__c</members>
 		<members>Completion__c</members>
 		<members>Primary_Tech__c</members>
@@ -35,8 +33,6 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
-		<members>Panel_Question__c</members>
-		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -79,8 +75,8 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
+		<members>PanelQuestionCreation</members>
 		<members>PanelQuestionController</members>
-		<members>PanelQuestionControllerTest</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -130,7 +126,6 @@
 		<members>QuizSettingsServiceTest</members>
 		<members>QuizSettingsTest</members>
 		<members>QuizTestUtils</members>
-		<members>responseController</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
@@ -146,9 +141,6 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
-		<members>responseControllerTest</members>
-		<members>ComparePanelAnswersController</members>
-		<members>comparePanelAnswersControllerMock</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -218,8 +210,7 @@
 		<members>PanelQuestionCreation</members>
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
-		<members>ResponseApp</members>
-		<members>ResponseComponent</members>
+		<members>MockPanelLauncher</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
