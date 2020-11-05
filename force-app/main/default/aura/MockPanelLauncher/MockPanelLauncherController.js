@@ -36,5 +36,11 @@
         cmp.set("v.QListIndex", cmp.get("v.QListIndex") + 1);
         help.loadQuestion(cmp, evt);
         cmp.set("v.submitted", false);
+    },
+
+    fireCompareEvent : function(cmp, evt, help){
+        let appEvent = $A.get("e.c:CompareAppEvent");
+        appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
+        appEvent.fire();
     }
 })

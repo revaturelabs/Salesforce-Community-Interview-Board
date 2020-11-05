@@ -160,6 +160,8 @@
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
+		<members>CompareAppEvent</members>
+		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
 		<members>ComparePanelAnswers</members>
 		<members>CreateEvent</members>
