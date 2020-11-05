@@ -33,6 +33,7 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Question_Response_Rating__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
