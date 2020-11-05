@@ -215,6 +215,7 @@
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
+		<members>finishPanelEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
