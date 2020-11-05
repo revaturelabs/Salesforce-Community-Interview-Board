@@ -93,15 +93,15 @@ public with sharing class ComparePanelAnswersController {
         //Question__c question = [SELECT Id, Body__c FROM Question__c WHERE Id = :questionId];
 
         //Match this questionId to related ratings and picked the highest one
-        List<Question_Response__c> questionResponses = [SELECT Id, Body__c, MAX(Upvotes__c) maxUpvotes FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Total_Votes__c DESC];
+        /* List<Question_Response__c> questionResponses = [SELECT Id, Body__c, MAX(Upvotes__c) maxUpvotes FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Total_Votes__c DESC];
         Question_Response__c bestResponse = new QuestionResponse();
         for(Question_Response__C qR : questionResponses){
             if(qR.Upvotes__c == maxUpvotes){
                 bestResponse = qR;
                 break;
             }
-        }
-
+        } */
+        Question_Response__c bestResponse = [SELECT Id, Body__c , Upvotes__c FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Upvotes__c DESC LIMIT 1];
         Return bestResponse.Body__c;
 
     }
