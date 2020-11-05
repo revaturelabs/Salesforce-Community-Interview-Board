@@ -157,6 +157,8 @@
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
+		<members>CompareAppEvent</members>
+		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>

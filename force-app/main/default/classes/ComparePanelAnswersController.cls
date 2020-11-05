@@ -90,12 +90,19 @@ public with sharing class ComparePanelAnswersController {
     @AuraEnabled
     public static string getBestResponse(Id questionId){
         //Get current question
-        Question__c question = [SELECT Id, Body__c FROM Question__c WHERE Id = :questionId];
+        //Question__c question = [SELECT Id, Body__c FROM Question__c WHERE Id = :questionId];
 
         //Match this questionId to related ratings and picked the highest one
-        Question_Response__c questionResponse = [SELECT Id, Body__c, Upvotes__c FROM Question_Response__c WHERE Question__c = :questionId LIMIT 1];
+        List<Question_Response__c> questionResponses = [SELECT Id, Body__c, MAX(Upvotes__c) maxUpvotes FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Total_Votes__c DESC];
+        Question_Response__c bestResponse = new QuestionResponse();
+        for(Question_Response__C qR : questionResponses){
+            if(qR.Upvotes__c == maxUpvotes){
+                bestResponse = qR;
+                break;
+            }
+        }
 
-        Return questionResponse.Body__c;
+        Return bestResponse.Body__c;
 
     }
 }

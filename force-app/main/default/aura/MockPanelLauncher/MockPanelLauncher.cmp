@@ -12,7 +12,10 @@
     <!--Handler for the event that returns the list of retrieved questions for the panel-->
     <aura:handler event="c:UpdateMockPanelList" action="{!c.retrievePanelQuestions}"/>
     <!--aura:handler name="init" value="{!this}" action="{!c.doinit}"/-->
-    
+
+    <!--Notifiers-->
+    <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/>
+
     <lightning:card>
         <div class="slds-m-horizontal--medium">
         
@@ -31,7 +34,7 @@
             <aura:if isTrue="{!v.submitted}">
                 <p>{!v.ResponseBody}</p>
                 <br/>
-                <lightning:button label="Compare Answer" onclick=""/>
+                <lightning:button label="Compare Answer" onclick="{!c.fireCompareEvent}"/>
             	<lightning:button label="Next" onclick="{!c.nextQuestion}"/>
                 <aura:set attribute="else">
                 <lightning:button label="Submit" onclick="{!c.submitResponse}"/>
