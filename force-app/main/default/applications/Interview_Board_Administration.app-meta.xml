@@ -14,6 +14,7 @@
     <label>Interview Board Administration</label>
     <navType>Standard</navType>
     <tabs>Administration</tabs>
+    <tabs>Interview_Question__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Interview_Board_Administration_UtilityBar</utilityBar>
 </CustomApplication>

@@ -94,7 +94,7 @@ public class CreateMockInterviewControllerTest {
             //AggregateResult numQuestion = gotQuestions[0];
             System.assertNotEquals(null, gotQuestions);
         }
-    }
+    } 
 
     @isTest
     public static void createMockPanelPositiveTest() {
