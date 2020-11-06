@@ -47,8 +47,11 @@
     },
 
     fireCompareEvent : function(cmp, evt, help){
+        console.log("In firecompareevent");
         let appEvent = $A.get("e.c:CompareAppEvent");
+        console.log(appEvent);
         appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
         appEvent.fire();
+        cmp.set("v.compareClicked", true);
     }
 })
