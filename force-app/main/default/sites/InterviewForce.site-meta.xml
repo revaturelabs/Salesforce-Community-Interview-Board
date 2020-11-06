@@ -22,15 +22,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD
     <siteAdmin>matthew.coger0192@mindful-panda-5mib3v.com</siteAdmin>
     <siteGuestRecordDefaultOwner>matthew.coger0192@mindful-panda-5mib3v.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>mc-p3-developer-edition</subdomain>
-=======
-    <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
-    <siteType>ChatterNetwork</siteType>
-    <subdomain>8th-2020y-project-3-developer-edition</subdomain>
->>>>>>> 3d186cfea614091005ad06fda0bdb1629aa123eb
 </CustomSite>
