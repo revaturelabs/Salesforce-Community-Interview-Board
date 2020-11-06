@@ -17,8 +17,6 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
-	    <members>Question_Response__c</members>
-		<members>Question_Response_Rating__c</members>
 		<members>Challenge__c</members>
 		<members>Completion__c</members>
 		<members>Primary_Tech__c</members>
@@ -34,6 +32,10 @@
 		<members>Quiz_Answer__c</members>
 		<members>Prerequisite__c</members>
 		<members>User</members>
+		<members>Question_Response__c</members>
+		<members>Question_Response_Rating__c</members>
+		<members>Panel_Question__c</members>
+		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -76,6 +78,8 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
+		<members>PanelQuestionCreation</members>
+		<members>PanelQuestionController</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -141,7 +145,6 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
-		<members>responseControllerTest</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -158,11 +161,13 @@
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
+		<members>CompareAppEvent</members>
 		<members>CompletedInterviews</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
 		<members>CreateMockInterview</members>
+		<members>CreateMockPanel</members>
 		<members>EmptyComponentEvent</members>
 		<members>FlowClose</members>
 		<members>FlowHost</members>
@@ -187,11 +192,13 @@
 		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
+		<members>ResponseComponent</members>
 		<members>ScheduleSync</members>
 		<members>ScheduleSync</members>
 		<members>TestComp</members>
 		<members>UpcomingMeetings</members>
 		<members>UpdateMockInterviewList</members>
+		<members>UpdateMockPanelList</members>
 		<members>VCCalendar</members>
 		<members>header</members>
 		<members>throwMeeting</members>
@@ -205,8 +212,12 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
-		<members>ResponseApp</members>
-		<members>ResponseComponent</members>
+		<members>PanelForceComponent</members>
+		<members>PanelQuestionCreation</members>
+		<members>UpdateMockPanelList</members>
+		<members>PrepareTabComponent</members>
+		<members>MockPanelLauncher</members>
+		<members>finishPanelEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -224,6 +235,7 @@
 	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
+		<members>Panel_Administration</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>
