@@ -33,6 +33,7 @@
 		<members>Prerequisite__c</members>
 		<members>User</members>
 		<members>Question_Response__c</members>
+		<members>Question_Response_Rating__c</members>
 		<members>Panel_Question__c</members>
 		<members>Mock_Panel__c</members>
 		<name>CustomObject</name>
@@ -161,7 +162,10 @@
 		<members>BatchClientWrapper</members>
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
+		<members>CompareAppEvent</members>
+		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
+		<members>ComparePanelAnswers</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
@@ -214,6 +218,8 @@
 		<members>PanelQuestionCreation</members>
 		<members>UpdateMockPanelList</members>
 		<members>PrepareTabComponent</members>
+		<members>MockPanelLauncher</members>
+		<members>finishPanelEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

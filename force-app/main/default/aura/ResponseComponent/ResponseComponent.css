@@ -1,0 +1,24 @@
+.THIS textarea {
+  height: 10rem;
+  width: 30rem;
+  
+}
+
+.THIS .questionCard{
+    width:80rem;
+    text-align: center;
+    
+}
+
+.THIS .slds-form-element__label{
+    font-size: 15px;
+}
+
+.THIS .responseCard {
+   
+    padding-left: 15px;
+    padding-bottom: 10px;
+   }
+.THIS .slds-size_6-of-12{
+    margin: 15px;
+}
