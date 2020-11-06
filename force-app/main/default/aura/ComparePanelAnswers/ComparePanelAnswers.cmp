@@ -27,7 +27,7 @@
     </lightning:card>
     <!--Notifiers-->
     <!-- Do we need this? -->
-        <!-- <aura:registerEvent name="CompareEvent"/> -->
+        <!--<aura:registerEvent name="CompareEvent"/> -->
     <!--Handlers-->
     <!--Change name and event once we know what they are-->
     <aura:handler name="CompareEvent" event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/>
