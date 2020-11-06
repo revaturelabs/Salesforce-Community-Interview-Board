@@ -22,8 +22,13 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
     <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
+=======
+    <siteAdmin>henrytakizawa10014@cunning-fox-8nxt8p.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>henrytakizawa10014@cunning-fox-8nxt8p.com</siteGuestRecordDefaultOwner>
+>>>>>>> 4a6348de80eed00cf428330f6ff5abbbb275bf91
     <siteType>ChatterNetwork</siteType>
     <subdomain>8th-2020y-project-3-developer-edition</subdomain>
 </CustomSite>
