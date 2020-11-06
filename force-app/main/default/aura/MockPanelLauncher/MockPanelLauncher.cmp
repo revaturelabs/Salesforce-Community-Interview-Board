@@ -27,7 +27,7 @@
     
     <aura:if isTrue="{!!v.viewState}">
         <lightning:card>
-            <div class="slds-m-horizontal--medium">
+            <div class="slds-m-horizontal--medium" style="height: 508px">
             
                 <h1>Question #{!v.QListIndex + 1}</h1>
                 <br/>
@@ -47,15 +47,15 @@
                     <aura:if isTrue="{!v.compareClicked}">
                         <c:ComparePanelAnswers/>
                     </aura:if>
-                    <lightning:button label="Compare Answer" onclick="{!c.fireCompareEvent}"/>
+                    <lightning:button class="slds-size_1-of-5" label="Compare Answer" onclick="{!c.fireCompareEvent}"/>
                     <aura:if isTrue="{!v.finalQuestion}">
-                        <lightning:button label="Finish" onclick="{!c.finishButton}"/>
+                        <lightning:button class="slds-size_1-of-5"  label="Finish" onclick="{!c.finishButton}"/>
                         <aura:set attribute="else">
-                            <lightning:button label="Next" onclick="{!c.nextQuestion}"/>
+                            <lightning:button class="slds-size_1-of-5"  label="Next" onclick="{!c.nextQuestion}"/>
                         </aura:set>
                     </aura:if>  
                     <aura:set attribute="else">
-                    <lightning:button label="Submit" onclick="{!c.submitResponse}"/>
+                    	<lightning:button class="slds-size_1-of-5" label="Submit" onclick="{!c.submitResponse}"/>
                     </aura:set>
                 </aura:if>
             </div>        
