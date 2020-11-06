@@ -5,31 +5,31 @@
     <aura:attribute name="userAnswer" type="String"/>
     <aura:attribute name="similarityScore" type="Decimal"/>
     <aura:attribute name="communityBestAnswer" type="String" default=""/>
+    <aura:attribute name="compareClicked" type="Boolean" default="false"/>
 
     <!--Display Comparison-->
-    <lightning:card title="Answer Comparison">    
-        <div class="slds-grid">
-            <!--similarity score-->
-            <p>
-                <lightning:formattedText value="Comparison Score:"/> 
-            </p>
-            <p>
-                <lightning:formattedNumber value="{!v.similarityScore}"/>
-            </p>
-            <br/>
-            <br/>
-            <!--Community Best Answer-->
-            <p>
-                <!--Figure out how to get this from Mr Holla-->
-                <lightning:formattedText value="{!v.communityBestAnswer}"/>
-            </p>
-        </div>
-    </lightning:card>
+    <aura:if isTrue="{!v.compareClicked}">
+        <lightning:card title="Answer Comparison">    
+            <div class="slds-grid slds-grid_vertical">
+                <!--similarity score-->
+                <div class="slds-col">
+                        <lightning:formattedText value="Comparison Score: "/> 
+                        <lightning:formattedNumber value="{!v.similarityScore}"/>
+                </div>
+                <!--Community Best Answer-->
+                <div class="slds-col">
+                        <!--Figure out how to get this from Mr Holla-->
+                        <lightning:formattedText value="{!v.communityBestAnswer}"/>
+                </div>
+            </div>
+        </lightning:card>
+    </aura:if>
+    <lightning:button class="slds-size_1-of-5" label="Compare Answer" onclick="{!c.handleCompareEvent}"/>
     <!--Notifiers-->
     <!-- Do we need this? -->
-        <!--<aura:registerEvent name="CompareEvent"/> -->
+    <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/>
     <!--Handlers-->
     <!--Change name and event once we know what they are-->
-    <aura:handler name="CompareEvent" event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/>
+    <aura:handler event="c:CompareAppEvent" action="{!c.handleCompareEvent}"/>
     <!-- <aura:handler name="GetBestAnswerEvent" event="c:CompareAppEvent" action="{!c.getBestAnswer}"/>  -->
 </aura:component>
