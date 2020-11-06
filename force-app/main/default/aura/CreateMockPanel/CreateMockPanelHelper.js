@@ -61,6 +61,9 @@
                 let results = response.getReturnValue();
                 for(let i = 0; i < results.length; i++) {
                     displayValue[i]["max"] = results[i];
+                    if(results[i] == 0) {
+                        displayValue[i]["number"] = 0;
+                    }
                 }
                 component.set("v.display", displayValue);
             }

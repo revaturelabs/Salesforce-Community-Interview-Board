@@ -29,7 +29,9 @@
 
     handleFinishEvent : function(cmp, evt, help){
         cmp.set("v.viewState", evt.getParam("viewState"));
-        console.log("finishing");
+        cmp.set("v.default", []);
+        help.setListValues(cmp, []);
+        cmp.find("CreateButton").set("v.disabled", true);
     },
 
     ChangeLeftSideTypes : function(component, event, helper){
@@ -42,7 +44,7 @@
         if (selectedStack) {
             for(let type of tempList) {
                 leftSideList.push({label : type,value : type});
-                 }
+            }
             component.set("v.LeftSideTypes", leftSideList);
         }
         component.find("CreateButton").set("v.disabled", true);
@@ -53,15 +55,16 @@
         let rightTypes = component.get("v.display");
         let listResult = [];
         for(let i = 0; i < rightTypes.length; i++) {
-            listResult.push({ "name" : rightTypes[i]['name'], "number" : rightTypes[i]['number'] });
+            if(rightTypes[i]['number'] > 0){
+                listResult.push({ "name" : rightTypes[i]['name'], "number" : rightTypes[i]['number'] });
+            }
         }
         action.setParams({"filterPanel" : listResult});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
-                var UpdateList = $A.get("e.c:UpdateMockPanelList");
+                let UpdateList = $A.get("e.c:UpdateMockPanelList");
                 UpdateList.setParams({"questions" : response.getReturnValue(), "viewState" : false});
                 UpdateList.fire();
-                console.log(response.getReturnValue());
             } else {
                 console.log("An error has occured.");
             }
