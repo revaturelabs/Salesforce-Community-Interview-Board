@@ -29,7 +29,9 @@
 
     handleFinishEvent : function(cmp, evt, help){
         cmp.set("v.viewState", evt.getParam("viewState"));
-        console.log("finishing");
+        cmp.set("v.default", []);
+        help.setListValues(cmp, []);
+        cmp.find("CreateButton").set("v.disabled", true);
     },
 
     ChangeLeftSideTypes : function(component, event, helper){
@@ -60,10 +62,9 @@
         action.setParams({"filterPanel" : listResult});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
-                var UpdateList = $A.get("e.c:UpdateMockPanelList");
+                let UpdateList = $A.get("e.c:UpdateMockPanelList");
                 UpdateList.setParams({"questions" : response.getReturnValue(), "viewState" : false});
                 UpdateList.fire();
-                console.log(response.getReturnValue());
             } else {
                 console.log("An error has occured.");
             }
