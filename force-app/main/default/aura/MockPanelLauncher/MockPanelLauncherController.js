@@ -2,8 +2,7 @@
 	//method for retreiving the list of panel questions from the UpdateMockPanelList event and storing them in the component
     retrievePanelQuestions : function(component, event, helper) {
         component.set("v.viewState", event.getParam("viewState"));
-        var qList = event.getParam("questions");
-        component.set("v.QuestionList", qList);
+        component.set("v.QuestionList", event.getParam("questions"));
         helper.loadQuestion(component, event);
 	},
     
@@ -36,6 +35,8 @@
         cmp.set("v.QuestionId", "");
         cmp.set("v.QuestionText", "");
         cmp.set("v.ResponseBody", "");
+        cmp.set("v.submitted", false);
+        cmp.set("v.finalQuestion", false);
         let finishEvent = $A.get("e.c:finishPanelEvent");
         finishEvent.setParams({"viewState": true});
         finishEvent.fire();
