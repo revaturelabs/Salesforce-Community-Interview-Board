@@ -145,6 +145,7 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>ForumsPageApexController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -193,6 +194,8 @@
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
 		<members>ResponseComponent</members>
+		<members>ForumsPage</members>
+		<members>ResponseQuestionEvent</members>
 		<members>ScheduleSync</members>
 		<members>ScheduleSync</members>
 		<members>TestComp</members>
