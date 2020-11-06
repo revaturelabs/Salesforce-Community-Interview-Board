@@ -17,7 +17,8 @@
     </aura:if>
     
     <aura:if isTrue="{!v.panelInterviewSwitch}">
-        <c:CreateMockPanel/>
+        	<c:CreateMockPanel/>
+            <c:MockPanelLauncher/>
     </aura:if>
 
 </aura:component>

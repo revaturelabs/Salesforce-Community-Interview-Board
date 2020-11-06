@@ -68,6 +68,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ComparePanelAnswersController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CreateMeetingApexCont</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -393,6 +397,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>comparePanelAnswersControllerMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>comparePanelAnswersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -911,6 +919,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Question_Response__c.Total_Votes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question_Response__c.Upvotes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Body__c</field>
         <readable>false</readable>
@@ -1193,6 +1211,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Interview_Question__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Meeting_Participant__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -1210,6 +1232,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Primary_Tech__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Question_Response__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
