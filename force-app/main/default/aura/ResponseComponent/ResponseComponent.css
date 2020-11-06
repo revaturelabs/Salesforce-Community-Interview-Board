@@ -10,6 +10,10 @@
     
 }
 
+.THIS .rating p{
+    line-height: 4;
+}
+
 .THIS .slds-form-element__label{
     font-size: 15px;
 }

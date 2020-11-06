@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>checkLocked</fullName>
+    <active>true</active>
+    <description>Checks if a question is locked.</description>
+    <errorConditionFormula>IF( Question__r.Locked__c , TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>Question is locked and cannot accept any more responses.</errorMessage>
+</ValidationRule>

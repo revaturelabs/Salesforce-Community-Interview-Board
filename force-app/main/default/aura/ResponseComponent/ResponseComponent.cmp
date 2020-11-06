@@ -2,6 +2,7 @@
     
     <aura:attribute name="question" type="String" />
      <aura:attribute name="body" type="String" />
+    <aura:attribute name="previousVotes" type="Question_Response_Rating__c[]" />
     <aura:attribute name="responses" type="Question_Response__c[]" />
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <div class="slds-align_absolute-center">
@@ -59,6 +60,20 @@
                 <p>{!g.Body__c}</p>
                 <br></br>
                 <p><b>Written by: </b> {!g.CreatedBy.Name}</p>
+                <div class="rating slds-grid slds-size_3-of-12 slds-col_bump-left">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-m-top_small slds-m-left_small slds-m-right_xx-small">
+                            <lightning:buttonIconStateful class="{!g.Name}" size="small" iconName="utility:like" selected="{! g.liked }" onclick="{! c.handleLikeButtonClick }" alternativeText="Like" />
+                        </div>
+                        <p class="slds-col">{!g.Upvotes__c}</p>
+                    </div>
+                    <div class="slds-grid slds-m-left_medium">
+                        <div class="slds-col slds-m-top_small slds-m-left_small slds-m-right_xx-small">
+                            <lightning:buttonIconStateful class="{!g.Name}" size="small" iconName="utility:dislike" selected="{! g.disliked }" onclick="{! c.handleDislikeButtonClick }" alternativeText="Dislike" />
+                        </div>
+                        <p class="slds-col">{!g.Total_Votes__c - g.Upvotes__c}</p>
+                    </div>
+                </div>
             </div>
            
         </lightning:card>
