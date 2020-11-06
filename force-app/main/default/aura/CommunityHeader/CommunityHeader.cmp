@@ -5,10 +5,10 @@
 		</a>
     	<div class="slds-col_bump-left">
             <a href="/s/?tabset-5ef3a=42ccc">
-            	<lightning:card variant="narrow">
+            	<lightning:card>
                     <div>
                     	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
-                            <div class="slds-col">
+                            <div class="slds-col slds-p-bottom_small">
         						<lightning:icon iconName="action:user"/>
                             </div>
                             <div class="slds-col slds-p-horizontal_medium">
