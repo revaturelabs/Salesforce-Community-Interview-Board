@@ -11,8 +11,7 @@
             if (name === "SUCCESS") {
                 component.set("v.question", response.getReturnValue());
                 helper.getResponse(component, event, helper);
-
-           			}
+            }
            
     })
         $A.enqueueAction(action);
@@ -60,6 +59,12 @@
         
         
     },
+    handleLikeButtonClick : function(component, event, helper) {
+        helper.updateLikes(1, component, event);
+	},
+    handleDislikeButtonClick : function(component, event, helper) {
+        helper.updateLikes(-1, component, event);
+	},
     
      
    
