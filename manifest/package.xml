@@ -17,6 +17,8 @@
 		<members>Meeting_Participant__c</members>
 		<members>Meeting__c</members>
 		<members>Question__c</members>
+	    <members>Question_Response__c</members>
+		<members>Question_Response_Rating__c</members>
 		<members>Challenge__c</members>
 		<members>Completion__c</members>
 		<members>Primary_Tech__c</members>
@@ -123,6 +125,7 @@
 		<members>QuizSettingsServiceTest</members>
 		<members>QuizSettingsTest</members>
 		<members>QuizTestUtils</members>
+		<members>responseController</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
@@ -138,6 +141,7 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>responseControllerTest</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -201,6 +205,8 @@
 		<members>currentTechEvent</members>
 		<members>subTechEvent</members>
 		<members>AssignStacksPage</members>
+		<members>ResponseApp</members>
+		<members>ResponseComponent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

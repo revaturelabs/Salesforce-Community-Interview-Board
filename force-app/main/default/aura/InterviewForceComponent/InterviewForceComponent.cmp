@@ -15,8 +15,8 @@
         <lightning:tab label="INTERESTS" id="four">
             <c:BatchClientWrapper/>
         </lightning:tab>
-        <lightning:tab label="QUESTION POOL" id="five">
-            <c:QuestionPoolList/>
+        <lightning:tab label="QUESTION POOL" id="five" onactive="{!c.activeQuestionPool}">
+            <c:QuestionPoolList aura:id="poolList"/>
         </lightning:tab>
         <lightning:tab label="SYNC" id="six">
             <c:ScheduleSync/>
