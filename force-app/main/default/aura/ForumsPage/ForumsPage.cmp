@@ -6,7 +6,10 @@
     <aura:attribute name="showQuestionsList" type="Boolean" default="false"/>
     <aura:attribute name="showQuestion" type="Boolean" default="false"/>
     <aura:attribute name="questionType" type="String" default="generic"/>
+    <aura:attribute name="recentCategory" type="String" default="Salesforce"/>
+    <aura:attribute name="recentSubTech" type="String" default="Soft Skills"/>
     <aura:attribute name="questionsList" type="Question__c[]" />
+    <aura:attribute name="relatedQuestionsList" type="Question__c[]" />
     
     <div class="slds-grid">
         
@@ -213,7 +216,17 @@
         <!-- RIGHT -->
         <div class="slds-size_3-of-12 slds-align_absolute-right  slds-box"> 
             <b>Related Questions:</b>
-            <p>Some type of related questions would appear here.</p>
+            <aura:if isTrue="{!v.showQuestion}">
+                            <aura:iteration var="y" items="{!v.relatedQuestionsList}" indexVar="j">
+                                <div class="question-link">
+                                    <lightning:button class="question-link">
+                            			<a onclick="{!c.testFunction}" id="{!y.Name}">
+                                            {!j + 1}: {!y.Body__c}
+                                        </a>
+                                    </lightning:button>
+                                </div>
+                            </aura:iteration>
+            </aura:if>
         </div>
         
         
