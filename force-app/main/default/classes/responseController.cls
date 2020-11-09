@@ -1,10 +1,10 @@
 public class responseController {
     
     @AuraEnabled
-    public static String getQuestion(){
-        String questionId = [SELECT Name From Question__c LIMIT 1].Name;
-        System.debug(questionId);
-        String randomQuestion = [SELECT Body__c From Question__c LIMIT 1 ].Body__c;
+    public static Question__c getQuestion(String questionID){
+        //String questionId = [SELECT Name From Question__c LIMIT 1].Name;
+        //System.debug(questionId);
+        Question__c randomQuestion = [SELECT Name, Body__c, Locked__c From Question__c WHERE Name =: questionID LIMIT 1];
         return randomQuestion;
         
     }

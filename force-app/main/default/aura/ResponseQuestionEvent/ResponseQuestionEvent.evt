@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="question_id" type="String"/>
+</aura:event>

@@ -30,6 +30,7 @@
         cmp.set("v.QListIndex", cmp.get("v.QListIndex") + 1);
         help.loadQuestion(cmp, evt);
         cmp.set("v.submitted", false);
+        cmp.set("v.compareClicked", false);
     },
 
     //button to reset panel and return to create mock panel component
@@ -49,5 +50,17 @@
     //handles finish event and returns view state to mock panel component
     handleFinishEvent : function(cmp, evt, help){
         cmp.set("v.viewState", evt.getParam("viewState"));
+<<<<<<< HEAD
+=======
+    },
+
+    fireCompareEvent : function(cmp, evt, help){
+        console.log("In firecompareevent");
+        let appEvent = $A.get("e.c:CompareAppEvent");
+        appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
+        appEvent.fire();
+        cmp.set("v.compareClicked", true);
+        console.log(appEvent);
+>>>>>>> 6846b457de73b4b44e2eed14d75aefd7fceed54b
     }
 })

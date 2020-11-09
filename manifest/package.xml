@@ -130,6 +130,7 @@
 		<members>QuizSettingsServiceTest</members>
 		<members>QuizSettingsTest</members>
 		<members>QuizTestUtils</members>
+		<members>responseController</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
@@ -148,6 +149,7 @@
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
+		<members>ForumsPageApexController</members> 
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -196,6 +198,9 @@
 		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
+		<members>ResponseComponent</members>
+		<members>ForumsPage</members>
+		<members>ResponseQuestionEvent</members>
 		<members>ScheduleSync</members>
 		<members>ScheduleSync</members>
 		<members>TestComp</members>
@@ -343,4 +348,4 @@
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>
-</Package>
+	</Package>  

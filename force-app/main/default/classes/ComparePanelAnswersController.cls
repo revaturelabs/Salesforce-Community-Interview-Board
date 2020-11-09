@@ -1,4 +1,4 @@
-public with sharing class ComparePanelAnswersController {
+public class ComparePanelAnswersController {
     public ComparePanelAnswersController() {
 
     }
@@ -101,7 +101,8 @@ public with sharing class ComparePanelAnswersController {
                 break;
             }
         } */
-        Question_Response__c bestResponse = [SELECT Id, Body__c , Upvotes__c FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Upvotes__c DESC LIMIT 1];
+        Question_Response__c bestResponse = [SELECT Id, Body__c, Total_Rating__c FROM Question_Response__c WHERE Question__r.Id = :questionId ORDER BY Total_Rating__C DESC LIMIT 1];
+        system.debug('GetBestResponse Debug ' +bestResponse.Body__c);
         Return bestResponse.Body__c;
 
     }

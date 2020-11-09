@@ -1,6 +1,10 @@
 <aura:component  controller="responseController" implements="forceCommunity:availableForAllPageTypes" >
     
+    <aura:attribute name="get_question_id" type="String" default="Q-000001"/>
+    <aura:handler event="c:ResponseQuestionEvent" action="{!c.getQuestionFromEvent}" />
+    
     <aura:attribute name="question" type="String" />
+    <aura:attribute name="isLocked" type="boolean" />
      <aura:attribute name="body" type="String" />
     <aura:attribute name="previousVotes" type="Question_Response_Rating__c[]" />
     <aura:attribute name="responses" type="Question_Response__c[]" />
@@ -32,18 +36,21 @@
             <lightning:textarea aura:id="subBody" label="Your response:"
                              name="body"
                              type="String"
+                             disabled="{!v.isLocked}"
                              onchange="{!c.textChanged}"
-                             placeholder = "Type your response here.."/>
+                             placeholder = "{!v.isLocked ? 'This question is locked' : 'Type your response here..'}"/>
             
-
+			<aura:if isTrue="{! !v.isLocked}">
             <lightning:button label="Submit"
                               class="slds-m-top_medium"
                               variant="brand"
                               onclick="{!c.createResponse}"/>
+                </aura:if>
         </form>
       </fieldset>
     
     </div>
+
          </div>
     
             </lightning:card>

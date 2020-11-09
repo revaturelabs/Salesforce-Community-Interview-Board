@@ -15,7 +15,7 @@ public with sharing class PanelQuestionController {
         if(currentProfile.Name == 'Associate') {
             return true;
         } else {
-        	return false;
+            return false;
         }
     }
     
