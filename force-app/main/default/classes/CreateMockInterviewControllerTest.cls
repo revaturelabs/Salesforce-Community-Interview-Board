@@ -39,7 +39,7 @@ public class CreateMockInterviewControllerTest {
             allQuestions.add(question);
         }
         insert allQuestions;
-
+        
         /*Account testAcc = new Account();
         testAcc.name = 'test company';
         Database.SaveResult savedAccount = Database.insert(testAcc);
@@ -96,6 +96,84 @@ public class CreateMockInterviewControllerTest {
         }
     } 
 
+    /*
+    Positive test for the getNumQuestionListByTopic that checks that it returns the correct 
+    number of questions for each topic specified and it only returns those questions by checking
+    the total number of questions in the list returned by getNumQuestionListByTopic
+    */ 
+    @isTest
+    public static void getNumQuestionListByTopicPositiveTest() {
+        List<Map<String,Object>> panelQuestionsFilterList = new List<Map<String,Object>>();
+
+        Map<String,Object> mapPanelJava = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Java');
+        mapForPanelQuestionsFilterList.put('number', 5);
+
+        Map<String,Object> mapPanelVF = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Visualforce');
+        mapForPanelQuestionsFilterList.put('number', 4);
+
+        Map<String,Object> mapPanelApex = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Apex');
+        mapForPanelQuestionsFilterList.put('number', 3);
+
+        panelQuestionsFilterList.add(mapPanelJava);
+        panelQuestionsFilterList.add(mapPanelApex);
+        panelQuestionsFilterList.add(mapPanelVF);
+
+        List<Question__c> returnPanelQ = CreateMockInterviewController.getNumQuestionListByTopic(panelQuestionsFilterList);
+        Integer jCount = 0;
+        Integer aCount = 0;
+        Integer vCount = 0;
+        Integer totCount = 0;
+        for (Question__c q : returnPanelQ) {
+            if(q.type__c == 'Java') {
+                jCount++;
+            } else if (q.type__c == 'Apex') {
+                aCount++;
+            } else if (q.type__c == 'Visualforce') {
+                vCount++;
+            }
+            totCount++;
+        }
+        System.assertEquals(5, jCount);
+        System.assertEquals(3, aCount);
+        System.assertEquals(4, vCount);
+        System.assertEquals(12, totCount);
+    }
+
+    @isTest
+    public static void getNumQuestionListByTopicNegativeTest() {
+        List<Map<String,Object>> panelQuestionsFilterList = new List<Map<String,Object>>();
+
+        Map<String,Object> mapPanelJava = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Java');
+        mapForPanelQuestionsFilterList.put('number', 5);
+
+        Map<String,Object> mapPanelVF = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Visualforce');
+        mapForPanelQuestionsFilterList.put('number', 4);
+
+        Map<String,Object> mapPanelApex = new Map<String,Object>();
+        mapForPanelQuestionsFilterList.put('name' , 'Apex');
+        mapForPanelQuestionsFilterList.put('number', 3);
+
+        panelQuestionsFilterList.add(mapPanelJava);
+        panelQuestionsFilterList.add(mapPanelApex);
+        panelQuestionsFilterList.add(mapPanelVF);
+
+        List<Question__c> returnPanelQ = CreateMockInterviewController.getNumQuestionListByTopic(panelQuestionsFilterList);
+        Integer extraQuestions = 0;
+        for(Question__c q : returnPanelQ){
+            if(q.type__c != 'Java' || q.type__c = 'Visualforce' || q.type__c = 'Apex') {
+                extraQuestions++;
+            }
+        }
+        System.assertEquals(0, extraQuestions);
+        System.assertNotEquals(null, returnPanelQ);
+
+    }
+
     @isTest
     public static void createMockPanelPositiveTest() {
         List<String> testObject = new List<String>{'Java', 'Apex', 'Visualforce'};
@@ -106,7 +184,6 @@ public class CreateMockInterviewControllerTest {
         System.assertEquals(33, results[2]);
     }
 
-    //Test created by Paul Robertson to test method getNumQuestionListByTopic was successful on 10/30/2020
     @isTest
     public static void createMockPanelNegativeTest() {
         List<String> testObject = new List<String>{'Banana', 'Egg', 'potato'};
