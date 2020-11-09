@@ -34,7 +34,7 @@ public with sharing class QuestionPoolApexController {
     }
     
     @AuraEnabled
-    public static void lockResponses(Id[] idList){
+    public static void lockQuestions(Id[] idList){
         //querys the database for selected questions where provided the Id and changes the locked field to be either true or false
 		Question__c[] questionList = [SELECT Id, locked__c FROM Question__c WHERE Id IN :idList];
         for(question__c qst: questionList){
