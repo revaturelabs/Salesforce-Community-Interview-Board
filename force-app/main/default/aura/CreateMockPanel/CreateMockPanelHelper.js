@@ -47,24 +47,31 @@
                  max : 0
              });
         }
+        // Save changes to the attributes
         component.set("v.RightSideTypes", newMap);
 		component.set("v.display", newInteger);
         // Refresh display
         this.grabLimit(component);
     },
     grabLimit : function(component) {
+        // Call Apex method and send the selected topics.
         let action = component.get("c.getNumberOfQuestionType");
         action.setParams({"filter" : component.get("v.default")});
         action.setCallback(this, function(response) {
             if(response.getState() == "SUCCESS") {
+                // Retrieve selected list and response from Apex
                 let displayValue = component.get("v.display");
                 let results = response.getReturnValue();
+                
+                // Iterate and update selected list
                 for(let i = 0; i < results.length; i++) {
                     displayValue[i]["max"] = results[i];
                     if(results[i] == 0) {
                         displayValue[i]["number"] = 0;
                     }
                 }
+                
+                // Save results to attribute
                 component.set("v.display", displayValue);
             }
         });

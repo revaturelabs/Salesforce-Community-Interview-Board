@@ -24,10 +24,13 @@
         $A.enqueueAction(action);
     },
     changeView : function(component, event, helper) {
+        // Set Component to render through <aura:if> if true, otherwise hidden.
         component.set("v.viewState", event.getParam("viewState"));
     },
 
     handleFinishEvent : function(cmp, evt, help){
+        // Set Component to render through <aura:if> if true, otherwise hidden.
+        // Reset selected topics.
         cmp.set("v.viewState", evt.getParam("viewState"));
         cmp.set("v.default", []);
         help.setListValues(cmp, []);
@@ -51,7 +54,10 @@
     },
 
     createMockPanelJS : function(component, event, helper) {
+        // Call Apex method and send List<Map<String, Object>>
         let action = component.get("c.getNumQuestionListByTopic");
+        
+        // Create List<Map<String, Object>> from List and Maps
         let rightTypes = component.get("v.display");
         let listResult = [];
         for(let i = 0; i < rightTypes.length; i++) {
@@ -62,6 +68,7 @@
         action.setParams({"filterPanel" : listResult});
         action.setCallback(this,function(response){
             if(response.getState()==="SUCCESS"){
+                // Fire Application Event and store response from Apex.
                 let UpdateList = $A.get("e.c:UpdateMockPanelList");
                 UpdateList.setParams({"questions" : response.getReturnValue(), "viewState" : false});
                 UpdateList.fire();
@@ -86,16 +93,20 @@
 
     SelectAll : function (component, event, helper){
         var getAllLeftSide = component.get("v.LeftSideTypes");
-        var tempoList = [];        
+        // Add all topics in this category
+        var tempoList = [];
         for(let type of getAllLeftSide) {
             tempoList.push(type.value);
         }
+        
+        // Save and update List and Maps
         component.set("v.default", tempoList);
         helper.setListValues(component, tempoList);
         component.find("CreateButton").set("v.disabled", false);
     },
 
     DeselectAll : function (component, event, helper){
+        //Remove all topics and reset values.
         component.set("v.default", []);
         helper.setListValues(component, []);
         component.find("CreateButton").set("v.disabled", true);
