@@ -2,16 +2,19 @@
 	//method for retreiving the list of panel questions from the UpdateMockPanelList event and storing them in the component
     retrievePanelQuestions : function(component, event, helper) {
         component.set("v.viewState", event.getParam("viewState"));
-        var qList = event.getParam("questions");
-        component.set("v.QuestionList", qList);
+        component.set("v.QuestionList", event.getParam("questions"));
         helper.loadQuestion(component, event);
 	},
     
     //saves text input into the response and presents buttons for Next question and 
     submitResponse : function(cmp, evt, help){
         var response = cmp.find("responseBody").get("v.value");
+        let qList = cmp.get("v.QuestionList");
         console.log(response);
         cmp.set("v.ResponseBody", response);
+        if(qList.length == 1){
+            cmp.set("v.finalQuestion", true);
+        }
         cmp.set("v.submitted", true);
     },
     
@@ -36,6 +39,8 @@
         cmp.set("v.QuestionId", "");
         cmp.set("v.QuestionText", "");
         cmp.set("v.ResponseBody", "");
+        cmp.set("v.submitted", false);
+        cmp.set("v.finalQuestion", false);
         let finishEvent = $A.get("e.c:finishPanelEvent");
         finishEvent.setParams({"viewState": true});
         finishEvent.fire();

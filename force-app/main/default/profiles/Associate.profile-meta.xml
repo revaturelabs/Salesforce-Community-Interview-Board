@@ -68,6 +68,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ComparePanelAnswersController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CreateMeetingApexCont</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -393,6 +397,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>associateInterviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>comparePanelAnswersControllerMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>comparePanelAnswersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

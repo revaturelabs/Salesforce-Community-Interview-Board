@@ -1,8 +1,26 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
- 
-    <a href="/s/">
-        <img src="{!$Resource.Logo}" style="width: 160px; height: 100px"/>
-	</a>
-   
-    
+    <div class="slds-grid">
+    	<a href="/s/">
+        	<img src="{!$Resource.Logo}" style="width: 160px; height: 100px"/>
+		</a>
+    	<div class="slds-col_bump-left">
+            <a href="/s/?tabset-5ef3a=42ccc">
+            	<lightning:card>
+                    <div>
+                    	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                            <div class="slds-col slds-p-bottom_small">
+        						<lightning:icon iconName="action:user"/>
+                            </div>
+                            <div class="slds-col slds-p-horizontal_medium">
+                    			<lightning:recordViewForm recordId="{!$SObjectType.CurrentUser.Id}" objectApiName="User">
+                    				<lightning:outputField fieldName="Name" variant="label-hidden"/>
+                    			</lightning:recordViewForm>
+                            </div>
+                    	</div>
+                    </div>
+            	</lightning:card>
+            </a>
+    	</div>
+    </div>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
 </aura:component>

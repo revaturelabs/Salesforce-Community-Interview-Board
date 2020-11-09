@@ -15,7 +15,7 @@
   
     <aura:if isTrue="{!v.viewState}">
         <lightning:card>
-            <div class="slds-m-horizontal--medium">
+            <div class="slds-m-horizontal--medium" style="height: 508px">
                 <lightning:select name="chooseStack" label="Choose Stack" aura:id="stack id" value="{!v.ActiveStack}" required="true" onchange="{!c.ChangeLeftSideTypes}">
                     <option value=" " >--Select--</option>
                     <aura:iteration items="{!v.AllStacks}" var="option">

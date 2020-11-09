@@ -146,6 +146,9 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>comparePanelAnswersTest</members>
+		<members>comparePanelAnswersControllerMock</members>
+		<members>ComparePanelAnswersController</members>
 		<members>ForumsPageApexController</members> 
 		<name>ApexClass</name>
 	</types>
