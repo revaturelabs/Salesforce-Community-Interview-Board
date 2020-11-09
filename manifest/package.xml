@@ -53,6 +53,7 @@
 		<members>BatchClientlistContoller</members>
 		<members>BatchListControllerTest</members>
 		<members>ChallengeController</members>
+		<members>ComparePanelAnswersController</members>
 		<members>completedInterviewController</members>
 		<members>createEventMock</members>
 		<members>CreateMeetingApexCont</members>
@@ -166,7 +167,6 @@
 		<members>CompareAppEvent</members>
 		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
-		<members>ComparePanelAnswers</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
