@@ -11,4 +11,10 @@
 
 .THIS .question-link {
     margin-top: 5px;
+    width: 100%;
+}
+
+.THIS .related-question-link {
+    margin-top: 5px;
+    width: 100%;
 }

@@ -200,7 +200,7 @@
                                 <div class="question-link">
                                     <lightning:button class="question-link">
                             			<a onclick="{!c.testFunction}" id="{!x.Name}">
-                                            {!i + 1}: {!x.Body__c}
+                                            {!x.Body__c}
                                         </a>
                                     </lightning:button>
                                 </div>
@@ -219,9 +219,9 @@
             <aura:if isTrue="{!v.showQuestion}">
                             <aura:iteration var="y" items="{!v.relatedQuestionsList}" indexVar="j">
                                 <div class="question-link">
-                                    <lightning:button class="question-link">
+                                    <lightning:button class="related-question-link">
                             			<a onclick="{!c.testFunction}" id="{!y.Name}">
-                                            {!j + 1}: {!y.Body__c}
+                                            {!y.Body__c}
                                         </a>
                                     </lightning:button>
                                 </div>
