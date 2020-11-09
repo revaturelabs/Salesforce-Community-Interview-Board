@@ -170,7 +170,16 @@ public without sharing class CreateMockInterviewController {
                     
                 
             }
+        
+        Mock_Panel__c mockPanel = new Mock_Panel__c();
+        insert mockPanel;
 
+        for(Question__c q : panelOutputList) {
+            Panel_Question__c panelQuestion = new Panel_Question__c(Mock_Panel__c = mockPanel.Id,
+                                                                    Question__c = q.Id);
+            insert panelQuestion;
+        }
+        
         //Returns our question bank sorted by topic with a specific number of questions
         return panelOutputList;
     }
