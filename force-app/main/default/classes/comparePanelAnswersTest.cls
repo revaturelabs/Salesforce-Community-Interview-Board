@@ -5,21 +5,29 @@ public class comparePanelAnswersTest {
     static void makeQuestionResponses(){
 
         Question__c question = new Question__c();
+        
+        question.Body__c = 'Test question';
+        question.Type__c = 'Apex';
+        question.Stack__c = 'Salesforce';
+        
+        insert question;
 
+        Question__c realQuestion = [SELECT Id FROM Question__c LIMIT 1];
+        
         Question_Response__c bestResponse = new Question_Response__c();
         Question_Response__c badResponse = new Question_Response__c();
         
-        bestResponse.Question__r.Id = question.Id;
+        bestResponse.Question__c = realQuestion.Id;
         bestResponse.Body__c = 'This is the best response';
         bestResponse.Total_Votes__c = 25;
         bestResponse.Upvotes__c = 20;
 
-        badResponse.Question__r.Id = question.Id;
+        badResponse.Question__c = realQuestion.Id;
         badResponse.Total_Votes__c = 10;
         badResponse.Upvotes__c = 5;
         badResponse.Body__c = 'This is the bad response';
 
-        insert question;
+        
         insert bestResponse;
         insert badResponse;
         
@@ -30,6 +38,8 @@ public class comparePanelAnswersTest {
         //Set mock callout class
         Test.setMock(HttpCalloutMock.class, new comparePanelAnswersControllerMock());
 
+        Test.startTest();
+
         Decimal response = ComparePanelAnswersController.textSimilarity('The hippocampus is a major component of the brains of humans and other vertebrates. It belongs to the limbic system and plays important roles in the consolidation of information from short-term memory to long-term memory and spatial navigation. Humans and other mammals have two hippocampi, one in each side of the brain. The hippocampus is a part of the cerebral cortex; and in primates it is located in the medial temporal lobe, underneath the cortical surface. It contains two main interlocking parts: Ammon\'s horn and the dentate gyrus.',
         'An important part of the brains of humans and other vertebrates is the hippocampus. It\'s part of the limbic system and moves information from short-term to long-term memory. It also helps us move around. Humans and other mammals have two hippocampi, one on each side. The hippocampus is a part of the cerebral cortex; and in primates it is found in the medial temporal lobe, beneathe the cortical surface. It has two main interlocking parts: Ammon\'s horn and the dentate gyrus.');
         System.debug(response);
@@ -37,6 +47,8 @@ public class comparePanelAnswersTest {
         Decimal expectedValRaw = 0.86882813106215;
         Decimal expectedValFixed = (expectedValRaw*100).setScale(2);
         System.assertEquals(expectedValFixed, response);
+
+        Test.stopTest();
     }
 
     @isTest
