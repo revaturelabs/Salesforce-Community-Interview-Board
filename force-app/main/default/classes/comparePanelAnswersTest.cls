@@ -1,5 +1,27 @@
 @isTest
 public class comparePanelAnswersTest {
+
+    @TestSetup
+    static void makeQuestionResponses(){
+
+        Question__c question = new Question__c();
+
+        Question_Response__c bestResponse = new Question_Response__c();
+        Question_Response__c badResponse = new Question_Response__c();
+        
+        bestResponse.Name = 'QR-0000';
+        bestResponse.Question__r.Id = question.Id;
+        bestResponse.Total_Rating__c = 25;
+
+        badResponse.Name = 'QR-0001';
+        badResponse.Question__r.Id = question.Id;
+        badResponse.Total_Rating__c = 15;
+
+        insert question;
+        insert bestResponse;
+        insert badResponse;
+        
+    }
     
     @isTest
     static void textSimilarityTest(){
@@ -13,6 +35,21 @@ public class comparePanelAnswersTest {
         Decimal expectedValRaw = 0.86882813106215;
         Decimal expectedValFixed = (expectedValRaw*100).setScale(2);
         System.assertEquals(expectedValFixed, response);
+    }
+
+    @isTest
+    static void getBestResponseTest(){
+        comparePanelAnswersTest.makeQuestionResponses();
+
+        Question__c question = [SELECT Id FROM Question__c];
+        List<Question_Response__C> qResponses = [SELECT Id, Name, Total_Rating__C FROM Question_Response__C];
+
+        Test.startTest();
+        Question_Response__c returnResponse = ComparePanelAnswersController.getBestResponse(question.Id);
+        system.assert(returnResponse.Name == qResponses[0].Name);
+        system.assert(returnResponse.Name != qResponses[1].Name);
+
+        Test.stopTest();
     }
 
 }
