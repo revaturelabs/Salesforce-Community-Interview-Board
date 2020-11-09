@@ -105,7 +105,8 @@ public class CreateMockInterviewControllerTest {
         System.assertEquals(34, results[1]);
         System.assertEquals(33, results[2]);
     }
-    
+
+    //Test created by Paul Robertson to test method getNumQuestionListByTopic was successful on 10/30/2020
     @isTest
     public static void createMockPanelNegativeTest() {
         List<String> testObject = new List<String>{'Banana', 'Egg', 'potato'};

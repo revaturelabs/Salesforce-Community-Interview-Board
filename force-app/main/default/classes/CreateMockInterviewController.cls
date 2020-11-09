@@ -121,6 +121,7 @@ public without sharing class CreateMockInterviewController {
             questionTopics.add(String.valueOf(a.get('name')));
             topicNumber.add(Integer.valueOf(a.get('number')));
         }
+<<<<<<< HEAD
         /*Ignore this section of commented out code for now
         
         for(String questionTopics : filterPanel.keyset()) {
@@ -131,6 +132,8 @@ public without sharing class CreateMockInterviewController {
             Integer dividend = Math.floor(numQuestions/filter.size()).intValue();
             System.debug(dividend);
             */
+=======
+>>>>>>> d5e36093634c143d750ab8b5abfa032f715b30b1
 
             //Creates a map of the selected topics and related questions
             Map<String, List<Question__c>> panel_QListMap = new Map<String, List<Question__c>>();
@@ -141,6 +144,7 @@ public without sharing class CreateMockInterviewController {
                 panel_QListMap.put(s,tempList);
             }
 
+<<<<<<< HEAD
             //The outer for loop iterates through a list of questions where the type is a string in the set<> question topics 
             //previous gen code for getting list of questions by topics but fuck themand their methods something about
             //this seems like it won't work for our situation
@@ -154,6 +158,8 @@ public without sharing class CreateMockInterviewController {
             }
             */
 
+=======
+>>>>>>> d5e36093634c143d750ab8b5abfa032f715b30b1
             //This for loop should iterate through our set of questionTopics and grabs all the questions from that topic
             for (String s : questionTopics) {
                 for(Question__c q : [SELECT Name, Body__c, Type__c FROM Question__c WHERE type__c =:s])
@@ -178,7 +184,6 @@ public without sharing class CreateMockInterviewController {
                 counter = 0;
                 //grabs the integer value of the number of questions for a specific topic                
                 while(counter<numPanelQuestions){          //While the counter is less than numPanelQuestions
-                //if (listItemCounter<dividend) {        this line counts until the number of questions is not applicable to us 
                     //Choose a random number for the question location 
                     //for panel_QListMap.get the filter panel must be type list
                     questionLocation=Math.floor(Math.random() * panel_QListMap.get(questionTopics[whichList]).size()).intValue();
@@ -207,41 +212,37 @@ public without sharing class CreateMockInterviewController {
         return panelOutputList;
     }
 
-    //Since we don't currently plan to use panel_session objects to create a panel session this 
-    //doesn't seem to be necessary
-    /*
+    //Additional feature added on 11/4/2020 by Paul
+
+    //Adding an enhanced for loop to save the list of questions stored in panelOutputList to the
+    //Panel_Question__c object the implementation should be fairly straight forward
     @AuraEnabled
-    public static void CreateMockPanelSession(Map<String, Integer> filterPanel) {
+    public static void CreateMockPanel(List<Map<String,Object>> filterPanel){
+        //Creates list of questions to be added to Panel_Question__c junction object
         List<Question__c> panelQuestionsToBeAdded = new List<Question__c>();
+        
+        //Might need to assign owner id to newly created Mock_Panel__c later on
         ID userId = System.UserInfo.getUserId();
-        System.debug(userId);
-        //return userId;
-       // Id userId = '0053h000003gNSiAAM' contact id = 0033h000009tdoyAAA;
-       User userContactId = [Select Name, Contact.id FROM USER WHERE ID = :userId] ;
-       system.debug(userContactId);
-       panelQuestionsToBeAdded = CreateMockInterviewController.getNumQuestionListByTopic(filterPanel);
-       Id recordTypeId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
 
-       Integer x = [SELECT Count() FROM Meeting__c WHERE recordTypeId=:recordTypeId];
-       x+=1;
+        //Returns the list of questions to be included in the Mock Panel
+        panelQuestionsToBeAdded = CreateMockInterviewController.getNumQuestionListByTopic(filterPanel);
 
-       Meeting__c mockInterview = new Meeting__c(Name=  'Mock interview #' + x + ' with ' +numQuestions+' questions',
-                                                   Meeting_Status__c='Mock',
-                                                   RecordTypeId=recordTypeId);
-       Database.SaveResult savedInterview = Database.insert(mockInterview);
-       Id interviewId = savedInterview.getId();
-       Meeting_Participant__c meetParti = new Meeting_Participant__c(Meeting__c = interviewId,
-                                                                    Participant__c = userContactId.ContactId);
-       insert meetParti;
-           List<Interview_Question__c> interviewQuestions = new List<Interview_Question__c>();
-           for (Question__c q : questionsToBeAdded) {
-               Interview_Question__c addedQuestion = new Interview_Question__c(Meeting_md__c=interviewId,
-                                                                               Question__c=q.Id);
-               interviewQuestions.add(addedQuestion);
-       }
-       insert interviewQuestions;              
-   }
-   */
+        //creates new mock panel to relate to panel questions added
+        Mock_Panel__c mockPanel = new Mock_Panel__c(OwnerId = userId);
+        insert mockPanel;
+
+        //List of junction object panel questions
+        List<Panel_Question__c> panelQuestions = new List<Panel_Question__c>();
+        //Iterates through questions list created earlier and creates the junction object between them and the 
+        //new Mock_Panel__c
+        for(Question__c q : panelQuestionsToBeAdded) {
+            Panel_Question__c addedPanelQuestion = new Panel_Question__c(Mock_Panel__c = mockPanel.Id,
+                                                                         Question__c = q.Id);
+            panelQuestions.add(addedPanelQuestion);
+        }
+        //Creates new panel questions associated with a Mock_Panel__c
+        insert panelQuestions;
+    }
     
     @AuraEnabled
     public static List<Integer> getNumberOfQuestionType(List<String> filter) {
