@@ -10,6 +10,7 @@
     <aura:attribute name="viewState" type="Boolean" default="true"/>
     <aura:attribute name="submitted" type="Boolean" default="false"/>
     <aura:attribute name="finalQuestion" type="Boolean" default="false"/>
+    <aura:attribute name="compareClicked" type="Boolean" default="false"/>
     
     
     <!--Handler for the event that returns the list of retrieved questions for the panel-->
@@ -20,7 +21,7 @@
     <aura:registerEvent name="finishPanel" type="c:finishPanelEvent"/>
 	    
     <!--Notifiers-->
-    <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/>
+    <!-- <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/> -->
 
     <!--aura:handler name="init" value="{!this}" action="{!c.doinit}"/-->
     
@@ -43,7 +44,8 @@
                 <aura:if isTrue="{!v.submitted}">
                     <p>{!v.ResponseBody}</p>
                     <br/>
-                    <lightning:button class="slds-size_1-of-5" label="Compare Answer" onclick="{!c.fireCompareEvent}"/>
+                    <c:ComparePanelAnswers userAnswer="{!v.ResponseBody}" id="{!v.QuestionId}"/>
+                    <!-- <lightning:button class="slds-size_1-of-5" label="Compare Answer" onclick="{!c.fireCompareEvent}"/> -->
                     <aura:if isTrue="{!v.finalQuestion}">
                         <lightning:button class="slds-size_1-of-5"  label="Finish" onclick="{!c.finishButton}"/>
                         <aura:set attribute="else">

@@ -7,7 +7,7 @@
             <a href="/s/?tabset-5ef3a=42ccc">
             	<lightning:card>
                     <div>
-                    	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                    	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-p-left_small">
                             <div class="slds-col slds-p-bottom_small">
         						<lightning:icon iconName="action:user"/>
                             </div>

@@ -30,6 +30,7 @@
         cmp.set("v.QListIndex", cmp.get("v.QListIndex") + 1);
         help.loadQuestion(cmp, evt);
         cmp.set("v.submitted", false);
+        cmp.set("v.compareClicked", false);
     },
 
     //button to reset panel and return to create mock panel component
@@ -52,8 +53,11 @@
     },
 
     fireCompareEvent : function(cmp, evt, help){
+        console.log("In firecompareevent");
         let appEvent = $A.get("e.c:CompareAppEvent");
         appEvent.setParams({"questonId" : "v.QuestionId" , "userAnswer" : "v.ResponseBody"});
         appEvent.fire();
+        cmp.set("v.compareClicked", true);
+        console.log(appEvent);
     }
 })
