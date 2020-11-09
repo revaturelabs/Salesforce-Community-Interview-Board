@@ -108,7 +108,8 @@
         action.setCallback(this, function(response){
             var name = response.getState();
             if (name === "SUCCESS") {
-                component.set("v.question", response.getReturnValue());
+                component.set("v.question", response.getReturnValue().Body__c);
+                component.set("v.isLocked", response.getReturnValue().Locked__c);
                 helper.getResponse(component, event, helper);
             }
            
