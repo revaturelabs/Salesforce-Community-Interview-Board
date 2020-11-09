@@ -1,9 +1,4 @@
 ({
-<<<<<<< HEAD
-    helperMethod : function() {
-
-    }
-=======
     doinit : function(component, event) {
         //Set up first table
 		component.set("v.questionList", [
@@ -162,5 +157,4 @@
     $A.enqueueAction(action);
 	}
     
->>>>>>> 6846b457de73b4b44e2eed14d75aefd7fceed54b
 })
