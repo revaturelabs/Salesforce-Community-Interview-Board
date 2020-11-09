@@ -28,7 +28,6 @@
                     for(rr in response.getReturnValue()){
                         let responseRating = response.getReturnValue()[rr];
                         if(questionResponse.Name == responseRating.Question_Response__r.Name){
-                            console.log(questionResponse.Name + " = " + responseRating.Question_Response__r.Name);
                             if(responseRating.Rating__c == '1'){
                                 questionResponse.liked = true;
                                 questionResponse.disliked = false;
@@ -36,9 +35,6 @@
                                 questionResponse.liked = false;
                                 questionResponse.disliked = true;
                             }
-                            console.log(responseRating);
-                            console.log(responseRating.Rating__c);
-                            console.log(questionResponse);
                         }
                     }
                 }
