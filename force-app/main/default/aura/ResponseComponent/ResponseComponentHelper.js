@@ -104,5 +104,19 @@
         
      		$A.enqueueAction(action);
             
-	},
+	}, 
+    displayQuestion : function(component, event, helper) {
+        
+        let action = component.get("c.getQuestion");
+        action.setParams({questionID : component.get("v.get_question_id")});
+        action.setCallback(this, function(response){
+            var name = response.getState();
+            if (name === "SUCCESS") {
+                component.set("v.question", response.getReturnValue());
+                helper.getResponse(component, event, helper);
+            }
+           
+    })
+        $A.enqueueAction(action);
+    }
 })

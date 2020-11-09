@@ -14,6 +14,10 @@
     line-height: 4;
 }
 
+.THIS .rating {
+    margin-right: 50px;
+}
+
 .THIS .slds-form-element__label{
     font-size: 15px;
 }

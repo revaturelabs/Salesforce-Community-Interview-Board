@@ -1,5 +1,8 @@
 <aura:component  controller="responseController" implements="forceCommunity:availableForAllPageTypes" >
     
+    <aura:attribute name="get_question_id" type="String" default="Q-000001"/>
+    <aura:handler event="c:ResponseQuestionEvent" action="{!c.getQuestionFromEvent}" />
+    
     <aura:attribute name="question" type="String" />
      <aura:attribute name="body" type="String" />
     <aura:attribute name="previousVotes" type="Question_Response_Rating__c[]" />
