@@ -1,7 +1,11 @@
 ({
 	textChanged : function(component, event, helper) {
         let username = component.find("subBody").get("v.value");
-		component.set("v.body", username);
+        if(username.length > 0){
+            component.set("v.body", username);
+        } else {
+            component.set("v.body", null);
+        }
 	},
     
     init: function(component, event, helper){
@@ -31,6 +35,8 @@
             var name = response.getState();
             if (name === "SUCCESS"&& response!=null) {
                 helper.getResponse(component, event, helper);
+                component.find("subBody").set("v.value", "");
+                component.set("v.body", null);
             }
     })
         

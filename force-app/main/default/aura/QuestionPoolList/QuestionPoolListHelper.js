@@ -142,7 +142,7 @@
         for(let i=0;i<selectedRows.length;i++){
             idList.push(selectedRows[i].Id);
         }
-        let action = component.get("c.lockResponses");
+        let action = component.get("c.lockQuestions");
         action.setParams({"idList" : idList});
     	action.setCallback(this,function(response){
     		if(response.getState()==="SUCCESS"){
