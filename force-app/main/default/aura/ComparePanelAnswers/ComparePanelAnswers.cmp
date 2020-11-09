@@ -9,12 +9,14 @@
 
     <!--Display Comparison-->
     <aura:if isTrue="{!v.compareClicked}">
-        <lightning:card title="Answer Comparison">    
+        <lightning:card>    
             <div class="slds-grid slds-grid_vertical">
                 <!--similarity score-->
                 <div class="slds-col">
+                        <h3>Answer Comparison</h3>
                         <lightning:formattedText value="Comparison Score: "/> 
                         <lightning:formattedNumber value="{!v.similarityScore}"/>
+                        %
                 </div>
                 <!--Community Best Answer-->
                 <div class="slds-col">
