@@ -36,7 +36,7 @@
             if (name === "SUCCESS"&& response!=null) {
                 helper.getResponse(component, event, helper);
                 component.find("subBody").set("v.value", "");
-                textChanged(component, event, helper);
+                component.set("v.body", null);
             }
     })
         
