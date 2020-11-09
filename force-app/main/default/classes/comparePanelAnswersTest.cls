@@ -9,13 +9,15 @@ public class comparePanelAnswersTest {
         Question_Response__c bestResponse = new Question_Response__c();
         Question_Response__c badResponse = new Question_Response__c();
         
-        bestResponse.Name = 'QR-0000';
         bestResponse.Question__r.Id = question.Id;
-        bestResponse.Total_Rating__c = 25;
+        bestResponse.Body__c = 'This is the best response';
+        bestResponse.Total_Votes__c = 25;
+        bestResponse.Upvotes__c = 20;
 
-        badResponse.Name = 'QR-0001';
         badResponse.Question__r.Id = question.Id;
-        badResponse.Total_Rating__c = 15;
+        badResponse.Total_Votes__c = 10;
+        badResponse.Upvotes__c = 5;
+        badResponse.Body__c = 'This is the bad response';
 
         insert question;
         insert bestResponse;
@@ -45,9 +47,9 @@ public class comparePanelAnswersTest {
         List<Question_Response__C> qResponses = [SELECT Id, Name, Total_Rating__C FROM Question_Response__C];
 
         Test.startTest();
-        Question_Response__c returnResponse = ComparePanelAnswersController.getBestResponse(question.Id);
-        system.assert(returnResponse.Name == qResponses[0].Name);
-        system.assert(returnResponse.Name != qResponses[1].Name);
+        String returnResponse = ComparePanelAnswersController.getBestResponse(question.Id);
+        system.assert(returnResponse == qResponses[0].Body__c);
+        system.assert(returnResponse != qResponses[1].Body__c);
 
         Test.stopTest();
     }
