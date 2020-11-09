@@ -106,16 +106,16 @@ public class CreateMockInterviewControllerTest {
         List<Map<String,Object>> panelQuestionsFilterList = new List<Map<String,Object>>();
 
         Map<String,Object> mapPanelJava = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Java');
-        mapForPanelQuestionsFilterList.put('number', 5);
+        mapPanelJava.put('name' , 'Java');
+        mapPanelJava.put('number', 5);
 
         Map<String,Object> mapPanelVF = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Visualforce');
-        mapForPanelQuestionsFilterList.put('number', 4);
+        mapPanelVF.put('name' , 'Visualforce');
+        mapPanelVF.put('number', 4);
 
         Map<String,Object> mapPanelApex = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Apex');
-        mapForPanelQuestionsFilterList.put('number', 3);
+        mapPanelApex.put('name' , 'Apex');
+        mapPanelApex.put('number', 3);
 
         panelQuestionsFilterList.add(mapPanelJava);
         panelQuestionsFilterList.add(mapPanelApex);
@@ -147,16 +147,16 @@ public class CreateMockInterviewControllerTest {
         List<Map<String,Object>> panelQuestionsFilterList = new List<Map<String,Object>>();
 
         Map<String,Object> mapPanelJava = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Java');
-        mapForPanelQuestionsFilterList.put('number', 5);
+        mapPanelJava.put('name' , 'Java');
+        mapPanelJava.put('number', 5);
 
         Map<String,Object> mapPanelVF = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Visualforce');
-        mapForPanelQuestionsFilterList.put('number', 4);
+        mapPanelVF.put('name' , 'Visualforce');
+        mapPanelVF.put('number', 4);
 
         Map<String,Object> mapPanelApex = new Map<String,Object>();
-        mapForPanelQuestionsFilterList.put('name' , 'Apex');
-        mapForPanelQuestionsFilterList.put('number', 3);
+        mapPanelApex.put('name' , 'Apex');
+        mapPanelApex.put('number', 3);
 
         panelQuestionsFilterList.add(mapPanelJava);
         panelQuestionsFilterList.add(mapPanelApex);
@@ -165,7 +165,7 @@ public class CreateMockInterviewControllerTest {
         List<Question__c> returnPanelQ = CreateMockInterviewController.getNumQuestionListByTopic(panelQuestionsFilterList);
         Integer extraQuestions = 0;
         for(Question__c q : returnPanelQ){
-            if(q.type__c != 'Java' || q.type__c = 'Visualforce' || q.type__c = 'Apex') {
+            if(q.type__c != 'Java' || q.type__c != 'Visualforce' || q.type__c != 'Apex') {
                 extraQuestions++;
             }
         }
