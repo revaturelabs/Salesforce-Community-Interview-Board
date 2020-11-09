@@ -9,15 +9,7 @@ public with sharing class PanelQuestionController {
     //}
     
     //Get the user info for the option to add the question to a meeting
-    @AuraEnabled
-    public static Boolean isAssociate() {
-        Profile currentProfile = [SELECT Id, Name FROM Profile WHERE Id=:UserInfo.getProfileId()];
-        if(currentProfile.Name == 'Associate') {
-            return true;
-        } else {
-        	return false;
-        }
-    }
+    
     
     //Save a record that a user has created from corresponding QuestionCreation.cmp
     @AuraEnabled
