@@ -165,7 +165,7 @@ public class CreateMockInterviewControllerTest {
         List<Question__c> returnPanelQ = CreateMockInterviewController.getNumQuestionListByTopic(panelQuestionsFilterList);
         Integer extraQuestions = 0;
         for(Question__c q : returnPanelQ){
-            if(q.type__c != 'Java' || q.type__c != 'Visualforce' || q.type__c != 'Apex') {
+            if(q.type__c != 'Java' && q.type__c != 'Visualforce' && q.type__c != 'Apex') {
                 extraQuestions++;
             }
         }
