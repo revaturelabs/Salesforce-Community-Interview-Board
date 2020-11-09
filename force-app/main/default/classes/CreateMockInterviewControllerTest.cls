@@ -100,18 +100,25 @@ public class CreateMockInterviewControllerTest {
     public static void createMockPanelPositiveTest() {
         List<String> testObject = new List<String>{'Java', 'Apex', 'Visualforce'};
         List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
-        List<Integer> testResult = new List<Integer>{0, 0, 0};
-            for(Question__c a : [SELECT Id, type__c FROM Question__c]) {
-                if(a.type__c == 'Java') {
-                    testResult[0]++;
-                }else if(a.type__c == 'Apex') {
-                    testResult[1]++;
-                }else if(a.type__c == 'Visualforce') {
-                    testResult[2]++;
-                }
-            }
-        System.assertEquals(testResult[0], results[0]);
-        System.assertEquals(testResult[1], results[1]);
-        System.assertEquals(testResult[2], results[2]);
+        System.assertEquals(3, results.size());
+        System.assertEquals(33, results[0]);
+        System.assertEquals(34, results[1]);
+        System.assertEquals(33, results[2]);
+    }
+    
+    @isTest
+    public static void createMockPanelNegativeTest() {
+        List<String> testObject = new List<String>{'Banana', 'Egg', 'potato'};
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        System.assertEquals(3, results.size());
+        System.assertEquals(0, results[0]);
+        System.assertEquals(0, results[1]);
+        System.assertEquals(0, results[2]);
+    }
+    
+    @isTest static void createMockPanelNullTest() {
+        List<String> testObject = new List<String>();
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        System.assertEquals(0, results.size());
     }
 }

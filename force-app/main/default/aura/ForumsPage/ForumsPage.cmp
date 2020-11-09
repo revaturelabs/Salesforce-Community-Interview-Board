@@ -1,0 +1,235 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="ForumsPageApexController">
+    
+    <aura:registerEvent name="QuestionResponse" type="c:ResponseQuestionEvent"/>
+    
+    <aura:attribute name="activeSections" type="List" />
+    <aura:attribute name="showQuestionsList" type="Boolean" default="false"/>
+    <aura:attribute name="showQuestion" type="Boolean" default="false"/>
+    <aura:attribute name="questionType" type="String" default="generic"/>
+    <aura:attribute name="recentCategory" type="String" default="Salesforce"/>
+    <aura:attribute name="recentSubTech" type="String" default="Soft Skills"/>
+    <aura:attribute name="questionsList" type="Question__c[]" />
+    <aura:attribute name="relatedQuestionsList" type="Question__c[]" />
+    
+    <div class="slds-grid">
+        
+    <!-- LEFT -->
+        <div class="slds-size_3-of-12 slds-align_absolute-left   slds-box">
+            <div class="slds-nav-vertical__section">
+              <div>
+                <fieldset class="slds-nav-vertical">
+                  <legend class="slds-nav-vertical__title">Topics:</legend>
+                    
+                    <lightning:accordion allowMultipleSectionsOpen="true" activeSectionName="{! v.activeSections }">
+                        <lightning:accordionSection name="A" label="Salesforce">
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-softskills" id="salesforce-softskills" value="unique-id-01-salesforce-softskills" name="unique-id-example" onclick="{!c.salesforceClicked}" checked="" />
+                            <label class="slds-nav-vertical__action" for="salesforce-softskills">
+                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-apex" id="salesforce-apex" value="unique-id-01-apex" name="unique-id-example" onclick="{!c.salesforceClicked}" />
+                            <label class="slds-nav-vertical__action" for="salesforce-apex">
+                              <span class="slds-nav-vertical_radio-faux">Apex</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="salesforce-apex-trigger" id="salesforce-apex-trigger" value="unique-id-01-salesforce-apex-trigger" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-apex-trigger">
+                              <span class="slds-nav-vertical_radio-faux">Apex Trigger</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-apex-testing" id="salesforce-apex-testing" value="unique-id-01-salesforce-apex-testing" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-apex-testing">
+                              <span class="slds-nav-vertical_radio-faux">Apex Testing</span>
+                            </label>
+                            </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="salesforce-visualforce" id="salesforce-visualforce" value="unique-id-01-salesforce-visualforce" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-visualforce">
+                              <span class="slds-nav-vertical_radio-faux">Visualforce</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-components" id="salesforce-components" value="unique-id-01-salesforce-components" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-components">
+                                <span class="slds-nav-vertical_radio-faux">Aura/Lightning Components</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="salesforce-declarative" id="salesforce-declarative" value="unique-id-01-salesforce-declarative" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-declarative">
+                              <span class="slds-nav-vertical_radio-faux">Declarative Salesforce</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-soql" id="salesforce-soql" value="unique-id-01-salesforce-soql" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-soql">
+                                <span class="slds-nav-vertical_radio-faux">SOQL/SOSL</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="salesforce-html" id="salesforce-html" value="unique-id-01-salesforce-html" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-html">
+                                <span class="slds-nav-vertical_radio-faux">HTML/CSS</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="salesforce-javascript" id="salesforce-javascript" value="unique-id-01-salesforce-javascript" name="unique-id-example"  onclick="{!c.salesforceClicked}"/>
+                            <label class="slds-nav-vertical__action" for="salesforce-javascript">
+                              <span class="slds-nav-vertical_radio-faux">Javascript</span>
+                            </label>
+                          </span>
+                        </lightning:accordionSection>
+                        
+                        <lightning:accordionSection name="B" label="Java">
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="java-softskills" id="java-softskills" value="unique-id-01-java-softskills" name="unique-id-example" onclick="{!c.javaClicked}" checked="" />
+                            <label class="slds-nav-vertical__action" for="java-softskills">
+                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="java-java" id="java-java" value="unique-id-01-java-java" name="unique-id-example" onclick="{!c.javaClicked}" />
+                            <label class="slds-nav-vertical__action" for="java-java">
+                              <span class="slds-nav-vertical_radio-faux">Java</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="java-react" id="java-react" value="unique-id-01-java-react" name="unique-id-example"  onclick="{!c.javaClicked}"/>
+                            <label class="slds-nav-vertical__action" for="java-react">
+                              <span class="slds-nav-vertical_radio-faux">React</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="java-spring" id="java-spring" value="unique-id-01-java-spring" name="unique-id-example"  onclick="{!c.javaClicked}"/>
+                            <label class="slds-nav-vertical__action" for="java-spring">
+                              <span class="slds-nav-vertical_radio-faux">Spring</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="java-typescript" id="java-typescript" value="unique-id-01-java-typescript" name="unique-id-example" onclick="{!c.javaClicked}" />
+                            <label class="slds-nav-vertical__action" for="java-typescript">
+                              <span class="slds-nav-vertical_radio-faux">Typescript</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id="java-nodejs" id="java-nodejs" value="unique-id-01-java-nodejs" name="unique-id-example"  onclick="{!c.javaClicked}"/>
+                            <label class="slds-nav-vertical__action" for="java-nodejs">
+                              <span class="slds-nav-vertical_radio-faux">Node.Js</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="java-javascript" id="java-javascript" value="unique-id-01-java-javascript" name="unique-id-example"  onclick="{!c.javaClicked}"/>
+                            <label class="slds-nav-vertical__action" for="java-javascript">
+                              <span class="slds-nav-vertical_radio-faux">Javascript</span>
+                            </label>
+                          </span>
+                        </lightning:accordionSection>
+                        <lightning:accordionSection name="C" label=".NET">
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id=".net-softskills" id=".net-softskills" value="unique-id-01-.net-softskills" name="unique-id-example" onclick="{!c.netClicked}" checked="" />
+                            <label class="slds-nav-vertical__action" for=".net-softskills">
+                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id=".net-c" id=".net-c" value="unique-id-01-.net-c" name="unique-id-example" onclick="{!c.netClicked}" />
+                            <label class="slds-nav-vertical__action" for=".net-c">
+                              <span class="slds-nav-vertical_radio-faux">C</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id=".net-cs" id=".net-cs" value="unique-id-01-.net-cs" name="unique-id-example"  onclick="{!c.netClicked}"/>
+                            <label class="slds-nav-vertical__action" for=".net-cs">
+                              <span class="slds-nav-vertical_radio-faux">C#</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id=".net-cpp" id=".net-cpp" value="unique-id-01-.net-cpp" name="unique-id-example"  onclick="{!c.netClicked}"/>
+                            <label class="slds-nav-vertical__action" for=".net-cpp">
+                              <span class="slds-nav-vertical_radio-faux">C++</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id=".net-sql" id=".net-sql" value="unique-id-01-.net-sql" name="unique-id-example" onclick="{!c.netClicked}" />
+                            <label class="slds-nav-vertical__action" for=".net-sql">
+                              <span class="slds-nav-vertical_radio-faux">SQL</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                              <input type="radio" aura:id=".net-python" id=".net-python" value="unique-id-01-.net-python" name="unique-id-example"  onclick="{!c.netClicked}"/>
+                            <label class="slds-nav-vertical__action" for=".net-python">
+                              <span class="slds-nav-vertical_radio-faux">Python</span>
+                            </label>
+                          </span>
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id=".net-javascript" id=".net-javascript" value="unique-id-01-.net-javascript" name="unique-id-example"  onclick="{!c.netClicked}"/>
+                            <label class="slds-nav-vertical__action" for=".net-javascript">
+                              <span class="slds-nav-vertical_radio-faux">Javascript</span>
+                            </label>
+                          </span>
+                        </lightning:accordionSection><lightning:accordionSection name="D" label="Pop Culture">
+                          <span class="slds-nav-vertical__item">
+                            <input type="radio" aura:id="pc-fun" id="pc-fun" value="unique-id-01-pc-fun" name="unique-id-example" onclick="{!c.popCultureClicked}" checked="" />
+                            <label class="slds-nav-vertical__action" for="pc-fun">
+                              <span class="slds-nav-vertical_radio-faux">Fun</span>
+                            </label>
+                          </span>
+                        </lightning:accordionSection>
+                    </lightning:accordion>
+                </fieldset>
+              </div>
+            </div>
+        </div>
+        
+        
+
+        
+        <!-- MIDDLE -->
+        <div class="slds-size_6-of-12 slds-box"> 
+            <div class="questions">
+                <div class="question-header">
+                <b>Questions:</b>
+                </div>
+                <div class="question-body">
+                    <aura:if isTrue="{!v.showQuestionsList}">
+                            <aura:iteration var="x" items="{!v.questionsList}" indexVar="i">
+                                <div class="question-link">
+                                    <lightning:button class="question-link">
+                            			<a onclick="{!c.testFunction}" id="{!x.Name}">
+                                            {!x.Body__c}
+                                        </a>
+                                    </lightning:button>
+                                </div>
+                            </aura:iteration>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showQuestion}">
+                        <c:ResponseComponent/>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RIGHT -->
+        <div class="slds-size_3-of-12 slds-align_absolute-right  slds-box"> 
+            <b>Related Questions:</b>
+            <aura:if isTrue="{!v.showQuestion}">
+                            <aura:iteration var="y" items="{!v.relatedQuestionsList}" indexVar="j">
+                                <div class="question-link">
+                                    <lightning:button class="related-question-link">
+                            			<a onclick="{!c.testFunction}" id="{!y.Name}">
+                                            {!y.Body__c}
+                                        </a>
+                                    </lightning:button>
+                                </div>
+                            </aura:iteration>
+            </aura:if>
+        </div>
+        
+        
+    </div>
+    <!--<c:AssignStacksPage />-->
+</aura:component>

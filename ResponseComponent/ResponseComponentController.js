@@ -1,14 +1,20 @@
 ({
 	textChanged : function(component, event, helper) {
         let username = component.find("subBody").get("v.value");
-        if(username.length > 0){
-            component.set("v.body", username);
-        } else {
-            component.set("v.body", null);
-        }
+		component.set("v.body", username);
 	},
     
     init: function(component, event, helper){
+        let action = component.get("c.getQuestion");
+        action.setCallback(this, function(response){
+            var name = response.getState();
+            if (name === "SUCCESS") {
+                component.set("v.question", response.getReturnValue());
+                helper.getResponse(component, event, helper);
+            }
+           
+    })
+        $A.enqueueAction(action);
         
     },
     
@@ -35,8 +41,6 @@
             var name = response.getState();
             if (name === "SUCCESS"&& response!=null) {
                 helper.getResponse(component, event, helper);
-                component.find("subBody").set("v.value", "");
-                component.set("v.body", null);
             }
     })
         
@@ -61,11 +65,6 @@
     handleDislikeButtonClick : function(component, event, helper) {
         helper.updateLikes(-1, component, event);
 	},
-    getQuestionFromEvent : function(component, event, helper) {
-        let question = event.getParam("question_id");
-        component.set("v.get_question_id", question);
-        helper.displayQuestion(component, event, helper);
-    }
     
      
    

@@ -53,6 +53,7 @@
 		<members>BatchClientlistContoller</members>
 		<members>BatchListControllerTest</members>
 		<members>ChallengeController</members>
+		<members>ComparePanelAnswersController</members>
 		<members>completedInterviewController</members>
 		<members>createEventMock</members>
 		<members>CreateMeetingApexCont</members>
@@ -129,6 +130,7 @@
 		<members>QuizSettingsServiceTest</members>
 		<members>QuizSettingsTest</members>
 		<members>QuizTestUtils</members>
+		<members>responseController</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
@@ -144,6 +146,10 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>comparePanelAnswersTest</members>
+		<members>comparePanelAnswersControllerMock</members>
+		<members>ComparePanelAnswersController</members>
+		<members>ForumsPageApexController</members> 
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -163,7 +169,6 @@
 		<members>CompareAppEvent</members>
 		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
-		<members>ComparePanelAnswers</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
 		<members>CreateMeeting</members>
@@ -193,6 +198,9 @@
 		<members>MockInterviewsList</members>
 		<members>QuestionCreation</members>
 		<members>QuestionPoolList</members>
+		<members>ResponseComponent</members>
+		<members>ForumsPage</members>
+		<members>ResponseQuestionEvent</members>
 		<members>ScheduleSync</members>
 		<members>ScheduleSync</members>
 		<members>TestComp</members>
@@ -340,4 +348,4 @@
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>
-</Package>
+	</Package>  

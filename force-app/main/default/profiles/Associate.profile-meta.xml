@@ -68,6 +68,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ComparePanelAnswersController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CreateMeetingApexCont</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -85,6 +89,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DataFactorySessions</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ForumsPageApexController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -392,6 +400,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>comparePanelAnswersControllerMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>comparePanelAnswersTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>completedInterviewController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -405,6 +421,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>primaryTechButtonController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>responseController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -907,7 +927,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Question_Response__c.Total_Rating__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Question_Response__c.Total_Votes__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -924,6 +949,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Interviewer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Locked__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -245,11 +245,14 @@ public without sharing class CreateMockInterviewController {
     
     @AuraEnabled
     public static List<Integer> getNumberOfQuestionType(List<String> filter) {
-        System.debug(filter);
         List<Integer> result = new List<Integer>();
+        if(filter.size() == 0)
+            return result;
+        
         for(Integer i = 0; i < filter.size(); i++) {
             result.add(0);
         }
+        
         for(Question__c a : [SELECT Id, type__c FROM Question__c WHERE type__c=:filter]) {
             for(Integer i = 0; i < filter.size(); i++) {
                 if(a.type__c == filter[i]) {

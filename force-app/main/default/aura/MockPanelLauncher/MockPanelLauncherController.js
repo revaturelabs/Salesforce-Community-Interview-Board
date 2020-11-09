@@ -9,8 +9,12 @@
     //saves text input into the response and presents buttons for Next question and 
     submitResponse : function(cmp, evt, help){
         var response = cmp.find("responseBody").get("v.value");
+        let qList = cmp.get("v.QuestionList");
         console.log(response);
         cmp.set("v.ResponseBody", response);
+        if(qList.length == 1){
+            cmp.set("v.finalQuestion", true);
+        }
         cmp.set("v.submitted", true);
     },
     
