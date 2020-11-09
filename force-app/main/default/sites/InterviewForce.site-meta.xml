@@ -22,13 +22,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD
-    <siteAdmin>phanjohn288@resilient-goat-bvzgzb.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>phanjohn288@resilient-goat-bvzgzb.com</siteGuestRecordDefaultOwner>
-=======
-    <siteAdmin>celena.lipscomb@mindful-wolf-w06r53.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>celena.lipscomb@mindful-wolf-w06r53.com</siteGuestRecordDefaultOwner>
->>>>>>> 54aaad9de5e932d4801aa53e7da61bb4d6308f83
+    <siteAdmin>qwilliamsv@resourceful-bear-n234xe.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>qwilliamsv@resourceful-bear-n234xe.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>8th-2020y-project-3-developer-edition</subdomain>
+    <subdomain>p-3-developer-edition</subdomain>
 </CustomSite>
