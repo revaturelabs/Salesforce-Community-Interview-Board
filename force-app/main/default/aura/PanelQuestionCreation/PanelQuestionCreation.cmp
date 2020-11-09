@@ -21,7 +21,7 @@
             <div class="slds-p-horizontal_small">
                 <!-- Input for the Question -->
                 <br/>
-                <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
+                <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Panel Question" maxlength="254"  />
                 <br/>
                 
                 <!--Dropdown list for selecting stack-->

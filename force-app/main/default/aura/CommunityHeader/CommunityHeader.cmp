@@ -1,7 +1,7 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
  
     <a href="/s/">
-        <img src="{!$Resource.Logo}" />
+        <img src="{!$Resource.Logo}" style="width: 160px; height: 100px"/>
 	</a>
    
     
