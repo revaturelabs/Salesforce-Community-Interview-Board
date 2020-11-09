@@ -5,16 +5,6 @@
 	},
     
     init: function(component, event, helper){
-        let action = component.get("c.getQuestion");
-        action.setCallback(this, function(response){
-            var name = response.getState();
-            if (name === "SUCCESS") {
-                component.set("v.question", response.getReturnValue());
-                helper.getResponse(component, event, helper);
-            }
-           
-    })
-        $A.enqueueAction(action);
         
     },
     
@@ -65,6 +55,11 @@
     handleDislikeButtonClick : function(component, event, helper) {
         helper.updateLikes(-1, component, event);
 	},
+    getQuestionFromEvent : function(component, event, helper) {
+        let question = event.getParam("question_id");
+        component.set("v.get_question_id", question);
+        helper.displayQuestion(component, event, helper);
+    }
     
      
    

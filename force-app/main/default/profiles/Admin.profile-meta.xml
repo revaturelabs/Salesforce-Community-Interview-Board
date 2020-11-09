@@ -88,6 +88,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ForumsPageApexController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FullCalendarController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -405,6 +409,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>primaryTechButtonController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>responseController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -912,6 +920,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Question_Response__c.Total_Rating__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Question_Response__c.Total_Votes__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -928,6 +941,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Interviewer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Locked__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
