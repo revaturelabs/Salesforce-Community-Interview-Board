@@ -1241,6 +1241,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Mock_Panel__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>PanelAdministration</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
@@ -1251,6 +1255,10 @@
     <tabVisibilities>
         <tab>Primary_Tech__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Question_Response_Rating__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Question_Response__c</tab>
