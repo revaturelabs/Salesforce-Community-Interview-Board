@@ -11,7 +11,7 @@
                             <div class="slds-col slds-p-bottom_small">
         						<lightning:icon iconName="action:user"/>
                             </div>
-                            <div class="slds-col slds-p-horizontal_medium">
+                            <div class="slds-col slds-p-horizontal_medium slds-p-bottom_small">
                     			<lightning:recordViewForm recordId="{!$SObjectType.CurrentUser.Id}" objectApiName="User">
                     				<lightning:outputField fieldName="Name" variant="label-hidden"/>
                     			</lightning:recordViewForm>
