@@ -86,9 +86,7 @@
 		<members>PlayerName_Test</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
-		<members>QuestionResponseTrigger</members>
 		<members>QuestionResponseTriggerHandler</members>
-		<members>QuestionResponseRatingTrigger</members>
 		<members>QuestionResponseTriggerRatingHandler</members>
 		<members>QuestionResponseTriggerHandlerTest</members>
 		<members>QuestionResponseTriggerHandlerHandlerTest</members>
