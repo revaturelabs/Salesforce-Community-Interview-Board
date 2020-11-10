@@ -87,6 +87,10 @@
 		<members>PlayerName_Test</members>
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
+		<members>QuestionResponseTriggerHandler</members>
+		<members>QuestionResponseRatingTriggerHandler</members>
+		<members>QuestionResponseTriggerHandlerTest</members>
+		<members>QuestionResponseRatingTriggerHandlerTest</members>
 		<members>QuestionPoolApexController</members>
 		<members>QuestionPoolApexControllerTest</members>
 		<members>QuizQuestionDataFactory</members>
@@ -146,6 +150,7 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
+		<members>ForumsPageApexController</members>
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
@@ -349,4 +354,4 @@
 		<name>WorkflowRule</name>
 	</types>
 	<version>48.0</version>
-	</Package>  
+</Package>
