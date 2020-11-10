@@ -87,9 +87,9 @@
 		<members>QuestionCreationController</members>
 		<members>QuestionCreationTest</members>
 		<members>QuestionResponseTriggerHandler</members>
-		<members>QuestionResponseTriggerRatingHandler</members>
+		<members>QuestionResponseRatingTriggerHandler</members>
 		<members>QuestionResponseTriggerHandlerTest</members>
-		<members>QuestionResponseTriggerHandlerHandlerTest</members>
+		<members>QuestionResponseRatingTriggerHandlerTest</members>
 		<members>QuestionPoolApexController</members>
 		<members>QuestionPoolApexControllerTest</members>
 		<members>QuizQuestionDataFactory</members>
