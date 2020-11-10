@@ -53,6 +53,7 @@
 		<members>BatchClientlistContoller</members>
 		<members>BatchListControllerTest</members>
 		<members>ChallengeController</members>
+		<members>ComparePanelAnswersController</members>
 		<members>completedInterviewController</members>
 		<members>createEventMock</members>
 		<members>CreateMeetingApexCont</members>
@@ -150,6 +151,10 @@
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
 		<members>ForumsPageApexController</members>
+		<members>comparePanelAnswersTest</members>
+		<members>comparePanelAnswersControllerMock</members>
+		<members>ComparePanelAnswersController</members>
+		<members>ForumsPageApexController</members> 
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -167,6 +172,7 @@
 		<members>BatchClientlist</members>
 		<members>CommunityHeader</members>
 		<members>CompareAppEvent</members>
+		<members>ComparePanelAnswers</members>
 		<members>CompletedInterviews</members>
 		<members>CreateEvent</members>
 		<members>CreateEvent</members>
@@ -308,6 +314,7 @@
 	</types>
 	<types>
 		<members>Google</members>
+		<members>Twinword_API</members>
 		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
