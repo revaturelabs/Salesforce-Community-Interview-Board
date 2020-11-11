@@ -5,13 +5,28 @@ public class responseControllerTest {
     public static void Test(){
         String questionBody = 'What day of the week is it?';
         String body = 'This is an example response.';
+        List<Question_Response_Rating__c> ratingList = new List<Question_Response_Rating__c>();
         
         // This function currently grabs the body of first question in the question pool
-        String question = responseController.getQuestion();
-        System.assertEquals('What day of the week is it?', question);
+        Question__c question = responseController.getQuestion('Q-100043');
+        System.assertEquals('What day of the week is it?', question.body__c);
         
         // This function adds a response into the database
-        // responseController.addResponse(body, questionBody);
+        responseController.addResponse(body, questionBody);
+        
+        // This functions rates the response we added with an upvote
+        responseController.rateResponse('QR-100027', 1);
+        ratingList = responseController.getUserVotes();
+        System.assertEquals(1, Integer.valueOf(ratingList[0].Rating__c));
+        
+        // This functions rates the response we added with another upvote
+        responseController.rateResponse('QR-100027', 1);
+        ratingList = responseController.getUserVotes();
+        
+        // This functions rates the response we added with a downvote
+        responseController.rateResponse('QR-100027', -1);
+        ratingList = responseController.getUserVotes();
+        System.assertEquals(-1, Integer.valueOf(ratingList[0].Rating__c));
         
         // This function gets a list of responses based on the question passed in to it
         List<Question_Response__c> rList = responseController.getResponse(questionBody);
@@ -35,6 +50,10 @@ public class responseControllerTest {
         q.Type__c = 'Soft Skills';
         
         insert q;
+        
+        Question__c qq = [SELECT Name, Body__c FROM Question__c LIMIT 1];
+        
+        System.debug(qq);
         
         
         // Initialize 2 dummy responses

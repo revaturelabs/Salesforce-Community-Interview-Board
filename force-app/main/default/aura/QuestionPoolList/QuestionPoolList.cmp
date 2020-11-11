@@ -27,7 +27,7 @@
             </lightning:datatable>
             </div>
             <br/>
-            <lightning:button onclick="{!c.lockButton}" label="LOCK/UNLOCK"/>
+            <lightning:button onclick="{!c.lockButton}" label="LOCK QUESTION"/>
             <lightning:button onclick="{!c.deleteButton}" label="DELETE QUESTION" variant="destructive"/>
         </div>
     </lightning:card>

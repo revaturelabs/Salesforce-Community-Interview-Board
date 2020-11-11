@@ -37,7 +37,7 @@
     
     selectQuestion : function(component,event) {
         //get selected row ids from table
-        let qList = component.find('listTable').getSelectedRows();
+        let qList = event.getParam("selectedRows");
         component.set("v.selectedQuestions",qList);
         
         let rowIds = [];
@@ -98,7 +98,6 @@
                 //clear selected rows and refresh data
                 component.set('v.empty', [] );
                 component.set('v.selectedQuestions', null);
-
                 this.getData(component, event);
 			}
  		});
@@ -152,7 +151,6 @@
                 //refresh table data
                 component.set('v.empty', [] );
                 component.set('v.selectedQuestions', null);
-
                 this.getData(component, event);
 			}
  		});

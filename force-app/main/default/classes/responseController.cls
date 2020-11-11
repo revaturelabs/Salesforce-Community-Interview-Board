@@ -24,7 +24,7 @@ public class responseController {
     @AuraEnabled
     public static void rateResponse(String name, Integer rating){
        Question_Response__c qr = [SELECT id, Total_Votes__c, Upvotes__c FROM Question_Response__c WHERE Name =: name LIMIT 1 ];
-       Question_Response_Rating__c[] qrrs = [SELECT id, Rating__c FROM Question_Response_Rating__c WHERE Question_Response__c =: qr.Id and CreatedById =: UserInfo.getUserId()];
+       Question_Response_Rating__c[] qrrs = [SELECT id, Rating__c FROM Question_Response_Rating__c WHERE Question_Response__c =: qr.Id];
        Question_Response_Rating__c qrr;
         if(qrrs.size() > 0){
            qrr = qrrs[0]; 

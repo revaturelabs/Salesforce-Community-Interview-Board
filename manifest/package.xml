@@ -135,6 +135,7 @@
 		<members>QuizSettingsTest</members>
 		<members>QuizTestUtils</members>
 		<members>responseController</members>
+		<members>responseControllerTest</members>
 		<members>SessionController</members>
 		<members>subTechButtonController</members>
 		<members>SyncCalloutMock</members>
