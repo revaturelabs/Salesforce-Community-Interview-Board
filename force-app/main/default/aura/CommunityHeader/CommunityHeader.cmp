@@ -1,19 +1,19 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <div class="slds-grid">
     	<a href="/s/">
-        	<img src="{!$Resource.Logo}" style="width: 160px; height: 100px"/>
+        	<img src="{!$Resource.Logo}" style="width: 160px; height: 100px"/><!--The original image size takes up half the page, so scaled down to this ratio-->
 		</a>
-    	<div class="slds-col_bump-left">
-            <a href="/s/?tabset-5ef3a=42ccc">
+    	<div class="slds-col_bump-left"> <!--Kicks the user icon to the left and starts setup-->
+            <a href="/s/?tabset-5ef3a=42ccc"> <!--Links to the profile tab-->
             	<lightning:card>
                     <div>
-                    	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-p-left_small">
+                    	<div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-p-left_small"><!--Padding on the bottom to help with symmetry, as well as alignment from the grid-->
                             <div class="slds-col slds-p-bottom_small">
         						<lightning:icon iconName="action:user"/>
                             </div>
                             <div class="slds-col slds-p-horizontal_medium slds-p-bottom_small">
-                    			<lightning:recordViewForm recordId="{!$SObjectType.CurrentUser.Id}" objectApiName="User">
-                    				<lightning:outputField fieldName="Name" variant="label-hidden"/>
+                    			<lightning:recordViewForm recordId="{!$SObjectType.CurrentUser.Id}" objectApiName="User"><!--Fetches current user-->
+                    				<lightning:outputField fieldName="Name" variant="label-hidden"/><!--Label would just add a floating "Name" tag, not necessary-->
                     			</lightning:recordViewForm>
                             </div>
                     	</div>
@@ -22,5 +22,5 @@
             </a>
     	</div>
     </div>
-    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <!--aura:handler name="init" value="{!this}" action="{!c.init}" /-->
 </aura:component>
