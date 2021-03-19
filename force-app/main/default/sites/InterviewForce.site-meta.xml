@@ -22,8 +22,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>craighafer96@cunning-bear-o94bi4.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>craighafer96@cunning-bear-o94bi4.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>tristan.wentworth@brave-koala-g7flfo.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>tristan.wentworth@brave-koala-g7flfo.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>1234community5678-developer-edition</subdomain>
+    <subdomain>interviewforcetest-developer-edition</subdomain>
 </CustomSite>
