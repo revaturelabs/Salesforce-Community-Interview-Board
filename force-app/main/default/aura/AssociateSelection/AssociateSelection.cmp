@@ -1,0 +1,19 @@
+<aura:component controller="AssociateSelectionController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="associateList" type="list"/>
+    <!-- <aura:attribute name="clientList" type="list"/> -->
+    <aura:attribute name="selectedAssociate" type="Contact"/>
+    <!-- <aura:attribute name="selectedClient" type="Account"/> -->
+    
+    <!-- Picklist for choosing an associate. --> 
+    <lightning:select label="Select Associate" aura:id="associatePicklist" onchange="{!c.updateSelectedAssociate}">
+        <option value="null">Select an Associate</option>
+        <aura:iteration items="{!v.associateList}" var="associate">
+        	<option value="{!associate}" label="{!associate.Name}"></option>
+        </aura:iteration>
+    </lightning:select>
+    
+    
+    
+</aura:component>
