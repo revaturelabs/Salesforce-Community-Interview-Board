@@ -7,10 +7,8 @@
     	<lightning:tab label="ASSOCIATES" id="two">
             <c:AssociateWrapper/>
         </lightning:tab>
-        
     	<lightning:tab label="QUESTIONS" id="three">
             <c:QuestionCreation/>
-            <c:InterviewQuestions/>
         </lightning:tab>
         <lightning:tab label="INTERESTS" id="four">
             <c:BatchClientWrapper/>
@@ -24,9 +22,6 @@
         </lightning:tab>
 		<lightning:tab label = "ASSIGN STACK" id="seven">
             <c:AssignStacksPage/>
-        </lightning:tab>   
-    	<lightning:tab label = "CREATE PANEL QUESTION" id="eight">
-            <c:PanelQuestionCreation/>
-        </lightning:tab>   
+        </lightning:tab>    
     </lightning:tabset>
 </aura:component>

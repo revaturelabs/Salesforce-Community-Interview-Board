@@ -1,4 +1,4 @@
-public without sharing class CreateMockInterviewController {
+public without sharing class CreateMockPanelController {
     public static List<Question__c> getQuestionList(Integer numQuestions, List<String> filter){
 
         if (numQuestions==null) {
@@ -19,7 +19,7 @@ public without sharing class CreateMockInterviewController {
         }
         //List<Question__c> remainderList = new List<Question__c>();
         //outputListConstructor.put('remainder', remainderList);
-        for (Question__c q : [SELECT Body__c,Name, Type__c, Setting__c FROM Question__c WHERE type__c IN :filter AND setting__c = 'Interview']) {
+        for (Question__c q : [SELECT Body__c,Name, Type__c, Setting__c FROM Question__c WHERE type__c IN :filter AND setting__c = 'Panel']) {
             for (String s : filter) {
                 if (s==q.Type__c) {
                     qListMap.get(s).add(q);
@@ -156,7 +156,7 @@ public without sharing class CreateMockInterviewController {
 
             //This for loop should iterate through our set of questionTopics and grabs all the questions from that topic
             for (String s : questionTopics) {
-                for(Question__c q : [SELECT Name, Body__c, Type__c FROM Question__c WHERE type__c =:s])
+                for(Question__c q : [SELECT Name, Body__c, Type__c, Setting__c FROM Question__c WHERE type__c =:s AND setting__c = 'Interview'])
                     panel_QListMap.get(s).add(q);
             }
             /*
@@ -253,7 +253,7 @@ public without sharing class CreateMockInterviewController {
             result.add(0);
         }
         
-        for(Question__c a : [SELECT Id, type__c FROM Question__c WHERE type__c=:filter AND setting__c = 'Interview']) {
+        for(Question__c a : [SELECT Id, type__c, Setting__c FROM Question__c WHERE type__c=:filter AND setting__c = 'Panel']) {
             for(Integer i = 0; i < filter.size(); i++) {
                 if(a.type__c == filter[i]) {
                     result[i] += 1;

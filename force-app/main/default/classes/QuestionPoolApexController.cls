@@ -4,7 +4,7 @@ public with sharing class QuestionPoolApexController {
             //querys the database for the questions
             List<Question__c> allQuestions = new List<Question__c>();
             
-            for (Question__c q : [SELECT Type__c, Stack__c, Body__c, Locked__c FROM Question__c]) {
+            for (Question__c q : [SELECT Type__c, Stack__c, Body__c, Locked__c, Setting__c FROM Question__c]) {
                 allQuestions.add(q);
                 
             }
