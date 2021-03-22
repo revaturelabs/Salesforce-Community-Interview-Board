@@ -14,5 +14,21 @@
             }
         });
         $A.enqueueAction(action);
+	},
+    assignMethodBatch : function(component) {
+        console.log("entered batch assign method helper");
+        var stackID = component.get("v.StaKey");
+        var batchID = component.get("v.BatKey");
+        var action = component.get("c.SetBatchStack");
+        console.log(stackID + " " + batchID);
+        action.setParams({sID: stackID,
+                          bID: batchID});
+        action.setCallback(this, function(response) { 
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                component.set("v.Notification","Stack has been Assigned to Batch");
+            }
+        });
+        $A.enqueueAction(action);
 	}
 })
