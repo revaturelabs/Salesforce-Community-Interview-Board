@@ -89,7 +89,21 @@ public without sharing class CreateMockPanelController {
 
     @AuraEnabled
     public static Map<String,List<String>> getTypePicklistValues() {
-        return Utilities.getTypePicklistValues();
+        Map<String,List<String>> stackTypesMap = Utilities.getTypePicklistValues();
+        Map<String,List<String>> stackTypesMapRet = new Map<String,List<String>>();
+        for (String key : stackTypesMap.keySet()) {
+            // The "key" variable is also available inside the loop
+            List<String> typesList = stackTypesMap.get(key);
+            for (Integer i = (typesList.size()-1) ; i>= 0 ; i--){
+                String s = typesList[i];
+                if(s == ('Soft Skills')){
+                    typesList.remove(i);
+                }
+            } 
+            stackTypesMapRet.put(key, typesList);
+
+        }
+        return stackTypesMapRet;
     }
 
     //added by Paul on 10/29/2020

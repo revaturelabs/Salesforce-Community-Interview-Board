@@ -35,10 +35,10 @@ public with sharing class QuestionCreationController {
             if(meeting == 'evilValue') {
                 meeting = null;
             }
-            Question__c q = new Question__c(Body__c = question,Type__c=type,Stack__c=stack, Setting__c = setting, Visibility__c=visibility);
+            Question__c q = new Question__c(Body__c = question,Type__c=type,Stack__c=stack, Visibility__c=visibility, Setting__c = setting);
             insert q;
-            // Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meeting, Question__c=q.Id);
-            // insert iq;
+            //Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meeting, Question__c=q.Id);
+            //insert iq;
         }catch(Exception e) {
              System.debug(e.getMessage());
         }

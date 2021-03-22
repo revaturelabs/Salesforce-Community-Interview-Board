@@ -6,7 +6,8 @@ public class CreateMockInterviewControllerTest {
         List<String> salesforceTypes = new List<String>{'Soft Skills','Apex', 'Apex Trigger','Apex Testing', 'Visualforce','Aura/Lightning Components', 'Declarative Salesforce', 'SOQL/SOSL', 'HTML/CSS', 'JavaScript'};
         List<String> javaTypes = new List<String>{'Soft Skills', 'Java', 'React', 'Spring', 'Typescript', 'Node.Js', 'JavaScript'};
         List<String> netTypes = new List<String>{'Soft Skills', 'C#', 'C++', 'SQL', 'JavaScript', 'Python', 'C'};
-        Map<String, List<String>> testMap = new Map<String, List<String>>{'Salesforce'=> salesforceTypes, 'Java'=> javaTypes, '.NET'=> netTypes};
+        List<String> PCTypes = new List<String>{'Fun'};
+        Map<String, List<String>> testMap = new Map<String, List<String>>{'Salesforce'=> salesforceTypes, 'Java'=> javaTypes, '.NET'=> netTypes, 'Pop Culture' => PCTypes};
         System.assertEquals(testMap, returnedMap);
     }
 
