@@ -1,16 +1,18 @@
 ({
     assignMethod : function(component) {
         console.log("entered assign method helper");
-        var stackID = component.get("v.StaKey");
+        var stacks = component.get("v.StacksSelected");
         var assocID = component.get("v.AssoKey");
         var action = component.get("c.SetUserStack");
-        console.log(stackID + " " + assocID);
-        action.setParams({sID: stackID,
-                          aID: assocID});
+        console.log(stacks + " " + assocID);
+        action.setParams({sList: stacks,
+                          aID: assocID.Id});
         action.setCallback(this, function(response) { 
             var state = response.getState();
             if (state === "SUCCESS") {
                 component.set("v.Notification","Stack has been Assigned to Associate");
+            } else {
+                console.log( response.getError());
             }
         });
         $A.enqueueAction(action);
