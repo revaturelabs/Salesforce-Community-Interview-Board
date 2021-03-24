@@ -16,7 +16,7 @@
                 //Set New Map
                 component.set("v.RightSideTypes", new Map());
             } else {
-                console.log("Failed in Create Mock Interview Controller (JS)")
+                console.log("Failed in Create Mock Panel Controller (JS)")
             }
         })
 
