@@ -79,7 +79,7 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
-		<members>PanelQuestionCreation</members>
+		<!--<members>PanelQuestionCreation</members>-->
 		<members>PanelQuestionController</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
@@ -145,8 +145,8 @@
 		<members>SyncScheduleTest</members>
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<!--<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>-->
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
@@ -262,7 +262,7 @@
 		<name>CustomPermission</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>CustomSite</name>
 	</types>
 	<types>
@@ -291,7 +291,7 @@
 		<name>NamedCredential</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>Network</name>
 	</types>
 	<types>
@@ -324,7 +324,7 @@
 		<name>Role</name>
 	</types>
 	<types>
-		<members>InterviewForce1</members>
+		<members>Interview_Board</members>
 		<name>SiteDotCom</name>
 	</types>
 	<types>
