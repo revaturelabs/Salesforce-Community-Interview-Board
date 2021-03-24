@@ -28,6 +28,18 @@ public class CongratulationsBoardController {
         
 		return newRecordTypeList;
     }
+    
+    public static Date getMostRecentMonday(Date inputDate) {
+        // We only want to display associates that have been selected within the last
+        // week, starting from the most recent Monday.
+        Date mostRecentSunday = inputDate.toStartOfWeek();
+        if (inputDate.isSameDay(mostRecentSunday)) {
+            mostRecentSunday = mostRecentSunday.addDays(-7);
+        }
+        Date mostRecentMonday = mostRecentSunday.addDays(1);
+        
+        return mostRecentMonday;
+    }
 	
     @AuraEnabled
     public static List<AssociateClientWrapper> getAssociateList() {
@@ -36,15 +48,7 @@ public class CongratulationsBoardController {
         // (Account) Client record type.
         List<RecordType> recordTypeList = getRecordTypes();
         
-        // We only want to display associates that have been selected within the last (business)
-        // week, starting from the most recent Monday.
-        Date currentDay = Date.today();
-        Date mostRecentSunday = currentDay.toStartOfWeek();
-        if (currentDay == mostRecentSunday) {
-            mostRecentSunday = mostRecentSunday.addDays(-7);
-        }
-        Date mostRecentMonday = mostRecentSunday.addDays(1);
-
+		Date mostRecentMonday = getMostRecentMonday(Date.today());
         
         // Query for Associates based off of Date Selected.
         List<Contact> associateList = [SELECT Name, Client__r.Name, Date_Selected__c
