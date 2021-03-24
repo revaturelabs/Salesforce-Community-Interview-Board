@@ -69,7 +69,7 @@ public with sharing class CreateMeetingApexCont {
     public static Meeting__c createMeetingAllBatch(Meeting__c meeting, String strInterviewer, List<Contact> fullBatch)
     {
         if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
-      //  try {
+        try {
             RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
         	RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
         	meeting.RecordTypeId = RTInterviewBatch.Id;
@@ -96,8 +96,8 @@ public with sharing class CreateMeetingApexCont {
             
             update meeting;
             return meeting;
-        //} catch (Exception e) {
-            //return null;
-       // }
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

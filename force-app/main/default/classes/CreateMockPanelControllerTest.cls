@@ -3,7 +3,7 @@ public class CreateMockPanelControllerTest {
 
 @isTest
 public static void getTypePicklistValuesTest() {
-     User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
+     User testUser = [SELECT id FROM User WHERE lastName='Carlson']; 
      System.debug(testUser);
      Map<String,List<String>> returnedMap = new Map<String,List<String>>();
 
