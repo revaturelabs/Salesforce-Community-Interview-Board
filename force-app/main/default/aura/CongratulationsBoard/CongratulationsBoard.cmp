@@ -1,0 +1,10 @@
+<aura:component controller="CongratulationsBoardController"> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="associateList" type="list"/>
+    <aura:attribute name="columns" type="list"/>
+    
+    <lightning:card>
+        <lightning:dataTable keyField="associateId" data="{!v.associateList}" columns="{!v.columns}"/>
+    </lightning:card>
+</aura:component>
