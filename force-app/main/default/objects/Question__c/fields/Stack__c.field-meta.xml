@@ -30,6 +30,11 @@
                 <default>false</default>
                 <label>Pop Culture</label>
             </value>
+            <value>
+                <fullName>James Bond</fullName>
+                <default>false</default>
+                <label>James Bond</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

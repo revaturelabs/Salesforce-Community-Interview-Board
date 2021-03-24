@@ -262,7 +262,7 @@
 		<name>CustomPermission</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>CustomSite</name>
 	</types>
 	<types>
@@ -291,7 +291,7 @@
 		<name>NamedCredential</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>Network</name>
 	</types>
 	<types>
@@ -324,7 +324,7 @@
 		<name>Role</name>
 	</types>
 	<types>
-		<members>InterviewForce1</members>
+		<members>Interview_Board</members>
 		<name>SiteDotCom</name>
 	</types>
 	<types>
