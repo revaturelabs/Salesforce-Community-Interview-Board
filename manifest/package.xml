@@ -291,7 +291,7 @@
 		<name>NamedCredential</name>
 	</types>
 	<types>
-		<members>Interview_Board</members>
+		<members>Interview Board</members>
 		<name>Network</name>
 	</types>
 	<types>
@@ -324,7 +324,7 @@
 		<name>Role</name>
 	</types>
 	<types>
-		<members>Interview_Board</members>
+		<members>Interview_Board1</members>
 		<name>SiteDotCom</name>
 	</types>
 	<types>
