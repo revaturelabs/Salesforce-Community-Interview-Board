@@ -9,7 +9,9 @@ public class Utilities {
     public static Map<String,List<String>> getTypePicklistValues() {
         //This section is all for getting the stack and type picklists
         Schema.DescribeFieldResult questionType = Question__c.Type__c.getDescribe();
+        System.debug('questionType: '+questionType);
         Schema.sObjectField stackToken = questionType.getController();
+        System.debug('stackToken: '+stackToken);
         if (stackToken == null) return null;
         Schema.DescribeFieldResult stack = stackToken.getDescribe();
         //Initialize the stackEntries variable with the picklist values
