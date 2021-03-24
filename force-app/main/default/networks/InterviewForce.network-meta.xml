@@ -29,6 +29,17 @@
     <networkMemberGroups>
         <profile>Admin</profile>
         <profile>Associate</profile>
+        <profile>customer portal manager custom</profile>
+        <profile>customer community plus user</profile>
+        <profile>authenticated website</profile>
+        <profile>customer portal manager standard</profile>
+        <profile>customer community plus login user</profile>
+        <profile>external identity user</profile>
+        <profile>customer community user</profile>
+        <profile>high volume customer portal user</profile>
+        <profile>platformportal</profile>
+        <profile>customer community login user</profile>
+        <profile>highvolumeportal</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
