@@ -21,18 +21,21 @@ public class CreateMockInterviewControllerTest {
 
                     question.Stack__c='Salesforce';
                     question.Type__c='Apex';
+                    question.Setting__c = 'Interview';
 
                 }
                 when 1 {
                     
                     question.Stack__c='Salesforce';
                     question.Type__c='Visualforce';
+                    question.Setting__c = 'Interview';
 
                 }
                 when 2 {
                     
                     question.Stack__c='Java';
                     question.Type__c='Java';
+                    question.Setting__c = 'Interview';
                 }
 
             }
@@ -40,32 +43,32 @@ public class CreateMockInterviewControllerTest {
         }
         insert allQuestions;
 
-        /*Account testAcc = new Account();
-        testAcc.name = 'test company';
-        Database.SaveResult savedAccount = Database.insert(testAcc);
-        Id accID = savedAccount.getId();
+    //     Account testAcc = new Account();
+    //     testAcc.name = 'test company';
+    //     Database.SaveResult savedAccount = Database.insert(testAcc);
+    //     Id accID = savedAccount.getId();
         
         
-        Contact con = new Contact(lastname = 'stuff', AccountId = accId);
-        Database.SaveResult savedContact = Database.insert(con);
+    //     Contact con = new Contact(lastname = 'stuff', AccountId = accId);
+    //     Database.SaveResult savedContact = Database.insert(con);
 
-        Id contId = savedContact.getId();
-        Profile prof = [SELECT id FROM Profile WHERE Name = 'Associate'];
+    //     Id contId = savedContact.getId();
+    //     Profile prof = [SELECT id FROM Profile WHERE Name = 'Associate'];
         
-        User u = new User(firstName = 'test1', lastName ='stuff', profileId = prof.id, 
-                          username = 'test@test.com', email = 'test@test.com', ContactId = contId,
-                          alias= 'Test', TimeZoneSidKey='America/New_York', LocaleSidKey='en_US',
-                          EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
-        insert u;*/
-    }
+    //     User u = new User(firstName = 'test1', lastName ='stuff', profileId = prof.id, 
+    //                       username = 'test@test.com', email = 'test@test.com', ContactId = contId,
+    //                       alias= 'Test', TimeZoneSidKey='America/New_York', LocaleSidKey='en_US',
+    //                       EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
+    //     insert u;
+     }
 
     @isTest
     public static void createMockInterviewPositiveTest() {
-        User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
+        // User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
         
-        Contact conta = [SELECT id FROM Contact WHERE lastname='stuff'];
+        // Contact conta = [SELECT id FROM Contact WHERE lastname='stuff'];
 
-        System.runAs(testUser) {
+        // System.runAs(testUser) {
             List<String> types = new List<String>{'Apex', 'Visualforce'};
             CreateMockInterviewController.createMockInterview(21, types);
             List<Interview_Question__c> gotQuestions = [SELECT Question__r.type__c FROM Interview_Question__c WHERE Meeting_md__r.Name = 'Mock interview with 21 questions'];
@@ -79,46 +82,21 @@ public class CreateMockInterviewControllerTest {
             }
             System.assertEquals(11, aCount);
             System.assertEquals(10, vCount);
-        }
+    //   }
     }
+
     @isTest
     public static void createMockInterviewNegativeTest() {
-        User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
+        // User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
         
-        Contact conta = [SELECT id FROM Contact WHERE lastname='stuff'];
+        // Contact conta = [SELECT id FROM Contact WHERE lastname='stuff'];
 
-        System.runAs(testUser) {
+        // System.runAs(testUser) {
             List<String> types = new List<String>{'Apex', 'Visualforce'};
             CreateMockInterviewController.createMockInterview(null, types);
             Integer gotQuestions = [SELECT COUNT() FROM Interview_Question__c WHERE Meeting_md__r.Name = 'Mock interview with Null questions'];
             //AggregateResult numQuestion = gotQuestions[0];
             System.assertNotEquals(null, gotQuestions);
-        }
+      //  }
     } 
-
-    @isTest
-    public static void createMockPanelPositiveTest() {
-        List<String> testObject = new List<String>{'Java', 'Apex', 'Visualforce'};
-        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
-        System.assertEquals(3, results.size());
-        System.assertEquals(33, results[0]);
-        System.assertEquals(34, results[1]);
-        System.assertEquals(33, results[2]);
-    }
-    
-    @isTest
-    public static void createMockPanelNegativeTest() {
-        List<String> testObject = new List<String>{'Banana', 'Egg', 'potato'};
-        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
-        System.assertEquals(3, results.size());
-        System.assertEquals(0, results[0]);
-        System.assertEquals(0, results[1]);
-        System.assertEquals(0, results[2]);
-    }
-    
-    @isTest static void createMockPanelNullTest() {
-        List<String> testObject = new List<String>();
-        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
-        System.assertEquals(0, results.size());
-    }
 }
