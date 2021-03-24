@@ -28,5 +28,8 @@
     	<lightning:tab label = "CREATE PANEL QUESTION" id="eight">
             <c:PanelQuestionCreation/>
         </lightning:tab>   
+        <lightning:tab label = "CONGRATULATIONS BOARD" id="nine">
+            <c:CongratulationsBoard/>
+        </lightning:tab>
     </lightning:tabset>
 </aura:component>

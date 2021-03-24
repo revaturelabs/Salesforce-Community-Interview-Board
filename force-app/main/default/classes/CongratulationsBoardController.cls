@@ -1,14 +1,12 @@
 public class CongratulationsBoardController {
-	
-    @AuraEnabled
-    public static List<AssociateClientWrapper> getAssociateList() {
+    
+    public static List<RecordType> getRecordTypes() {
         // Query for the Associate and Client record types for
-        // the Contact and Account, respectively.
-        List<RecordType> RecordTypeList = [SELECT Id, Name FROM RecordType
-                                      WHERE ( (SObjectType='Contact' AND Name='Associate')
-                                          OR (SObjectType='Account' AND Name='Client') ) 
-                                      LIMIT 2];
-        System.debug('RecordTypeList: ' + RecordTypeList);
+        // the Contact and Account objects, respectively.
+        List<RecordType> RecordTypeList = [SELECT Id, SObjectType, Name FROM RecordType
+                                      	   WHERE ( (SObjectType='Contact' AND Name='Associate')
+                                                  OR (SObjectType='Account' AND Name='Client') ) 
+                                      	   LIMIT 2];
         
         // Identify which record type is which.
         RecordType associateRecordType;
@@ -22,31 +20,51 @@ public class CongratulationsBoardController {
             associateRecordType = RecordTypeList[1];
         }
         
-        System.debug('associateRecordType: ' + associateRecordType);
-        System.debug('clientRecordType: ' + clientRecordType);
+        // Return a list such that the 1st record is always the
+        // Associate Record Type and the 2nd is always the Client.
+        List<RecordType> newRecordTypeList = new List<RecordType>();
+        newRecordTypeList.add(associateRecordType);
+        newRecordTypeList.add(clientRecordType);
         
+		return newRecordTypeList;
+    }
+	
+    @AuraEnabled
+    public static List<AssociateClientWrapper> getAssociateList() {
+		
+        // Get the Record Types. 1st value is the (Contact) Associate record type; 2nd is the 
+        // (Account) Client record type.
+        List<RecordType> recordTypeList = getRecordTypes();
         
-        // Query for all Associates.
-        List<Contact> associateList = [SELECT Name, Account.Name, Account.RecordTypeId, Date_Selected__c
-                                       FROM Contact 
-                                       WHERE (RecordTypeId=:associateRecordType.Id
-                                              /*AND Account.RecordTypeId=:batchRecordType.Id*/
-                                              /*AND Account.RecordTypeId=:clientRecordType.Id*/)];
-        
-        System.debug('AssociateList: ' + associateList);
-        List<AssociateClientWrapper> wrapperList = new List<AssociateClientWrapper>();
-        
-        for (Contact associate : associateList) {
-            wrapperList.add(new AssociateClientWrapper(associate, associate.Account.Name));
+        // We only want to display associates that have been selected within the last (business)
+        // week, starting from the most recent Monday.
+        Date currentDay = Date.today();
+        Date mostRecentSunday = currentDay.toStartOfWeek();
+        if (currentDay == mostRecentSunday) {
+            mostRecentSunday = mostRecentSunday.addDays(-7);
         }
+        Date mostRecentMonday = mostRecentSunday.addDays(1);
+
         
-        System.debug('WrapperList: ' + wrapperList);
+        // Query for Associates based off of Date Selected.
+        List<Contact> associateList = [SELECT Name, Client__r.Name, Date_Selected__c
+                                       FROM Contact 
+                                       WHERE (RecordTypeId=:recordTypeList[0].Id
+                                              AND Date_Selected__c >= :mostRecentMonday
+                                              AND Client__r.RecordTypeId=:recordTypeList[1].Id)];
+        
+        // Create a list of wrappers to contain the info that will be displayed
+        // in the component.
+        List<AssociateClientWrapper> wrapperList = new List<AssociateClientWrapper>(); 
+        for (Contact associate : associateList) {
+            wrapperList.add(new AssociateClientWrapper(associate, associate.Client__r.Name));
+        }
                 
         return wrapperList;  
     }
     
-    /* The lightning data table cannot display fields form a parent object
-	* directly. Workaround: use a Wrapper Class!! */
+    // The lightning data table cannot display fields form a parent object
+	// directly. This wrapper class gets around that issue.
     public class AssociateClientWrapper {
         @AuraEnabled public Id associateId {get; set;}
         @AuraEnabled public String associateName {get; set;}
