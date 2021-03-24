@@ -11,10 +11,10 @@
 	
     
     <!-- Aura if component to conditionally render the component based on the toggle value; uncomment toggle above to re-enable first aura:if below -->
-    <aura:if isTrue="{!!v.panelInterviewSwitch}">
+    <!-- <aura:if isTrue="{!!v.panelInterviewSwitch}">
         <c:CreateMockInterview/>
         <c:MockInterviewPrepareWithFlowLaunch/>
-    </aura:if>
+    </aura:if> -->
     
     <aura:if isTrue="{!v.panelInterviewSwitch}">
         	<c:CreateMockPanel/>
