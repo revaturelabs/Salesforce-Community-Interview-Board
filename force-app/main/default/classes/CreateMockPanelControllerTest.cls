@@ -3,7 +3,7 @@ public class CreateMockPanelControllerTest {
 
 @isTest
 public static void getTypePicklistValuesTest() {
-     User testUser = [SELECT id FROM User WHERE lastName='stuff']; 
+     User testUser = [SELECT id FROM User WHERE lastName='Carlson']; 
      System.debug(testUser);
      Map<String,List<String>> returnedMap = new Map<String,List<String>>();
 
@@ -30,21 +30,18 @@ static void makeQuestions(){
 
                 question.Stack__c='Salesforce';
                 question.Type__c='Apex';
-                question.Setting__c = 'Panel';
 
             }
             when 1 {
                 
                 question.Stack__c='Salesforce';
                 question.Type__c='Visualforce';
-                question.Setting__c = 'Panel';
 
             }
             when 2 {
                 
                 question.Stack__c='Java';
                 question.Type__c='Java';
-                question.Setting__c = 'Panel';
             }
 
         }

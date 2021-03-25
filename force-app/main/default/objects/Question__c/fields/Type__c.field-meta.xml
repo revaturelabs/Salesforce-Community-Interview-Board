@@ -115,11 +115,6 @@
                 <default>false</default>
                 <label>Fun</label>
             </value>
-            <value>
-                <fullName>Bond is best</fullName>
-                <default>false</default>
-                <label>Bond is best</label>
-            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Salesforce</controllingFieldValue>
@@ -208,10 +203,6 @@
         <valueSettings>
             <controllingFieldValue>Pop Culture</controllingFieldValue>
             <valueName>Fun</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>James Bond</controllingFieldValue>
-            <valueName>Bond is best</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>
