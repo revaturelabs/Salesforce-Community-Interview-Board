@@ -1,19 +1,18 @@
 /*
 This class synchronizes between the external API (Caliber) and the internal Database
 Items Synced are Associate Contacts and Batch Accounts
+AND STACKS AND CHALLENGES
 */
 
 public with sharing class SyncUtilityClass {
     //Declare reused Variables
-    String baseUrl = 'https://caliber2-mock.revaturelabs.com:443/mock/training';
-    Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
-    @TestVisible List<Contact[]> externalAssociates = new List<Contact[]>();
-    Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
-    @TestVisible Account[] externalBatches = new Account[]{};
+    public String baseUrl = 'https://caliber2-mock.revaturelabs.com:443/';
+
+    private Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
+    @TestVisible private List<Contact[]> externalAssociates = new List<Contact[]>();
+    private Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
+    @TestVisible private Account[] externalBatches = new Account[]{};
         
-    Http protocol = new Http();
-    HttpRequest request = new HttpRequest();
-    
     private Date formatDate(String dateToParse) {
         String year = dateToParse.substring(0, dateToParse.indexOf('-')); //xxxx -xx-xx
         String monthDate = dateToParse.substring(dateToParse.indexOf('-') + 1);
@@ -25,8 +24,11 @@ public with sharing class SyncUtilityClass {
     
     //Get the external Batches to compare them against the ones already in the internal DB
     public void getData() {
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
         //System.debug('GET DATA');
-        request.setEndpoint(baseUrl + '/batch');
+        request.setEndpoint(baseUrl + 'mock/training/batch');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
         
@@ -64,7 +66,7 @@ public with sharing class SyncUtilityClass {
         
         for(Account batch : externalBatchData) {
             // Set batchId as parameters for request
-            request.setEndpoint(baseUrl + '/associate?batch=' + batch.BatchId__c);
+            request.setEndpoint(baseUrl + 'mock/training/associate?batch=' + batch.BatchId__c);
             response = protocol.send(request);
             
             Contact[] contactsForBatch = new Contact[]{};
@@ -195,5 +197,33 @@ public with sharing class SyncUtilityClass {
             updateCounts.add(-1);
         }
         return updateCounts;
+    }
+
+    /* This function has no arguments and returns a list of "stacks" from the caliber category service */
+    public List<Stack__c> getCategories(){
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
+        //System.debug('GET DATA');
+        request.setEndpoint(baseUrl + 'mock/category/category');
+        request.setMethod('GET');
+        HttpResponse response = protocol.send(request);
+
+        if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
+            //error
+            throw new System.CalloutException('Couldn\'t access caliber category service endpoint.');
+        } else {
+            //200 range is successful!
+            Stack__c[] stacks = new List<Stack__c>();
+            for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
+                Map<String,Object> rawstack = (Map<String,Object>) rawobj;
+                if((Boolean) rawstack.get('active')){
+                    stacks.add(new Stack__c(Name=(String)rawstack.get('skillCategory'), 
+                                            CaliberID__c=String.valueOf((Integer)rawstack.get('categoryId'))));
+                }
+            }
+            insert stacks;
+            return stacks;
+        }
     }
 }
