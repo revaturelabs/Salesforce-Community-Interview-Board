@@ -29,6 +29,7 @@
             <br/>
             <lightning:button onclick="{!c.lockButton}" label="LOCK QUESTION"/>
             <lightning:button onclick="{!c.deleteButton}" label="DELETE QUESTION" variant="destructive"/>
+            <c:MockInterviewAdminTab selectedQuestions = "{!v.selectedQuestions}" selectedRowCount="v.selectedRowCount"/>
         </div>
     </lightning:card>
     <lightning:card title="Responses">

@@ -22,21 +22,18 @@ public class CreateMockInterviewControllerTest {
 
                     question.Stack__c='Salesforce';
                     question.Type__c='Apex';
-                    question.Setting__c = 'Interview';
 
                 }
                 when 1 {
                     
                     question.Stack__c='Salesforce';
                     question.Type__c='Visualforce';
-                    question.Setting__c = 'Interview';
 
                 }
                 when 2 {
                     
                     question.Stack__c='Java';
                     question.Type__c='Java';
-                    question.Setting__c = 'Interview';
                 }
 
             }

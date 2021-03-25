@@ -5,7 +5,6 @@
             {label: "Question", fieldName:"Body__c", type:"String", wrapText: true},
             {label: "Stack", fieldName:"Stack__c", type:"String"},
             {label: "Type", fieldName:"Type__c", type:"String"},
-            {label: "Setting", fieldName:"Setting__c", type:"String"},
             {label: "Locked", fieldName:"Locked__c", type:"boolean"}
         ]);
         

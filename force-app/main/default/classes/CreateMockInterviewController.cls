@@ -19,7 +19,7 @@ public without sharing class CreateMockInterviewController {
         }
         //List<Question__c> remainderList = new List<Question__c>();
         //outputListConstructor.put('remainder', remainderList);
-        for (Question__c q : [SELECT Body__c,Name, Type__c, Setting__c FROM Question__c WHERE type__c IN :filter AND setting__c = 'Interview']) {
+        for (Question__c q : [SELECT Body__c,Name, Type__c FROM Question__c WHERE type__c IN :filter]) {
             for (String s : filter) {
                 if (s==q.Type__c) {
                     qListMap.get(s).add(q);
@@ -253,7 +253,7 @@ public without sharing class CreateMockInterviewController {
             result.add(0);
         }
         
-        for(Question__c a : [SELECT Id, type__c FROM Question__c WHERE type__c=:filter AND setting__c = 'Interview']) {
+        for(Question__c a : [SELECT Id, type__c FROM Question__c WHERE type__c=:filter]) {
             for(Integer i = 0; i < filter.size(); i++) {
                 if(a.type__c == filter[i]) {
                     result[i] += 1;
