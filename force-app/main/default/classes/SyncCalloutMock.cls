@@ -60,7 +60,7 @@ global class SyncCalloutMock implements HttpCalloutMock {
         } else if (req.getEndpoint().contains('/category/category') ) {
             res.setBody('['+
                 '{"categoryId": 8,"skillCategory": ".NET","active": true},'+
-                '{"categoryId": 11,"skillCategory": "AWS","active": true},'+
+                '{"categoryId": 11,"skillCategory": "AWS","active": true}'+
                 ']');
         }
         return res;
