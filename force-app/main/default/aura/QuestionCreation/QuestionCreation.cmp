@@ -45,12 +45,6 @@
                         </aura:iteration>
                     </lightning:select>
                 </aura:if>
-
-                <lightning:select name="chooseSetting" label="Choose Setting" aura:id="setting id" value="{!v.questionSetting}" required="true">
-                    <option text="--NONE SELECTED--"/>
-                    <option text="Interview"/>
-                    <option text="Panel"/>
-                </lightning:select>
                 
                 <br/>
             </div>

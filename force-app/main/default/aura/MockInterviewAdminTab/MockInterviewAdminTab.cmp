@@ -59,4 +59,4 @@
             <div class="slds-backdrop slds-backdrop_open"></div>
         </aura:if>
     </div>
-</aura:component>	
+</aura:component>
