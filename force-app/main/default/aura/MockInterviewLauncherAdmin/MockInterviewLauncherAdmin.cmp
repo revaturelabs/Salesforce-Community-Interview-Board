@@ -1,0 +1,13 @@
+<aura:component>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:attribute name="data" type="Meeting__c[]"/>
+
+    
+<!--Get a list of the meetings and display in a dropdown-->
+<lightning:select aura:id = "meetingSelect" name="select" label="Select a Meeting" required="true" messageWhenValueMissing="Did you forget to select a meeting?">
+    <option value="">-- None --</option>
+    <aura:iteration items="{!v.data}" var="meeting">
+        <option value="{!meeting.ID}" text="{!meeting.Name}"></option>
+    </aura:iteration>
+</lightning:select>
+</aura:component>

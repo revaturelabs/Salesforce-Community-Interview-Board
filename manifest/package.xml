@@ -232,6 +232,8 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
+		<members>MockInterviewLauncherAdmin</members>
+		<members>MockInterviewAdminTab</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>

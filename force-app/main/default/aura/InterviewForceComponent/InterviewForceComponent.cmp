@@ -24,9 +24,9 @@
         </lightning:tab>
 		<lightning:tab label = "ASSIGN STACK" id="seven">
             <c:AssignStacksPage/>
-        </lightning:tab>   
-    	<lightning:tab label = "CREATE PANEL QUESTION" id="eight">
-            <c:PanelQuestionCreation/>
-        </lightning:tab>   
+        </lightning:tab>    
+    <lightning:tab label = "MOCK INTERVIEW LAUNCHER" id="eight">
+            <c:MockInterviewLauncherAdmin/>
+        </lightning:tab>    
     </lightning:tabset>
 </aura:component>

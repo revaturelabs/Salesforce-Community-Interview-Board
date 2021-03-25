@@ -44,16 +44,9 @@
                         </aura:iteration>
                     </lightning:select>
                 </aura:if>
-
-                <!--A picklist of all Meetings to select-->
-                <aura:if isTrue="{! !v.isAssociate }">
-                    <lightning:select label="Meetings" aura:id="meetingPicker" onchange="{!c.meetingChange}">
-                        <option value="evilValue" text="None"/>
-                        <aura:iteration items="{!v.meetings}" var="meeting">
-                            <option value="{!meeting.Id}" text="{!meeting.Name}" />
-                        </aura:iteration>
-                    </lightning:select>
-                </aura:if>
+                
+                <br/>
+                
             </div>
             <br/>
             <!--Button to submit Interview Question record-->
