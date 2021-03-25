@@ -4,6 +4,16 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Client</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Must be a client account</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Client</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Account</referenceTo>
     <relationshipLabel>Contacts</relationshipLabel>
     <relationshipName>Contacts</relationshipName>
