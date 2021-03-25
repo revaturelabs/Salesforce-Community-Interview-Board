@@ -151,7 +151,6 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
-		<members>ForumsPageApexController</members>
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
@@ -245,6 +244,10 @@
 	<types>
 		<members>IBCloud</members>
 		<name>ContentAsset</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CspTrustedSite</name>
 	</types>
 	<types>
 		<members>Interview_Board_Administration</members>

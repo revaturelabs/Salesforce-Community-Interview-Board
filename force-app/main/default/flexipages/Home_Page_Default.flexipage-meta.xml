@@ -8,6 +8,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentName>firstApp</componentName>
+        </componentInstances>
         <name>left</name>
         <type>Region</type>
     </flexiPageRegions>
