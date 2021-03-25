@@ -1,0 +1,17 @@
+<aura:documentation>
+	<aura:description>
+    	<p>This component displays the Associate name, Client name, and date selected for
+        every Associate that has been selected within the last week. For the purpose of this
+        component, a week starts on Monday. Only associates selected since the most recent 
+        Monday are displayed.</p>
+        <h4>Attributes:</h4>
+        <ul>
+            <li>associateList (list): Holds a list of wrappers which contain the information
+            displayed in the &lt;lightning:dataTable>. This attribute is automatically set
+            when the component is initialized.</li>
+            <li>columns (list): Holds a list describing the columns used in the 
+            &lt;dataTable>. This attribute is automatically set when the component is
+            initialized.</li>
+        </ul>
+    </aura:description>
+</aura:documentation>
