@@ -30,8 +30,7 @@ public class CongratulationsBoardController {
     }
     
     public static Date getMostRecentMonday(Date inputDate) {
-        // We only want to display associates that have been selected within the last
-        // week, starting from the most recent Monday.
+        // Find the most recent Monday.
         Date mostRecentSunday = inputDate.toStartOfWeek();
         if (inputDate.isSameDay(mostRecentSunday)) {
             mostRecentSunday = mostRecentSunday.addDays(-7);
@@ -48,13 +47,20 @@ public class CongratulationsBoardController {
         // (Account) Client record type.
         List<RecordType> recordTypeList = getRecordTypes();
         
+        // Calculate the start and end dates of what will be used to determine
+        // which Associates are shown. Basically, we want the last FULL week (Monday
+        // to Sunday) that is available. 
+        // Math expression: [mostRecentMonday - 1week, mostRecentMonday)
 		Date mostRecentMonday = getMostRecentMonday(Date.today());
+        Date startDate = mostRecentMonday.addDays(-7);
+        Date endDate = mostRecentMonday.addDays(-1);
         
         // Query for Associates based off of Date Selected.
         List<Contact> associateList = [SELECT Name, Client__r.Name, Date_Selected__c
                                        FROM Contact 
                                        WHERE (RecordTypeId=:recordTypeList[0].Id
-                                              AND Date_Selected__c >= :mostRecentMonday
+                                              AND Date_Selected__c >= :startDate 
+                                              AND Date_Selected__c <= :endDate
                                               AND Client__r.RecordTypeId=:recordTypeList[1].Id)];
         
         // Create a list of wrappers to contain the info that will be displayed

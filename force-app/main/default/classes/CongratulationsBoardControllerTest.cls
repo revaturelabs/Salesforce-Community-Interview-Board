@@ -9,25 +9,29 @@ private class CongratulationsBoardControllerTest {
         
         // Make test Client Accounts. 
         List<Account> clientList = new List<Account>();
-        for (Integer index = 0; index < 13; index++) {
+        for (Integer index = 0; index < 20; index++) {
             clientList.add(new Account(Name = 'Client ' + index, RecordTypeId = recordTypeList[1].Id)); 
         }
         
         // Make a normal Account and another Client Account for testing negatives later.
-        clientList.add(new Account(Name = 'Client 13'));
-        clientList.add(new Account(Name = 'Client 14', RecordTypeId = recordTypeList[1].Id));
+        clientList.add(new Account(Name = 'Client 20'));
+        clientList.add(new Account(Name = 'Client 21', RecordTypeId = recordTypeList[1].Id));
         
         insert clientList;
         
         
         List<Contact> associateList = new List<Contact>();
 
-        // Make test Associates. Have first 7 selected in the previous week, 
-        // so they shouldn't be displayed in the wrapperList. The last 6 should.
-        Date mostRecentMonday = Date.today().toStartOfWeek().addDays(1);
-        for (Integer index = 0; index < 13; index++) {
+        // Find the correct start and end dates for Associates to be displayed.
+        Date mostRecentMonday = CongratulationsBoardController.getMostRecentMonday(Date.today());
+        Date correctStartDate = mostRecentMonday.addDays(-7);
+        Date correctEndDate = mostRecentMonday.addDays(-1);
+        
+        // Make test Associates. The first 7 are before the correct range of dates, the 
+        // middle 7 are in it, and the last 7 are after it.
+        for (Integer index = 0; index < 20; index++) {
 
-            Date selectedDate = mostRecentMonday.addDays(index - 7);
+            Date selectedDate = correctStartDate.addDays(index - 7);
             // For simplicity, Associate 1 will go with Client 1, etc.
             associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(index), 
                                         RecordTypeId = recordTypeList[0].Id,
@@ -36,14 +40,14 @@ private class CongratulationsBoardControllerTest {
         }
         
         // Make an Associate with a normal account (for testing negatives)  
-        associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(13), 
+        associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(20), 
                                       RecordTypeId = recordTypeList[0].Id,
-                                      Client__c = clientList[13].Id,
+                                      Client__c = clientList[20].Id,
                                       Date_Selected__c = mostRecentMonday));
         
         // Make a normal Contact with a Client account (for testing negatives)
-        associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(14), 
-                                      Client__c = clientList[14].Id,
+        associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(21), 
+                                      Client__c = clientList[21].Id,
                                       Date_Selected__c = mostRecentMonday));
                
         insert associateList;
@@ -53,17 +57,17 @@ private class CongratulationsBoardControllerTest {
         List<CongratulationsBoardController.AssociateClientWrapper> wrapperList 
             									= CongratulationsBoardController.getAssociateList();
         
-        // The wrapperList should have a size of 6. (It should not include the Associate
+        // The wrapperList should have a size of 7. (It should not include the Associate
         // with a normal account or the normal Contact with a Client Account.)
-        System.assert(wrapperList.size() == 6, 'Wrapper List size (Should be 6): ' + wrapperList.size());
+        System.assert(wrapperList.size() == 7, 'Wrapper List size (Should be 7): ' + wrapperList.size());
         
-        // Make sure Associate n is associated with Client n and thatthere are only 
-        // Associates who have been selected since the most recent Monday.
-        for (Integer index = 7; index < 13; index++) {
+        // Make sure Associate n is associated with Client n and that the Associates' 
+        // selection dates are in the proper range.
+        for (Integer index = 7; index < 14; index++) {
             CongratulationsBoardController.AssociateClientWrapper wrapper = wrapperList[index - 7]; 
             System.assert(wrapper.associateName == 'Associate ' + index);
             System.assert(wrapper.clientName == 'Client ' + index);
-            System.assert(wrapper.dateSelected >= mostRecentMonday);
+            System.assert(wrapper.dateSelected >= correctStartDate && wrapper.dateSelected <= correctEndDate);
         }
     }
 	
