@@ -183,4 +183,16 @@ private class SyncUtitlityTest {
         System.assertEquals(4, internalAssociates.size());
         System.assertEquals(7, internalBatches.size());
     }
+
+    @isTest
+    private static void testGetCategories(){
+        SyncUtilityClass SUC = new SyncUtilityClass();
+        Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
+
+        Test.startTest();
+        SUC.getCategories();
+        Test.stopTest();
+
+        Stack__c[] stacks = [SELECT Id,Name FROM Stack__c];
+    }
 }
