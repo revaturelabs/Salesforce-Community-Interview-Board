@@ -48,10 +48,10 @@
         <loginPageOverrideSetting>Standard</loginPageOverrideSetting>
         <selfRegProfilePageOverrideSetting>Standard</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
-    <picassoSite>InterviewForce1</picassoSite>
+    <picassoSite>Interview_Board1</picassoSite>
     <selfRegistration>false</selfRegistration>
     <sendWelcomeEmail>true</sendWelcomeEmail>
-    <site>InterviewForce</site>
+    <site>Interview_Board</site>
     <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
