@@ -6,7 +6,8 @@
         Monday are displayed.</p>
         <h4>Attributes:</h4>
         <ul>
-            <li>associateList (list): Holds a list of wrappers which contain the information
+            <li>associateList (list): Holds a list of wrappers (of the type 
+            CongratulationsBoardController.AssociateClientWrapper) which contain the information
             displayed in the &lt;lightning:dataTable>. This attribute is automatically set
             when the component is initialized.</li>
             <li>columns (list): Holds a list describing the columns used in the 
