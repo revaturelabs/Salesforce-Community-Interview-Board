@@ -3,7 +3,6 @@
     <aura:attribute name="question" type="String"/>
     <aura:attribute name="questionType" type="String"/>
     <aura:attribute name="questionStack" type="String"/>
-    <aura:attribute name="questionSetting" type="String"/>
     <aura:attribute name="selectedMeetingId" type="String" default="null"/>
     <aura:attribute name="typeMap" type="Map"/>
     <aura:attribute name="DisplayList" type="Boolean"/>
@@ -24,7 +23,7 @@
             <div class="slds-p-horizontal_small">
                 <!-- Input for the Question -->
                 <br/>
-                <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Question" maxlength="254"  />
+                <lightning:textarea name="myTextArea" value="{!v.question}" placeholder="Interview Question" maxlength="254"  />
                 <br/>
                 
                 <!--Dropdown list for selecting stack-->
@@ -47,6 +46,7 @@
                 </aura:if>
                 
                 <br/>
+                
             </div>
             <br/>
             <!--Button to submit Interview Question record-->

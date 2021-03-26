@@ -71,18 +71,14 @@ public with sharing class CreateMeetingApexCont {
         if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
         try {
             RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
-        	RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
-        	meeting.RecordTypeId = RTInterviewBatch.Id;
+        RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
+        meeting.RecordTypeId = RTInterviewBatch.Id;
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
-            System.debug('Before insert' + meeting);
             insert meeting;
-            System.debug('After insert' + meeting);
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            System.debug('Before add interviewer' + meeting);
             meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
-            System.debug('After add interviewer' + meeting);
 
             //if no associate was selected, the entire batch will be added to the meeting
             for(Contact c : fullBatch)

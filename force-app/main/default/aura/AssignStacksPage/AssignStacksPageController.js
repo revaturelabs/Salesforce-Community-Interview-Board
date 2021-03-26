@@ -61,13 +61,8 @@
             
             switch (response.getState()) {
                 case "SUCCESS":
-                    console.log('success')
                     // Populate table with values
-                    console.log(response.getReturnValue())
                     component.set("v.Stacks", response.getReturnValue());
-                    break;
-                case "ERROR":
-                    console.log('error')
                     break;
             }
         }));
