@@ -4,17 +4,21 @@ public with sharing class TestDataCreationTest {
     @isTest
     public static void resetTest()
     {
+        //Generates the test data from TestDataCreation Class
         Test.startTest();
         TestDataCreation.reset();
         Test.stopTest();
 
+        //Fills the objs variable with the data created
         List<List<sObject>> objs = new List<List<sObject>>();
         objs.add([SELECT Id, (SELECT Id FROM Contacts), Account.RecordType.Name FROM Account]);
         objs.add([SELECT Id FROM Batch_Client__c]);
-        //objs.add([SELECT Id, (SELECT Id FROM Meeting_Participants__r), (SELECT Id FROM Interview_Questions__r), RecordType.Name FROM Meeting__c]);
+        objs.add([SELECT Id, Batch__c, (SELECT Id FROM Meeting_Participants__r), (SELECT Id FROM Interview_Questions1__r), RecordType.Name FROM Meeting__c]);
+        objs.add([SELECT Id FROM Question__c]);
 
         Map<Id, List<Contact>> batMap = new Map<Id, List<contact>>();
 
+        //Did the 15 contacts get inserted?
         System.assertEquals(15, objs.get(0).size());
         for(Account a : (List<Account>)objs.get(0))
         {
@@ -43,12 +47,10 @@ public with sharing class TestDataCreationTest {
             else
             {
                 System.assert(2 <= m.Meeting_Participants__r.size());
-                System.assertEquals(batMap.get(m.Batch__c).size()+1, m.Meeting_Participants__r.size());
             }
 
-            //System.assert(5 <= m.Interview_Questions__r.size());
-            //System.assert(20 >= m.Interview_Questions__r.size());
+            System.assert(4 <= m.Interview_Questions1__r.size());
         }
-
+        System.assert(20 <= objs.get(3).size());
     }
 }
