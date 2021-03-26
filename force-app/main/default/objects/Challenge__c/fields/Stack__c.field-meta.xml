@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stack__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This is the tech the challenge is about.</description>
+    <externalId>false</externalId>
+    <label>Stack</label>
+    <referenceTo>Stack__c</referenceTo>
+    <relationshipLabel>Challenges</relationshipLabel>
+    <relationshipName>Challenges</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
