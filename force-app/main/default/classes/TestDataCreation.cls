@@ -268,10 +268,10 @@ public with sharing class TestDataCreation {
 
                 /*if(randBool())
                 {
-                    m.Meeting_Status__c = 'On Schedule';
+                    m.Meeting_Status__c = 'Scheduled';
                     m.Scheduled__c = DateTime.now().addDays(randInt(1,14));
                 }
-                else*/ if(randBool())
+                else */if(randBool())
                 {
                     m.Meeting_Status__c = 'Completed';
                     m.Scheduled__c = randDate();
@@ -311,7 +311,7 @@ public with sharing class TestDataCreation {
 
                 /*if(randBool())
                 {
-                    m.Meeting_Status__c = 'On Schedule';
+                    m.Meeting_Status__c = 'Scheduled';
                     m.Scheduled__c = DateTime.now().addDays(randInt(1,14));
                 }
                 else*/ if(randBool())
@@ -358,7 +358,7 @@ public with sharing class TestDataCreation {
         for(Account a : batAc)
             batMap.put(a.Id, a.Contacts);
 
-        questions(meets);
+        //questions(meets);
 
         integer j = 0, k = 1, l;
         boolean s = true;
@@ -448,7 +448,7 @@ public with sharing class TestDataCreation {
         update meets;
     }
 
-    public static void questions(List<Meeting__c> meets)
+    /*public static void questions(List<Meeting__c> meets)
     {
         //List<Interview_Question__c> ques = new List<Interview_Question__c>();
 
@@ -476,13 +476,13 @@ public with sharing class TestDataCreation {
             integer j = randInt(5, 20);
             for(integer i = 1; i <= j; i++)
             {
-                q = new Interview_Question__c();
+                q = new Interview_Question__c(Meeting_md__c=m.id, Question__c=i);
                 ques.add(q);
             }
         }*/
 
-        insert quests;
-    }
+        insert ques;
+    }*/
 
     // Method to generate random phone number
     private static String randPhone()
