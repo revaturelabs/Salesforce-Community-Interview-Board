@@ -63,6 +63,12 @@ global class SyncCalloutMock implements HttpCalloutMock {
                 '{"categoryId": 11,"skillCategory": "AWS","active": true},'+
                 '{"categoryId": 1337,"skillCategory": "Hacking","active": false}' +
                 ']');
+        } else if (req.getEndpoint().contains('/evaluation/assessments') ) {
+            res.setBody('['+
+            '{"assessmentId":1658,"rawScore":100,"assessmentTitle":"Mock Assessment 1-0","assessmentType":"Project","weekNumber":1,"batchId":"TR-1202","assessmentCategory":38,"assignmentDate":null},'+
+            '{"assessmentId":1659,"rawScore":100,"assessmentTitle":"Mock Assessment 1-1","assessmentType":"Project","weekNumber":1,"batchId":"TR-1202","assessmentCategory":17,"assignmentDate":null},'+
+            '{"assessmentId":1660,"rawScore":100,"assessmentTitle":"Mock Assessment 1-2","assessmentType":"Other","weekNumber":1,"batchId":"TR-1202","assessmentCategory":19,"assignmentDate":null}'+
+                ']');
         }
         return res;
     }

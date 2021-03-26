@@ -185,6 +185,9 @@ public with sharing class SyncUtilityClass {
             insert externalBatchesToAdd;
             matchAssociateToBatch(externalAssociatesToAdd);
             insert externalAssociatesToAdd;
+
+            Database.upsert(getCategories(),Stack__c.Fields.CaliberId__c,false);
+            Database.upsert(getAssessments([SELECT Id, BatchID__c FROM Account WHERE recordType.Name IN ('Batch')]),Challenge__c.Fields.CaliberId__c,false);
             
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
@@ -199,7 +202,8 @@ public with sharing class SyncUtilityClass {
         return updateCounts;
     }
 
-    /* This function has no arguments and returns a list of "stacks" from the caliber category service */
+    /* This function has no arguments and returns a list of "stacks" from the caliber category service 
+       after inserting them into the DB */
     public List<Stack__c> getCategories(){
         Http protocol = new Http();
         HttpRequest request = new HttpRequest();
@@ -219,11 +223,69 @@ public with sharing class SyncUtilityClass {
                 Map<String,Object> rawstack = (Map<String,Object>) rawobj;
                 if((Boolean) rawstack.get('active')){
                     stacks.add(new Stack__c(Name=(String)rawstack.get('skillCategory'), 
-                                            CaliberID__c=String.valueOf((Integer)rawstack.get('categoryId'))));
+                                            CaliberID__c=String.valueOf(rawstack.get('categoryId'))));
                 }
             }
-            Database.upsert(stacks, Stack__c.Fields.CaliberID__c, false); //result of op is unused.
             return stacks;
         }
+    }
+    /* this function has the argument of batches and returns a list of challenges from the caliber evaluation service
+       after inserting them into the DB */
+    public List<Challenge__c> getAssessments(Account[] batches){
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
+        String assessmentBase = baseUrl + 'mock/evaluation/assessments';
+        request.setMethod('GET');
+        Challenge__c[] challenges = new List<Challenge__c>();
+        List<Stack__c> disorganizedStacks = [SELECT Id, CaliberID__c FROM Stack__c];
+        Map<String,Stack__c> stacks = new Map<String,Stack__c>();
+        for(Account acc:batches){
+            request.setEndpoint(assessmentBase + '?batchId='+acc.batchId__c);
+            HttpResponse response = protocol.send(request);
+            if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
+                //error
+                throw new System.CalloutException('Couldn\'t access caliber category service endpoint.');
+            } else {
+                //200 range is successful!
+                for(Stack__c stack:disorganizedStacks){
+                    stacks.put(stack.CaliberID__c,stack);
+                }
+                for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
+                    Map<String,Object> rawstack = (Map<String,Object>) rawobj;
+                    Stack__c stack = stacks.get(String.valueOf(rawstack.get('assessmentCategory')));
+                    
+                    Challenge__c challenge = new Challenge__c(
+                        Name=(String) rawstack.get('assessmentTitle'),
+                        CaliberID__c=String.valueOf(rawstack.get('assessmentId')),
+                        Score__c=(Double) rawstack.get('rawScore'),
+                        AssessmentType__c= (String) rawstack.get('assessmentType'),
+                        WeekNumber__c=String.valueOf(rawstack.get('weekNumber')),
+                        Batch__c=acc.Id
+                    );
+                    if(stack!=null){
+                        challenge.Stack__c = stack.Id;
+                    }
+                    //if(rawstack.get('assignmentDate') != null){
+                        // uh, we don't know if they are backslashed dates or dashed dates.
+                    //    challenge.AssignmentDate__c = Date.parse((String)rawstack.get('assignmentDate'));
+                    //}
+                    
+                    challenges.add(challenge);
+                }
+            }
+        }
+        //TODO: mock callout fills challenges list up with duplicates.
+        Set<String> assessmentIds = new Set<String>();
+        for(Integer index=0;index<challenges.size();index++){
+            Challenge__c challenge = challenges[index];
+            if(assessmentIds.contains(challenge.CaliberID__c)){
+                challenges.remove(index);
+                index--;
+            } else {
+                assessmentIds.add(challenge.CaliberID__c);
+            }
+        }
+        return challenges;
     }
 }

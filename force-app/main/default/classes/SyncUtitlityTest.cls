@@ -170,18 +170,25 @@ private class SyncUtitlityTest {
     private static void testUpdateDatabase(){
         SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
-        
+
+        insert(new Challenge__c(Name='toupdate',CaliberID__c='1658'));
+        insert new Stack__c(Name='.NET',CaliberID__c='8');
+
         Test.startTest();
         SUC.updateDatabase();
         Test.stopTest();
 
         Contact[] internalAssociates = [SELECT Id, Name FROM Contact WHERE recordType.Name IN ('Associate')];
         Account[] internalBatches = [SELECT Name, BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
-
+        Challenge__c[] challenges = [SELECT Id,Name FROM Challenge__c];
+        Stack__c[] stacks = [SELECT Id,Name FROM Stack__c];
+        
         //System.debug('Internal Associates: ' + internalAssociates);
         //System.debug('Internal Batches: ' + internalBatches);
         System.assertEquals(4, internalAssociates.size());
         System.assertEquals(7, internalBatches.size());
+        System.assertEquals(3, challenges.size());
+        System.assertEquals(2,stacks.size());
     }
 
     @isTest
@@ -189,13 +196,22 @@ private class SyncUtitlityTest {
         SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
 
-        insert new Stack__c(Name='.NET',CaliberID__c='8');
+        Test.startTest();
+        Stack__c[] stacks = SUC.getCategories();
+        Test.stopTest();
+
+        System.assertEquals(2,stacks.size());
+    }
+
+    @isTest
+    private static void testGetAssessments(){
+        SyncUtilityClass SUC = new SyncUtilityClass();
+        Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
 
         Test.startTest();
-        SUC.getCategories();
+        Challenge__c[] challenges = SUC.getAssessments([SELECT Id,BatchId__c FROM Account WHERE recordType.Name IN ('Batch')]);
         Test.stopTest();
         
-        Stack__c[] stacks = [SELECT Id,Name FROM Stack__c];
-        System.assertEquals(2,stacks.size());
+        System.assertEquals(3,challenges.size());
     }
 }
