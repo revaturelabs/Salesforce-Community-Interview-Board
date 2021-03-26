@@ -47,6 +47,7 @@ public with sharing class TestDataCreation {
         objs.add([SELECT Id FROM Contact]);
         objs.add([SELECT Id FROM Batch_Client__c]);
         objs.add([SELECT Id FROM Account]);
+        objs.add([SELECT Id FROM Question__c]);
 
         for(List<sObject> obj : objs)
             Database.delete(obj, false);
