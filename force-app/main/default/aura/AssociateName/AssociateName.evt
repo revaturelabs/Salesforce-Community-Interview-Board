@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="Associate Name">
-    <aura:attribute name="AId" type="String"/>
-</aura:event>
