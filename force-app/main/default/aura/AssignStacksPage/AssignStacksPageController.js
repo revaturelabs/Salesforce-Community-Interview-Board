@@ -36,7 +36,7 @@
         component.set("v.stackColumnsSelected", [
 			{
 				label: "Stack Name",
-        fieldName: "Name",
+                 fieldName: "Name",
 				type: "String"
 			},
             {
@@ -160,10 +160,10 @@
    
     AssignStackToBatch : function(component, event, helper) {
         console.log("entered assign method");
-        var stackID = component.get("v.StaKey");
+        var stacks = component.get("v.StacksSelected");
         var batchID = component.get("v.BatKey");
-        console.log(stackID + " " + batchID);
-        if(stackID != null && batchID != null){
+        console.log(stacks + " " + batchID);
+        if(stacks != null && batchID != null){
             helper.assignMethodBatch(component);
         } else{
             component.set("v.Notification","Select a Batch and a Stack!");
