@@ -28,6 +28,7 @@ public with sharing class TestDataCreation {
     }
 
     // Method to reset all test data records
+    @AuraEnabled
     public static void reset()
     {
         clear();
@@ -447,7 +448,7 @@ public with sharing class TestDataCreation {
 
         update meets;
     }
-
+    @AuraEnabled
     public static void questions(List<Meeting__c> meets)
     {
         //List<Interview_Question__c> ques = new List<Interview_Question__c>();

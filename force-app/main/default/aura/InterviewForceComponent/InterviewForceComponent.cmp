@@ -21,6 +21,7 @@
         <lightning:tab label="SYNC" id="six">
             <c:ScheduleSync/>
             <c:ManualSync/>
+            <c:ManualDataImport/>
         </lightning:tab>
 		<lightning:tab label = "ASSIGN STACK" id="seven">
             <c:AssignStacksPage/>
