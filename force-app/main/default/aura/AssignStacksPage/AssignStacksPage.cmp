@@ -1,54 +1,61 @@
 <aura:component controller="AssignStacksPageController">
 	<aura:registerEvent name="AEvent" type="c:AssociateName" />
-    Assign an Associate or a Batch of associates to a Stack.
-    
+
+    <!--The Search text for finding records-->
     <aura:attribute name="SKey" type="String"/>
     <aura:attribute name="SStaKey" type="String"/>
     <aura:attribute name="SBatKey" type="String"/>
     
+    <!--Selected Results for creating user-stacks-->>
     <aura:attribute name="AssoKey" type="String"/>
-    <aura:attribute name="StaKey" type="String"/>
+    <aura:attribute name="StacksSelected" type="Stack__c[]"/>
     <aura:attribute name="BatKey" type="String"/>
     
+    <!-- Results for Search-->
     <aura:attribute name="Associate" type="contact[]"/>
     <aura:attribute name="Stacks" type="Stack__c[]"/>
     <aura:attribute name="Batches" type="Account[]"/>
     
+    <!-- Datatable Columns -->
     <aura:attribute name="columns" type="List"/>
     <aura:attribute name="stackColumns" type="List"/>
+    <aura:attribute name="stackColumnsSelected" type="List"/>
     <aura:attribute name="batchColumns" type="List"/>
     
+    <!-- Message for bottom of page-->
     <aura:attribute name="Notification" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-    
+
+    <!-- the associate field-->
     <div class="slds-grid slds-form slds-form_horizontal">
         <div class="slds-col slds-size_1-of-4">
-            
             <lightning:input aura:id="SField"
                              label="Associate Name"
                              value="{!v.SKey}"
                              placeholder="Search Associates"/>
         </div>
+
+        <!-- the associate search button-->
         <div class="slds-col slds-size_3-of-4" >
             <lightning:button onclick="{!c.Search}" label="Search" />
         </div>
     </div>
-    
+
+    <!-- the stack field-->
      <div class="slds-grid slds-form slds-form_horizontal">
         <div class="slds-col slds-size_1-of-4">
-            
             <lightning:input aura:id="SStaField"
                              label="Stack Name"
                              value="{!v.SStaKey}"
                              placeholder="Search Stacks"/>
         </div>
+
+        <!-- the stack search button-->
         <div class="slds-col slds-size_3-of-4" >
             <lightning:button onclick="{!c.SearchStack}" label="Search" />
         </div>
     </div>
-    
-    
-    
+
     <div class="slds-grid slds-form slds-form_horizontal">
         <div class="slds-col slds-size_1-of-4">
             
@@ -66,6 +73,7 @@
     
     
     <div class="slds-grid slds-gutters">
+         <!-- the results for associate -->
         <div class="slds-col slds-size_1-of-3 slds-box">
             <lightning:datatable
                                  data="{!v.Associate}"
@@ -74,7 +82,10 @@
                                  hideCheckboxColumn="true"
                                  onrowaction="{!c.handleRowAction}"/>
         </div>
+
+        <!-- the results for stacks-->
         <div class="slds-col slds-size_1-of-3 slds-box">
+
             <lightning:datatable
                                  data="{!v.Stacks}"
                                  columns="{!v.stackColumns}"
@@ -92,6 +103,7 @@
         </div>
     </div>
     
+    <!--Selected Associate-->
     <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_1-of-3">
             <lightning:recordViewForm recordId="{!v.AssoKey}" objectApiName="Contact">
@@ -101,13 +113,17 @@
                 </div>
             </lightning:recordViewForm>
         </div>
+
         <div class="slds-col slds-size_1-of-3">
-            <lightning:recordViewForm recordId="{!v.StaKey}" objectApiName="Stack__c">
                 <div class="slds-box">
-                    <span>Selected Stack</span>
-                    <lightning:outputField fieldName="Name" variant="label-hidden"/>
+                    <span>Selected Stack(s)</span>
+                    <lightning:datatable
+                        data="{!v.StacksSelected}"
+                        columns="{!v.stackColumnsSelected}"
+                        keyField="Id"
+                        hideCheckboxColumn="true"
+                        onrowaction="{!c.handleRowRemoveAction}"/>
                 </div>
-            </lightning:recordViewForm>
         </div>
         <div class="slds-col slds-size_1-of-3">
             <lightning:recordViewForm recordId="{!v.BatKey}" objectApiName="Account">

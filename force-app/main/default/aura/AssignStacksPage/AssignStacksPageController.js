@@ -32,11 +32,27 @@
                                  title: "Click to select Stack"}
             }
 		]);
+
+        component.set("v.stackColumnsSelected", [
+			{
+				label: "Stack Name",
+                 fieldName: "Name",
+				type: "String"
+			},
+            {
+                label: "Delete",
+                type: "button",
+                initialwidth: 135,
+                typeAttributes: {label: "Delete Stack",
+                                 name: "Delete_Stack",
+                                 title: "Click to delete Stack"}
+            }
+		]);
         
         component.set("v.batchColumns", [
 			{
 				label: "Batch Name",
-				fieldName: "Name",
+        fieldName: "Name",
 				type: "String"
 			},
             {
@@ -109,8 +125,20 @@
     },
     
     handleRowStackAction : function(component, event, helper) {
+        var StackList = [];
+        StackList = component.get("v.StacksSelected");
         var row = event.getParam('row');
-        component.set("v.StaKey", row.Id);
+        StackList.push(row);
+        component.set("v.StacksSelected", StackList);
+    },
+
+    handleRowRemoveAction : function(component, event, helper) {
+        var StackList = [];
+        StackList = component.get("v.StacksSelected");
+        var row = event.getParam('row');
+        var index = StackList.indexOf(row);
+        StackList.splice(index, 1);
+        component.set("v.StacksSelected", StackList);
     },
     
     handleRowBatchAction : function(component, event, helper) {
@@ -120,10 +148,10 @@
     
     AssignStack : function(component, event, helper) {
         console.log("entered assign method");
-        var stackID = component.get("v.StaKey");
+        var stacks = component.get("v.StacksSelected");
         var assocID = component.get("v.AssoKey");
-        console.log(stackID + " " + assocID);
-        if(stackID != null && assocID != null){
+        console.log(stacks + " " + assocID);
+        if(stacks != null && assocID != null){
             helper.assignMethod(component);
         } else{
             component.set("v.Notification","Select an Associate and a Stack!");
@@ -132,10 +160,10 @@
    
     AssignStackToBatch : function(component, event, helper) {
         console.log("entered assign method");
-        var stackID = component.get("v.StaKey");
+        var stacks = component.get("v.StacksSelected");
         var batchID = component.get("v.BatKey");
-        console.log(stackID + " " + batchID);
-        if(stackID != null && batchID != null){
+        console.log(stacks + " " + batchID);
+        if(stacks != null && batchID != null){
             helper.assignMethodBatch(component);
         } else{
             component.set("v.Notification","Select a Batch and a Stack!");
