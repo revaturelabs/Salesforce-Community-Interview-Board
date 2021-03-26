@@ -22,8 +22,15 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
+    <siteAdmin>jsm54208@mindful-narwhal-jtfrd5.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jsm54208@mindful-narwhal-jtfrd5.com</siteGuestRecordDefaultOwner>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>interviewboard1-developer-edition</subdomain>
+=======
     <siteAdmin>rhodes.naji@cunning-bear-djgmwl.com</siteAdmin>
     <siteGuestRecordDefaultOwner>rhodes.naji@cunning-bear-djgmwl.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>test-site-project3-developer-edition</subdomain>
+>>>>>>> packaging
 </CustomSite>
