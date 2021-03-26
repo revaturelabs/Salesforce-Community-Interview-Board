@@ -180,14 +180,17 @@ public with sharing class SyncUtilityClass {
         try {
             // Get external data
             getData();
+            List<Stack__c> stacksToAdd = getCategories();
+            List<Challenge__c> challengesToAdd = getAssessments([SELECT Id, BatchID__c FROM Account WHERE recordType.Name IN ('Batch')]);
             Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
             Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
             insert externalBatchesToAdd;
             matchAssociateToBatch(externalAssociatesToAdd);
             insert externalAssociatesToAdd;
 
-            Database.upsert(getCategories(),Stack__c.Fields.CaliberId__c,false);
-            Database.upsert(getAssessments([SELECT Id, BatchID__c FROM Account WHERE recordType.Name IN ('Batch')]),Challenge__c.Fields.CaliberId__c,false);
+            Database.upsert(stacksToAdd,Stack__c.Fields.CaliberId__c,false);
+            //We want to update all assessments, not just the batches we just updated.
+            Database.upsert(challengesToAdd,Challenge__c.Fields.CaliberId__c,false);
             
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
@@ -195,7 +198,7 @@ public with sharing class SyncUtilityClass {
             System.debug(updateCounts);
             
         } catch (exception e) {
-            System.debug('An error has occured with Caliber sync.');
+            System.debug('An error has occured with Caliber sync. '+e.getMessage());
             updateCounts.add(-1);
             updateCounts.add(-1);
         }
