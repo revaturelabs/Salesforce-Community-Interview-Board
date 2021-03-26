@@ -1,0 +1,37 @@
+<aura:component controller="SyncController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="isError" type="Boolean" default="false"/>
+    <aura:attribute name="batches" type="String"/>
+    <aura:attribute name="associates" type="String"/>
+    <aura:attribute name="time" type="String" default="0"/>
+	<lightning:card title="Manually Synchronize">   
+        <aura:if isTrue="{! v.isLoading }">
+			<div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading...</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+        	</div>
+        </aura:if>
+        <aura:if isTrue="{! v.isSuccess }">
+            <ui:message title="Synchronization Successful" severity="confirm">
+                Synchronization with Caliber completed Successfully. New Batches: {! v.batches } New Associates: {! v.associates } Time: {! v.time }
+            </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! v.isError }">
+            <ui:message title="Synchronization Failed" severity="error">
+                Synchronization failed. Please contact system administrator.
+            </ui:message>
+        </aura:if>
+        <p id="click-begin">Click to begin immediate syncronization with Caliber.</p>
+    	<div class="c-container">
+        	<lightning:layout>
+            	<lightning:layoutItem>
+                	<lightning:button class="go-button" variant="brand" label="Sync Now" title="Sync Now" onclick="{! c.manualSync }" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </lightning:card>
+</aura:component>

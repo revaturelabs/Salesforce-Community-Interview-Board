@@ -1,0 +1,49 @@
+<aura:component controller="AssociateController">
+    <aura:registerEvent name="AEvent" type="c:AssociateName" />
+    <aura:attribute name="SKey" type="String"/>
+    <aura:attribute name="Associate" type="contact[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <div class="slds-grid slds-form slds-form_horizontal">
+        <div class="slds-col slds-size_1-of-4">
+            
+            <lightning:input aura:id="SField"
+                             label="Associate Name"
+                             value="{!v.SKey}"
+                             placeholder="Search Associates"/>
+        </div>
+        <div class="slds-col slds-size_3-of-4" >
+            <lightning:button onclick="{!c.Search}" label="Search" />
+        </div>
+    </div>
+    
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning:datatable
+                                 data="{!v.Associate}"
+                                 columns="{!v.columns}"
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"
+                                 onrowaction="{!c.handleRowAction}"/>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <c:AssociateInfo/>
+        </div>
+    </div>
+    
+    <hr/>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <c:CompletedInterviews/>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <c:UpcomingMeetings/>
+        </div>
+    </div>
+    
+    
+    
+    
+</aura:component>
