@@ -19,11 +19,11 @@
 	},
     assignMethodBatch : function(component) {
         console.log("entered batch assign method helper");
-        var stackID = component.get("v.StaKey");
+        var stacks = component.get("v.StacksSelected");
         var batchID = component.get("v.BatKey");
         var action = component.get("c.SetBatchStack");
-        console.log(stackID + " " + batchID);
-        action.setParams({sID: stackID,
+        console.log(stacks + " " + batchID);
+        action.setParams({sList: stacks,
                           bID: batchID});
         action.setCallback(this, function(response) { 
             var state = response.getState();
