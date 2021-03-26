@@ -66,12 +66,14 @@ public with sharing class MockInterviewLauncherController {
 
         Contact interviewee = [SELECT id, email, RecordType.Name FROM Contact WHERE RecordType.Name = 'Associate' AND id IN: mpListIDs];
 
+        User userInterviewee = [SELECT id, ContactId, Email FROM User WHERE ContactId =: interviewee.id];
+
         // Now create a new single email message object
         // that will send out a single email to the addresses in the To, CC & BCC list.
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         
         // Strings to hold the email addresses to which you are sending the email.
-        String[] toAddresses = new String[] {interviewee.email}; 
+        String[] toAddresses = new String[] {userInterviewee.Email}; 
         
         
         // Assign the addresses for the To and CC lists to the mail object.
