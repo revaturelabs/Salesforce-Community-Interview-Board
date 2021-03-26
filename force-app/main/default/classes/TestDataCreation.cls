@@ -47,9 +47,10 @@ public with sharing class TestDataCreation {
         objs.add([SELECT Id FROM Contact]);
         objs.add([SELECT Id FROM Batch_Client__c]);
         objs.add([SELECT Id FROM Account]);
+        objs.add([SELECT Id FROM Question__c]);
 
         for(List<sObject> obj : objs)
-            delete obj;
+            Database.delete(obj, false);
     }
 
     // Method to make cnt random Client Accounts, up to 100
@@ -438,7 +439,6 @@ public with sharing class TestDataCreation {
             {
                 if(cMap.get(mp.Participant__c).RecordType.Name == 'Client')
                 {
-                    System.debug('Client');
                     meets.get(i).Participating_Client__c = mp.Id;
                     break;
                 }
@@ -448,24 +448,47 @@ public with sharing class TestDataCreation {
         update meets;
     }
 
-    /*public static void questions(List<Meeting__c> meets)
+    public static void questions(List<Meeting__c> meets)
     {
-        List<Interview_Question__c> ques = new List<Interview_Question__c>();
+        //List<Interview_Question__c> ques = new List<Interview_Question__c>();
 
         Interview_Question__c q = null;
+        StaticResource defaultResource = [Select  s.Body From StaticResource s where s.Name LIKE 'testQuestions%'];
+        blob tempB = defaultResource.Body;
+       	String contentFile = tempB.toString();
+       	String[] filelines = contentFile.split('\n');
+    	List<Question__c> quests = new List<Question__c>();
+       	for (Integer i=1;i<filelines.size();i++)
+        {
+        	Question__c temp = new Question__c();
+            String[] inputvalues = filelines[i].split(',');
+        	temp.Stack__c = inputValues[0];
+        	temp.Type__c = inputValues[1];
+            temp.Body__c = inputValues[2];
+        	//temp.Interviewer__c = inputValues[3];
+        	quests.add(temp);	
+        }
 
+        insert quests;
+
+        List<Interview_Question__c> iQuests = new List<Interview_Question__c>();
         for(Meeting__c m : meets)
         {
-            integer j = randInt(5, 20);
-            for(integer i = 1; i <= j; i++)
+            List<Question__c> tempQList = quests.clone();
+            for(integer i = 1; i <= 4; i++)
             {
-                q = new Interview_Question__c(Meeting_md__c=m.id, Question__c=i);
-                ques.add(q);
+                integer randQuestion = randInt(0, tempQList.size()-1);
+                Interview_Question__c interviewQ = new Interview_Question__c();
+                interviewQ.Meeting_md__c = m.Id;
+                interviewQ.Question__c = tempQList.get(randQuestion).Id;
+                tempQList.remove(randQuestion);
+                iQuests.add(interviewQ);
             }
         }
 
-        insert ques;
-    }*/
+        System.debug(iQuests);
+        insert iQuests;
+    }
 
     // Method to generate random phone number
     private static String randPhone()
