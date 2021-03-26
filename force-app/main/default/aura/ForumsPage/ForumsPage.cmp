@@ -23,12 +23,6 @@
                     <lightning:accordion allowMultipleSectionsOpen="true" activeSectionName="{! v.activeSections }">
                         <lightning:accordionSection name="A" label="Salesforce">
                           <span class="slds-nav-vertical__item">
-                            <input type="radio" aura:id="salesforce-softskills" id="salesforce-softskills" value="unique-id-01-salesforce-softskills" name="unique-id-example" onclick="{!c.salesforceClicked}" checked="" />
-                            <label class="slds-nav-vertical__action" for="salesforce-softskills">
-                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
-                            </label>
-                          </span>
-                          <span class="slds-nav-vertical__item">
                             <input type="radio" aura:id="salesforce-apex" id="salesforce-apex" value="unique-id-01-apex" name="unique-id-example" onclick="{!c.salesforceClicked}" />
                             <label class="slds-nav-vertical__action" for="salesforce-apex">
                               <span class="slds-nav-vertical_radio-faux">Apex</span>
@@ -86,12 +80,6 @@
                         
                         <lightning:accordionSection name="B" label="Java">
                           <span class="slds-nav-vertical__item">
-                            <input type="radio" aura:id="java-softskills" id="java-softskills" value="unique-id-01-java-softskills" name="unique-id-example" onclick="{!c.javaClicked}" checked="" />
-                            <label class="slds-nav-vertical__action" for="java-softskills">
-                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
-                            </label>
-                          </span>
-                          <span class="slds-nav-vertical__item">
                             <input type="radio" aura:id="java-java" id="java-java" value="unique-id-01-java-java" name="unique-id-example" onclick="{!c.javaClicked}" />
                             <label class="slds-nav-vertical__action" for="java-java">
                               <span class="slds-nav-vertical_radio-faux">Java</span>
@@ -129,12 +117,6 @@
                           </span>
                         </lightning:accordionSection>
                         <lightning:accordionSection name="C" label=".NET">
-                          <span class="slds-nav-vertical__item">
-                            <input type="radio" aura:id=".net-softskills" id=".net-softskills" value="unique-id-01-.net-softskills" name="unique-id-example" onclick="{!c.netClicked}" checked="" />
-                            <label class="slds-nav-vertical__action" for=".net-softskills">
-                              <span class="slds-nav-vertical_radio-faux">Soft Skills</span>
-                            </label>
-                          </span>
                           <span class="slds-nav-vertical__item">
                             <input type="radio" aura:id=".net-c" id=".net-c" value="unique-id-01-.net-c" name="unique-id-example" onclick="{!c.netClicked}" />
                             <label class="slds-nav-vertical__action" for=".net-c">
