@@ -222,7 +222,7 @@ public with sharing class SyncUtilityClass {
                                             CaliberID__c=String.valueOf((Integer)rawstack.get('categoryId'))));
                 }
             }
-            insert stacks;
+            Database.upsert(stacks, Stack__c.Fields.CaliberID__c, false); //result of op is unused.
             return stacks;
         }
     }

@@ -189,10 +189,13 @@ private class SyncUtitlityTest {
         SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
 
+        insert new Stack__c(Name='.NET',CaliberID__c='8');
+
         Test.startTest();
         SUC.getCategories();
         Test.stopTest();
-
+        
         Stack__c[] stacks = [SELECT Id,Name FROM Stack__c];
+        System.assertEquals(2,stacks.size());
     }
 }
