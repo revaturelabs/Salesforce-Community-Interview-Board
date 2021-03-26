@@ -6,6 +6,7 @@
         },
         {
             "path": "quiz",
+<<<<<<< HEAD
             "default": false
         },
         {
@@ -14,6 +15,8 @@
         },
         {
             "path": "panel-administration",
+=======
+>>>>>>> packaging
             "default": false
         }
     ],
