@@ -42,12 +42,14 @@
         if(entireBatch)
         {
             action = component.get("c.createMeetingAllBatch");
+            console.log('action set')
             action.setParams({
                 meeting : meet,
-                strBatch : batch,
+               // strBatch : batch,
                 strInterviewer : interviewer,
                 fullBatch : component.get("v.ascbatchmap")[batch]
             });
+            console.log('params set')
         }
         else
         {
@@ -81,6 +83,7 @@
                 }
                 else
                 {
+                    console.log('null meeting')
                     component.set("v.buttonLabel","Creation Failed!");
                     setTimeout(function(){
                         component.set("v.buttonLabel","Create Meeting");

@@ -7,10 +7,8 @@
     	<lightning:tab label="ASSOCIATES" id="two">
             <c:AssociateWrapper/>
         </lightning:tab>
-        
     	<lightning:tab label="QUESTIONS" id="three">
             <c:QuestionCreation/>
-            <c:InterviewQuestions/>
         </lightning:tab>
         <lightning:tab label="INTERESTS" id="four">
             <c:BatchClientWrapper/>
