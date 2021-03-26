@@ -46,6 +46,7 @@ attachQuestions : function(component, event, helper) {
             console.log(response.getError())
     		if(response.getState()==="SUCCESS"){
                 console.log('SUCCESS')
+                helper.showToast(true)
                 //$A.get('e.force:refreshView').fire();
                 
                 //clear selected rows and refresh data
@@ -56,4 +57,27 @@ attachQuestions : function(component, event, helper) {
  		});
     $A.enqueueAction(action);
 	},
+
+    showToast : function(success) {
+        try{
+            var toastEvent = $A.get("e.force:showToast");
+            if(success)
+            {
+                toastEvent.setParams({
+                    "title": "Success!",
+                    "message": "The questions have been added to the meeting successfully.",
+                    "type":"success"
+                });
+            }
+            else
+            {
+                toastEvent.setParams({
+                    "title": "Creation Failed!",
+                    "message": "The record creation failed.",
+                    "type":"error"
+                });
+            }
+            toastEvent.fire();
+        } catch(err) {}
+    }
 })
