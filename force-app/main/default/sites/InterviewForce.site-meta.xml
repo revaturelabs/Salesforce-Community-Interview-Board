@@ -21,10 +21,9 @@
     <masterLabel>InterviewForce</masterLabel>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
-    <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>christopherbrefo@curious-bear-guxb1p.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>christopherbrefo@curious-bear-guxb1p.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>jsm54208@mindful-narwhal-jtfrd5.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>jsm54208@mindful-narwhal-jtfrd5.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>08192020b-developer-edition</subdomain>
+    <subdomain>interviewboard1-developer-edition</subdomain>
 </CustomSite>

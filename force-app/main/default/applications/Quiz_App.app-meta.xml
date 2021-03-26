@@ -24,6 +24,7 @@
     <tabs>Quiz_Question__c</tabs>
     <tabs>Quiz_Session__c</tabs>
     <tabs>Agenda</tabs>
+    <tabs>Interview_Question__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Quiz_UtilityBar1</utilityBar>
 </CustomApplication>

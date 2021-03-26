@@ -15,8 +15,8 @@
         <lightning:tab label="INTERESTS" id="four">
             <c:BatchClientWrapper/>
         </lightning:tab>
-        <lightning:tab label="QUESTION POOL" id="five">
-            <c:QuestionPoolList/>
+        <lightning:tab label="QUESTION POOL" id="five" onactive="{!c.activeQuestionPool}">
+            <c:QuestionPoolList aura:id="poolList"/>
         </lightning:tab>
         <lightning:tab label="SYNC" id="six">
             <c:ScheduleSync/>
@@ -24,6 +24,9 @@
         </lightning:tab>
 		<lightning:tab label = "ASSIGN STACK" id="seven">
             <c:AssignStacksPage/>
+        </lightning:tab>   
+    	<lightning:tab label = "CREATE PANEL QUESTION" id="eight">
+            <c:PanelQuestionCreation/>
         </lightning:tab>   
     </lightning:tabset>
 </aura:component>

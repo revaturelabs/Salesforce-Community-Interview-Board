@@ -1,0 +1,62 @@
+<aura:component controller="CreateMockInterviewController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable" access="global">
+	
+    <!--Attributes for the mock panel simulator component-->
+    <aura:attribute name="QuestionList" type="List"/>
+    <aura:attribute name="QListIndex" type="Integer" default="0"/>
+    <aura:attribute name="QuestionId" type="Id"/>
+    <aura:attribute name="QuestionText" type="String"/>
+    <aura:attribute name="ResponseBody" type="String"/>
+    <aura:attribute name="ResponseComparison" type="Boolean"/>
+    <aura:attribute name="viewState" type="Boolean" default="true"/>
+    <aura:attribute name="submitted" type="Boolean" default="false"/>
+    <aura:attribute name="finalQuestion" type="Boolean" default="false"/>
+    <aura:attribute name="compareClicked" type="Boolean" default="false"/>
+    
+    
+    <!--Handler for the event that returns the list of retrieved questions for the panel-->
+    <aura:handler event="c:UpdateMockPanelList" action="{!c.retrievePanelQuestions}"/>
+    <aura:handler event="c:finishPanelEvent" action="{!c.handleFinishEvent}"/>
+
+	<!--register the event that returns the view state back when the panel is finished-->
+    <aura:registerEvent name="finishPanel" type="c:finishPanelEvent"/>
+	    
+    <!--Notifiers-->
+    <!-- <aura:registerEvent name="CompareEvent" type="c:CompareAppEvent"/> -->
+
+    <!--aura:handler name="init" value="{!this}" action="{!c.doinit}"/-->
+    
+    <aura:if isTrue="{!!v.viewState}">
+        <lightning:card>
+            <div class="slds-m-horizontal--medium" style="height: 508px">
+            
+                <h1>Question #{!v.QListIndex + 1}</h1>
+                <br/>
+                <p>{!v.QuestionText}</p>
+                <br/>
+                <aura:if isTrue="{!!v.submitted}">
+                    <lightning:textarea name="Response" 
+                                        label="Answer" 
+                                        placeholder="Type your response here..." 
+                                        required="true"
+                                        aura:id="responseBody"
+                                        value="{!v.ResponseBody}"/>
+                </aura:if>
+                <aura:if isTrue="{!v.submitted}">
+                    <p>{!v.ResponseBody}</p>
+                    <br/>
+                    <c:ComparePanelAnswers userAnswer="{!v.ResponseBody}" id="{!v.QuestionId}"/>
+                    <!-- <lightning:button class="slds-size_1-of-5" label="Compare Answer" onclick="{!c.fireCompareEvent}"/> -->
+                    <aura:if isTrue="{!v.finalQuestion}">
+                        <lightning:button class="slds-size_1-of-5"  label="Finish" onclick="{!c.finishButton}"/>
+                        <aura:set attribute="else">
+                            <lightning:button class="slds-size_1-of-5"  label="Next" onclick="{!c.nextQuestion}"/>
+                        </aura:set>
+                    </aura:if>  
+                    <aura:set attribute="else">
+                    	<lightning:button class="slds-size_1-of-5" label="Submit" onclick="{!c.submitResponse}"/>
+                    </aura:set>
+                </aura:if>
+            </div>        
+        </lightning:card>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="questionId" type="Id"/>
+    <aura:attribute name="userAnswer" type="String"/>   
+</aura:event>

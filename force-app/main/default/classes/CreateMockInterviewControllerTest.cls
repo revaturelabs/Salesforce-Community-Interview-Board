@@ -40,7 +40,7 @@ public class CreateMockInterviewControllerTest {
         }
         insert allQuestions;
 
-        Account testAcc = new Account();
+        /*Account testAcc = new Account();
         testAcc.name = 'test company';
         Database.SaveResult savedAccount = Database.insert(testAcc);
         Id accID = savedAccount.getId();
@@ -56,7 +56,7 @@ public class CreateMockInterviewControllerTest {
                           username = 'test@test.com', email = 'test@test.com', ContactId = contId,
                           alias= 'Test', TimeZoneSidKey='America/New_York', LocaleSidKey='en_US',
                           EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='en_US', IsActive = true);
-        insert u;
+        insert u;*/
     }
 
     @isTest
@@ -94,5 +94,31 @@ public class CreateMockInterviewControllerTest {
             //AggregateResult numQuestion = gotQuestions[0];
             System.assertNotEquals(null, gotQuestions);
         }
+    } 
+
+    @isTest
+    public static void createMockPanelPositiveTest() {
+        List<String> testObject = new List<String>{'Java', 'Apex', 'Visualforce'};
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        System.assertEquals(3, results.size());
+        System.assertEquals(33, results[0]);
+        System.assertEquals(34, results[1]);
+        System.assertEquals(33, results[2]);
+    }
+    
+    @isTest
+    public static void createMockPanelNegativeTest() {
+        List<String> testObject = new List<String>{'Banana', 'Egg', 'potato'};
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        System.assertEquals(3, results.size());
+        System.assertEquals(0, results[0]);
+        System.assertEquals(0, results[1]);
+        System.assertEquals(0, results[2]);
+    }
+    
+    @isTest static void createMockPanelNullTest() {
+        List<String> testObject = new List<String>();
+        List<Integer> results = CreateMockInterviewController.getNumberOfQuestionType(testObject);
+        System.assertEquals(0, results.size());
     }
 }
