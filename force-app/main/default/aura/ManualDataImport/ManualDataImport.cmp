@@ -1,0 +1,16 @@
+<aura:component controller="TestDataCreation" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="isError" type="Boolean" default="false"/>
+    
+    <lightning:card title="Test Data Creation">        
+        <p id="click-begin">Click to begin immediate static test data creation.</p>
+        <div class="c-container">
+            <lightning:layout>
+                <lightning:layoutItem>
+                    <lightning:button class="go-button" variant="brand" label="Create Now" title="Create Now" onclick="{! c.createTestData }" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </lightning:card>
+</aura:component>	
