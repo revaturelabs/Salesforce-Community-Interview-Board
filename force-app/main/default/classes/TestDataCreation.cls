@@ -438,7 +438,6 @@ public with sharing class TestDataCreation {
             {
                 if(cMap.get(mp.Participant__c).RecordType.Name == 'Client')
                 {
-                    System.debug('Client');
                     meets.get(i).Participating_Client__c = mp.Id;
                     break;
                 }
@@ -461,7 +460,6 @@ public with sharing class TestDataCreation {
        	for (Integer i=1;i<filelines.size();i++)
         {
         	Question__c temp = new Question__c();
-            System.Debug(filelines[i]);
             String[] inputvalues = filelines[i].split(',');
         	temp.Stack__c = inputValues[0];
         	temp.Type__c = inputValues[1];
@@ -470,18 +468,25 @@ public with sharing class TestDataCreation {
         	quests.add(temp);	
         }
 
-        /*
+        insert quests;
+
+        List<Interview_Question__c> iQuests = new List<Interview_Question__c>();
         for(Meeting__c m : meets)
         {
-            integer j = randInt(5, 20);
-            for(integer i = 1; i <= j; i++)
+            List<Question__c> tempQList = quests.clone();
+            for(integer i = 1; i <= 4; i++)
             {
-                q = new Interview_Question__c();
-                ques.add(q);
+                integer randQuestion = randInt(0, tempQList.size()-1);
+                Interview_Question__c interviewQ = new Interview_Question__c();
+                interviewQ.Meeting_md__c = m.Id;
+                interviewQ.Question__c = tempQList.get(randQuestion).Id;
+                tempQList.remove(randQuestion);
+                iQuests.add(interviewQ);
             }
-        }*/
+        }
 
-        insert quests;
+        System.debug(iQuests);
+        insert iQuests;
     }
 
     // Method to generate random phone number
