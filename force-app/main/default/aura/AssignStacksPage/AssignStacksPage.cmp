@@ -115,7 +115,6 @@
         </div>
 
         <div class="slds-col slds-size_1-of-3">
-            <lightning:recordViewForm recordId="{!v.StaKey}" objectApiName="Stack__c">
                 <div class="slds-box">
                     <span>Selected Stack(s)</span>
                     <lightning:datatable
