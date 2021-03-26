@@ -5,7 +5,7 @@
             "default": true
         },
         {
-            "path": "Quiz",
+            "path": "quiz",
             "default": false
         }
     ],
