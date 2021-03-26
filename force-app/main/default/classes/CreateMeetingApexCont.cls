@@ -36,13 +36,20 @@ public with sharing class CreateMeetingApexCont {
 
 
     @AuraEnabled
-    public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate)
+    public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate, Boolean mock)
     {
         if(meeting.Name == null || meeting.Name == '') return null;
         try{
             Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
             Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
             insert meeting;
+
+            //changes record type to mock interview if box checked
+            if (mock)
+            {
+                Id MockId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
+                meeting.RecordTypeId = MockId;
+            }
 
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 

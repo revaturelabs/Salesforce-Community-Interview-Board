@@ -82,6 +82,13 @@
     },
 
     endInterviewHelper : function(component, event, helper) {
+        var action = component.get("c.sendReview")
+        action.setParams({"meet" : component.get("v.currentMeeting")});
+        action.setCallback(this, function(response){
+            console.log(response.getState())
+            console.log(response.getError())
+        });
+        $A.enqueueAction(action);
         component.set("v.currentQuestionIndex", 0)
         component.set("v.launched", false)
         component.set("v.finished", false)

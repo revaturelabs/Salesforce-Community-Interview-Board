@@ -1,6 +1,6 @@
 ({
     fetchmeetingsHelper : function(component, event, helper) {
-    var action = component.get("c.GetUpcomingMeetingsAll");
+    var action = component.get("c.GetUpcomingMeetingsMock");
     action.setCallback(this, function(response){
         var state = response.getState();
        if (state === "SUCCESS") {
@@ -13,7 +13,7 @@
             component.set("v.data", rows);
         } else {
             let errors = response.getError();
-            let message = 'Unknown error'; // Default error message
+            let message = 'Meeting fetch error'; // Default error message
             // Retrieve the error message sent by the server.
             if (errors && Array.isArray(errors) && errors.length > 0) {
                 message = errors[0].message;

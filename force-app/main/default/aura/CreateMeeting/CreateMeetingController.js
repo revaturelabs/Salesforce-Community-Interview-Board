@@ -28,6 +28,7 @@
         var entireBatch = component.get("v.allbatch");
         var batch = component.get("v.meeting.Batch__c");
         var interviewer = component.get("v.selInterviewer");
+        var mockInterview = component.get("v.mockInterview")
         var associate = null;
 
         //if it's not an entire batch selected, get the selected associate
@@ -35,7 +36,7 @@
             associate = component.get("v.selAssociate");
         
         //check for issues
-        console.log(batch + " " + interviewer + " " + associate);
+        console.log(batch + " " + interviewer + " " + associate + " " + mockInterview);
         //call the createMeeting Apex method
         var action = null;
 
@@ -57,7 +58,8 @@
             action.setParams({
                 meeting : meet,
                 strInterviewer : interviewer,
-                strAssociate : associate
+                strAssociate : associate,
+                mock : mockInterview
             });
         }
         
@@ -83,6 +85,7 @@
                 }
                 else
                 {
+                    console.log(response.getError())
                     console.log('null meeting')
                     component.set("v.buttonLabel","Creation Failed!");
                     setTimeout(function(){
