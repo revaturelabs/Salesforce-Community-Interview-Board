@@ -5,7 +5,7 @@
     <aura:attribute name="batches" type="String"/>
     <aura:attribute name="associates" type="String"/>
     <aura:attribute name="time" type="String" default="0"/>
-	<lightning:card title="Manually Synchronize">   
+	<lightning:card title="Manually Synchronize">
         <aura:if isTrue="{! v.isLoading }">
 			<div aura:id="spinnerId" class="slds-spinner_container">
                 <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">

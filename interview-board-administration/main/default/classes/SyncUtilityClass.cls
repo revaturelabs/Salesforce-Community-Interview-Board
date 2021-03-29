@@ -1,19 +1,18 @@
 /*
 This class synchronizes between the external API (Caliber) and the internal Database
 Items Synced are Associate Contacts and Batch Accounts
+AND STACKS AND CHALLENGES
 */
 
 public with sharing class SyncUtilityClass {
     //Declare reused Variables
-    String baseUrl = 'http://34.82.182.44/mock/training';
-    Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
-    @TestVisible List<Contact[]> externalAssociates = new List<Contact[]>();
-    Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
-    @TestVisible Account[] externalBatches = new Account[]{};
+    public String baseUrl = 'https://caliber2-mock.revaturelabs.com:443/';
+
+    private Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
+    @TestVisible private List<Contact[]> externalAssociates = new List<Contact[]>();
+    private Account[] internalBatches = [SELECT BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
+    @TestVisible private Account[] externalBatches = new Account[]{};
         
-    Http protocol = new Http();
-    HttpRequest request = new HttpRequest();
-    
     private Date formatDate(String dateToParse) {
         String year = dateToParse.substring(0, dateToParse.indexOf('-')); //xxxx -xx-xx
         String monthDate = dateToParse.substring(dateToParse.indexOf('-') + 1);
@@ -25,8 +24,11 @@ public with sharing class SyncUtilityClass {
     
     //Get the external Batches to compare them against the ones already in the internal DB
     public void getData() {
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
         //System.debug('GET DATA');
-        request.setEndpoint(baseUrl + '/batch');
+        request.setEndpoint(baseUrl + 'mock/training/batch');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
         
@@ -64,7 +66,7 @@ public with sharing class SyncUtilityClass {
         
         for(Account batch : externalBatchData) {
             // Set batchId as parameters for request
-            request.setEndpoint(baseUrl + '/associate?batch=' + batch.BatchId__c);
+            request.setEndpoint(baseUrl + 'mock/training/associate?batch=' + batch.BatchId__c);
             response = protocol.send(request);
             
             Contact[] contactsForBatch = new Contact[]{};
@@ -178,11 +180,17 @@ public with sharing class SyncUtilityClass {
         try {
             // Get external data
             getData();
+            List<Stack__c> stacksToAdd = getCategories();
+            List<Challenge__c> challengesToAdd = getAssessments([SELECT Id, BatchID__c FROM Account WHERE recordType.Name IN ('Batch')]);
             Account[] externalBatchesToAdd = compareBatches(externalBatches, internalBatches);
             Contact[] externalAssociatesToAdd = compareContacts(externalAssociates, internalAssociates);
             insert externalBatchesToAdd;
             matchAssociateToBatch(externalAssociatesToAdd);
             insert externalAssociatesToAdd;
+
+            Database.upsert(stacksToAdd,Stack__c.Fields.CaliberId__c,false);
+            //We want to update all assessments, not just the batches we just updated.
+            Database.upsert(challengesToAdd,Challenge__c.Fields.CaliberId__c,false);
             
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
@@ -190,10 +198,97 @@ public with sharing class SyncUtilityClass {
             System.debug(updateCounts);
             
         } catch (exception e) {
-            System.debug('An error has occured with Caliber sync.');
+            System.debug('An error has occured with Caliber sync. '+e.getMessage());
             updateCounts.add(-1);
             updateCounts.add(-1);
         }
         return updateCounts;
+    }
+
+    /* This function has no arguments and returns a list of "stacks" from the caliber category service 
+       after inserting them into the DB */
+    public List<Stack__c> getCategories(){
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
+        //System.debug('GET DATA');
+        request.setEndpoint(baseUrl + 'mock/category/category');
+        request.setMethod('GET');
+        HttpResponse response = protocol.send(request);
+
+        if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
+            //error
+            throw new System.CalloutException('Couldn\'t access caliber category service endpoint.');
+        } else {
+            //200 range is successful!
+            Stack__c[] stacks = new List<Stack__c>();
+            for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
+                Map<String,Object> rawstack = (Map<String,Object>) rawobj;
+                if((Boolean) rawstack.get('active')){
+                    stacks.add(new Stack__c(Name=(String)rawstack.get('skillCategory'), 
+                                            CaliberID__c=String.valueOf(rawstack.get('categoryId'))));
+                }
+            }
+            return stacks;
+        }
+    }
+    /* this function has the argument of batches and returns a list of challenges from the caliber evaluation service
+       after inserting them into the DB */
+    public List<Challenge__c> getAssessments(Account[] batches){
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
+        String assessmentBase = baseUrl + 'mock/evaluation/assessments';
+        request.setMethod('GET');
+        Challenge__c[] challenges = new List<Challenge__c>();
+        List<Stack__c> disorganizedStacks = [SELECT Id, CaliberID__c FROM Stack__c];
+        Map<String,Stack__c> stacks = new Map<String,Stack__c>();
+        for(Account acc:batches){
+            request.setEndpoint(assessmentBase + '?batchId='+acc.batchId__c);
+            HttpResponse response = protocol.send(request);
+            if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
+                //error
+                throw new System.CalloutException('Couldn\'t access caliber category service endpoint.');
+            } else {
+                //200 range is successful!
+                for(Stack__c stack:disorganizedStacks){
+                    stacks.put(stack.CaliberID__c,stack);
+                }
+                for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
+                    Map<String,Object> rawstack = (Map<String,Object>) rawobj;
+                    Stack__c stack = stacks.get(String.valueOf(rawstack.get('assessmentCategory')));
+                    
+                    Challenge__c challenge = new Challenge__c(
+                        Name=(String) rawstack.get('assessmentTitle'),
+                        CaliberID__c=String.valueOf(rawstack.get('assessmentId')),
+                        Score__c=(Double) rawstack.get('rawScore'),
+                        AssessmentType__c= (String) rawstack.get('assessmentType'),
+                        WeekNumber__c=String.valueOf(rawstack.get('weekNumber')),
+                        Batch__c=acc.Id
+                    );
+                    if(stack!=null){
+                        challenge.Stack__c = stack.Id;
+                    }
+                    //if(rawstack.get('assignmentDate') != null){
+                        // uh, we don't know if they are backslashed dates or dashed dates.
+                    //    challenge.AssignmentDate__c = Date.parse((String)rawstack.get('assignmentDate'));
+                    //}
+                    
+                    challenges.add(challenge);
+                }
+            }
+        }
+        //TODO: mock callout fills challenges list up with duplicates.
+        Set<String> assessmentIds = new Set<String>();
+        for(Integer index=0;index<challenges.size();index++){
+            Challenge__c challenge = challenges[index];
+            if(assessmentIds.contains(challenge.CaliberID__c)){
+                challenges.remove(index);
+                index--;
+            } else {
+                assessmentIds.add(challenge.CaliberID__c);
+            }
+        }
+        return challenges;
     }
 }
