@@ -275,6 +275,7 @@
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
+		<members>unfiled$public/AssociateCongratulationsEmail</members>
 		<name>EmailTemplate</name>
 	</types>
 	<types>

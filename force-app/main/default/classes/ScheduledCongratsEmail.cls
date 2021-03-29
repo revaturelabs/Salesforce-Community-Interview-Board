@@ -19,7 +19,7 @@ global class ScheduledCongratsEmail implements Schedulable {
         message.setBccSender(false);
         message.setSaveAsActivity(false);
 
-       EmailTemplate emailTemplate = [Select Id,Subject,Description,HtmlValue,DeveloperName,Body from EmailTemplate where name = 'TestVisual'];
+       EmailTemplate emailTemplate = [Select Id,Subject,Description,HtmlValue,DeveloperName,Body from EmailTemplate where name = 'AssociateCongratulationsEmail'];
 
        message.setTemplateID(emailTemplate.Id);
 
