@@ -27,8 +27,10 @@
     <forgotPasswordTemplate>unfiled$public/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <networkMemberGroups>
-        <profile>Admin</profile>
         <profile>Associate</profile>
+        <profile>Admin</profile>
+        <profile>customer community login user</profile>
+        <profile>platformportal</profile>
         <profile>customer portal manager custom</profile>
         <profile>customer community plus user</profile>
         <profile>authenticated website</profile>
@@ -37,8 +39,6 @@
         <profile>external identity user</profile>
         <profile>customer community user</profile>
         <profile>high volume customer portal user</profile>
-        <profile>platformportal</profile>
-        <profile>customer community login user</profile>
         <profile>highvolumeportal</profile>
     </networkMemberGroups>
     <networkPageOverrides>

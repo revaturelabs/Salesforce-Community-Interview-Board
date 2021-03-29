@@ -440,6 +440,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>findSelectedAssociates</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>getEventMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -862,6 +866,11 @@
         <editable>true</editable>
         <field>Contact.trainingStatus__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Interview_Question__c.Response__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

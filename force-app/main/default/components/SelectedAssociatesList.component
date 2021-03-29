@@ -1,14 +1,14 @@
 <apex:component controller="findSelectedAssociates" access="global">
     <apex:dataTable value="{!SelectedAssociates}" var="associate" border="1" cellpadding="5">
-        <apex:column>
+        <apex:column >
             <apex:facet name="header">Name</apex:facet>
             {!associate.Name}
         </apex:column>
-        <apex:column>
+        <apex:column >
             <apex:facet name="header">Email</apex:facet>
             {!associate.Email}
         </apex:column>
-        <apex:column>
+        <apex:column >
             <apex:facet name="header">Client</apex:facet>
             {!associate.Client__r.Name}
         </apex:column>
