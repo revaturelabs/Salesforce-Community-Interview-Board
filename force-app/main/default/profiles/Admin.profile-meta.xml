@@ -144,6 +144,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockInterviewLauncherController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewQuestionPoolController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -401,10 +405,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataCreation</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestDataCreationTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

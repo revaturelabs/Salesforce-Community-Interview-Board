@@ -146,7 +146,7 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>
+		<!--<members>TestDataCreationTest</members>-->
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
@@ -155,7 +155,8 @@
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
-		<members>ForumsPageApexController</members> 
+		<members>ForumsPageApexController</members>
+		<members>MockInterviewLauncherController</members> 
 		<members>ScheduledCongratsEmail</members>
 		<members>findSelectedAssociates</members>
 		<name>ApexClass</name>
