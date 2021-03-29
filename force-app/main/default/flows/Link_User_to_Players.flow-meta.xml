@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>49.0</apiVersion>
     <decisions>
         <name>User_Found</name>
         <label>User Found?</label>
@@ -47,7 +46,6 @@
         <connector>
             <targetReference>User_Found</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>Username</field>
             <operator>EqualTo</operator>
@@ -66,7 +64,6 @@
         <label>Link User to Player</label>
         <locationX>887</locationX>
         <locationY>106</locationY>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>Name</field>
             <operator>EqualTo</operator>
