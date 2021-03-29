@@ -7,6 +7,9 @@
         <componentInstances>
             <componentName>ManualSync</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>ManualDataImport</componentName>
+        </componentInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
