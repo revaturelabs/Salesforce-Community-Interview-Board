@@ -122,7 +122,6 @@ public with sharing class CreateMeetingApexContTest {
         List<Contact> ascList = [SELECT Id FROM Contact WHERE AccountId =: batch.Id];
 
         Meeting__c meet = new Meeting__c(Name='Test');
-        System.debug('meeting created');
         Meeting__c result = CreateMeetingApexCont.createMeetingAllBatch(meet, strCli, ascList);
 
         System.assertEquals(meet, result);
@@ -130,7 +129,6 @@ public with sharing class CreateMeetingApexContTest {
         Integer partCount = Integer.valueOf([SELECT COUNT() FROM Meeting_Participant__c WHERE Meeting__c =: result.Id]);
 
         System.assertEquals(ascList.size()+1, partCount);
-        
     }
 
     @isTest

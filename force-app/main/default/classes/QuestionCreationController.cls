@@ -21,7 +21,7 @@ public with sharing class QuestionCreationController {
     
     //Save a record that a user has created from corresponding QuestionCreation.cmp
     @AuraEnabled
-    public static void saveQuestion(String question, String meeting, String type, String stack, Boolean associate, String setting){
+    public static void saveQuestion(String question, String meeting, String type, String stack, Boolean associate){
         //Set the visibility field for the Question
         String visibility;
         if(associate){
@@ -37,8 +37,8 @@ public with sharing class QuestionCreationController {
             }
             Question__c q = new Question__c(Body__c = question,Type__c=type,Stack__c=stack, Visibility__c=visibility);
             insert q;
-            //Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meeting, Question__c=q.Id);
-            //insert iq;
+            Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meeting, Question__c=q.Id);
+            insert iq;
         }catch(Exception e) {
              System.debug(e.getMessage());
         }

@@ -1,47 +1,13 @@
-<aura:component controller = "MockInterviewLauncherController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:component>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <aura:attribute name="data" type="Meeting__c[]"/>
-    <aura:attribute name="questionList" type="Question__c[]"/>
-    <aura:attribute name="currentQuestion" type="Question__c"/>
-    <aura:attribute name="currentQuestionIndex" type="Integer" default = "0"/>
-    <aura:attribute name="currentMeeting" type="String" default = ""/>
-    <aura:attribute name = "launched" type = "boolean" default = "false"/>
-    <aura:attribute name = "finished" type = "boolean" default = "false"/>
-
 
     
 <!--Get a list of the meetings and display in a dropdown-->
-<aura:if isTrue = "{!not(v.launched)}">
-    <lightning:select aura:id = "meetingSelect" name="select" label="Select a Meeting" required="true" messageWhenValueMissing="Did you forget to select a meeting?">
-        <option value="">-- None --</option>
-        <aura:iteration items="{!v.data}" var="meeting">
-            <option value="{!meeting.ID}" text="{!meeting.Name}"></option>
-        </aura:iteration>
-    </lightning:select>
-    
-    <!--Launch Button-->
-    <lightning:button name = "launch" label = "Launch Interview" onclick = "{!c.launchInterview}"/>
-    <br/>
-</aura:if>
-
-<!--Question and Response Display Button-->
-<aura:if isTrue = "{!v.launched}">
-    <aura:if isTrue = "{!not(v.finished)}">
-        <div>
-            {!v.currentQuestion.Body__c} 
-            <br/>
-            {!v.currentQuestion.Type__c}
-         </div>
-         <div>
-            <lightning:textarea aura:id = "responseText" name = "response" value="" label="Response Notes" />
-         </div>
-         <lightning:button name = "next" label = "Next" onclick = "{!c.nextQuestion}"/>
-    </aura:if>
-</aura:if>
-
-<!--Finish button-->
-<aura:if isTrue = "{!v.finished}">
-    End of Interview Questions
-    <lightning:button name = "finish" label = "Finish" onclick = "{!c.endInterview}"/>
-</aura:if>
+<lightning:select aura:id = "meetingSelect" name="select" label="Select a Meeting" required="true" messageWhenValueMissing="Did you forget to select a meeting?">
+    <option value="">-- None --</option>
+    <aura:iteration items="{!v.data}" var="meeting">
+        <option value="{!meeting.ID}" text="{!meeting.Name}"></option>
+    </aura:iteration>
+</lightning:select>
 </aura:component>
