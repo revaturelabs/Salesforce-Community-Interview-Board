@@ -3,6 +3,18 @@
         {
             "path": "force-app",
             "default": true
+        },
+        {
+            "path": "quiz",
+            "default": false
+        },
+        {
+            "path": "interview-board-administration",
+            "default": false
+        },
+        {
+            "path": "panel-administration",
+            "default": false
         }
     ],
     "namespace": "",
