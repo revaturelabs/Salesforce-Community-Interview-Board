@@ -126,9 +126,20 @@
     
     handleRowStackAction : function(component, event, helper) {
         var StackList = [];
+        var dontPush = false;
         StackList = component.get("v.StacksSelected");
         var row = event.getParam('row');
-        StackList.push(row);
+
+        for(let item of StackList){
+            if(item.Name == row.Name){
+                dontPush = true;
+            }
+        }
+        
+        if(!dontPush){
+            StackList.push(row);
+        }
+
         component.set("v.StacksSelected", StackList);
     },
 
