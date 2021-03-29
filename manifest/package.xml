@@ -146,11 +146,7 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>TestDataCreation</members>
-<<<<<<< HEAD
 		<!--<members>TestDataCreationTest</members>-->
-=======
-		<members>TestDataCreationTest</members>
->>>>>>> dbf43dda7c8c83b501df1f1c6653a3475af02aed
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
