@@ -6,7 +6,7 @@
     <aura:attribute name="SStaKey" type="String"/>
     <aura:attribute name="SBatKey" type="String"/>
     
-    <!--Selected Results for creating user-stacks-->>
+    <!--Selected Results for creating user-stacks-->
     <aura:attribute name="AssoKey" type="String"/>
     <aura:attribute name="StacksSelected" type="Stack__c[]"/>
     <aura:attribute name="BatKey" type="String"/>
@@ -27,114 +27,120 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
 
     <!-- the associate field-->
-    <div class="slds-grid slds-form slds-form_horizontal">
-        <div class="slds-col slds-size_1-of-4">
-            <lightning:input aura:id="SField"
-                             label="Associate Name"
-                             value="{!v.SKey}"
-                             placeholder="Search Associates"/>
-        </div>
+    <lightning:card title="Search">
+        <div class="slds-grid slds-form slds-form_horizontal">
+            <div class="slds-col slds-size_3-of-12">
+                <lightning:input aura:id="SField"
+                                label="Associate Name"
+                                value="{!v.SKey}"
+                                placeholder="Search Associates"/>
+            </div>
 
-        <!-- the associate search button-->
-        <div class="slds-col slds-size_3-of-4" >
-            <lightning:button onclick="{!c.Search}" label="Search" />
-        </div>
-    </div>
+            <!-- the associate search button-->
+            <div class="slds-col slds-size_1-of-12" >
+                <lightning:button onclick="{!c.Search}" label="Search" />
+            </div>
 
-    <!-- the stack field-->
-     <div class="slds-grid slds-form slds-form_horizontal">
-        <div class="slds-col slds-size_1-of-4">
-            <lightning:input aura:id="SStaField"
-                             label="Stack Name"
-                             value="{!v.SStaKey}"
-                             placeholder="Search Stacks"/>
-        </div>
+        <!-- the stack field-->
+            <div class="slds-col slds-size_3-of-12">
+                <lightning:input aura:id="SStaField"
+                                label="Stack Name"
+                                value="{!v.SStaKey}"
+                                placeholder="Search Stacks"/>
+            </div>
 
-        <!-- the stack search button-->
-        <div class="slds-col slds-size_3-of-4" >
-            <lightning:button onclick="{!c.SearchStack}" label="Search" />
-        </div>
-    </div>
+            <!-- the stack search button-->
+            <div class="slds-col slds-size_1-of-12" >
+                <lightning:button onclick="{!c.SearchStack}" label="Search" />
+            </div>
 
-    <div class="slds-grid slds-form slds-form_horizontal">
-        <div class="slds-col slds-size_1-of-4">
-            
-            <lightning:input aura:id="SBatField"
-                             label="Batch Account"
-                             value="{!v.SBatKey}"
-                             placeholder="Search Batch"/>
+            <!-- the batch field-->
+            <div class="slds-col slds-size_3-of-12">
+                <lightning:input aura:id="SBatField"
+                                label="Batch Account"
+                                value="{!v.SBatKey}"
+                                placeholder="Search Batch"/>
+            </div>
+
+            <!-- the batch search button-->
+            <div class="slds-col slds-size_1-of-12" >
+                <lightning:button onclick="{!c.SearchBatch}" label="Search" />
+            </div>
         </div>
-        <div class="slds-col slds-size_3-of-4" >
-            <lightning:button onclick="{!c.SearchBatch}" label="Search" />
-        </div>
-    </div>
+    </lightning:card>
     
     
+    <br/>
     
-    
-    <div class="slds-grid slds-gutters">
-         <!-- the results for associate -->
-        <div class="slds-col slds-size_1-of-3 slds-box">
-            <lightning:datatable
-                                 data="{!v.Associate}"
-                                 columns="{!v.columns}"
-                                 keyField="Id"
-                                 hideCheckboxColumn="true"
-                                 onrowaction="{!c.handleRowAction}"/>
-        </div>
+    <lightning:card title="Results">
+        <div class="slds-grid  slds-grid_align-center">
+            <!-- the results for associate -->
+            <div class="slds-col slds-size_4-of-12 slds-box">
+                <lightning:datatable
+                                    data="{!v.Associate}"
+                                    columns="{!v.columns}"
+                                    keyField="Id"
+                                    hideCheckboxColumn="true"
+                                    onrowaction="{!c.handleRowAction}"/>
+            </div>
 
-        <!-- the results for stacks-->
-        <div class="slds-col slds-size_1-of-3 slds-box">
+            <!-- the results for stacks-->
+            <div class="slds-col slds-size_4-of-12 slds-box">
 
-            <lightning:datatable
-                                 data="{!v.Stacks}"
-                                 columns="{!v.stackColumns}"
-                                 keyField="Id"
-                                 hideCheckboxColumn="true"
-                                 onrowaction="{!c.handleRowStackAction}"/>
+                <lightning:datatable
+                                    data="{!v.Stacks}"
+                                    columns="{!v.stackColumns}"
+                                    keyField="Id"
+                                    hideCheckboxColumn="true"
+                                    onrowaction="{!c.handleRowStackAction}"/>
+            </div>
+            <div class="slds-col slds-size_4-of-12 slds-box">
+                <lightning:datatable
+                                    data="{!v.Batches}"
+                                    columns="{!v.batchColumns}"
+                                    keyField="Id"
+                                    hideCheckboxColumn="true"
+                                    onrowaction="{!c.handleRowBatchAction}"/>
+            </div>
         </div>
-        <div class="slds-col slds-size_1-of-3 slds-box">
-            <lightning:datatable
-                                 data="{!v.Batches}"
-                                 columns="{!v.batchColumns}"
-                                 keyField="Id"
-                                 hideCheckboxColumn="true"
-                                 onrowaction="{!c.handleRowBatchAction}"/>
-        </div>
-    </div>
-    
-    <!--Selected Associate-->
-    <div class="slds-grid slds-gutters">
-        <div class="slds-col slds-size_1-of-3">
-            <lightning:recordViewForm recordId="{!v.AssoKey}" objectApiName="Contact">
-                <div class="slds-box">
-                    <span>Selected Associate</span>
-                    <lightning:outputField fieldName="Name" variant="label-hidden"/>
-                </div>
-            </lightning:recordViewForm>
-        </div>
+    </lightning:card>
+    <br/><br/>
 
-        <div class="slds-col slds-size_1-of-3">
-                <div class="slds-box">
-                    <span>Selected Stack(s)</span>
-                    <lightning:datatable
-                        data="{!v.StacksSelected}"
-                        columns="{!v.stackColumnsSelected}"
-                        keyField="Id"
-                        hideCheckboxColumn="true"
-                        onrowaction="{!c.handleRowRemoveAction}"/>
-                </div>
+    <lightning:card title="Selected Results">
+        <!--Selected Associate-->
+        <div class="slds-grid slds-grid_align-center">
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:recordViewForm recordId="{!v.AssoKey}" objectApiName="Contact">
+                    <div class="slds-box">
+                        <span>Selected Associate</span>
+                        <lightning:outputField fieldName="Name" variant="label-hidden"/>
+                    </div>
+                </lightning:recordViewForm>
+            </div>
+
+            <div class="slds-col slds-size_1-of-3">
+                    <div class="slds-box">
+                        <span>Selected Stack(s)</span>
+                        <lightning:datatable
+                            data="{!v.StacksSelected}"
+                            columns="{!v.stackColumnsSelected}"
+                            keyField="Id"
+                            hideCheckboxColumn="true"
+                            onrowaction="{!c.handleRowRemoveAction}"/>
+                    </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:recordViewForm recordId="{!v.BatKey}" objectApiName="Account">
+                    <div class="slds-box">
+                        <span>Selected Batch</span>
+                        <lightning:outputField fieldName="Name" variant="label-hidden"/>
+                    </div>
+                </lightning:recordViewForm>
+            </div>
         </div>
-        <div class="slds-col slds-size_1-of-3">
-            <lightning:recordViewForm recordId="{!v.BatKey}" objectApiName="Account">
-                <div class="slds-box">
-                    <span>Selected Batch</span>
-                    <lightning:outputField fieldName="Name" variant="label-hidden"/>
-                </div>
-            </lightning:recordViewForm>
-        </div>
-    </div>
-    
+    </lightning:card>
+    <br/><br/>
+
     <div class="slds-grid slds-grid_align-center">
     	<div class="slds-col ">
             <lightning:button label="Assign Stack to Associate" title="Assign Stack to Associate" onclick="{! c.AssignStack }"/>
@@ -143,7 +149,11 @@
             <lightning:button label="Assign Stack to Batch" title="Assign Stack to Batch" onclick="{! c.AssignStackToBatch }"/>
         </div>
     </div>
+
+    <br/><br/>
+
     <div class="slds-align_absolute-center">
         {!v.Notification}
     </div>
+
 </aura:component>
