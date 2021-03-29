@@ -69,6 +69,12 @@ global class SyncCalloutMock implements HttpCalloutMock {
             '{"assessmentId":1659,"rawScore":100,"assessmentTitle":"Mock Assessment 1-1","assessmentType":"Project","weekNumber":1,"batchId":"TR-1202","assessmentCategory":17,"assignmentDate":null},'+
             '{"assessmentId":1660,"rawScore":100,"assessmentTitle":"Mock Assessment 1-2","assessmentType":"Other","weekNumber":1,"batchId":"TR-1202","assessmentCategory":19,"assignmentDate":null}'+
                 ']');
+        } else if (req.getEndpoint().contains('/evaluation/assessments') ) {
+            res.setBody('['+
+            '{"assessmentId": 1658,"dateReceived": "2021-03-25","gradeId": 5,"score": 10,traineeId": "SF-1840"},'+
+            '{"assessmentId": 1659,"dateReceived": "2021-03-25","gradeId": 6,"score": 60,traineeId": "SF-1840"},'+
+            '{"assessmentId": 1660,"dateReceived": "2021-03-25","gradeId": 7,"score": 99,traineeId": "SF-1837"}'+
+            ']');
         }
         return res;
     }
