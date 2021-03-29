@@ -1,6 +1,6 @@
 ({
     fetchmeetingsHelper : function(component, event, helper) {
-    var action = component.get("c.GetUpcomingMeetingsMock");
+    var action = component.get("c.GetUpcomingMeetingsAll");
     action.setCallback(this, function(response){
         var state = response.getState();
        if (state === "SUCCESS") {
@@ -13,7 +13,7 @@
             component.set("v.data", rows);
         } else {
             let errors = response.getError();
-            let message = 'Meeting fetch error'; // Default error message
+            let message = 'Unknown error'; // Default error message
             // Retrieve the error message sent by the server.
             if (errors && Array.isArray(errors) && errors.length > 0) {
                 message = errors[0].message;
@@ -46,7 +46,6 @@ attachQuestions : function(component, event, helper) {
             console.log(response.getError())
     		if(response.getState()==="SUCCESS"){
                 console.log('SUCCESS')
-                helper.showToast(true)
                 //$A.get('e.force:refreshView').fire();
                 
                 //clear selected rows and refresh data
@@ -57,27 +56,4 @@ attachQuestions : function(component, event, helper) {
  		});
     $A.enqueueAction(action);
 	},
-
-    showToast : function(success) {
-        try{
-            var toastEvent = $A.get("e.force:showToast");
-            if(success)
-            {
-                toastEvent.setParams({
-                    "title": "Success!",
-                    "message": "The questions have been added to the meeting successfully.",
-                    "type":"success"
-                });
-            }
-            else
-            {
-                toastEvent.setParams({
-                    "title": "Creation Failed!",
-                    "message": "The record creation failed.",
-                    "type":"error"
-                });
-            }
-            toastEvent.fire();
-        } catch(err) {}
-    }
 })
