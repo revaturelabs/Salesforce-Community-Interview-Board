@@ -144,6 +144,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockInterviewLauncherController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewQuestionPoolController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -193,11 +197,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionResponseRatingTriggerHandler</apexClass>
-<<<<<<< HEAD
-        <enabled>false</enabled>
-=======
         <enabled>true</enabled>
->>>>>>> dbf43dda7c8c83b501df1f1c6653a3475af02aed
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionResponseRatingTriggerHandlerTest</apexClass>
@@ -205,21 +205,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionResponseTriggerHandler</apexClass>
-<<<<<<< HEAD
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>QuestionResponseTriggerHandlerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>QuizAbstractDataService</apexClass>
-=======
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionResponseTriggerHandlerTest</apexClass>
->>>>>>> dbf43dda7c8c83b501df1f1c6653a3475af02aed
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -416,18 +405,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataCreation</apexClass>
-<<<<<<< HEAD
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserStackTriggerHelper</apexClass>
-=======
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestDataCreationTest</apexClass>
->>>>>>> dbf43dda7c8c83b501df1f1c6653a3475af02aed
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UserStackTriggerHelper</apexClass>

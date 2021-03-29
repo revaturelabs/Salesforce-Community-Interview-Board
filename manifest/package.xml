@@ -155,7 +155,8 @@
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
-		<members>ForumsPageApexController</members> 
+		<members>ForumsPageApexController</members>
+		<members>MockInterviewLauncherController</members> 
 		<name>ApexClass</name>
 	</types>
 	<types>

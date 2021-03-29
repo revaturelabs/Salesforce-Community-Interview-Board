@@ -102,7 +102,7 @@ public with sharing class CreateMeetingApexContTest {
         String strCli = String.valueOf([SELECT Id FROM Contact WHERE RecordType.Name = 'Client' LIMIT 1].Id);
 
         Meeting__c meet = new Meeting__c(Name='Test');
-        Meeting__c result = CreateMeetingApexCont.createMeeting(meet, strCli, strAsc);
+        Meeting__c result = CreateMeetingApexCont.createMeeting(meet, strCli, strAsc, false);
 
         System.assertEquals(meet, result);
 
@@ -145,9 +145,9 @@ public with sharing class CreateMeetingApexContTest {
         String strCli = String.valueOf(client.Id);
         String strAsc = String.valueOf(associate.Id);
 
-        Meeting__c m1 = CreateMeetingApexCont.createMeeting(new Meeting__c(), strCli, strAsc),
-                   m2 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), '', strAsc),
-                   m3 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), strCli, '');
+        Meeting__c m1 = CreateMeetingApexCont.createMeeting(new Meeting__c(), strCli, strAsc, false),
+                   m2 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), '', strAsc, false),
+                   m3 = CreateMeetingApexCont.createMeeting(new Meeting__c(Name = 'Meeting 2'), strCli, '', false);
 
         System.assertEquals(null, m1);
         System.assertEquals(null, m2);
