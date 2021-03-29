@@ -4,12 +4,6 @@
     
     <apiVersion>49.0</apiVersion>
     
-    <isExposed>true</isExposed>
-    
-    <targets>
-        
-        <target>lightning__Tab</target>
-        
-    </targets>
+    <isExposed>false</isExposed>
     
 </LightningComponentBundle>
