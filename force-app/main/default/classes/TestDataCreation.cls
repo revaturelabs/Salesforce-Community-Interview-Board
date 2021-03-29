@@ -359,7 +359,7 @@ public with sharing class TestDataCreation {
         for(Account a : batAc)
             batMap.put(a.Id, a.Contacts);
 
-        //questions(meets);
+        questions(meets);
 
         integer j = 0, k = 1, l;
         boolean s = true;

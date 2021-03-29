@@ -317,10 +317,10 @@ public with sharing class SyncUtilityClass {
                 for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
                     Map<String,Object> untypedGrade = (Map<String,Object>) rawobj;
 
-                    if(completionIds.contains((String)untypedGrade.get('gradeId'))){
+                    if(completionIds.contains(String.valueOf(untypedGrade.get('gradeId')))){
                         continue; //skip since we've already read this grade
                     }
-                    completionIds.add((String)untypedGrade.get('gradeId'));
+                    completionIds.add(String.valueOf(untypedGrade.get('gradeId')));
 
                     Completion__c completion = new Completion__c(
                         CaliberID__c=String.valueOf(untypedGrade.get('gradeId')),
@@ -341,9 +341,14 @@ public with sharing class SyncUtilityClass {
         }
 
         Completion__c[] completions = new List<Completion__c>();
+        completionIds = new Set<String>();
         Contact[] associates = [SELECT SalesforceId__c, Id FROM Contact WHERE SalesforceId__c IN :associateCompletion.keySet() ];
         for(Contact associate : associates){
             for(Completion__c completion: associateCompletion.get(associate.SalesforceId__c)){
+                if(completionIds.contains(completion.CaliberId__c)){
+                    continue;
+                }
+                completionIds.add(completion.CaliberId__c);
                 completion.CompletedBy__c = associate.Id;
                 completions.add(completion);
             }
