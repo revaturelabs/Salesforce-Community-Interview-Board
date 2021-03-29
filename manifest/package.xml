@@ -316,6 +316,7 @@
 	<types>
 		<members>Google</members>
 		<members>Twinword_API</members>
+		<members>CaliberMockData</members>
 		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
