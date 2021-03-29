@@ -156,6 +156,7 @@
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
 		<members>ForumsPageApexController</members> 
+		<members>ScheduledCongratsEmail</members>
 		<members>findSelectedAssociates</members>
 		<name>ApexClass</name>
 	</types>
