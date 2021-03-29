@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>assignnumberofquestions</name>
         <label>assignnumberofquestions</label>
@@ -80,6 +81,7 @@
         <connector>
             <targetReference>assignnumberofquestions</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Meeting_md__c</field>
             <operator>EqualTo</operator>

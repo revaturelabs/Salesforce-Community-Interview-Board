@@ -25,6 +25,6 @@
     <siteAdmin>testduser@revature.net</siteAdmin>
     <siteGuestRecordDefaultOwner>testduser@revature.net</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>dragonplayground-developer-edition</subdomain>
+    <subdomain>playful-hawk-6pscsb-dev-ed</subdomain>
     <urlPathPrefix>InterviewForce</urlPathPrefix>
 </CustomSite>

@@ -360,7 +360,7 @@ public with sharing class TestDataCreation {
         for(Account a : batAc)
             batMap.put(a.Id, a.Contacts);
 
-        //questions(meets);
+        questions(meets);
 
         integer j = 0, k = 1, l;
         boolean s = true;
@@ -448,6 +448,7 @@ public with sharing class TestDataCreation {
 
         update meets;
     }
+    
     public static void questions(List<Meeting__c> meets)
     {
         //List<Interview_Question__c> ques = new List<Interview_Question__c>();

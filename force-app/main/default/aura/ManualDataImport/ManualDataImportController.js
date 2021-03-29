@@ -7,12 +7,5 @@
             
         });
         $A.enqueueAction(resetNow);
-
-        let createNow = component.get('c.questions');
-
-        createNow.setCallback(this, function(response){
-
-        });
-        $A.enqueueAction(createNow);
     }
 })
