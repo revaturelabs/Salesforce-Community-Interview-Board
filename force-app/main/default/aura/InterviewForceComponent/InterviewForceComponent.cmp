@@ -1,6 +1,6 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <c:header /> 
-    <lightning:tabset selectedtabid="two" variant="scoped">
+    <lightning:tabset selectedTabId="one" variant="scoped">
         <lightning:tab label="MEETINGS" id="one">
             <c:MeetingAssignment/>
         </lightning:tab>
@@ -29,7 +29,7 @@
             <c:PanelQuestionCreation/>
         </lightning:tab>   
         <lightning:tab label = "CONGRATULATIONS BOARD" id="nine">
-            <c:CongratulationsBoard/>
+            <c:CongratulationsBoardContainer/>
         </lightning:tab>
     </lightning:tabset>
 </aura:component>
