@@ -266,12 +266,12 @@ public with sharing class TestDataCreation {
 
                 m.RecordTypeId = rt;
 
-                if(randBool())
+                /*if(randBool())
                 {
                     m.Meeting_Status__c = 'On Schedule';
                     m.Scheduled__c = DateTime.now().addDays(randInt(1,14));
                 }
-                else if(randBool())
+                else*/ if(randBool())
                 {
                     m.Meeting_Status__c = 'Completed';
                     m.Scheduled__c = randDate();
@@ -309,12 +309,12 @@ public with sharing class TestDataCreation {
 
                 m.RecordTypeId = rt;
 
-                if(randBool())
+                /*if(randBool())
                 {
                     m.Meeting_Status__c = 'On Schedule';
                     m.Scheduled__c = DateTime.now().addDays(randInt(1,14));
                 }
-                else if(randBool())
+                else*/ if(randBool())
                 {
                     m.Meeting_Status__c = 'Completed';
                     m.Scheduled__c = randDate();
@@ -447,7 +447,7 @@ public with sharing class TestDataCreation {
 
         update meets;
     }
-
+/*
     public static void questions(List<Meeting__c> meets)
     {
         List<Interview_Question__c> ques = new List<Interview_Question__c>();
@@ -465,7 +465,7 @@ public with sharing class TestDataCreation {
         }
 
         insert ques;
-    }
+    }*/
 
     // Method to generate random phone number
     private static String randPhone()
