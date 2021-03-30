@@ -81,6 +81,7 @@
 		<members>MockInterviewsListControllerTest</members>
 		<members>PanelQuestionCreation</members>
 		<members>PanelQuestionController</members>
+		<members>PanelQuestionControllerTest</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
