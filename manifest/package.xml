@@ -192,6 +192,7 @@
 		<members>MeetingAssignment</members>
 		<members>MeetingCmp</members>
 		<members>MeetingTiles</members>
+		<members>MeetingModal</members>
 		<members>MockInterviewFlowLaunchHost</members>
 		<members>MockInterviewPrepareWithFlowLaunch</members>
 		<members>MockInterviewQuestionPool</members>
