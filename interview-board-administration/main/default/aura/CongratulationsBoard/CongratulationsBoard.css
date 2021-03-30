@@ -1,0 +1,54 @@
+.THIS {
+    animation: myanimation 10s infinite;
+    font-size: 15px;
+}
+.THIS .slds-card__header{
+    background-color:black;
+    color: white;
+    padding:110px;
+    text-align:center;
+}
+.THIS .myCss thead th span{
+    background-color: rgba(0,0,0);
+    color:white;
+    font-style:bold;
+}
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+.THIS .myCss td {
+
+    color: black;
+
+}
+.THIS .myCss tr:nth-child(even) {
+
+    font-family:fangsong;
+    animation: myeventableanimation 4s infinite;
+
+
+}
+.THIS .myCss tr:nth-child(odd) {
+    animation: myoddtableanimation 4s infinite;
+    font-family:fangsong;
+
+
+}
+
+@keyframes myanimation {
+  0% {border: 10px solid #ff8c00;}
+  25%{border: 10px solid black;}
+  50%{border: 10px solid #ff8c00;}
+  75%{border: 10px solid black;}
+  100% {border: 10px solid #ff8c00;}
+}
+@keyframes myoddtableanimation {
+  0% {background-color: #ff8c00;}
+  50%{background-color: white;}
+  100% {background-color: #ff8c00;}
+}
+@keyframes myeventableanimation {
+  0% {background-color: white;}
+  50%{background-color: #ff8c00;}
+  100% {background-color: white;}
+}

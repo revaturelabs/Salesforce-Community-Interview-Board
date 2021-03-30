@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fires when 'Add Associate' 
+            button is clicked in AssociateSelection component">
+</aura:event>

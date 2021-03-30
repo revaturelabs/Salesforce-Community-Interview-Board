@@ -23,6 +23,17 @@
         <template>unfiled$public/Client_Feedback</template>
     </alerts>
     <alerts>
+        <fullName>Email_Associates</fullName>
+        <description>Email Associates about meeting</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Participant__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Associate_Email</template>
+    </alerts>
+    <alerts>
         <fullName>Initial_Meeting_Notification_24h</fullName>
         <description>Initial Meeting Notification (24h)</description>
         <protected>false</protected>

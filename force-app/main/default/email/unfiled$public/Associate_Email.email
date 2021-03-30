@@ -1,0 +1,8 @@
+Hello , {!Meeting_Participant__c.Participant__c}
+
+You have an up and coming meeting.
+Interviewer: {!Meeting__c.Interviewer_Name__c} ,
+Start: {!Meeting__c.StartDateTime__c} ,
+End: {!Meeting__c.EndDateTime__c} 
+
+Please make sure to be there, thank you!

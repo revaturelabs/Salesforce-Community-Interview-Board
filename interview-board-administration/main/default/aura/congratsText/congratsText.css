@@ -1,0 +1,24 @@
+.THIS h1{
+		font-size: 10vw;
+	    text-align: center;	
+	    color: #fcedd8;
+		position: absolute;
+		top: 0;
+		width: 100%;
+    	height:100%;
+	    cursor: crosshair;
+		font-family: 'Sigmar One', emoji;
+	    font-weight: 700;
+      text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032, 
+                  15px 15px 0px #46b59b, 
+                  20px 20px 0px #017e7f, 
+                  25px 25px 0px #c11a2b; 
+    user-select: none;
+}
+
+@media screen and (min-width:1280px){
+    .THIS h1{
+       font-size: 128px;
+    }
+}

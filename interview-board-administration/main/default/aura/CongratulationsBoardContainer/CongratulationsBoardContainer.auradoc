@@ -1,0 +1,7 @@
+<aura:documentation>
+	<aura:description>
+        <p>This is a container for the CongratulationsBoard and AssociateSelection components.
+            It is also used as an event handler which essentially refreshes the Congratulations
+            Board whenever a new associate is added to it.</p>
+    </aura:description>
+</aura:documentation>

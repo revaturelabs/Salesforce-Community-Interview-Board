@@ -1,0 +1,15 @@
+<aura:component controller="CongratulationsBoardController"> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- showConfettiCMP is used to generate confetti effects on pageload -->
+    <c:showConfettiCMP/>
+
+    <aura:attribute name="associateList" type="list" default="null"/>
+    <aura:attribute name="columns" type="list" default="null"/>
+
+    <lightning:card title=" " class="myCssCard">
+        <!-- congratsText component is used for "Congratulations!" in header of table -->
+        <c:congratsText />
+        <lightning:dataTable class="myCss" keyField="associateId" data="{!v.associateList}" 
+                             columns="{!v.columns}" hideCheckboxColumn="true"/>
+    </lightning:card>
+</aura:component>
