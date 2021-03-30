@@ -76,11 +76,12 @@ public with sharing class CreateMeetingApexCont {
             RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
             meeting.RecordTypeId = RTInterviewBatch.Id;
             Contact interviewer = [SELECT Id, Name FROM Contact WHERE Id =: strInterviewer];
+            meeting.Interviewer_Name__c = interviewer.Name;
             insert meeting;
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id, Interviewer__c = true));
 
             //if no associate was selected, the entire batch will be added to the meeting
             for(Contact c : fullBatch)
