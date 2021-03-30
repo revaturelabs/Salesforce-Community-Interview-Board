@@ -1,5 +1,7 @@
 <aura:component controller="AssociateSelectionController">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- This event fires when an Associate is added to the board and
+		 is used to refresh the Congratulations Board -->
     <aura:registerEvent name="addedAssociate" type="c:AddToCongratsBoard"/>
     
     <!-- Create the lists the picklists will draw from and the 
@@ -35,4 +37,5 @@
     <!-- Adds associate to the board by linking the Client to the Associate -->
     <lightning:button label="Add Associate" name="addAssociate" onclick="{!c.addAssociate}"/>
     <br/>
+    
 </aura:component>

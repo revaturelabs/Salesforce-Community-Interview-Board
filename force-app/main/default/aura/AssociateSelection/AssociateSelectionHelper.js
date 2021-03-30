@@ -32,24 +32,32 @@
             let action = component.get("c.linkAssociateToClient")
             action.setParams({associateId : associateId, clientId : clientId})
             action.setCallback(this, function(response) {
+                
                 if (response.getState() == 'SUCCESS') {
-                    console.log('linkAssociateToClient action succeeded.')
                     
-                    // Have a popup notify the user of success
+                    // Notify the user of success
                     let toast = $A.get("e.force:showToast")
                     toast.setParams({"title" : "Congratulations!",
                         			"message" : "A New Associate Has Been Selected!",
                                     "type" : "success"})
                     toast.fire()
                     
-                    // Fire event to refresh board.
+                    // Fire custom event to refresh board.
                     let refreshEvent = component.getEvent("addedAssociate")
                     refreshEvent.fire()
-                    
+         
                 }
                 else {
                     console.log(response.getState())
                     console.log(response.getError())
+                    
+                    // Notify the user of the error. 
+                    let toast = $A.get("e.force:showToast")
+                    toast.setParams({"title" : "Error!",
+                        			"message" : "Something went wrong during the server call.",
+                                    "type" : "error"})
+                    toast.fire()
+                    
                 }
             })
             
@@ -57,7 +65,6 @@
             
         }
         else {          
-            console.log('Either the client or associate has not been selected.')
             
             // If either the associate or client value is null, notify
             // the user.

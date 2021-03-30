@@ -1,7 +1,19 @@
 <aura:component controller="CongratulationsBoardController">
     <aura:handler name="addedAssociate" event="c:AddToCongratsBoard" action="{!c.refreshCongratsBoard}"/>
     
-    <c:AssociateSelection/>
+    <!-- Create and populate an attribute which indicates if the
+		 current user is an Administrator. -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isAdmin" type="Boolean" default="false"/>
+    
+    <!-- Only allow the user to access the AssociateSelection component
+		 if they are an admin. -->
+    <aura:if isTrue="{!v.isAdmin}">
+    	<c:AssociateSelection/>
+    </aura:if>
+    
     <br/>
+    
     <c:CongratulationsBoard aura:id="congratsBoard"/>
+    
 </aura:component>

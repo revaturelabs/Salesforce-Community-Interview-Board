@@ -55,6 +55,24 @@ public class CongratulationsBoardController {
         return wrapperList;  
     }
     
+    @AuraEnabled
+    public static Boolean isAdmin() {
+        Id profileId = UserInfo.getProfileId();
+        Profile currentProfile = [SELECT Name FROM Profile 
+                                  WHERE Id = :profileId];
+        Boolean isAdministrator = false;
+        
+        if (currentProfile.Name == 'System Administrator') {
+            isAdministrator = true;
+        }
+        
+        System.debug('User Profile: ' + currentProfile.Name);
+        System.debug('Is Administrator: ' + isAdministrator);
+        
+        return isAdministrator;
+        
+    }
+    
     // The lightning data table cannot display fields form a parent object
 	// directly. This wrapper class gets around that issue.
     public class AssociateClientWrapper {

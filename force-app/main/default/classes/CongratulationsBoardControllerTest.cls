@@ -36,13 +36,16 @@ private class CongratulationsBoardControllerTest {
                                         Client__c = clientList[index].Id,
                                         Date_Selected__c = selectedDate)); 
         }
-        /*
+        
+        /* This isn't possible now that the Client__c field is limited declaratively to 
+         * Client Record Types.
         // Make an Associate with a normal account (for testing negatives)  
         associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(20), 
                                       RecordTypeId = recordTypeList[0].Id,
                                       Client__c = clientList[20].Id,
                                       Date_Selected__c = Date.today()));
         */
+        
         // Make a normal Contact with a Client account (for testing negatives)
         associateList.add(new Contact(FirstName = 'Associate', LastName = String.valueOf(21), 
                                       Client__c = clientList[21].Id,
@@ -71,23 +74,6 @@ private class CongratulationsBoardControllerTest {
         }
         System.debug('Today is: ' + Date.today() + ' 1 week ago was: ' + Date.today().addDays(-7));
     }
-	
-    /* No longer in use
-    @isTest
-    private static void getMostRecentMondayTest() {
-        // We have a known Monday, 2021/03/29.
-        Date knownMonday = Date.newInstance(2021, 03, 29);
-            
-        // Make sure that on the 29th and for each of the next 6 days (Mon-Sun), the 
-        // method returns a value of 2021/03/29. 
-        for (Integer daysAfterMonday = 0; daysAfterMonday < 7; daysAfterMonday++) {
-            Date inputDate = knownMonday.addDays(daysAfterMonday);
-            Date returnedDate = CongratulationsBoardController.getMostRecentMonday(inputDate);
-            System.debug('Date: ' + inputDate + ' Most Recent Monday (Should be 2021/03/29): ' + returnedDate);
-            System.assertEquals(knownMonday, returnedDate);
-        }
-    }
-	*/
     
 	@isTest
     private static void wrapperTest() {
