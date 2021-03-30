@@ -7,5 +7,8 @@
                       )}"
           afterScriptsLoaded="{!c.afterScriptsLoaded}" />
     <aura:attribute name="events" type="Object[]" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false" />
+    <aura:attribute name="eventId" type="Id" />
+    <c:MeetingModal isModalOpen="{!v.isModalOpen}" eventId="{!v.eventId}" />
     <div aura:id="calendar"></div>
 </aura:component>
