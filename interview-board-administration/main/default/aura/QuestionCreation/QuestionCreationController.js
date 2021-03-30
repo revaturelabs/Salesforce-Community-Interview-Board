@@ -12,6 +12,8 @@
         var meet = component.get("v.selectedMeetingId");
         var type = component.get("v.questionType");
         var stack = component.get("v.questionStack");
+        var setting = component.get("v.questionSetting");
+        console.log(component.get("v.questionSetting"));
         var associate = component.get('v.isAssociate');
         
         //Subject is null
@@ -23,10 +25,14 @@
             //Question is null
         } else if(stack == null) {
             alert("Please select a value for stack");
+        }
+        //Try to set a panel softskill question
+        else if(type == 'Soft Skills' && setting == 'Panel') {
+            alert("Panels will not include explicit soft skill questions");
             //Save to database
         } else{
                 //console.log('Calling the question Helper method');
-            helper.saveQuestionHelper(component, quest, type, stack, meet, associate);
+            helper.saveQuestionHelper(component, quest, type, stack, meet, associate, setting);
         } 
     },
     

@@ -13,7 +13,7 @@
     <aura:attribute name="emptyResponses" type="List"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-    <lightning:card title="Interview Questions" >
+    <lightning:card title="Questions" >
 		<div style="margin-left:10px; margin-right:10px; margin-bottom=16px">
         <div style="height: auto;  border: 1px solid gainsboro">
             <lightning:datatable columns="{!v.questionList}"
@@ -28,6 +28,10 @@
             </div>
             <br/>
             <lightning:button onclick="{!c.lockButton}" label="LOCK QUESTION"/>
+            <br/>
+            <br/>
+            <c:MockInterviewAdminTab selectedQuestions = "{!v.selectedQuestions}" selectedRowCount="v.selectedRowCount"/>
+            <br/>
             <lightning:button onclick="{!c.deleteButton}" label="DELETE QUESTION" variant="destructive"/>
         </div>
     </lightning:card>

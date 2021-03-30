@@ -1,4 +1,4 @@
-<aura:component controller="CreateMockInterviewController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId">
+<aura:component controller="CreateMockPanelController" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId">
     <aura:attribute name="LeftSideTypes" type="List"/>
     <aura:attribute name="AllStacks" type="List"/>
     <aura:attribute name="RightSideTypes" type="map"/>

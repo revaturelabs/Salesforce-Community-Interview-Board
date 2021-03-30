@@ -2,6 +2,7 @@
 <!-- ATTRIBUTES -->
     <aura:attribute name="meeting" type="Meeting__c" default="{'sObject':'Meeting__c', 'Name':''}"/>
     <aura:attribute name="allbatch" type="Boolean"/>
+    <aura:attribute name="mockInterview" type="Boolean"/>
     <aura:attribute name="associates" type="Contact[]" default="[]"/>
     <aura:attribute name="batchAssociates" type="Contact[]" default="[]"/>
     <aura:attribute name="interviewers" type="Contact[]"/>
@@ -46,6 +47,9 @@
                     <option text="{!int.Name}" value="{!int.Id}"/>
                 </aura:iteration>
             </lightning:select>
+
+            <lightning:input label= "Mock Interview" type="checkbox"
+            checked ="{!v.mockInterview}"/>
 <!-- END SELECT INTERVIWER -->
     
 <!-- SELECT BATCH PICKLIST -->        

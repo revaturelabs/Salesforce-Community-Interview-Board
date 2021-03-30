@@ -61,6 +61,7 @@ force-app/main/default/sites/InterviewForce.site-meta.xml
 !force-app/main/default/flows
 !force-app/main/default/profiles
 !force-app/main/default/siteDotComSites
+!force-app/main/default/sites
 !force-app/main/default/networks
 !force-app/main/default/communities
 !force-app/main/default/tabs
@@ -75,5 +76,9 @@ force-app/main/default/sites/InterviewForce.site-meta.xml
 !force-app/main/default/customPermissions
 !force-app/main/default/classes
 !force-app/main/default/applications
+<<<<<<< HEAD
 
 force-app/main/default/sites/InterviewForce.site-meta.xml
+=======
+!force-app/main/default/components
+>>>>>>> finalPackaged

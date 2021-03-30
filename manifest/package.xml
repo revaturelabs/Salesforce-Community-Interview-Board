@@ -79,7 +79,7 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
-		<members>PanelQuestionCreation</members>
+		<!--<members>PanelQuestionCreation</members>-->
 		<members>PanelQuestionController</members>
 		<members>PanelQuestionControllerTest</members>
 		<members>ProfileApex</members>
@@ -147,7 +147,11 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>TestDataCreation</members>
+<<<<<<< HEAD
 		<members>TestDataCreationTest</members>
+=======
+		<!--<members>TestDataCreationTest</members>-->
+>>>>>>> finalPackaged
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
@@ -162,7 +166,16 @@
 		<members>AssociateSelectionController</members>
 		<members>AssociateSelectionControllerTest</members>
 		<!-- END New Customizations (CongratulationsBoard branch) -->
+		<members>ForumsPageApexController</members>
+		<members>MockInterviewLauncherController</members> 
+		<members>ScheduledCongratsEmail</members>
+		<members>findSelectedAssociates</members>
+		<members>CreateMockPanelController</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>SelectedAssociatesList</members>
+		<name>ApexComponent</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -239,6 +252,7 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
+<<<<<<< HEAD
 		<members>ManualDataImport</members>
 		<!-- START New customizations (CongratulationsBoard branch) -->
 		<members>AssociateSelection</members>
@@ -248,6 +262,10 @@
 		<members>showConfettiCMP</members>
 		<members>congratsText</members>
 		<!-- END New Customizations (CongratulationsBoard branch) -->
+=======
+		<members>MockInterviewLauncherAdmin</members>
+		<members>MockInterviewAdminTab</members>
+>>>>>>> finalPackaged
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -283,7 +301,7 @@
 		<name>CustomPermission</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>CustomSite</name>
 	</types>
 	<types>
@@ -294,7 +312,11 @@
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
+<<<<<<< HEAD
 		<members>unfiled$public/Associate_Email</members>
+=======
+		<members>unfiled$public/AssociateCongratulationsEmail</members>
+>>>>>>> finalPackaged
 		<name>EmailTemplate</name>
 	</types>
 	<types>
@@ -317,7 +339,7 @@
 		<name>NamedCredential</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview Board</members>
 		<name>Network</name>
 	</types>
 	<types>
@@ -351,7 +373,7 @@
 		<name>Role</name>
 	</types>
 	<types>
-		<members>InterviewForce1</members>
+		<members>Interview_Board1</members>
 		<name>SiteDotCom</name>
 	</types>
 	<types>

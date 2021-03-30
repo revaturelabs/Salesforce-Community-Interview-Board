@@ -36,7 +36,7 @@ public with sharing class CreateMeetingApexCont {
 
 
     @AuraEnabled
-    public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate)
+    public static Meeting__c createMeeting(Meeting__c meeting, String strInterviewer, String strAssociate, Boolean mock)
     {
         if(meeting.Name == null || meeting.Name == '') return null;
         try{
@@ -45,6 +45,13 @@ public with sharing class CreateMeetingApexCont {
             Contact associate = [SELECT Id, Name FROM Contact WHERE Id =: strAssociate];
             meeting.Interviewer_Name__c = interviewer.Name;
             insert meeting;
+
+            //changes record type to mock interview if box checked
+            if (mock)
+            {
+                Id MockId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
+                meeting.RecordTypeId = MockId;
+            }
 
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
@@ -73,11 +80,12 @@ public with sharing class CreateMeetingApexCont {
         if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
         try {
             RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
-            RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
-            meeting.RecordTypeId = RTInterviewBatch.Id;
-            Contact interviewer = [SELECT Id, Name FROM Contact WHERE Id =: strInterviewer];
-            meeting.Interviewer_Name__c = interviewer.Name;
+        	RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
+        	meeting.RecordTypeId = RTInterviewBatch.Id;
+            Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+            System.debug('Before insert' + meeting);
             insert meeting;
+            System.debug('After insert' + meeting);
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting

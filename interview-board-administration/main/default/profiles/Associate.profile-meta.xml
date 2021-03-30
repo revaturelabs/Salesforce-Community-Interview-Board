@@ -17,11 +17,11 @@
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AssignStacksPageController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AssociateController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AssociateControllerTest</apexClass>
@@ -29,7 +29,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AssociateInfoController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AssociateInfoControllerTest</apexClass>
@@ -45,11 +45,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AssociateMockInterviewsController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BatchClientCreationController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BatchClientCreationTest</apexClass>
@@ -57,7 +57,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BatchClientlistContoller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BatchListControllerTest</apexClass>
@@ -65,15 +65,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ChallengeController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ComparePanelAnswersController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CreateMeetingApexCont</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CreateMeetingApexContTest</apexClass>
@@ -81,7 +81,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CreateMockInterviewController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CreateMockInterviewControllerTest</apexClass>
@@ -89,11 +89,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DataFactorySessions</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ForumsPageApexController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>FullCalendarController</apexClass>
@@ -105,11 +105,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GoogleCallout</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>InterviewQuestions</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>InterviewQuestionsTest</apexClass>
@@ -117,7 +117,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingAssignmentController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingAssignmentControllerTest</apexClass>
@@ -137,19 +137,23 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingListController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MockInterviewQuestionPoolController</apexClass>
+        <apexClass>MockInterviewLauncherController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockInterviewQuestionPoolController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewsListController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MockInterviewsListControllerTest</apexClass>
@@ -157,11 +161,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PanelQuestionController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PlayerNameComponentController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PlayerName_Test</apexClass>
@@ -169,7 +173,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ProfileApex</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QQDataFactory_Test</apexClass>
@@ -177,7 +181,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionCreationController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionCreationTest</apexClass>
@@ -185,7 +189,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionPoolApexController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuestionPoolApexControllerTest</apexClass>
@@ -212,16 +216,28 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>QuestionResponseTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuestionResponseTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuizAbstractDataService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuizAbstractDataServiceTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswer</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerRestResource</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerRestResourceTest</apexClass>
@@ -229,7 +245,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerServiceTest</apexClass>
@@ -241,11 +257,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizAnswerTriggerHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizControllerTest</apexClass>
@@ -253,7 +269,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizEditorController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizEditorControllerTest</apexClass>
@@ -261,11 +277,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPlayer</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPlayerService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPlayerServiceTest</apexClass>
@@ -273,7 +289,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPlayerStatsRestResource</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPlayerStatsRestResourceTest</apexClass>
@@ -285,7 +301,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPostInstallScript</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizPostInstallScriptTest</apexClass>
@@ -293,15 +309,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizQuestion</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizQuestionDataFactory</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizQuestionService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizQuestionServiceTest</apexClass>
@@ -313,11 +329,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSession</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionHelperScoreTest</apexClass>
@@ -329,7 +345,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionTest</apexClass>
@@ -341,7 +357,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionTriggerHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSessionTriggerHelperTest</apexClass>
@@ -349,11 +365,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSettings</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSettingsService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>QuizSettingsServiceTest</apexClass>
@@ -369,15 +385,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SessionController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SyncCalloutMock</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SyncController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SyncControllerTest</apexClass>
@@ -385,7 +401,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SyncSchedule</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SyncScheduleTest</apexClass>
@@ -393,7 +409,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SyncUtilityClass</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SyncUtitlityTest</apexClass>
@@ -401,15 +417,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataCreation</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UserStackTriggerHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Utilities</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VCCalendarController</apexClass>
@@ -417,7 +433,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>associateInterviewController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>comparePanelAnswersControllerMock</apexClass>
@@ -429,10 +445,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>completedInterviewController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>createEventMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>findSelectedAssociates</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -441,11 +461,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>primaryTechButtonController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>responseController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>responseControllerTest</apexClass>
@@ -453,11 +473,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>subTechButtonController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>techDisplayController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
@@ -737,6 +757,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Client__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Date_Selected__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Department</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -857,8 +887,13 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:interview-board-administration/main/default/profiles/Associate.profile-meta.xml
         <field>Meeting_Participant__c.Interviewer__c</field>
         <readable>true</readable>
+=======
+        <field>Interview_Question__c.Response__c</field>
+        <readable>false</readable>
+>>>>>>> finalPackaged:force-app/main/default/profiles/Associate.profile-meta.xml
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -998,6 +1033,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Locked__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Setting__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -220,6 +220,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockInterviewLauncherController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockInterviewQuestionPoolController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -537,6 +541,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>createEventMock</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>findSelectedAssociates</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1009,6 +1017,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Interview_Question__c.Response__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant__c.Scheduled_Meeting_Date__c</field>
         <readable>true</readable>
@@ -1146,6 +1159,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Question__c.Locked__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Setting__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
