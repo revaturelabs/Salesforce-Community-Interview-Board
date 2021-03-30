@@ -317,7 +317,11 @@ public with sharing class TestDataCreation {
                     m.Meeting_Status__c = 'Scheduled';
                     m.Scheduled__c = DateTime.now().addDays(randInt(1,14));
                 }
+<<<<<<< HEAD:interview-board-administration/main/default/classes/TestDataCreation.cls
                 else*/ if(randBool())
+=======
+                else */if(randBool())
+>>>>>>> quizzesPackaged:force-app/main/default/classes/TestDataCreation.cls
                 {
                     m.Meeting_Status__c = 'Completed';
                     m.Scheduled__c = randDate();
@@ -449,8 +453,12 @@ public with sharing class TestDataCreation {
 
         update meets;
     }
+<<<<<<< HEAD:interview-board-administration/main/default/classes/TestDataCreation.cls
 
     //Inserts test data for all Objects related to questions:(Interview_Question__c, Question__c, and Question_Response__c)
+=======
+/*
+>>>>>>> quizzesPackaged:force-app/main/default/classes/TestDataCreation.cls
     public static void questions(List<Meeting__c> meets)
     {
 
@@ -524,9 +532,15 @@ public with sharing class TestDataCreation {
                 iQuests.add(interviewQ);
             }
         }
+<<<<<<< HEAD:interview-board-administration/main/default/classes/TestDataCreation.cls
         //DML Statement to insert the interview questions(Interview_Question__c)
         insert iQuests;
     }
+=======
+
+        insert ques;
+    } */
+>>>>>>> quizzesPackaged:force-app/main/default/classes/TestDataCreation.cls
 
     // Method to generate random phone number
     private static String randPhone()

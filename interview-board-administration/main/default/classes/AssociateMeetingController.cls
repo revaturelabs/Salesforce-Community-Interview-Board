@@ -58,14 +58,14 @@ public class AssociateMeetingController {
                 //Allow an admin to view all
                 ID profileId = System.userInfo.getProfileId();
                 ID adminProfileId = [SELECT Id FROM Profile WHERE Name='System Administrator'].id;
-                	//System.debug('profile: ' + profileId + '\nadmin: ' + adminProfileId + '\nallVisible: ' + allVisible);
+                    //System.debug('profile: ' + profileId + '\nadmin: ' + adminProfileId + '\nallVisible: ' + allVisible);
                 
                 //If the user is an admin, new SOQL query to return all completed Interviews
                 if(profileId == adminProfileId){
                     meetingList = [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c, addQuestionVisibility__c, completed__c
                                    FROM Meeting__c WHERE Meeting_Status__c = 'Completed'];
                 } else {
-                 	//make list of record types we wish to retrieve as parameter for SOQL query
+                    //make list of record types we wish to retrieve as parameter for SOQL query
                     list<ID> rectypelist = new list<id>{
                         Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId(),
                         Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId()

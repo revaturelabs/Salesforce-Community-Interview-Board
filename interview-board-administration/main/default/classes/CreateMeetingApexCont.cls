@@ -40,24 +40,26 @@ public with sharing class CreateMeetingApexCont {
     {
         if(meeting.Name == null || meeting.Name == '') return null;
         try{
-            Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
-            Contact associate = [SELECT Id FROM Contact WHERE Id =: strAssociate];
+            System.debug(meeting);
+            Contact interviewer = [SELECT Id, Name FROM Contact WHERE Id =: strInterviewer];
+            Contact associate = [SELECT Id, Name FROM Contact WHERE Id =: strAssociate];
+            meeting.Interviewer_Name__c = interviewer.Name;
             insert meeting;
 
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id, Interviewer__c = true));
 
             //Adds the selected associate will be added to the meeting
             meetingParticipants.add(new Meeting_Participant__c(Participant__c = associate.id, Meeting__c = meeting.Id));
 
         
-
+			System.debug(meetingParticipants);
             insert meetingParticipants;
             meeting_participant__C Client = [select ID from Meeting_Participant__C where Participant__c = :interviewer.id and Meeting__c = :meeting.Id];
             meeting.Participating_client__C = client.id;
-            
+        
             update meeting;
             return meeting;
         } catch (Exception e) {
@@ -71,14 +73,15 @@ public with sharing class CreateMeetingApexCont {
         if(fullBatch.size() == 0 || meeting.Name == null || meeting.Name == '') return null;
         try {
             RecordType RTInterviewBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Interview Batch'];
-        RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
-        meeting.RecordTypeId = RTInterviewBatch.Id;
-            Contact interviewer = [SELECT Id FROM Contact WHERE Id =: strInterviewer];
+            RecordType RTInterventionBatch = [SELECT Id, Name FROM RecordType WHERE Name = 'Intervention Batch'];
+            meeting.RecordTypeId = RTInterviewBatch.Id;
+            Contact interviewer = [SELECT Id, Name FROM Contact WHERE Id =: strInterviewer];
+            meeting.Interviewer_Name__c = interviewer.Name;
             insert meeting;
             List<Meeting_Participant__c> meetingParticipants = new List<Meeting_Participant__c>();
 
             //Adds the interviewer to the meeting
-            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id));
+            meetingParticipants.add(new Meeting_Participant__c(Participant__c = interviewer.id, Meeting__c = meeting.Id, Interviewer__c = true));
 
             //if no associate was selected, the entire batch will be added to the meeting
             for(Contact c : fullBatch)
