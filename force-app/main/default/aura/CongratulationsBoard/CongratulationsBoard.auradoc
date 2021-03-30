@@ -1,8 +1,7 @@
 <aura:documentation>
 	<aura:description>
     	<p>This component displays the Associate name, Client name, and date selected for
-        every Associate that was selected in the last FULL week (Monday-Sunday). 
-        As a math expression, the range of dates is [mostRecentMonday - 1week, mostRecentMonday).</p>
+        every Associate for seven days after they were first selected.</p>
         <h4>Attributes:</h4>
         <ul>
             <li>associateList (list): Holds a list of wrappers (of the type 

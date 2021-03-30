@@ -145,8 +145,8 @@
 		<members>SyncScheduleTest</members>
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<!--<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>-->
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
@@ -156,6 +156,12 @@
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
 		<members>ForumsPageApexController</members> 
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>CongratulationsBoardController</members>
+		<members>CongratulationsBoardControllerTest</members>
+		<members>AssociateSelectionController</members>
+		<members>AssociateSelectionControllerTest</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -232,6 +238,12 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
+		<!-- START New customizations (CongratulationsBoard branch) -->
+		<members>AssociateSelection</members>
+		<members>CongratulationsBoard</members>
+		<members>AddToCongratsBoard</members>
+		<members>CongratulationsBoardContainer</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -280,6 +292,9 @@
 		<members>Link_User_to_Players</members>
 		<members>Associate_Player_with_User</members>
 		<members>Question_Creation</members>
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>Generate_date_when_selected</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>Flow</name>
 	</types>
 	<types>
@@ -354,5 +369,16 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
+	<!-- START New Customizations (CongratulationsBoard branch) -->
+	<types>
+		<members>Contact-Contact Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+        <members>Contact.Client__c</members>
+        <members>Contact.Date_Selected__c</members>
+        <name>CustomField</name>
+    </types>
+	<!-- END New Customizations (CongratulationsBoard branch) -->
 	<version>48.0</version>
 </Package>
