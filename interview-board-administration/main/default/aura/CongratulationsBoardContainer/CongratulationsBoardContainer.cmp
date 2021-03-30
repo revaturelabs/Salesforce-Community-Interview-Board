@@ -1,0 +1,8 @@
+<aura:component controller="CongratulationsBoardController">
+    <aura:handler name="addedAssociate" event="c:AddToCongratsBoard" action="{!c.refreshCongratsBoard}"/>
+   
+    <c:AssociateSelection/>
+    <br/>
+    <c:CongratulationsBoard aura:id="congratsBoard"/>
+    
+</aura:component>

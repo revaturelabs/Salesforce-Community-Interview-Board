@@ -1,0 +1,41 @@
+<aura:component controller="AssociateSelectionController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- This event fires when an Associate is added to the board and
+		 is used to refresh the Congratulations Board -->
+    <aura:registerEvent name="addedAssociate" type="c:AddToCongratsBoard"/>
+    
+    <!-- Create the lists the picklists will draw from and the 
+		attributes where the current selection will be stored. -->
+    <aura:attribute name="associateList" type="list" default=""/>
+    <aura:attribute name="selectedAssociate" type="Id" default=""/>
+    <aura:attribute name="clientList" type="list" default=""/>
+    <aura:attribute name="selectedClient" type="Id" default=""/>
+    
+    <!-- PICKLIST FOR ASSOCIATE --> 
+    <lightning:select label="Select Associate" aura:id="associatePicklist" 
+                      onchange="{!c.updateSelectedAssociate}">
+        <option value="">Select an Associate</option>
+        <aura:iteration items="{!v.associateList}" var="associate">
+        	<option value="{!associate.Id}" label="{!associate.Name}"></option>
+        </aura:iteration>
+    </lightning:select>
+    <!-- END PICKLIST FOR ASSOCIATE -->
+    
+    <br/>
+    
+    <!-- PICKLIST FOR CLIENT -->
+    <lightning:select label="Select Client" aura:id="clientPicklist"
+                      onchange="{!c.updateSelectedClient}">
+    	<option value="">Select a Client</option>
+        <aura:iteration items="{!v.clientList}" var="client">
+        	<option value="{!client.Id}" label="{!client.Name}"></option>
+        </aura:iteration>
+    </lightning:select>
+    <!-- END PICKLIST FOR CLIENT -->
+    
+    <br/>
+    <!-- Adds associate to the board by linking the Client to the Associate -->
+    <lightning:button label="Add Associate" name="addAssociate" onclick="{!c.addAssociate}"/>
+    <br/>
+    
+</aura:component>

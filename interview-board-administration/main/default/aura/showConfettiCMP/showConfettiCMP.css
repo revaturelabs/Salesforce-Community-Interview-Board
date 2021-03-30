@@ -1,0 +1,15 @@
+.THIS .buttonBox{
+    position:relative;
+    display: inline-block;
+    width: 100%;
+    max-width : 200px;
+    height: 100px;
+    padding: 1px !important;
+    border: 1px solid #d8dde6; 
+}
+
+.THIS.canvasCss{
+    background-color: black;
+    width : 100%;
+    height : 250px;
+}

@@ -155,6 +155,12 @@
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
 		<members>ForumsPageApexController</members> 
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>CongratulationsBoardController</members>
+		<members>CongratulationsBoardControllerTest</members>
+		<members>AssociateSelectionController</members>
+		<members>AssociateSelectionControllerTest</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -233,6 +239,14 @@
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
 		<members>ManualDataImport</members>
+		<!-- START New customizations (CongratulationsBoard branch) -->
+		<members>AssociateSelection</members>
+		<members>CongratulationsBoard</members>
+		<members>AddToCongratsBoard</members>
+		<members>CongratulationsBoardContainer</members>
+		<members>showConfettiCMP</members>
+		<members>congratsText</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -288,6 +302,9 @@
 		<members>Associate_Player_with_User</members>
 		<members>Question_Creation</members>
 		<members>Send_Email_When_Meeting_Is_Created</members>
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>Generate_date_when_selected</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>Flow</name>
 	</types>
 	<types>
@@ -368,5 +385,16 @@
 		<members>Meeting__c.Check_Start_and_End_Date</members>
 		<name>ValidationRule</name>
 	</types>
+	<!-- START New Customizations (CongratulationsBoard branch) -->
+	<types>
+		<members>Contact-Contact Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+        <members>Contact.Client__c</members>
+        <members>Contact.Date_Selected__c</members>
+        <name>CustomField</name>
+    </types>
+	<!-- END New Customizations (CongratulationsBoard branch) -->
 	<version>48.0</version>
 </Package>
