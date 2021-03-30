@@ -400,6 +400,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TestDataCreation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UserStackTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -877,7 +881,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.accessToken__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.trainingStatus__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant__c.Interviewer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -888,6 +902,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting__c.AddQuestionVisibility__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting__c.Associate_s_Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -44,10 +44,11 @@
             action = component.get("c.createMeetingAllBatch");
             action.setParams({
                 meeting : meet,
-                strBatch : batch,
+                //strBatch : batch,
                 strInterviewer : interviewer,
                 fullBatch : component.get("v.ascbatchmap")[batch]
             });
+            console.log(component.get("v.ascbatchmap"));
         }
         else
         {

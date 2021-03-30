@@ -151,7 +151,6 @@
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
-		<members>ForumsPageApexController</members>
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
@@ -248,6 +247,10 @@
 		<name>ContentAsset</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>CspTrustedSite</name>
+	</types>
+	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
 		<members>Panel_Administration</members>
@@ -256,6 +259,7 @@
 	<types>
 		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Meeting__c.Stack__c</members>
+		<members>Meeting_Participant__c.Interviewer__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -274,6 +278,7 @@
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
+		<members>unfiled$public/Associate_Email</members>
 		<name>EmailTemplate</name>
 	</types>
 	<types>
@@ -281,6 +286,7 @@
 		<members>Link_User_to_Players</members>
 		<members>Associate_Player_with_User</members>
 		<members>Question_Creation</members>
+		<members>Send_Email_When_Meeting_Is_Created</members>
 		<name>Flow</name>
 	</types>
 	<types>
@@ -343,6 +349,7 @@
 		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_24h</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
+		<members>Meeting_Participant__c.Email_Associates</members>
 		<name>WorkflowAlert</name>
 	</types>
 	<types>
@@ -355,6 +362,10 @@
 		<members>Meeting_Participant__c.Initial Meeting Notification</members>
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
+	</types>
+	<types>
+		<members>Meeting__c.Check_Start_and_End_Date</members>
+		<name>ValidationRule</name>
 	</types>
 	<version>48.0</version>
 </Package>
