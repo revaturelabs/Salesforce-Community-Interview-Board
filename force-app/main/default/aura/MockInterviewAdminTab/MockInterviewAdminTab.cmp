@@ -11,9 +11,7 @@
     <aura:attribute name="isModalOpen" type="boolean" default="false"/>
      
     <div>
-        <lightning:button variant="brand"
-                          label="Add to Interview"
-                          onclick="{! c.openModel }" />
+        <lightning:button label="ADD TO INTERVIEW" onclick="{! c.openModel }" />
         <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
         <aura:if isTrue="{!v.isModalOpen}">
              
