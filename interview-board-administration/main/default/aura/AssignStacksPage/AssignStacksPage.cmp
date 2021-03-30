@@ -155,9 +155,4 @@
     <div class="slds-align_absolute-center">
         {!v.Notification}
     </div>
-<<<<<<< HEAD:interview-board-administration/main/default/aura/AssignStacksPage/AssignStacksPage.cmp
 </aura:component>
-=======
-
-</aura:component>
->>>>>>> origin/StackToBatchFeature:force-app/main/default/aura/AssignStacksPage/AssignStacksPage.cmp
