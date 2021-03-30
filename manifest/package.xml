@@ -243,6 +243,8 @@
 		<members>CongratulationsBoard</members>
 		<members>AddToCongratsBoard</members>
 		<members>CongratulationsBoardContainer</members>
+		<members>showConfettiCMP</members>
+		<members>congratsText</members>
 		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>AuraDefinitionBundle</name>
 	</types>
