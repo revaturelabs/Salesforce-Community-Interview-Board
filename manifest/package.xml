@@ -159,6 +159,7 @@
 		<members>MockInterviewLauncherController</members> 
 		<members>ScheduledCongratsEmail</members>
 		<members>findSelectedAssociates</members>
+		<members>CreateMockPanelController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
