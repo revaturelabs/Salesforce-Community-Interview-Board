@@ -22,9 +22,9 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>testduser@revature.net</siteAdmin>
-    <siteGuestRecordDefaultOwner>testduser@revature.net</siteGuestRecordDefaultOwner>
+    <siteAdmin>rhodes.naji@cunning-otter-s22n9t.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>rhodes.naji@cunning-otter-s22n9t.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>playful-hawk-6pscsb-dev-ed</subdomain>
+    <subdomain>dontcaremuchaboutnames-developer-edition</subdomain>
     <urlPathPrefix>InterviewForce</urlPathPrefix>
 </CustomSite>
