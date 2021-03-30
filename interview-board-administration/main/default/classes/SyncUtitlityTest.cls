@@ -171,8 +171,13 @@ private class SyncUtitlityTest {
         SyncUtilityClass SUC = new SyncUtilityClass();
         Test.setMock(HttpCalloutMock.class, new SyncCalloutMock());
 
-        insert(new Challenge__c(Name='toupdate',CaliberID__c='1658'));
-        insert new Stack__c(Name='.NET',CaliberID__c='8');
+        List<sObject> toInsert = new List<sObject>();
+        Challenge__c achallenge = new Challenge__c(Name='toupdate',CaliberID__c='1658');
+        Stack__c astack = new Stack__c(Name='.NET',CaliberID__c='8');
+        toInsert.add(achallenge); toInsert.add(astack);
+        insert toInsert;
+        Completion__c acompletion= new Completion__c(CaliberID__c='5', Challenge__c=achallenge.Id);
+        insert acompletion;
 
         Test.startTest();
         SUC.updateDatabase();
@@ -182,13 +187,15 @@ private class SyncUtitlityTest {
         Account[] internalBatches = [SELECT Name, BatchId__c FROM Account WHERE recordType.Name IN ('Batch')];
         Challenge__c[] challenges = [SELECT Id,Name FROM Challenge__c];
         Stack__c[] stacks = [SELECT Id,Name FROM Stack__c];
+        Completion__c[] completions = [SELECT Id, Name FROM Completion__c];
         
         //System.debug('Internal Associates: ' + internalAssociates);
         //System.debug('Internal Batches: ' + internalBatches);
         System.assertEquals(4, internalAssociates.size());
         System.assertEquals(7, internalBatches.size());
         System.assertEquals(3, challenges.size());
-        System.assertEquals(2,stacks.size());
+        System.assertEquals(2, stacks.size());
+        System.assertEquals(3, completions.size());
     }
 
     @isTest
