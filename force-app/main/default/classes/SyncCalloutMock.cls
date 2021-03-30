@@ -52,11 +52,29 @@ global class SyncCalloutMock implements HttpCalloutMock {
                     '"currentWeek": 11}' + 
                     ']'
                 );
-        } else {
+        } else if (req.getEndpoint().contains('/associate') ) {
             res.setBody('[{ "email": "mock15.associate7e28dcdf-8ce7-40bc-8b75-12a0ba305009@mock.com",' + 
                         '"salesforceId": "SF-1840","firstName": "Mock 15","lastName": "Associate 15",' + 
                         '"flag": null},{"email": "mock12.associate46353ee8-34ab-4ac5-a0c0-c781590da3f7@mock.com",' +
                         '"salesforceId": "SF-1837","firstName": "Mock 12","lastName": "Associate 12","flag": null}]');
+        } else if (req.getEndpoint().contains('/category/category') ) {
+            res.setBody('['+
+                '{"categoryId": 8,"skillCategory": ".NET","active": true},'+
+                '{"categoryId": 11,"skillCategory": "AWS","active": true},'+
+                '{"categoryId": 1337,"skillCategory": "Hacking","active": false}' +
+                ']');
+        } else if (req.getEndpoint().contains('/evaluation/assessments') ) {
+            res.setBody('['+
+            '{"assessmentId":1658,"rawScore":100,"assessmentTitle":"Mock Assessment 1-0","assessmentType":"Project","weekNumber":1,"batchId":"TR-1202","assessmentCategory":38,"assignmentDate":null},'+
+            '{"assessmentId":1659,"rawScore":100,"assessmentTitle":"Mock Assessment 1-1","assessmentType":"Project","weekNumber":1,"batchId":"TR-1202","assessmentCategory":17,"assignmentDate":null},'+
+            '{"assessmentId":1660,"rawScore":100,"assessmentTitle":"Mock Assessment 1-2","assessmentType":"Other","weekNumber":1,"batchId":"TR-1202","assessmentCategory":19,"assignmentDate":null}'+
+                ']');
+        } else if (req.getEndpoint().contains('/evaluation/grades/assessment/') ) {
+            res.setBody('['+
+            '{"assessmentId": 1658,"dateReceived": "2021-03-25","gradeId": 5,"score": 10,"traineeId": "SF-1840"},'+
+            '{"assessmentId": 1659,"dateReceived": "2021-03-25","gradeId": 6,"score": 60,"traineeId": "SF-1840"},'+
+            '{"assessmentId": 1660,"dateReceived": "2021-03-25","gradeId": 7,"score": 99,"traineeId": "SF-1837"}'+
+            ']');
         }
         return res;
     }

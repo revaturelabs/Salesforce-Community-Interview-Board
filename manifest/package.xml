@@ -232,6 +232,7 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
+		<members>ManualDataImport</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -316,6 +317,7 @@
 	<types>
 		<members>Google</members>
 		<members>Twinword_API</members>
+		<members>CaliberMockData</members>
 		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
