@@ -14,7 +14,9 @@
                 events:data,
                 eventClick: function (calEvent, jsEvent, view) {
                 	var eventId = calEvent.id;
-                	window.open('https://08192020b-developer-edition.na123.force.com/s/meeting/' + eventId, "_blank");
+                	component.set("v.isModalOpen", true);
+                    component.set("v.eventId", eventId);
+                    console.log(calEvent);
                     return false;
             	},
                 eventRender: function(event, element, view) {                   
