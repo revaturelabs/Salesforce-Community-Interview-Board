@@ -243,8 +243,8 @@
 		<members>CongratulationsBoard</members>
 		<members>AddToCongratsBoard</members>
 		<members>CongratulationsBoardContainer</members>
-		<name>AuraDefinitionBundle</name>
 		<!-- END New Customizations (CongratulationsBoard branch) -->
+		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>Google_Connect</members>
