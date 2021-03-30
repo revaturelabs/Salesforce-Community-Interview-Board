@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
-        <fullName>Email_for_upcoming_meeting</fullName>
-        <description>Email for upcoming meeting</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Admin</recipient>
-            <type>role</type>
-        </recipients>
-        <recipients>
-            <recipient>Associate</recipient>
-            <type>role</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Meeting_Notification_24h</template>
-    </alerts>
     <fieldUpdates>
         <fullName>Finalize_Meeting_Completion</fullName>
         <field>Completed_Date__c</field>
         <formula>NOW()</formula>
         <name>Finalize Meeting Completion</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Associate_s_Email</fullName>
+        <description>Update the associate&apos;s email when a meeting is created</description>
+        <field>Associate_s_Email__c</field>
+        <formula>Participating_Client__r.Participant__r.Email</formula>
+        <name>Update Associate&apos;s Email</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -31,6 +26,15 @@
         <name>Update Completed Date</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status</fullName>
+        <field>Meeting_Status__c</field>
+        <literalValue>Scheduled</literalValue>
+        <name>Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <rules>
@@ -58,20 +62,6 @@
         <criteriaItems>
             <field>Meeting__c.Completed__c</field>
             <operation>equals</operation>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Upcoming Meeting</fullName>
-        <actions>
-            <name>Email_for_upcoming_meeting</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Meeting__c.Upcoming__c</field>
-            <operation>equals</operation>
-            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

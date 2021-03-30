@@ -48,8 +48,7 @@
                 strInterviewer : interviewer,
                 fullBatch : component.get("v.ascbatchmap")[batch]
             });
-            console.log('before fullbatch log');
-            console.log(component.get("v.ascbatchmap")[batch]);
+            console.log(component.get("v.ascbatchmap"));
         }
         else
         {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Start_and_End_Date</fullName>
+    <active>true</active>
+    <description>if end date is before start date, it is an invalid date</description>
+    <errorConditionFormula>EndDateTime__c &lt;  StartDateTime__c</errorConditionFormula>
+    <errorMessage>End Date cannot be before Start Date</errorMessage>
+</ValidationRule>

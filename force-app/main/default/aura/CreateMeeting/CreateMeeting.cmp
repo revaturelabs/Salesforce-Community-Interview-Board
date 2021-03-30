@@ -32,8 +32,10 @@
     
             <lightning:input label="Name (Required) " type="text"
                              value="{!v.meeting.Name}"/>
-            <lightning:input label="When" type="datetime"
-                             value="{!v.meeting.Scheduled__c}"/>
+            <lightning:input label="Start Time" type="datetime"
+                             value="{!v.meeting.StartDateTime__c}"/>
+            <lightning:input label="End Time" type="datetime"
+                             value="{!v.meeting.EndDateTime__c}"/>
             <lightning:input label="Location" type="text"
                              value="{!v.meeting.Location__c}"/>
     

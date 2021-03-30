@@ -14,7 +14,7 @@
                 events:data,
                 eventClick: function (calEvent, jsEvent, view) {
                 	var eventId = calEvent.id;
-                	window.open('https://08192020b-developer-edition.na123.force.com/s/meeting/' + eventId, "_blank");
+                	window.open('https://interviewboardproj-developer-edition.na156.force.com/s/meeting/' + eventId, "_blank");
                     return false;
             	},
                 eventRender: function(event, element, view) {                   
