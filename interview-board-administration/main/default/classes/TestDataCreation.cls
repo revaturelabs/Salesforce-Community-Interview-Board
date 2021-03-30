@@ -43,6 +43,7 @@ public with sharing class TestDataCreation {
         List<List<sObject>> objs = new List<List<sObject>>();
 
         objs.add([SELECT Id FROM Interview_Question__c]);
+        objs.add([SELECT Id FROM Question_Response__c]);
         objs.add([SELECT Id FROM Meeting_Participant__c]);
         objs.add([SELECT Id FROM Meeting__c]);
         objs.add([SELECT Id FROM Contact]);
@@ -448,30 +449,67 @@ public with sharing class TestDataCreation {
 
         update meets;
     }
-    
+
+    //Inserts test data for all Objects related to questions:(Interview_Question__c, Question__c, and Question_Response__c)
     public static void questions(List<Meeting__c> meets)
     {
-        //List<Interview_Question__c> ques = new List<Interview_Question__c>();
 
+        //Fills the filelines List with the data in the Static Resource: testQuestions.csv
         Interview_Question__c q = null;
         StaticResource defaultResource = [Select  s.Body From StaticResource s where s.Name LIKE 'testQuestions%'];
         blob tempB = defaultResource.Body;
        	String contentFile = tempB.toString();
        	String[] filelines = contentFile.split('\n');
+
+        //Fills the responselines List with the data in the Static Resource: testResponses.csv
+        defaultResource = [Select  s.Body From StaticResource s where s.Name LIKE 'testResponses%'];
+        tempB = defaultResource.Body;
+        contentFile = tempB.toString();
+        String[] responselines = contentFile.split('\n');
+
+        //Lists that will contain the objects we will insert
     	List<Question__c> quests = new List<Question__c>();
+        List<Question_Response__c> respos = new List<Question_Response__c>();
+
+        //Parses the static resource for objects to insert
        	for (Integer i=1;i<filelines.size();i++)
         {
-        	Question__c temp = new Question__c();
+        	Question__c tempQ = new Question__c();
             String[] inputvalues = filelines[i].split(',');
-        	temp.Stack__c = inputValues[0];
-        	temp.Type__c = inputValues[1];
-            temp.Body__c = inputValues[2];
+        	tempQ.Stack__c = inputValues[0];
+        	tempQ.Type__c = inputValues[1];
+            tempQ.Body__c = inputValues[2];
         	//temp.Interviewer__c = inputValues[3];
-        	quests.add(temp);	
+        	quests.add(tempQ);	
         }
-
+        
+        //DML Statement to insert the Questions(Question__c)
         insert quests;
 
+        //Parses the static resource for Question_Response__c to insert (2 per Question__c)
+        for (Integer i=0; i<quests.size(); i++)
+        {
+            Question_Response__c tempR1 = new Question_Response__c();
+            String[] inputR1 = responselines[(i)*2 + 1].split(',');
+            tempR1.Question__c = quests[i].Id;
+            tempR1.Total_Votes__c = Integer.valueOf(inputR1[0]);
+            tempR1.Upvotes__c = Integer.valueOf(inputR1[1]);
+            tempR1.Body__c  = inputR1[2];
+            respos.add(tempR1);
+
+            Question_Response__c tempR2 = new Question_Response__c();
+            String[] inputR2 = responselines[(i)*2 + 2].split(',');
+            tempR2.Question__c = quests[i].Id;
+            tempR2.Total_Votes__c = Integer.valueOf(inputR2[0]);
+            tempR2.Upvotes__c = Integer.valueOf(inputR2[1]);
+            tempR2.Body__c  = inputR2[2];
+            respos.add(tempR2);
+        }
+
+        //DML Statement to insert the Question Responses(Question_Response__c)
+        insert respos;
+
+        //Links Questions to Meetings Through the junction Object: Interview_Question__c
         List<Interview_Question__c> iQuests = new List<Interview_Question__c>();
         for(Meeting__c m : meets)
         {
@@ -486,8 +524,7 @@ public with sharing class TestDataCreation {
                 iQuests.add(interviewQ);
             }
         }
-
-        System.debug(iQuests);
+        //DML Statement to insert the interview questions(Interview_Question__c)
         insert iQuests;
     }
 

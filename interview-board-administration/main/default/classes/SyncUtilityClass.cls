@@ -6,7 +6,7 @@ AND STACKS AND CHALLENGES
 
 public with sharing class SyncUtilityClass {
     //Declare reused Variables
-    public String baseUrl = 'https://caliber2-mock.revaturelabs.com:443/';
+    public static String baseUrl = 'https://caliber2-mock.revaturelabs.com:443/mock/';
 
     private Contact[] internalAssociates = [SELECT Id, Name, Email, SalesforceId__c, batchId__c, FirstName, LastName FROM Contact WHERE recordType.Name IN ('Associate')];
     @TestVisible private List<Contact[]> externalAssociates = new List<Contact[]>();
@@ -28,7 +28,7 @@ public with sharing class SyncUtilityClass {
         HttpRequest request = new HttpRequest();
     
         //System.debug('GET DATA');
-        request.setEndpoint(baseUrl + 'mock/training/batch');
+        request.setEndpoint(baseUrl + 'training/batch');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
         
@@ -66,7 +66,7 @@ public with sharing class SyncUtilityClass {
         
         for(Account batch : externalBatchData) {
             // Set batchId as parameters for request
-            request.setEndpoint(baseUrl + 'mock/training/associate?batch=' + batch.BatchId__c);
+            request.setEndpoint(baseUrl + 'training/associate?batch=' + batch.BatchId__c);
             response = protocol.send(request);
             
             Contact[] contactsForBatch = new Contact[]{};
@@ -192,6 +192,7 @@ public with sharing class SyncUtilityClass {
             //We want to update all assessments, not just the batches we just updated.
             Database.upsert(challengesToAdd,Challenge__c.Fields.CaliberId__c,false);
             
+            getGrades();
             // Return number of updates
             updateCounts.add(externalBatchesToAdd.size());
             updateCounts.add(externalAssociatesToAdd.size());
@@ -212,7 +213,7 @@ public with sharing class SyncUtilityClass {
         HttpRequest request = new HttpRequest();
     
         //System.debug('GET DATA');
-        request.setEndpoint(baseUrl + 'mock/category/category');
+        request.setEndpoint(baseUrl + 'category/category');
         request.setMethod('GET');
         HttpResponse response = protocol.send(request);
 
@@ -238,38 +239,38 @@ public with sharing class SyncUtilityClass {
         Http protocol = new Http();
         HttpRequest request = new HttpRequest();
     
-        String assessmentBase = baseUrl + 'mock/evaluation/assessments';
+        String assessmentBase = baseUrl + 'evaluation/assessments';
         request.setMethod('GET');
         Challenge__c[] challenges = new List<Challenge__c>();
         List<Stack__c> disorganizedStacks = [SELECT Id, CaliberID__c FROM Stack__c];
         Map<String,Stack__c> stacks = new Map<String,Stack__c>();
+        for(Stack__c stack:disorganizedStacks){
+            stacks.put(stack.CaliberID__c,stack);
+        }
         for(Account acc:batches){
             request.setEndpoint(assessmentBase + '?batchId='+acc.batchId__c);
             HttpResponse response = protocol.send(request);
             if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
                 //error
-                throw new System.CalloutException('Couldn\'t access caliber category service endpoint.');
+                throw new System.CalloutException('Couldn\'t access caliber evaluation service endpoint.');
             } else {
                 //200 range is successful!
-                for(Stack__c stack:disorganizedStacks){
-                    stacks.put(stack.CaliberID__c,stack);
-                }
                 for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
-                    Map<String,Object> rawstack = (Map<String,Object>) rawobj;
-                    Stack__c stack = stacks.get(String.valueOf(rawstack.get('assessmentCategory')));
+                    Map<String,Object> untypedChallenge = (Map<String,Object>) rawobj;
+                    Stack__c stack = stacks.get(String.valueOf(untypedChallenge.get('assessmentCategory')));
                     
                     Challenge__c challenge = new Challenge__c(
-                        Name=(String) rawstack.get('assessmentTitle'),
-                        CaliberID__c=String.valueOf(rawstack.get('assessmentId')),
-                        Score__c=(Double) rawstack.get('rawScore'),
-                        AssessmentType__c= (String) rawstack.get('assessmentType'),
-                        WeekNumber__c=String.valueOf(rawstack.get('weekNumber')),
+                        Name=(String) untypedChallenge.get('assessmentTitle'),
+                        CaliberID__c=String.valueOf(untypedChallenge.get('assessmentId')),
+                        Score__c=(Double) untypedChallenge.get('rawScore'),
+                        AssessmentType__c= (String) untypedChallenge.get('assessmentType'),
+                        WeekNumber__c=String.valueOf(untypedChallenge.get('weekNumber')),
                         Batch__c=acc.Id
                     );
                     if(stack!=null){
                         challenge.Stack__c = stack.Id;
                     }
-                    //if(rawstack.get('assignmentDate') != null){
+                    //if(untypedChallenge.get('assignmentDate') != null){
                         // uh, we don't know if they are backslashed dates or dashed dates.
                     //    challenge.AssignmentDate__c = Date.parse((String)rawstack.get('assignmentDate'));
                     //}
@@ -278,7 +279,8 @@ public with sharing class SyncUtilityClass {
                 }
             }
         }
-        //TODO: mock callout fills challenges list up with duplicates.
+
+        // mock callout fills challenges list up with duplicates: this will ensure uniqueness.
         Set<String> assessmentIds = new Set<String>();
         for(Integer index=0;index<challenges.size();index++){
             Challenge__c challenge = challenges[index];
@@ -289,6 +291,68 @@ public with sharing class SyncUtilityClass {
                 assessmentIds.add(challenge.CaliberID__c);
             }
         }
+
         return challenges;
+    }
+    /* this function has no arguments and returns a list of grades from the caliber evaluation service
+       after inserting them into the DB */
+    @future(callout=true)
+    public static void getGrades(){
+        List<Challenge__c> challenges = [SELECT Id, CaliberId__c FROM Challenge__c];
+        Http protocol = new Http();
+        HttpRequest request = new HttpRequest();
+    
+        String gradesBase = baseUrl + 'evaluation/grades/assessment/';
+        request.setMethod('GET');
+        Map<String,List<Completion__c>> associateCompletion = new Map<String,List<Completion__c>>();
+        Set<String> completionIds = new Set<String>();
+        for(Challenge__c challenge:challenges){
+            request.setEndpoint(gradesBase + challenge.CaliberId__c);
+            HttpResponse response = protocol.send(request);
+            if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
+                //error
+                throw new System.CalloutException('Couldn\'t access caliber evaluation service endpoint.');
+            } else {
+                //200 range is successful!
+                for(Object rawobj: (List<Object>) JSON.deserializeUntyped(response.getBody())){
+                    Map<String,Object> untypedGrade = (Map<String,Object>) rawobj;
+
+                    if(completionIds.contains(String.valueOf(untypedGrade.get('gradeId')))){
+                        continue; //skip since we've already read this grade
+                    }
+                    completionIds.add(String.valueOf(untypedGrade.get('gradeId')));
+
+                    Completion__c completion = new Completion__c(
+                        CaliberID__c=String.valueOf(untypedGrade.get('gradeId')),
+                        Score__c=(Double) untypedGrade.get('score'),
+                        Challenge__c=challenge.Id
+                    );
+                    if(untypedGrade.get('assignmentDate') != null){
+                        completion.DateReceived__c = Date.parse((String)untypedGrade.get('dateReceived'));
+                    }
+                    String associate = (String) untypedGrade.get('traineeId');
+                    if(associateCompletion.get(associate) != null){
+                        associateCompletion.get(associate).add(completion);
+                    } else {
+                        associateCompletion.put(associate, new List<Completion__c>{completion});
+                    }
+                }
+            }
+        }
+
+        Completion__c[] completions = new List<Completion__c>();
+        completionIds = new Set<String>();
+        Contact[] associates = [SELECT SalesforceId__c, Id FROM Contact WHERE SalesforceId__c IN :associateCompletion.keySet() ];
+        for(Contact associate : associates){
+            for(Completion__c completion: associateCompletion.get(associate.SalesforceId__c)){
+                if(completionIds.contains(completion.CaliberId__c)){
+                    continue;
+                }
+                completionIds.add(completion.CaliberId__c);
+                completion.CompletedBy__c = associate.Id;
+                completions.add(completion);
+            }
+        }
+        Database.upsert(completions,Completion__c.Fields.CaliberId__c,false);
     }
 }
