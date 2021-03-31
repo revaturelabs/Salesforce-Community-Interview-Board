@@ -1,0 +1,11 @@
+<messaging:emailTemplate subject="Congratulate Associates!" recipientType="User" >
+<messaging:htmlEmailBody >
+Howdy Trainers,
+<br/>
+<br/>
+Make sure to congatulate the following associates for getting selected!
+<br/>
+<br/>
+<c:SelectedAssociatesList />
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
