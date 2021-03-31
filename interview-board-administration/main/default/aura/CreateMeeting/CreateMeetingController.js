@@ -74,6 +74,7 @@
             {
                 var meeting = response.getReturnValue();
                 //show success message if meeting is created
+                console.log(meeting);
                 if(meeting!=null)
                 {
                     component.set("v.buttonLabel","Meeting Created!");

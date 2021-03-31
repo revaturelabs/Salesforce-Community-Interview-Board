@@ -15,13 +15,4 @@ package.xml
 **/listViews/**
 
 **profiles/Custom
-<<<<<<< HEAD
-**layouts
-=======
-<<<<<<< HEAD
-#**classes/TestDataCreation
-**layouts
-=======
-**layouts
->>>>>>> dbf43dda7c8c83b501df1f1c6653a3475af02aed
->>>>>>> finalPackaged
+# **classes/TestDataCreation

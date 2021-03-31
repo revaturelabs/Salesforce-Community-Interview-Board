@@ -2,7 +2,7 @@
 <!-- ATTRIBUTES -->
     <aura:attribute name="meeting" type="Meeting__c" default="{'sObject':'Meeting__c', 'Name':''}"/>
     <aura:attribute name="allbatch" type="Boolean"/>
-    <aura:attribute name="mockInterview" type="Boolean"/>
+    <aura:attribute name="mockInterview" type="Boolean" default="false"/>
     <aura:attribute name="associates" type="Contact[]" default="[]"/>
     <aura:attribute name="batchAssociates" type="Contact[]" default="[]"/>
     <aura:attribute name="interviewers" type="Contact[]"/>

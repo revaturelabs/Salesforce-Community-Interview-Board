@@ -28,7 +28,7 @@
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <networkMemberGroups>
         <profile>Associate</profile>
-        <profile>highvolumeportal</profile>
+        <profile>Admin</profile>
         <profile>customer community login user</profile>
         <profile>platformportal</profile>
         <profile>customer portal manager custom</profile>
@@ -39,7 +39,7 @@
         <profile>external identity user</profile>
         <profile>customer community user</profile>
         <profile>high volume customer portal user</profile>
-        <profile>Admin</profile>
+        <profile>highvolumeportal</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>

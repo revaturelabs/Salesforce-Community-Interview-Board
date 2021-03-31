@@ -363,8 +363,7 @@ public with sharing class TestDataCreation {
         for(Account a : batAc)
             batMap.put(a.Id, a.Contacts);
 
-        //Commented out to prevent errors during test data creation
-        /*questions(meets);*/
+        questions(meets);
 
         integer j = 0, k = 1, l;
         boolean s = true;
