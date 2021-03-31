@@ -27,9 +27,8 @@
         <lightning:tab label = "CONGRATULATIONS BOARD" id="nine">
             <c:CongratulationsBoardContainer/>
         </lightning:tab>
-        </lightning:tab>    
-    <lightning:tab label = "MOCK INTERVIEW LAUNCHER" id="eight">
-            <c:MockInterviewLauncherAdmin/>
-        </lightning:tab>    
-    </lightning:tabset>
+        <lightning:tab label = "MOCK INTERVIEW LAUNCHER" id="eight">
+                <c:MockInterviewLauncherAdmin/>
+            </lightning:tab>    
+        </lightning:tabset>
 </aura:component>

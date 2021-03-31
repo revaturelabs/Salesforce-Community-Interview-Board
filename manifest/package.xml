@@ -147,11 +147,7 @@
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
 		<members>TestDataCreation</members>
-<<<<<<< HEAD
 		<members>TestDataCreationTest</members>
-=======
-		<!--<members>TestDataCreationTest</members>-->
->>>>>>> finalPackaged
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
@@ -252,7 +248,6 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
-<<<<<<< HEAD
 		<members>ManualDataImport</members>
 		<!-- START New customizations (CongratulationsBoard branch) -->
 		<members>AssociateSelection</members>
@@ -262,10 +257,8 @@
 		<members>showConfettiCMP</members>
 		<members>congratsText</members>
 		<!-- END New Customizations (CongratulationsBoard branch) -->
-=======
 		<members>MockInterviewLauncherAdmin</members>
 		<members>MockInterviewAdminTab</members>
->>>>>>> finalPackaged
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -312,11 +305,8 @@
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
-<<<<<<< HEAD
 		<members>unfiled$public/Associate_Email</members>
-=======
 		<members>unfiled$public/AssociateCongratulationsEmail</members>
->>>>>>> finalPackaged
 		<name>EmailTemplate</name>
 	</types>
 	<types>
@@ -341,6 +331,10 @@
 	<types>
 		<members>Interview Board</members>
 		<name>Network</name>
+	</types>
+		<types>
+		<members>Interview_Board1</members>
+		<name>SiteDotCom</name>
 	</types>
 	<types>
 		<members>Admin</members>
@@ -371,10 +365,6 @@
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Role</name>
-	</types>
-	<types>
-		<members>Interview_Board1</members>
-		<name>SiteDotCom</name>
 	</types>
 	<types>
 		<members>*</members>

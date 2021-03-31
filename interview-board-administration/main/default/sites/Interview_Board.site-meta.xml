@@ -22,16 +22,9 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-<<<<<<< HEAD:interview-board-administration/main/default/sites/InterviewForce.site-meta.xml
-    <siteAdmin>rhodes.naji@cunning-otter-s22n9t.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>rhodes.naji@cunning-otter-s22n9t.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>rhodes.naji@cunning-fox-h392ot.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>rhodes.naji@cunning-fox-h392ot.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>dontcaremuchaboutnames-developer-edition</subdomain>
-    <urlPathPrefix>InterviewForce</urlPathPrefix>
-=======
-    <siteAdmin>charles.kosoy@resilient-impala-6h4c5l.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>charles.kosoy@resilient-impala-6h4c5l.com</siteGuestRecordDefaultOwner>
-    <siteType>ChatterNetwork</siteType>
-    <subdomain>benverygently-developer-edition</subdomain>
->>>>>>> finalPackaged:force-app/main/default/sites/Interview_Board.site-meta.xml
+    <subdomain>endgameisreal-developer-edition</subdomain>
+    <urlPathPrefix>InterviewBoard</urlPathPrefix>
 </CustomSite>

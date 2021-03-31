@@ -14,7 +14,7 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <lightning:card title="Questions" >
-		<div style="margin-left:10px; margin-right:10px; margin-bottom=16px">
+		<div style="margin-left:10px; margin-right:10px; margin-bottom:16px">
         <div style="height: auto;  border: 1px solid gainsboro">
             <lightning:datatable columns="{!v.questionList}"
                                  data="{!v.question}"
@@ -36,7 +36,7 @@
         </div>
     </lightning:card>
     <lightning:card title="Responses">
-        <div style="margin-left:10px; margin-right:10px; margin-bottom=16px">
+        <div style="margin-left:10px; margin-right:10px; margin-bottom:16px">
         <div style="height: auto; border: 1px solid gainsboro">
             <lightning:datatable columns="{!v.responseList}"
                                  data="{!v.response}"

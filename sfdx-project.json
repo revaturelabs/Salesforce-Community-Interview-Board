@@ -11,6 +11,10 @@
         {
             "path": "interview-board-administration",
             "default": false
+        },
+        {
+            "path": "admin-profile",
+            "default": false
         }
     ],
     "namespace": "",

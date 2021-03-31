@@ -6,7 +6,7 @@
     <communityRoles/>
     <disableReputationRecordConversations>true</disableReputationRecordConversations>
     <emailSenderAddress>thejoey46@gmail.com</emailSenderAddress>
-    <emailSenderName>InterviewForce</emailSenderName>
+    <emailSenderName>InterviewBoard</emailSenderName>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
     <enableDirectMessages>true</enableDirectMessages>
     <enableGuestChatter>false</enableGuestChatter>
@@ -28,6 +28,9 @@
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <networkMemberGroups>
         <profile>Associate</profile>
+        <profile>highvolumeportal</profile>
+        <profile>customer community login user</profile>
+        <profile>platformportal</profile>
         <profile>customer portal manager custom</profile>
         <profile>customer community plus user</profile>
         <profile>authenticated website</profile>
@@ -36,9 +39,7 @@
         <profile>external identity user</profile>
         <profile>customer community user</profile>
         <profile>high volume customer portal user</profile>
-        <profile>platformportal</profile>
-        <profile>customer community login user</profile>
-        <profile>highvolumeportal</profile>
+        <profile>Admin</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
@@ -56,6 +57,6 @@
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
     </tabs>
-    <urlPathPrefix>InterviewForce</urlPathPrefix>
+    <urlPathPrefix>InterviewBoard</urlPathPrefix>
     <welcomeTemplate>unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
 </Network>
