@@ -76,9 +76,6 @@ force-app/main/default/sites/InterviewForce.site-meta.xml
 !force-app/main/default/customPermissions
 !force-app/main/default/classes
 !force-app/main/default/applications
-<<<<<<< HEAD
-
-force-app/main/default/sites/InterviewForce.site-meta.xml
-=======
+!force-app/main/default/email*
 !force-app/main/default/components
->>>>>>> finalPackaged
+
