@@ -79,8 +79,9 @@
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListController</members>
 		<members>MockInterviewsListControllerTest</members>
-		<members>PanelQuestionCreation</members>
+		<!--<members>PanelQuestionCreation</members>-->
 		<members>PanelQuestionController</members>
+		<members>PanelQuestionControllerTest</members>
 		<members>ProfileApex</members>
 		<members>primaryTechButtonController</members>
 		<members>PlayerNameComponentController</members>
@@ -145,18 +146,32 @@
 		<members>SyncScheduleTest</members>
 		<members>SyncUtilityClass</members>
 		<members>SyncUtitlityTest</members>
-		<!--<members>TestDataCreation</members>
-		<members>TestDataCreationTest</members>-->
+		<members>TestDataCreation</members>
+		<members>TestDataCreationTest</members>
 		<members>techDisplayController</members>
 		<members>Utilities</members>
 		<members>UserStackTriggerHelper</members>
 		<members>VCCalendarController</members>
-		<members>ForumsPageApexController</members>
 		<members>comparePanelAnswersTest</members>
 		<members>comparePanelAnswersControllerMock</members>
 		<members>ComparePanelAnswersController</members>
 		<members>ForumsPageApexController</members> 
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>CongratulationsBoardController</members>
+		<members>CongratulationsBoardControllerTest</members>
+		<members>AssociateSelectionController</members>
+		<members>AssociateSelectionControllerTest</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
+		<members>ForumsPageApexController</members>
+		<members>MockInterviewLauncherController</members> 
+		<members>ScheduledCongratsEmail</members>
+		<members>findSelectedAssociates</members>
+		<members>CreateMockPanelController</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>SelectedAssociatesList</members>
+		<name>ApexComponent</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -193,6 +208,7 @@
 		<members>MeetingAssignment</members>
 		<members>MeetingCmp</members>
 		<members>MeetingTiles</members>
+		<members>MeetingModal</members>
 		<members>MockInterviewFlowLaunchHost</members>
 		<members>MockInterviewPrepareWithFlowLaunch</members>
 		<members>MockInterviewQuestionPool</members>
@@ -232,6 +248,17 @@
 		<members>PrepareTabComponent</members>
 		<members>MockPanelLauncher</members>
 		<members>finishPanelEvent</members>
+		<members>ManualDataImport</members>
+		<!-- START New customizations (CongratulationsBoard branch) -->
+		<members>AssociateSelection</members>
+		<members>CongratulationsBoard</members>
+		<members>AddToCongratsBoard</members>
+		<members>CongratulationsBoardContainer</members>
+		<members>showConfettiCMP</members>
+		<members>congratsText</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
+		<members>MockInterviewLauncherAdmin</members>
+		<members>MockInterviewAdminTab</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -247,6 +274,10 @@
 		<name>ContentAsset</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>CspTrustedSite</name>
+	</types>
+	<types>
 		<members>Interview_Board_Administration</members>
 		<members>Quiz_App</members>
 		<members>Panel_Administration</members>
@@ -255,6 +286,7 @@
 	<types>
 		<members>Meeting__c.Google_Event_Id__c</members>
 		<members>Meeting__c.Stack__c</members>
+		<members>Meeting_Participant__c.Interviewer__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -262,7 +294,7 @@
 		<name>CustomPermission</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview_Board</members>
 		<name>CustomSite</name>
 	</types>
 	<types>
@@ -273,6 +305,8 @@
 		<members>unfiled$public/Client_Feedback</members>
 		<members>unfiled$public/Meeting_Notification_24h</members>
 		<members>unfiled$public/Meeting_Notification_72h</members>
+		<members>unfiled$public/Associate_Email</members>
+		<members>unfiled$public/AssociateCongratulationsEmail</members>
 		<name>EmailTemplate</name>
 	</types>
 	<types>
@@ -280,6 +314,10 @@
 		<members>Link_User_to_Players</members>
 		<members>Associate_Player_with_User</members>
 		<members>Question_Creation</members>
+		<members>Send_Email_When_Meeting_Is_Created</members>
+		<!-- START New Customizations (CongratulationsBoard branch) -->
+		<members>Generate_date_when_selected</members>
+		<!-- END New Customizations (CongratulationsBoard branch) -->
 		<name>Flow</name>
 	</types>
 	<types>
@@ -291,8 +329,12 @@
 		<name>NamedCredential</name>
 	</types>
 	<types>
-		<members>InterviewForce</members>
+		<members>Interview Board</members>
 		<name>Network</name>
+	</types>
+		<types>
+		<members>Interview_Board1</members>
+		<name>SiteDotCom</name>
 	</types>
 	<types>
 		<members>Admin</members>
@@ -316,16 +358,13 @@
 	<types>
 		<members>Google</members>
 		<members>Twinword_API</members>
+		<members>CaliberMockData</members>
 		<name>RemoteSiteSetting</name>
 	</types>
 	<types>
 		<members>Admin</members>
 		<members>Associate</members>
 		<name>Role</name>
-	</types>
-	<types>
-		<members>InterviewForce1</members>
-		<name>SiteDotCom</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -341,6 +380,7 @@
 		<members>Meeting_Participant__c.Client_Feedback_to_associate_v2</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_24h</members>
 		<members>Meeting_Participant__c.Initial_Meeting_Notification_72h</members>
+		<members>Meeting_Participant__c.Email_Associates</members>
 		<name>WorkflowAlert</name>
 	</types>
 	<types>
@@ -354,5 +394,20 @@
 		<members>Meeting__c.Completed Date Creation</members>
 		<name>WorkflowRule</name>
 	</types>
+	<types>
+		<members>Meeting__c.Check_Start_and_End_Date</members>
+		<name>ValidationRule</name>
+	</types>
+	<!-- START New Customizations (CongratulationsBoard branch) -->
+	<types>
+		<members>Contact-Contact Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+        <members>Contact.Client__c</members>
+        <members>Contact.Date_Selected__c</members>
+        <name>CustomField</name>
+    </types>
+	<!-- END New Customizations (CongratulationsBoard branch) -->
 	<version>48.0</version>
 </Package>

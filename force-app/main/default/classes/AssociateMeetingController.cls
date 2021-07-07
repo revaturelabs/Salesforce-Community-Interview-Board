@@ -23,6 +23,29 @@ public class AssociateMeetingController {
         
         
     }
+
+
+    @auraenabled
+    public static Meeting__c[] GetUpcomingMeetingsMock() {
+                //returns all mock interviews
+                list<Meeting__c>  meetinglist = new    list<Meeting__c>{}; 
+                try {
+    
+                    Id MockId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
+                    meetinglist=  [SELECT Id, Name, Notes__c, Display_Name__c
+                                   FROM Meeting__c
+                                   WHERE Id IN (SELECT Meeting__c 
+                                                FROM Meeting_Participant__c 
+                                               )  AND RecordTypeId = : MockId   ];
+                    
+                } catch(Exception e) {
+                    throw new AuraHandledException('Server-side Error: ' + e.getMessage()); 
+                }
+            
+            return meetinglist;
+        
+        
+    }
     
     @auraEnabled
     public static Meeting__c[]  GetFutureMockInterviews() {
@@ -46,6 +69,25 @@ public class AssociateMeetingController {
         
         return meetinglist;
     }
+
+    @auraEnabled
+    public static Meeting__c[]  GetFutureMockInterviewsAll() {
+         //returns all future meetings the logged in associate is a participant of that arent mock interviews
+        list<Meeting__c>  meetinglist = new    list<Meeting__c>{}; 
+        try {
+
+            Id MockId = Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Mock Interview').getRecordTypeId();
+            meetinglist=  [SELECT Id, Name, Client_Name__c , Meeting_status__c , Scheduled__c , location__c, Notes__c, Display_Name__c
+                           FROM Meeting__c
+                           WHERE Id IN (SELECT Meeting__c 
+                                        FROM Meeting_Participant__c 
+                                       ) AND Scheduled__c > : System.now() AND RecordTypeId != : MockId ORDER BY Scheduled__c  ];
+        } catch(Exception e) {
+            throw new AuraHandledException('Server-side Error: ' + e.getMessage()); 
+        }
+    
+    return meetinglist;
+    }
     
     //returns all interviews that are completed, past their schedule time, and of interview batch and interview 1-1 record type
     @auraEnabled
@@ -58,14 +100,14 @@ public class AssociateMeetingController {
                 //Allow an admin to view all
                 ID profileId = System.userInfo.getProfileId();
                 ID adminProfileId = [SELECT Id FROM Profile WHERE Name='System Administrator'].id;
-                	//System.debug('profile: ' + profileId + '\nadmin: ' + adminProfileId + '\nallVisible: ' + allVisible);
+                    //System.debug('profile: ' + profileId + '\nadmin: ' + adminProfileId + '\nallVisible: ' + allVisible);
                 
                 //If the user is an admin, new SOQL query to return all completed Interviews
                 if(profileId == adminProfileId){
                     meetingList = [SELECT Id, Name, Notes__c, Display_Name__c, Feedback__c, addQuestionVisibility__c, completed__c
                                    FROM Meeting__c WHERE Meeting_Status__c = 'Completed'];
                 } else {
-                 	//make list of record types we wish to retrieve as parameter for SOQL query
+                    //make list of record types we wish to retrieve as parameter for SOQL query
                     list<ID> rectypelist = new list<id>{
                         Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview Batch').getRecordTypeId(),
                         Schema.SObjectType.Meeting__c.getRecordTypeInfosByName().get('Interview 1-1').getRecordTypeId()
@@ -100,5 +142,28 @@ public class AssociateMeetingController {
         }
 
         return returnlist;
+    }
+
+    @auraenabled
+    public static void attachQuestionsToMeeting(Id[] idList, String meeting) {
+
+        Meeting__c meet = [SELECT id, name FROM Meeting__c WHERE name =: meeting];
+        try {
+            for(Id qID : idList)
+            {
+                List<Interview_Question__c> searchIQ = [SELECT id, Meeting_md__c, Question__c FROM Interview_Question__c WHERE Meeting_md__c =: meet.id AND Question__c =: qID];
+
+                if(searchIQ.size() == 0)
+                {
+                    Interview_Question__c iq = new Interview_Question__c(Meeting_md__c = meet.id, Question__c=qID);
+                    insert iq;
+                }
+                
+            }
+        } catch(Exception e) {
+                throw new AuraHandledException('Server-side Error: ' + e.getMessage()); 
+        }
+
+        return;
     }
 }

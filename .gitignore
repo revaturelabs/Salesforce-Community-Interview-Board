@@ -50,7 +50,7 @@ README
 sfdx-project.json
 force-app/main/default/*
 InterviewForce1.site
-InterviewForce.site-meta.xml
+force-app/main/default/sites/InterviewForce.site-meta.xml
 #except the things we wanna keep
 !force-app/main/default/roles
 !force-app/main/default/classes
@@ -61,6 +61,7 @@ InterviewForce.site-meta.xml
 !force-app/main/default/flows
 !force-app/main/default/profiles
 !force-app/main/default/siteDotComSites
+!force-app/main/default/sites
 !force-app/main/default/networks
 !force-app/main/default/communities
 !force-app/main/default/tabs
@@ -75,3 +76,6 @@ InterviewForce.site-meta.xml
 !force-app/main/default/customPermissions
 !force-app/main/default/classes
 !force-app/main/default/applications
+!force-app/main/default/email*
+!force-app/main/default/components
+
